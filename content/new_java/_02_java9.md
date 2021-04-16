@@ -29,7 +29,7 @@ weight = 3
 
 ---
 
-## Private interface methods
+## Private interface Methods
 
 ```java{}
 public interface MyInterface {
@@ -50,7 +50,7 @@ public interface MyInterface {
 
 ---
 
-## Collection factory methods
+## Collection Factory Methods
 
 ```java{}
 
