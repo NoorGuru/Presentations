@@ -1,0 +1,24 @@
+baseURL = "https://present.noor.guru/"
+languageCode = "en-us"
+title = "Noor | Show"
+theme = "reveal-hugo"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[outputFormats.Reveal]
+baseName = "index"
+mediaType = "text/html"
+isHTML = true
+
+[params.reveal_hugo]
+theme = "blood"
+history = true
+slide_number = true
+#highlight_theme = "dracula"
+#highlight_theme = "night-owl"
+#highlight_theme = "pojoaque"
+highlight_theme = "vs2015"
+#transition = 'zoom'
+#transition_speed = 'fast'
+custom_theme = "reveal-hugo/themes/robot-lung.css"
