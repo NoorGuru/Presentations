@@ -17,8 +17,6 @@ weight = 3
 - **Using JShell, you can enter program elements one at a time, immediately see the result, and make adjustments as needed.**
 - You can use Java to write scripts!
 
-[Read More](https://docs.oracle.com/javase/9/jshell/introduction-jshell.htm#JSHEL-GUID-465BA4F5-E77D-456F-BCB7-D826AC1E18AE)
-
 ---
 
 ## Modules
@@ -29,15 +27,11 @@ weight = 3
 - The key new language element is the `module`:
   - a uniquely named, reusable group of related packages, as well as resources (such as images and XML files) and a module descriptor specifying.
 
-
-Read More: [(1)](https://www.oracle.com/corporate/features/understanding-java-9-modules.html), [(2)](https://www.baeldung.com/java-9-modularity).
-
 ---
 
 ## Private interface methods
 
 ```java{}
-
 public interface MyInterface {
 
     void normalInterfaceMethod();
@@ -52,7 +46,6 @@ public interface MyInterface {
     // This method is not part of the public API exposed by MyInterface
     private static void doSomething() { System.out.println("Doing Something!"); }
 }
-
 ```
 
 ---
@@ -72,5 +65,8 @@ List<String> strings = List.of("first", "second");
 
 - [9 new features in Java 9](https://www.pluralsight.com/blog/software-development/java-9-new-features)
 - [Java 9 Features with Examples](https://www.journaldev.com/13121/java-9-features-with-examples#repl)
+- [Java Platform, Standard Edition Java Shell User’s Guide](https://docs.oracle.com/javase/9/jshell/introduction-jshell.htm#JSHEL-GUID-630F27C8-1195-4989-9F6B-2C51D46F52C8)
+- [Understanding Java 9 Modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)
+- [A Guide to Java 9 Modularity](https://www.baeldung.com/java-9-modularity)
 
 {{% /section %}}
