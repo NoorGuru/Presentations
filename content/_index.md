@@ -5,7 +5,7 @@ outputs = ["Reveal"]
 
 ## Presentations | by Noor
 
-'Mohammad Noor' AbuKhleif
+##### 'Mohammad Noor' AbuKhleif
 
 ---
 
@@ -15,7 +15,5 @@ outputs = ["Reveal"]
 
 ---
 
-#### More Resources
-
-[noor.guru](https://www.noor.guru)
+###### [noor.guru](https://www.noor.guru)
 

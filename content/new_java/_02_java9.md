@@ -20,9 +20,9 @@ weight = 3
 ---
 
 ## Modules
-(Java 9 Platform Module System - `JPMS`)
+##### (Java 9 Platform Module System - `JPMS`)
 
-> **Modularity adds a higher level of aggregation above `package`s.**
+- **Modularity adds a higher level of aggregation above `package`s.**
 
 - The key new language element is the `module`:
   - a uniquely named, reusable group of related packages, as well as resources (such as images and XML files) and a module descriptor specifying.
