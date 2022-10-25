@@ -14,7 +14,7 @@ isHTML = true
 [params.reveal_hugo]
 theme = "blood"
 history = true
-slide_number = true
+slide_number = false
 #highlight_theme = "dracula"
 #highlight_theme = "night-owl"
 #highlight_theme = "pojoaque"
