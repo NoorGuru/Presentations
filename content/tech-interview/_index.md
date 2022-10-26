@@ -1,7 +1,10 @@
 +++
 title = "Cracking the Tech Job Interview"
 outputs = ["Reveal"]
-aliases = ["/TechInterview"]
+aliases = [
+    "/TechInterview",
+    "/tech_interview"
+]
 weight = 1
 +++
 
