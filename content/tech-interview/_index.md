@@ -13,3 +13,7 @@ weight = 1
 ##### by: 'Mohammad Noor' AbuKhleif
 
 ##### [noor.guru](https://www.noor.guru)
+
+
+
+### [go.noor.guru/interview](https://go.noor.guru/interview)

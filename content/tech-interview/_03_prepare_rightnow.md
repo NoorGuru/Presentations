@@ -18,21 +18,21 @@ weight = 4
 
 # LinkedIn
 
-- **Title**
-- **Bio**
-- **Skills**
-- **Open to**
-- Experience
-- Projects
-- Activities
-- Recommendations
-- **Connections**
+{{% fragment %}} **Title** {{% /fragment %}}
+{{% fragment %}} **Bio** {{% /fragment %}}
+{{% fragment %}} **Skills** {{% /fragment %}}
+{{% fragment %}} **Open to** {{% /fragment %}}
+{{% fragment %}} **Connections** {{% /fragment %}}
+{{% fragment %}} Experience {{% /fragment %}}
+{{% fragment %}} Projects {{% /fragment %}}
+{{% fragment %}} Activities {{% /fragment %}}
+{{% fragment %}} Recommendations {{% /fragment %}}
 
 ---
 
 # LinkedIn
 
-- **www.linkedin.com/in/mohnoor94/**
+####  www.linkedin.com/in/mohnoor94/
 
 ---
 
@@ -41,16 +41,13 @@ weight = 4
 ---
 
 # Build Your CV
-- **One** and only One **Page**
-- **No Pictures**
-- **No Personal Information** (Religion, Age, Relationship Status, Gender, etc.)
+{{% fragment %}} **One** and only One **Page** {{% /fragment %}}
+{{% fragment %}} **No Pictures** {{% /fragment %}}
+{{% fragment %}} **No Personal Information** (Religion, Age, Relationship Status, Gender, etc.) {{% /fragment %}}
 
----
-
-# Build Your CV
-- Keep it **Simple**, and use **Microsoft Word**!
-- Add **Links** to your **Projects**
-- Add **Links** to your **GitHub** and **LinkedIn** accounts
+{{% fragment %}} Keep it **Simple**, and use **Microsoft Word**! {{% /fragment %}}
+{{% fragment %}} Add **Links** to your **Projects** {{% /fragment %}}
+{{% fragment %}} Add **Links** to your **GitHub** and **LinkedIn** accounts {{% /fragment %}}
 
 
 ---
@@ -60,9 +57,9 @@ weight = 4
 ---
 
 # Learn
-- **Git & GitHub**
-- Focus on **X Programming Language**
-- **Problem Solving**
+{{% fragment %}} **Git & GitHub** {{% /fragment %}}
+{{% fragment %}} **X Programming Language** {{% /fragment %}}
+{{% fragment %}} **Problem Solving** {{% /fragment %}}
 
 ---
 
@@ -81,8 +78,8 @@ weight = 4
 ---
 
 # Focus on Your Projects
-- Work with teams.
+{{% fragment %}} **Work in teams** {{% /fragment %}}
+{{% fragment %}} **Enjoy the process!** {{% /fragment %}}
 
-...
 
 {{% /section %}}

@@ -10,8 +10,7 @@ weight = 2
 ---
 
 ## A Computer Engineer
-
-- Graduated from the University of Jordan in 2017
+###### Graduated from the University of Jordan in 2017
 
 ---
 
