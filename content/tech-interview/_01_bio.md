@@ -3,6 +3,8 @@ outputs = ["Reveal"]
 weight = 2
 +++
 
+<p class="twitter">@moh_noor94</p>
+
 {{% section %}}
 
 # Who am I?

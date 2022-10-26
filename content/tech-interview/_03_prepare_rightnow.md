@@ -3,6 +3,9 @@ outputs = ["Reveal"]
 weight = 4
 +++
 
+
+<p class="twitter">@moh_noor94</p>
+
 {{% section %}}
 
 # How can You Prepare
@@ -64,13 +67,13 @@ weight = 4
 ---
 
 # Learn
-<img class="r-stretch" src="cracking-the-coding-interview.png" alt="Cracking the Coding Interview">
+<img class="r-stretch" src="pics/cracking-the-coding-interview.png" alt="Cracking the Coding Interview">
 
 ### Cracking the Coding Interview
 
 ---
 # Learn
-<img class="r-stretch" src="common-sense-guide-ds.jpg" alt="A Common-Sense Guide to Data Structures and Algorithms: Level Up Your Core Programming Skills">
+<img class="r-stretch" src="pics/common-sense-guide-ds.jpg" alt="A Common-Sense Guide to Data Structures and Algorithms: Level Up Your Core Programming Skills">
 
 ### A Common-Sense Guide to Data Structures and Algorithms
 

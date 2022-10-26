@@ -3,6 +3,8 @@ outputs = ["Reveal"]
 weight = 3
 +++
 
+<p class="twitter">@moh_noor94</p>
+
 {{% section %}}
 
 # How can You Prepare?
