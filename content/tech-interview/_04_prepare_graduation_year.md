@@ -20,7 +20,7 @@ weight = 5
 
 ## Focus on What Do You Want
 
-{{% fragment %}} The Specification {{% /fragment %}}
+{{% fragment %}} The Specialization {{% /fragment %}}
 {{% fragment %}} The Tech Stack {{% /fragment %}}
 {{% fragment %}} The Company Size {{% /fragment %}}
 {{% fragment %}} The Exact Position {{% /fragment %}}
