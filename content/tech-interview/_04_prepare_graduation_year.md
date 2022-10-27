@@ -14,11 +14,11 @@ weight = 5
 
 ---
 
-# Focus on What Do You Want
+# Focus on What You Want
 
 ---
 
-## Focus on What Do You Want
+## Focus on What You Want
 
 {{% fragment %}} The Specialization {{% /fragment %}}
 {{% fragment %}} The Tech Stack {{% /fragment %}}
@@ -49,7 +49,7 @@ weight = 5
 
 ---
 
-## Focus on What Do You Want, and Prepare!
+## Focus on What You Want, and Prepare!
 
 |  | Big Companies | Startups |
 |--|-----------------------------|------------|
