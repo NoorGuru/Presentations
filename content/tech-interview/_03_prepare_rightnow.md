@@ -85,4 +85,11 @@ weight = 4
 {{% fragment %}} **Enjoy the process!** {{% /fragment %}}
 
 
+---
+
+# Get Multiple Internships
+{{% fragment %}} **1-3 Real Internships** {{% /fragment %}}
+{{% fragment %}} Startups, Mid & Large Companies {{% /fragment %}}
+{{% fragment %}} Different Stacks & Experiences {{% /fragment %}}
+
 {{% /section %}}
