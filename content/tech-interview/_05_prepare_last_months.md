@@ -49,7 +49,7 @@ And make this a habit!
 {{% fragment %}} You have to **accept feedback**{{% /fragment %}}
 {{% fragment %}} You have to **have the growth mindset**{{% /fragment %}}
 
-{{% fragment %}} **Communication** is the Key! {{% /fragment %}}
+{{% fragment %}} **Communication** is **THE KEY**! {{% /fragment %}}
 
 ---
 
