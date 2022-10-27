@@ -56,7 +56,7 @@ And make this a habit!
 # Practice, Practice, & Practice!
 
 {{% fragment %}} **Mock Interviews** are a MUST {{% /fragment %}}
-{{% fragment %}} **Practice makes Perfect**: [Pramp](https://www.pramp.com/) {{% /fragment %}}
+{{% fragment %}} [Pramp](https://www.pramp.com/): **Practice makes Perfect** {{% /fragment %}}
 
 
 
