@@ -18,7 +18,7 @@ weight = 5
 
 ---
 
-# Read Cracking the Coding Interview, AGAIN!
+# Read "Cracking the Coding Interview", AGAIN!
 
 <img class="r-stretch" src="pics/cracking-the-coding-interview.png" alt="Cracking the Coding Interview">
 
