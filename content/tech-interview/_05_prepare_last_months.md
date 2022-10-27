@@ -40,4 +40,24 @@ And make this a habit!
 
 # Fail Fast!
 
+---
+
+# The (not so) Soft Skills
+{{% fragment %}} You have to **talk**{{% /fragment %}}
+{{% fragment %}} You have to **think out loud**{{% /fragment %}}
+{{% fragment %}} You have to **work on a team**{{% /fragment %}}
+{{% fragment %}} You have to **accept feedback**{{% /fragment %}}
+{{% fragment %}} You have to **have the growth mindset**{{% /fragment %}}
+
+{{% fragment %}} **Communication** is the Key! {{% /fragment %}}
+
+---
+
+# Practice, Practice, & Practice!
+
+{{% fragment %}} **Mock Interviews** are a MUST {{% /fragment %}}
+{{% fragment %}} **Practice makes Perfect**: [Pramp](https://www.pramp.com/) {{% /fragment %}}
+
+
+
 {{% /section %}}
