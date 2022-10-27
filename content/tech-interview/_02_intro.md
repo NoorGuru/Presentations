@@ -13,7 +13,7 @@ weight = 3
 # How can You Prepare?
 - **Right Now**
 - **The Graduation Year**
-- **The Last Month**
+- **The Last Few Months**
 - **The Interview Day**
 - **The Offer & Beyond**
 
