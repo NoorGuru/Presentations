@@ -2,8 +2,8 @@
 title = "Cracking the Tech Job Interview"
 outputs = ["Reveal"]
 aliases = [
-    "/TechInterview",
-    "/tech_interview"
+"/TechInterview",
+"/tech_interview"
 ]
 weight = 1
 +++
@@ -14,6 +14,4 @@ weight = 1
 
 ##### [noor.guru](https://www.noor.guru)
 
-
-
-### [go.noor.guru/interview](https://go.noor.guru/interview)
+### {{% fragment %}} [go.noor.guru/interview](https://go.noor.guru/interview) {{% /fragment %}}
