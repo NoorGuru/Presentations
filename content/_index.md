@@ -11,8 +11,8 @@ outputs = ["Reveal"]
 
 #### Latest Presentations
 
-- [Cracking the Tech Job Interview](/tech-job)
-- [Cracking the Tech Job Market](/TechJobMarket)
+- [Cracking the Tech Job Interview](/tech-interview)
+- [Cracking the Tech Job Market](/tech-job)
 - [The New Java](/NewJava)
 
 ---
