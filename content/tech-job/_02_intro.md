@@ -13,7 +13,7 @@ weight = 3
 - **101 Software Engineering Interview, Soft Skills && Basics**
 - **101 Front-End Development**
 - **101 Back-End Development**
-- **101 Full-Stack Development**
-- **What's Next?**
+- **What Else?**
+- **Few Tips**
 
 {{% /section %}}
