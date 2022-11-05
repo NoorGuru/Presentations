@@ -10,13 +10,10 @@ weight = 3
 ---
 
 # What will You Learn?
-- **101 Soft Skills++**
-- **101 Software Engineering Job Market**
-- **101 Software Engineering Basics**
-- **101 Software Engineering Interview**
+- **101 Software Engineering Interview, Soft Skills && Basics**
 - **101 Front-End Development**
 - **101 Back-End Development**
 - **101 Full-Stack Development**
-- **101 Growth Mindset**
+- **What's Next?**
 
 {{% /section %}}
