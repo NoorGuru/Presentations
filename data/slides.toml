@@ -1,0 +1,8 @@
+practice = '''
+# Practice
+
+
+{{% fragment %}} **"Talk is cheap. Show me the code."** {{% /fragment %}}
+{{% fragment %}} ― Linus Torvalds {{% /fragment %}}
+{{% fragment %}} **PRACTICE!** {{% /fragment %}}
+'''

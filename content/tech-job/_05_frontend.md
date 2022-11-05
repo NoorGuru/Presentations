@@ -12,6 +12,12 @@ weight = 6
 
 ---
 
+# What is Frontend?
+
+{{% fragment %}} Let's talk... {{% /fragment %}}
+
+---
+
 #  The Minimal Frontend Engineering Stack
 {{% fragment %}} **HTML** {{% /fragment %}}
 {{% fragment %}} **CSS** {{% /fragment %}}
@@ -88,12 +94,6 @@ JavaScript is the programming language of the Web.
 
 ---
 
-# Practice
-
-
-{{% fragment %}} **“Talk is cheap. Show me the code.”** {{% /fragment %}}
-{{% fragment %}} ― Linus Torvalds {{% /fragment %}}
-{{% fragment %}} **PRACTICE!** {{% /fragment %}}
-
+{{% slide content="slides.practice" %}}
 
 {{% /section %}}
