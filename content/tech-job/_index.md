@@ -14,4 +14,4 @@ weight = 1
 
 ##### [noor.guru](https://www.noor.guru)
 
-### {{% fragment %}} [go.noor.guru/interview](https://go.noor.guru/tech-job) {{% /fragment %}}
+### {{% fragment %}} [go.noor.guru/tech-market](https://go.noor.guru/tech-job) {{% /fragment %}}
