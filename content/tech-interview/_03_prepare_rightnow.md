@@ -11,7 +11,7 @@ weight = 4
 # How can You Prepare
 ## Right Now?
 
-{{/* # انجح كهربا */}}
+{{/* انجح كهربا */}}
 
 ---
 # LinkedIn
