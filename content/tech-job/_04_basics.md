@@ -14,7 +14,7 @@ weight = 5
 
 # Required Basics (Takeaways)
 {{% fragment %}} **Git & GitHub** {{% /fragment %}}
-{{% fragment %}} **Problem Solving** {{% /fragment %}}
+{{% fragment %}} **Problem Solving (Data Structures & Algorithms)** {{% /fragment %}}
 {{% fragment %}} **X Programming Language** {{% /fragment %}}
 {{% fragment %}} **SQL Basics** {{% /fragment %}}
 

@@ -22,7 +22,7 @@ weight = 8
 
 # The Offer & Beyond
 {{% fragment %}} Know **Your Value!** {{% /fragment %}}
-{{% fragment %}} Always **Negotiation!** {{% /fragment %}}
+{{% fragment %}} Always **Negotiate!** {{% /fragment %}}
 {{% fragment %}} But first, **Learn how to do it** {{% /fragment %}}
 
 {{% /section %}}

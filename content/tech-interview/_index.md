@@ -13,5 +13,7 @@ weight = 1
 ##### by: 'Mohammad Noor' AbuKhleif
 
 ##### [noor.guru](https://www.noor.guru)
+##### [@mohnoor94](https://go.noor.guru/twitter)
+##### www.linkedin.com/in/mohnoor94/
 
 ### {{% fragment %}} [go.noor.guru/interview](https://go.noor.guru/interview) {{% /fragment %}}

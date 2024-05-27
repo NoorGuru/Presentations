@@ -14,5 +14,6 @@ weight = 1
 
 ##### [noor.guru](https://www.noor.guru)
 ##### [@mohnoor94](https://go.noor.guru/twitter)
+##### www.linkedin.com/in/mohnoor94/
 
 ### {{% fragment %}} [go.noor.guru/tech-job](https://go.noor.guru/tech-job) {{% /fragment %}}
