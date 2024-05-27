@@ -62,7 +62,7 @@ JavaScript is the programming language of the Web.
 
 <img class="r-stretch smaller-img" src="pics/js-course.png" alt="The Complete JavaScript Course 2024: From Zero to Expert!">
 
-### [The Complete JavaScript Course 2022: From Zero to Expert!](https://www.udemy.com/course/the-complete-javascript-course/)
+### [The Complete JavaScript Course 2024: From Zero to Expert!](https://www.udemy.com/course/the-complete-javascript-course/)
 
 ---
 
