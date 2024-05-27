@@ -8,9 +8,6 @@ weight = 8
 
 {{% section %}}
 
-# What Else?
-
----
 
 {{% fragment %}} **Low Code** {{% /fragment %}}
 {{% fragment %}} **Quality Engineering (QE / QA)** {{% /fragment %}}
