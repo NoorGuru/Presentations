@@ -3,7 +3,7 @@ outputs = ["Reveal"]
 weight = 3
 +++
 
-<p class="twitter">@moh_noor94</p>
+<p class="twitter">@mohnoor94</p>
 
 {{% section %}}
 
