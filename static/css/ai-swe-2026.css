@@ -39,6 +39,7 @@
 .reveal .slides section.navy h1,
 .reveal .slides section.navy h2,
 .reveal .slides section.navy h3 { color: #fff; }
+.reveal .slides section .muted { color: var(--muted); }
 
 body.is-dark-slide .slide-meta .slide-path,
 body.is-dark-slide .slide-meta a { color: rgba(255, 255, 255, 0.6) !important; }
@@ -263,6 +264,12 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 .reveal .slides section .fragment.drop { transform: translateY(-60px); }
 .reveal .slides section .fragment.drop.visible { transform: none; }
 
+/* Lines carried over from the previous slide arrive by auto-animate, not by entrance. */
+.reveal .slides section .settled,
+.reveal .slides section .settled *,
+.reveal .slides section .settled .mark::before,
+.reveal .slides section .settled .strike::after { animation: none !important; }
+
 @keyframes rise { from { opacity: 0; transform: translateY(56px); } }
 @keyframes line-up { from { transform: translateY(110%); } }
 @keyframes pop { from { opacity: 0; transform: scale(0.7); } }
@@ -307,7 +314,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 
 .tier {
   display: grid;
-  grid-template-columns: 1fr 220px;
+  grid-template-columns: 1fr 480px;
   gap: 80px;
   align-items: end;
   height: 1064px;
@@ -322,22 +329,27 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   justify-content: flex-end;
 }
 
-.tier-bar-track {
+/* Earlier tiers stay as ghosts, so the last slide reads as a staircase. */
+.tier-bars {
   height: 760px;
-  display: flex;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: end;
 }
 
 .tier-bar {
-  width: 100%;
   height: var(--h, 30%);
-  background: var(--amber);
+  background: var(--tint);
   transform-origin: bottom center;
 }
 
-.amber .tier-bar { background: var(--ink); }
+.tier-bar.is-current { background: var(--amber); }
+.navy .tier-bar { background: rgba(255, 255, 255, 0.16); }
+.navy .tier-bar.is-current { background: var(--amber); }
 
-.reveal .tier-num { font-size: var(--size, 240px); line-height: 0.84; }
+.reveal .tier-num { font-size: var(--size, 220px); line-height: 0.86; }
+.tier-num > span { display: block; }
 
 /* ---------- Bio ---------- */
 
@@ -356,6 +368,20 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 
 /* ---------- Habits ---------- */
 
+/* Same spot on every habit slide, so the four read as one run. */
+.pips {
+  position: absolute;
+  top: 70px;
+  left: 120px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.pip { width: 56px; height: 12px; background: currentColor; opacity: 0.16; }
+.pip.on { background: var(--amber); opacity: 1; }
+.pips-label { font-size: 28px; font-weight: 700; color: var(--muted); margin-left: 14px; }
+
 .stop-line {
   font-size: 58px;
   font-weight: 600;
@@ -369,9 +395,11 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   font-size: 46px;
   font-weight: 700;
   padding: 22px 34px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--tint);
+  color: var(--ink);
 }
+
+.navy .tower-block { background: rgba(255, 255, 255, 0.1); color: #fff; }
 
 .tower-block.new {
   background: var(--amber);
@@ -647,6 +675,8 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 
 .card {
   background: #fff;
+  color: var(--ink);
+  --muted: #5a6480;
   padding: 50px 56px;
   display: flex;
   flex-direction: column;
@@ -656,7 +686,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 
 .check {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 56px 1fr auto;
   gap: 26px;
   align-items: center;
   padding: 18px 22px;
@@ -680,6 +710,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   transition: background 0.2s;
 }
 
+.check-time { font-size: 28px; font-weight: 600; color: var(--muted); }
 .check.is-checked .check-box { background: var(--ink); }
 .check.is-checked .check-box::after { content: ""; width: 16px; height: 16px; background: var(--amber); }
 .check.is-checked .check-text { text-decoration: line-through; text-decoration-thickness: 5px; text-decoration-color: var(--amber); }

@@ -1,6 +1,6 @@
 +++
 outputs = ["Reveal"]
-weight = 5
+weight = 4
 +++
 
 {{% section %}}
@@ -13,7 +13,7 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:20 · Keep this concrete.** One idea: speed copies your habits. Then a Java snippet they can see, then Java4Shell in one minute, no internals.
+**0:17 · Keep this concrete.** One idea: speed copies your habits. Then a Java snippet they can see, then Java4Shell in one minute, no internals.
 {{% /note %}}
 
 ---
@@ -32,7 +32,7 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:21 · 20 seconds.** Same tool, two outcomes. Don't say "technical debt." Say: if you don't understand it, you just get wrong code sooner. Next screen compiles and the happy path works.
+**0:18 · 20 seconds.** Same tool, two outcomes. Don't say "technical debt." Say: if you don't understand it, you just get wrong code sooner. Next screen compiles and the happy path works.
 {{% /note %}}
 
 ---
@@ -72,7 +72,7 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:22 – 0:25 · Let them shout. Then reveal.**
+**0:19 – 0:21 · Let them shout. Then reveal.**
 - Give them 20–30 seconds. Clicker, buttons, clicking line 2 or 4, or keys 1/2/3 all work.
 - **Bug 1:** the email is concatenated into SQL. The user controls the query. Fix: a prepared statement.
 - **Bug 2:** `==` on strings. First-year Java. AI still ships it because the happy path can pass.
@@ -92,12 +92,12 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:25 · Most of them only use the middle box: "write my code."** The useful moves are before (critique my idea) and after (tests, then I read it).
+**0:22 · Most of them only use the middle box: "write my code."** The useful moves are before (critique my idea) and after (tests, then I read it).
 {{% /note %}}
 
 ---
 
-{{< slide class="navy" >}}
+{{< slide class="amber" >}}
 
 <div class="stage">
   <h2 class="t-huge"><span class="line"><span>You explain it,</span></span><span class="line"><span class="d2">or you don’t</span></span><span class="line"><span class="d3"><span class="mark" style="--md:1.1s;">merge it.</span></span></span></h2>
@@ -116,7 +116,7 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:26 · One story. No payload, no CVE number unless asked.**
+**0:23 · One story. No payload, no CVE number unless asked.**
 - November 17, 2026. A bug in Java's own Base64 decoder. Serious on some servers.
 - The number that matters: under $200 and a few hours of AI. Then companies had to patch Java everywhere.
 - If asked "how bad": high risk, depends on the machine. Don't oversell it into Log4Shell.
@@ -133,7 +133,7 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:27 · Your part, said out loud.** About two days ago we were still pushing that fix across our Java systems. Not one service. The platform.
+**0:24 · Your part, said out loud.** About two days ago we were still pushing that fix across our Java systems. Not one service. The platform.
 - Bridge: "That's the job AI doesn't remove. Someone has to understand the change and roll it out safely."
 {{% /note %}}
 
