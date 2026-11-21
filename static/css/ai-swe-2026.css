@@ -154,6 +154,12 @@ body.is-dark-slide .slide-meta a:hover {
   border-color: rgba(124, 58, 237, 0.25);
 }
 
+.eyebrow--amber {
+  background: var(--ai-amber-soft);
+  color: var(--ai-amber);
+  border-color: rgba(217, 119, 6, 0.28);
+}
+
 .eyebrow--coral {
   background: var(--ai-coral-soft);
   color: var(--ai-coral);
@@ -542,70 +548,82 @@ body.is-dark-slide .slide-meta a:hover {
    Act 1: Market Gap & Personal Bio Timeline
    ========================================================================== */
 
-.market-compare {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
-  margin-top: 28px;
+.tier-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 62vh;
+  padding: 0 40px;
 }
 
-.market-card {
-  padding: 40px 42px;
-  border-radius: 26px;
-  border: 2.5px solid var(--ai-border);
-  background: var(--ai-surface);
-}
-
-.market-card--premium {
-  background: linear-gradient(135deg, #141d38 0%, #1f2b4d 100%);
-  border-color: var(--ai-orange);
-  color: #ffffff;
-}
-
-.market-tag {
+.tier-hero-tag {
   font-family: var(--r-code-font);
-  font-size: 22px;
+  font-size: 28px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--ai-muted);
-  margin-bottom: 14px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 28px;
 }
 
-.market-card--premium .market-tag {
+.tier-hero-num {
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 28px;
+}
+
+.tier-hero-num span {
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.tier-hero--premium .tier-hero-tag {
   color: #ffb347;
 }
 
-.market-figure {
-  font-size: 86px;
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ai-ink);
-  margin: 0 0 12px;
-}
-
-.market-card--premium .market-figure {
+.tier-hero--premium .tier-hero-num {
   color: var(--ai-orange);
 }
 
-.market-note {
-  font-size: 30px;
-  line-height: 1.35;
-  color: var(--ai-muted);
-  margin: 0;
+.tier-hero--premium .tier-hero-num span {
+  color: rgba(255, 179, 71, 0.7);
 }
 
-.market-card--premium .market-note {
-  color: rgba(255, 255, 255, 0.86);
+.tier-hero-note {
+  font-size: 36px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  max-width: 18ch;
+}
+
+.tier-punch {
+  margin: 28px 0 0;
+  font-size: 40px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 22ch;
+}
+
+.tier-punch strong {
+  color: #ffb347;
+  font-weight: 700;
 }
 
 .punch-banner {
-  margin-top: 38px;
-  padding: 32px 40px;
+  margin-top: 22px;
+  padding: 22px 32px;
   border-radius: 22px;
   background: var(--ai-orange-soft);
   border-left: 10px solid var(--ai-orange);
-  font-size: 38px;
+  font-size: 32px;
   line-height: 1.32;
   color: var(--ai-ink);
 }
@@ -613,6 +631,111 @@ body.is-dark-slide .slide-meta a:hover {
 .punch-banner strong {
   color: #b45309;
   font-weight: 700;
+}
+
+.bar-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 8px;
+}
+
+.bar-col {
+  background: #ffffff;
+  border: 2.5px solid var(--ai-border);
+  border-top: 10px solid var(--ai-cobalt);
+  border-radius: 22px;
+  padding: 22px 28px 8px;
+  box-shadow: 0 12px 30px rgba(31, 43, 77, 0.06);
+}
+
+.bar-col--raised {
+  border-top-color: var(--ai-orange);
+  background: linear-gradient(180deg, #fff8ee 0%, #ffffff 42%);
+}
+
+.bar-col-tag {
+  font-family: var(--r-code-font);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ai-cobalt);
+  margin-bottom: 6px;
+}
+
+.bar-col--raised .bar-col-tag {
+  color: #b45309;
+}
+
+.reveal .bar-list {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+.reveal .bar-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 0;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ai-border);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ai-ink);
+  white-space: normal;
+}
+
+.bar-list li:last-child {
+  border-bottom: 0;
+}
+
+.bar-idx {
+  font-family: var(--r-code-font);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ai-cobalt);
+  flex: 0 0 auto;
+}
+
+.bar-col--raised .bar-idx {
+  color: var(--ai-orange);
+}
+
+.pillar-grid--quad {
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.pillar-grid--quad .pillar-card {
+  min-height: 0;
+  padding: 22px 26px 18px;
+}
+
+.pillar-grid--quad .pillar-num {
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+.pillar-grid--quad .pillar-title {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.pillar-grid--quad .pillar-body {
+  font-size: 26px;
+}
+
+.pillar-grid--quad .pillar-kicker {
+  margin-top: 14px;
+  padding: 12px 16px;
+  font-size: 22px;
 }
 
 /* Bio Timeline */

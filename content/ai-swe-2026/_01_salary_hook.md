@@ -14,37 +14,83 @@ weight = 2
 {{% note %}}
 **0:00 – 0:02 · Ask it open. Nothing on screen but the question.**
 - Say it before you introduce yourself. Let a few people shout a number. Don't tally, and don't offer ranges.
-- Do **not** say 500, 800, or 1,200 yet. Those numbers are on the next slide, and saying them now anchors the room.
-- When the shouts land, go ↓ to the market gap and only then put the real ranges up.
+- Do **not** say 400, 900, or 1,500 yet. Those numbers are on the next slide, and saying them now anchors the room.
+- When the shouts land, go ↓ and only then put the three Amman tiers up.
 {{% /note %}}
 
 ---
 
-<span class="eyebrow">ACT 01 · AMMAN MARKET REALITY</span>
-<h2 class="slide-title">The Gap Isn't Syntax.</h2>
-<p class="slide-subtitle">Same city. Same degree. Completely different ceiling.</p>
+<span class="eyebrow">ACT 01 · AMMAN · DAY 1</span>
+<h2 class="slide-title">Same Degree. Same City.</h2>
+<p class="slide-subtitle">Three Day-1 offers. All in Amman.</p>
 
-<div class="market-compare">
-  <div class="market-card">
-    <div class="market-tag">Standard Junior · Amman</div>
-    <div class="market-figure">500–900 <span style="font-size:44px;font-weight:600;">JOD</span></div>
-    <p class="market-note">~700–1,000 JOD/mo for strong full-stack juniors entering the local market.</p>
-  </div>
-  <div class="market-card market-card--premium">
-    <div class="market-tag">Top Multinationals &amp; Global Remote</div>
-    <div class="market-figure">2× – 5×+</div>
-    <p class="market-note">Paid for owning ambiguous problems, shipping safely, and multiplying output with AI.</p>
-  </div>
-</div>
+{{% note %}}
+**0:02 · Set the frame**
+- Same degree. Same city. Then walk the three tiers one by one — don't dump the numbers yet.
+- Keep it local. No global-remote fantasy for Day 1 fresh grads.
+{{% /note %}}
 
-<div class="punch-banner fragment">
-  AI writes Java &amp; C++ syntax in seconds for pennies. Companies pay for <strong>judgment, ownership, and safe velocity</strong>.
+---
+
+{{< slide class="dark-slide" >}}
+
+<div class="tier-hero">
+  <div class="tier-hero-tag">Tier 1 · Local Shops</div>
+  <div class="tier-hero-num">350–550 <span>JOD</span></div>
+  <p class="tier-hero-note">Agencies &amp; small software houses.<br>Common floor for fresh grads.</p>
 </div>
 
 {{% note %}}
-**0:02 – 0:04 · The Honest Gap**
-- Drop the real Amman numbers honestly: standard junior roles sit around 500–900 JOD/month (~700–1,000 for strong full-stack), while top multinationals or global remote roles pay multiples of that.
-- Reveal the punchline fragment: that gap isn't about who memorized more Java or C++ syntax — AI writes syntax in seconds for pennies.
+**Tier 1**
+- This is what most of the room has heard from older friends: ~400 JOD.
+- Don't linger. ↓ to Tier 2.
+{{% /note %}}
+
+---
+
+{{< slide class="dark-slide" >}}
+
+<div class="tier-hero">
+  <div class="tier-hero-tag">Tier 2 · Product Companies</div>
+  <div class="tier-hero-num">600–1,000 <span>JOD</span></div>
+  <p class="tier-hero-note">Established local &amp; regional tech.<br>Strong full-stack juniors land here.</p>
+</div>
+
+{{% note %}}
+**Tier 2**
+- Atypon-style product companies, funded startups, regional tech — ~700–1,000 for strong juniors.
+- Still Amman. Still Day 1. ↓ to Tier 3.
+{{% /note %}}
+
+---
+
+{{< slide class="dark-slide" >}}
+
+<div class="tier-hero tier-hero--premium">
+  <div class="tier-hero-tag">Tier 3 · Multinationals</div>
+  <div class="tier-hero-num">1,500–2,000+ <span>JOD</span></div>
+  <p class="tier-hero-note">Amazon, Expedia, Careem &amp; peers — in Amman.<br>Same city. Different bar.</p>
+</div>
+
+{{% note %}}
+**Tier 3**
+- Let this land. Same city, ~2×–3.5× the Tier 1 floor. No need to inflate with remote fantasy.
+- ↓ for the punchline.
+{{% /note %}}
+
+---
+
+{{< slide class="dark-slide" >}}
+
+<div class="ask-wrap">
+  <h2 class="ask-question" style="font-size:64px;">Writing syntax used to get you hired.</h2>
+  <p class="tier-punch">AI writes that for free now — the gap is <strong>engineering judgment</strong>.</p>
+</div>
+
+{{% note %}}
+**0:03 – 0:04 · The punch**
+- Syntax is free. What separates the tiers is problem-solving, fundamentals, clean habits, and judgment.
+- Bridge to bio: "I sat in these chairs. Here's the path."
 {{% /note %}}
 
 ---
