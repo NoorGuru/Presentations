@@ -5,6 +5,7 @@
  * - the stack ladder (clicker, click, or keys 0-5)
  * - the pull request diff (clicker, buttons, line click, or keys 1-3)
  * - the weekend checklist
+ * - the language cycle (Java → JS → Rust → Go → One language)
  */
 (function () {
   "use strict";
@@ -179,11 +180,81 @@
     });
   }
 
+  /* ---------- Language cycle ---------- */
+
+  var LANGS = ["Java", "JavaScript", "Rust", "Go", "One language"];
+  var LANG_SIZE = { Java: "200px", JavaScript: "112px", Rust: "200px", Go: "200px", "One language": "108px" };
+
+  function initLangCycle() {
+    var root = document.querySelector("[data-lang-cycle]");
+    if (!root) return;
+    var nameEl = root.querySelector("[data-lang-name]");
+    var punch = root.querySelector("[data-lang-punch]");
+    var step = 0;
+    var busy = false;
+    var timer = null;
+
+    function clearTimer() {
+      if (timer) { clearTimeout(timer); timer = null; }
+    }
+
+    function paint(next, animate) {
+      clearTimer();
+      busy = false;
+      nameEl.classList.remove("is-struck", "is-swapping", "is-arriving", "is-final");
+      nameEl.textContent = LANGS[next];
+      nameEl.style.fontSize = LANG_SIZE[LANGS[next]] || "160px";
+      nameEl.classList.toggle("is-final", next === LANGS.length - 1);
+      if (punch) punch.classList.toggle("is-shown", next === LANGS.length - 1);
+      if (animate && !reduceMotion && next > 0) nameEl.classList.add("is-arriving");
+      step = next;
+    }
+
+    function goTo(next) {
+      next = Math.max(0, Math.min(LANGS.length - 1, next));
+      if (next === step && !busy) return;
+      // Animate only one step forward; jumps (capture, scrubbing) paint directly.
+      if (reduceMotion || next !== step + 1) {
+        paint(next, next > step && !reduceMotion);
+        return;
+      }
+      if (busy) return;
+      busy = true;
+      nameEl.classList.remove("is-arriving", "is-final");
+      nameEl.classList.add("is-struck");
+      clearTimer();
+      timer = setTimeout(function () {
+        nameEl.classList.add("is-swapping");
+        timer = setTimeout(function () {
+          paint(next, true);
+          busy = false;
+        }, 260);
+      }, 380);
+    }
+
+    function fromFragments() {
+      var max = 0;
+      root.querySelectorAll(".step-triggers .fragment.visible").forEach(function (el) {
+        max = Math.max(max, Number(el.dataset.langStep));
+      });
+      goTo(max);
+    }
+
+    Reveal.on("fragmentshown", fromFragments);
+    Reveal.on("fragmenthidden", fromFragments);
+    Reveal.on("slidechanged", function (ev) {
+      if (ev.currentSlide.contains(root)) fromFragments();
+      else paint(0, false);
+    });
+    paint(0, false);
+  }
+
   function boot() {
     if (!window.Reveal) return;
     initLadder();
     initDiff();
     initChecklist();
+    initLangCycle();
     Reveal.on("slidechanged", function (ev) { onSlide(ev.currentSlide); });
     if (Reveal.isReady()) onSlide(Reveal.getCurrentSlide());
     else Reveal.on("ready", function (ev) { onSlide(ev.currentSlide); });
