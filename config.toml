@@ -26,4 +26,5 @@ slide_number = false
 highlight_theme = "vs2015"
 #transition = 'zoom'
 #transition_speed = 'fast'
-custom_theme = "reveal-hugo/themes/robot-lung.css"
+# custom_theme was forcing a near-blank white look over blood
+# custom_theme = "reveal-hugo/themes/robot-lung.css"
