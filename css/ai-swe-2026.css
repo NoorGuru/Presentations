@@ -329,15 +329,6 @@ body.is-dark-slide .slide-meta a:hover {
   min-height: 820px;
 }
 
-.ask-kicker {
-  margin: 12px 0 18px;
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--ai-orange);
-}
-
 .ask-question {
   margin: 0;
   max-width: 1500px;
@@ -346,30 +337,6 @@ body.is-dark-slide .slide-meta a:hover {
   line-height: 1.02 !important;
   letter-spacing: -0.035em !important;
   color: #ffffff;
-}
-
-.ask-wrap::after {
-  content: "↓   this section continues down";
-  display: block;
-  margin-top: 64px;
-  font-family: var(--r-code-font);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.act-wrap::after {
-  content: "↓   this section continues down";
-  display: block;
-  margin-top: 48px;
-  font-family: var(--r-code-font);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
 }
 
 .act-bar--coral { background: #ef4444; }
