@@ -25,15 +25,16 @@
   function countUp(slide) {
     slide.querySelectorAll("[data-count]").forEach(function (el) {
       var target = Number(el.dataset.count);
+      var from = Number(el.dataset.from || 0);
       if (reduceMotion) { el.textContent = format(target); return; }
       var start = performance.now();
       var delay = Number(el.dataset.delay || 150);
       var duration = 1100;
-      el.textContent = "0";
+      el.textContent = format(from);
       function tick(now) {
         var t = Math.min(1, Math.max(0, (now - start - delay) / duration));
         var eased = 1 - Math.pow(1 - t, 4);
-        el.textContent = format(target * eased);
+        el.textContent = format(from + (target - from) * eased);
         if (t < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);

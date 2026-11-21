@@ -1,6 +1,6 @@
 +++
 outputs = ["Reveal"]
-weight = 8
+weight = 7
 +++
 
 {{< slide class="navy" >}}
@@ -16,7 +16,7 @@ weight = 8
 </div>
 
 {{% note %}}
-**0:39 – 0:40+ · Rapid-fire Q&A.**
+**0:38 – 0:40+ · Rapid-fire Q&A.**
 - Signature outro (`Questions` → `Don’t you dare.` → links).
 - Invite blunt questions: salaries, interviews, JU → big tech, MCP and skills, breaking into AI engineering.
 {{% /note %}}

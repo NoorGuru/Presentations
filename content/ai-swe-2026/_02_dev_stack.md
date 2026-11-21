@@ -1,19 +1,19 @@
 +++
 outputs = ["Reveal"]
-weight = 4
+weight = 3
 +++
 
 {{% section %}}
 
-{{< slide class="navy" >}}
+{{< slide class="amber" >}}
 
 <div class="stage">
   <h1 class="t-mega"><span class="line"><span>Basics</span></span><span class="line"><span class="d1"><span class="mark" style="--md:0.8s;">first.</span></span></span></h1>
-  <p class="t-lead in d4">The buzzwords only make sense after these.</p>
+  <p class="t-lead in d4">The bottom of that tower. Then the buzzwords.</p>
 </div>
 
 {{% note %}}
-**0:09 · This is the center of the talk.**
+**0:07 · This is the center of the talk.**
 - Four basics, one slide each, then the names they'll hear at work, in plain words.
 - Ask: "Who can open a branch and a PR without googling the commands?" Hands. That's the gap, not Java syntax.
 {{% /note %}}
@@ -70,7 +70,7 @@ weight = 4
 
 ---
 
-{{< slide class="amber" >}}
+{{< slide class="navy" >}}
 
 <div class="stage">
   <h2 class="t-mega"><span class="line"><span>Read before</span></span><span class="line"><span class="d1">you write.</span></span></h2>
@@ -110,7 +110,7 @@ weight = 4
 </div>
 
 {{% note %}}
-**0:16 – 0:20 · One click per step. About 30 seconds each. Don't lecture.**
+**0:13 – 0:17 · One click per step. About 30 seconds each. Don't lecture.**
 - Clicker steps up; you can also click a rung or press 0–5.
 - **LLM:** a smart chat box. It cannot see your repo unless you show it.
 - **MCP:** a plug, so the AI reads GitHub or docs instead of you pasting screenshots.
@@ -121,7 +121,7 @@ weight = 4
 
 ---
 
-{{< slide class="navy" >}}
+{{< slide class="amber" >}}
 
 <div class="stage">
   <p class="t-lead in">You don’t need all five this year.</p>
