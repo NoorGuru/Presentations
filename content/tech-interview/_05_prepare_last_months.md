@@ -27,7 +27,7 @@ weight = 6
 
 # Practice, Practice, & Practice!
 
-{{% fragment %}} [Technical Interview Preparation Kit](https://www.noor.sh/technical-interview-preparation-kit/) {{% /fragment %}}
+{{% fragment %}} [Technical Interview Preparation Kit](https://www.bynoor.io/technical-interview-preparation-kit/) {{% /fragment %}}
 {{% fragment %}} [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit) {{% /fragment %}}
 
 

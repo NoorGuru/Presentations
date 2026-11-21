@@ -12,6 +12,6 @@ weight = 4
 
 ---
 
-## [Cracking the Tech Job Interview](https://go.noor.sh/interview)
+## [Cracking the Tech Job Interview](https://go.bynoor.io/interview)
 
 {{% /section %}}

@@ -17,5 +17,5 @@ outputs = ["Reveal"]
 
 ---
 
-###### [noor.sh](https://www.noor.sh)
+###### [bynoor.io](https://www.bynoor.io)
 
