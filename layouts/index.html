@@ -21,6 +21,30 @@
         <a class="site" href="https://www.bynoor.io">bynoor.io</a>
       </header>
 
+      <details class="guide">
+        <summary>
+          <span class="guide-line">
+            <span class="guide-q">Reading a presentation yourself?</span>
+            <span class="guide-hint">Here’s a quick guide</span>
+          </span>
+        </summary>
+        <div class="guide-panel">
+          <div class="guide-panel-inner">
+            <p class="guide-lead">Same talks as in the room. Click, or press Space, and they play in order.</p>
+            <ul class="guide-keys">
+              <li><kbd>Space</kbd><span>Next step</span></li>
+              <li><kbd><span class="mod">Shift</span> Space</kbd><span>Step back</span></li>
+              <li><kbd>→</kbd><span>Next section</span></li>
+              <li><kbd>↓</kbd><span>Down in this section</span></li>
+              <li><kbd>Esc</kbd><span>See every slide</span></li>
+              <li><kbd>F</kbd><span>Fullscreen</span></li>
+              <li><kbd>S</kbd><span>Speaker notes</span></li>
+              <li><kbd class="ask">?</kbd><span>Every shortcut, inside a talk</span></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
       <ul class="talks">
         {{- range (where .Site.Sections "Kind" "section").ByDate.Reverse -}}
           {{- if .Title -}}
@@ -40,5 +64,72 @@
         {{- end -}}
       </ul>
     </main>
+    <script>
+      (function () {
+        var details = document.querySelector(".guide");
+        var summary = details && details.querySelector("summary");
+        var panel = details && details.querySelector(".guide-panel");
+        if (!details || !summary || !panel) return;
+
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var closing = false;
+
+        details.classList.add("guide-ready");
+
+        function onHeightEnd(fn) {
+          function done(event) {
+            if (event.target !== panel || event.propertyName !== "height") return;
+            panel.removeEventListener("transitionend", done);
+            fn();
+          }
+          panel.addEventListener("transitionend", done);
+        }
+
+        function open() {
+          closing = false;
+          details.classList.add("is-open");
+          details.open = true;
+          var from = panel.getBoundingClientRect().height;
+          var to = panel.scrollHeight;
+          panel.style.height = from + "px";
+          panel.style.opacity = from > 2 ? "1" : "0";
+          panel.offsetHeight;
+          panel.style.height = to + "px";
+          panel.style.opacity = "1";
+          onHeightEnd(function () {
+            if (!closing) panel.style.height = "auto";
+          });
+        }
+
+        function close() {
+          closing = true;
+          details.classList.remove("is-open");
+          var from = panel.getBoundingClientRect().height;
+          panel.style.height = from + "px";
+          panel.style.opacity = "1";
+          panel.offsetHeight;
+          panel.style.height = "0px";
+          panel.style.opacity = "0";
+          onHeightEnd(function () {
+            if (!closing) return;
+            details.open = false;
+            closing = false;
+            panel.style.height = "";
+            panel.style.opacity = "";
+          });
+        }
+
+        summary.addEventListener("click", function (event) {
+          event.preventDefault();
+          if (reduce) {
+            details.open = !details.open;
+            details.classList.toggle("is-open", details.open);
+            return;
+          }
+          if (details.open && !closing) close();
+          else open();
+        });
+      })();
+    </script>
   </body>
 </html>

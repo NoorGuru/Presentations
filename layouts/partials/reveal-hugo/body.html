@@ -1,3 +1,90 @@
+<div class="deck-help" id="deck-help" hidden>
+  <div class="deck-help-card" role="dialog" aria-modal="true" aria-labelledby="deck-help-title">
+    <header class="deck-help-head">
+      <div>
+        <p class="deck-help-hello">Reading this yourself?</p>
+        <h2 id="deck-help-title">Every shortcut</h2>
+      </div>
+      <button type="button" class="deck-help-close" data-deck-help-close>Close</button>
+    </header>
+    <div class="deck-help-body">
+      <section>
+        <h3>Moving through the talk</h3>
+        <ul>
+          <li><kbd>Space</kbd><kbd>N</kbd><kbd>PgDn</kbd><span>Next step. Lines that appear come first, then the next slide. Click does this too.</span></li>
+          <li><kbd>Shift Space</kbd><kbd>P</kbd><kbd>PgUp</kbd><span>Previous step.</span></li>
+          <li><kbd>→</kbd><kbd>L</kbd><span>Next section.</span></li>
+          <li><kbd>←</kbd><kbd>H</kbd><span>Previous section.</span></li>
+          <li><kbd>↓</kbd><kbd>J</kbd><span>Down inside this section.</span></li>
+          <li><kbd>↑</kbd><kbd>K</kbd><span>Up inside this section.</span></li>
+          <li><kbd>Alt</kbd><span class="plus">+</span><kbd>arrows</kbd><span>Change slides and skip lines that appear.</span></li>
+          <li><kbd>Home</kbd><span>First section.</span></li>
+          <li><kbd>End</kbd><span>Last section.</span></li>
+          <li><kbd>Shift</kbd><span class="plus">+</span><kbd>←</kbd><kbd>→</kbd><span>First or last section.</span></li>
+          <li><kbd>Shift</kbd><span class="plus">+</span><kbd>↑</kbd><kbd>↓</kbd><span>First or last slide in this section.</span></li>
+        </ul>
+      </section>
+      <section>
+        <h3>In the room</h3>
+        <ul>
+          <li><kbd>F</kbd><span>Fullscreen.</span></li>
+          <li><kbd>S</kbd><span>Speaker notes, in another window.</span></li>
+          <li><kbd>B</kbd><kbd>.</kbd><span>Blank the screen. Press again to come back.</span></li>
+          <li><kbd>Esc</kbd><kbd>O</kbd><span>See every slide. Esc again to return.</span></li>
+          <li><kbd>G</kbd><span>Jump to a slide number.</span></li>
+          <li><kbd>?</kbd><span>Open or close this list.</span></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var help = document.getElementById("deck-help");
+  if (!help) return;
+
+  function open() {
+    help.hidden = false;
+    var closeBtn = help.querySelector("[data-deck-help-close]");
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function close() {
+    help.hidden = true;
+  }
+
+  function toggle() {
+    if (help.hidden) open();
+    else close();
+  }
+
+  function typing(target) {
+    if (!target) return false;
+    var tag = target.tagName;
+    return target.isContentEditable || tag === "INPUT" || tag === "TEXTAREA";
+  }
+
+  help.addEventListener("click", function (e) {
+    if (e.target === help || e.target.closest("[data-deck-help-close]")) close();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (typing(e.target)) return;
+    var ask = e.key === "?" || (e.key === "/" && e.shiftKey);
+    if (!help.hidden && e.key === "Escape") {
+      close();
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    if (ask || e.key === "F1") {
+      e.preventDefault();
+      e.stopPropagation();
+      toggle();
+    }
+  }, true);
+})();
+</script>
 <script>
 (function () {
   function fit() {
