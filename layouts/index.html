@@ -21,6 +21,19 @@
         <a class="site" href="https://www.bynoor.io">bynoor.io</a>
       </header>
 
+      <section class="keys" aria-label="How to read a presentation">
+        <h2>Reading a deck</h2>
+        <p>A talk is columns of sections. Down stays in the section. Right moves to the next one. Click or Space plays it in order.</p>
+        <ul>
+          <li><kbd>Space</kbd><span>Next step</span></li>
+          <li><kbd>→</kbd><span>Next section</span></li>
+          <li><kbd>↓</kbd><span>Down inside this section</span></li>
+          <li><kbd>Esc</kbd><span>See every slide</span></li>
+          <li><kbd>S</kbd><span>Speaker notes</span></li>
+          <li><kbd>F</kbd><span>Fullscreen</span></li>
+        </ul>
+      </section>
+
       <ul class="talks">
         {{- range (where .Site.Sections "Kind" "section").ByDate.Reverse -}}
           {{- if .Title -}}

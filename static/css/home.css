@@ -56,6 +56,54 @@ h1 {
   border-bottom: 3px solid var(--accent);
 }
 
+.keys {
+  margin: 8px 0 36px;
+}
+
+.keys h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.keys p {
+  margin: 6px 0 0;
+  max-width: 58ch;
+  color: var(--muted);
+}
+
+.keys ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 32px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.keys li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+
+.keys kbd {
+  flex: none;
+  min-width: 3.4em;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.keys li span {
+  color: var(--muted);
+}
+
 .talks {
   margin: 0;
   padding: 0;
@@ -103,5 +151,6 @@ time {
 @media (max-width: 560px) {
   .page { width: min(100% - 32px, 720px); padding-top: 40px; }
   .head { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .keys ul { grid-template-columns: 1fr; }
   .talks a { flex-direction: column; gap: 4px; align-items: flex-start; }
 }
