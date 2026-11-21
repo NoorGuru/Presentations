@@ -8,8 +8,6 @@ weight = 2
 {{< slide class="dark-slide" >}}
 
 <div class="ask-wrap">
-  <span class="eyebrow eyebrow--dark">Before I introduce myself</span>
-  <p class="ask-kicker">Be honest.</p>
   <h2 class="ask-question">What do you expect<br>for your first salary?</h2>
 </div>
 

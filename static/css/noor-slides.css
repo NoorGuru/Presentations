@@ -253,6 +253,141 @@
 
 .slide-meta a:hover { color: var(--noor-ink) !important; }
 
+.deck-help {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  background: rgba(20, 29, 56, 0.46);
+}
+
+.deck-help[hidden] { display: none; }
+
+.deck-help-card {
+  width: min(860px, 100%);
+  max-height: min(820px, calc(100vh - 56px));
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 18px;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--noor-ink);
+  box-shadow: 0 24px 60px rgba(20, 29, 56, 0.22);
+  font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+}
+
+.deck-help-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.deck-help-hello {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #9a5b00;
+}
+
+.deck-help-card h2 {
+  margin: 2px 0 0;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  color: var(--noor-ink);
+}
+
+.deck-help-close {
+  flex: none;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--noor-field);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--noor-ink);
+  font: 600 15px/1 "Source Sans 3", "Helvetica Neue", sans-serif;
+  cursor: pointer;
+}
+
+.deck-help-close:hover { border-color: var(--noor-ink); }
+
+.deck-help-body {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  margin-top: 18px;
+  overflow: auto;
+}
+
+.deck-help-body h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--noor-muted);
+}
+
+.deck-help-body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.deck-help-body li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--noor-field);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.deck-help-body li span:last-child { color: var(--noor-muted); }
+
+.deck-help kbd,
+.deck-help .plus {
+  flex: none;
+  margin-top: 1px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.deck-help kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 26px;
+  padding: 0 7px;
+  border: 1px solid #ddd9d2;
+  border-bottom-width: 2px;
+  border-radius: 7px;
+  background: #f7f6f3;
+  color: var(--noor-ink);
+}
+
+.deck-help .plus {
+  color: var(--noor-muted);
+  font-weight: 500;
+}
+
+@media (max-width: 760px) {
+  .deck-help-body { grid-template-columns: 1fr; }
+  .deck-help-card { padding: 20px 16px 14px; }
+  .deck-help-card h2 { font-size: 26px; }
+}
+
 .smaller-img {
   max-width: 50% !important;
   max-height: 50% !important;
