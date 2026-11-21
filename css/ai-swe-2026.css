@@ -94,12 +94,17 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 .reveal .t-big,
 .reveal .t-mid {
   font-family: var(--font);
-  font-weight: 850;
-  font-stretch: 110%;
+  font-weight: 800;
   letter-spacing: -0.045em;
   color: inherit;
   margin: 0;
-  text-wrap: balance;
+}
+
+@supports (text-wrap: balance) {
+  .reveal .t-mega,
+  .reveal .t-huge,
+  .reveal .t-big,
+  .reveal .t-mid { text-wrap: balance; }
 }
 
 .reveal .t-mega { font-size: 250px; line-height: 0.86; }
@@ -124,7 +129,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 }
 
 .reveal .muted { color: var(--muted); }
-.reveal .num { font-variant-numeric: tabular-nums; font-stretch: 75%; letter-spacing: -0.03em; }
+.reveal .num { font-variant-numeric: tabular-nums; letter-spacing: -0.04em; }
 
 .reveal code,
 .reveal .mono {
@@ -217,18 +222,25 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 .d6 { --d: 0.8s; }
 .d7 { --d: 1s; }
 
+/* Hide only while the slide is not current. Using animation-fill backwards alone can
+   leave headlines stuck off-screen in Safari if the animation never commits. */
+.reveal .slides section:not(.present) .in,
+.reveal .slides section:not(.present) .pop { opacity: 0; }
+
+.reveal .slides section:not(.present) .line > span { transform: translateY(110%); }
+
 .reveal .slides section.present:not(.stack) .in {
-  animation: rise 0.8s var(--ease) both;
+  animation: rise 0.8s var(--ease) forwards;
   animation-delay: var(--d, 0s);
 }
 
 .reveal .slides section.present:not(.stack) .line > span {
-  animation: line-up 0.9s var(--ease) both;
+  animation: line-up 0.9s var(--ease) forwards;
   animation-delay: var(--d, 0s);
 }
 
 .reveal .slides section.present:not(.stack) .pop {
-  animation: pop 0.7s var(--ease) both;
+  animation: pop 0.7s var(--ease) forwards;
   animation-delay: var(--d, 0s);
 }
 
@@ -363,7 +375,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 }
 
 .bio-year { font-size: 34px; font-weight: 700; color: var(--amber); font-variant-numeric: tabular-nums; }
-.reveal .bio-place { font-size: 120px; font-weight: 850; font-stretch: 110%; letter-spacing: -0.045em; line-height: 0.95; }
+.reveal .bio-place { font-size: 120px; font-weight: 800; letter-spacing: -0.045em; line-height: 0.95; }
 .bio-role { font-size: 32px; font-weight: 500; color: var(--muted); text-align: right; }
 
 /* ---------- Habits ---------- */
@@ -422,31 +434,15 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   display: inline-block;
   position: relative;
   white-space: nowrap;
-  transition: color 0.2s var(--ease);
 }
 
-.lang-name.is-struck {
-  color: var(--muted);
-}
-
-.lang-name.is-struck::after {
-  content: "";
-  position: absolute;
-  left: -0.06em;
-  right: -0.06em;
-  top: 52%;
-  height: 0.12em;
-  background: var(--red);
-  transform-origin: left center;
-  animation: sweep 0.35s var(--ease) both;
-}
-
+/* .strike (shared reviewer's pen) is toggled by JS on each click. */
 .lang-name.is-swapping {
-  animation: lang-out 0.28s var(--ease) both;
+  animation: lang-out 0.28s var(--ease) forwards;
 }
 
 .lang-name.is-arriving {
-  animation: lang-in 0.45s var(--ease) both;
+  animation: lang-in 0.45s var(--ease) forwards;
 }
 
 .lang-name.is-final {
@@ -463,7 +459,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   bottom: 0.02em;
   background: var(--amber);
   transform-origin: left center;
-  animation: sweep 0.55s var(--ease) both;
+  animation: sweep 0.55s var(--ease) forwards;
 }
 
 .lang-punch {
@@ -490,10 +486,10 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lang-name.is-struck::after,
   .lang-name.is-swapping,
-  .lang-name.is-arriving { animation: none !important; }
-  .lang-punch { transition: none; }
+  .lang-name.is-arriving,
+  .lang-name.is-final::before { animation: none !important; }
+  .lang-punch { transition: none; opacity: 1; transform: none; }
 }
 
 .term {
@@ -514,7 +510,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   gap: 40px;
 }
 
-.reveal .code-num { font-size: 200px; font-weight: 850; font-stretch: 75%; letter-spacing: -0.03em; line-height: 0.9; }
+.reveal .code-num { font-size: 200px; font-weight: 800; letter-spacing: -0.04em; line-height: 0.9; }
 .code-label { font-size: 38px; font-weight: 600; margin-top: 18px; }
 .code-cell:nth-child(1) .code-num { color: #6ee7b7; }
 .code-cell:nth-child(2) .code-num,
@@ -537,7 +533,6 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   font-family: var(--font);
   font-size: 46px;
   font-weight: 800;
-  font-stretch: 105%;
   letter-spacing: -0.02em;
   text-align: left;
   padding: 18px 30px;
@@ -573,7 +568,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   gap: 26px;
 }
 
-.reveal .ladder-title { font-size: 120px; font-weight: 850; font-stretch: 110%; letter-spacing: -0.045em; line-height: 0.9; color: #fff; }
+.reveal .ladder-title { font-size: 120px; font-weight: 800; letter-spacing: -0.045em; line-height: 0.9; color: #fff; }
 .ladder-metaphor { font-size: 48px; font-weight: 700; color: var(--amber); }
 .ladder-desc { font-size: 36px; line-height: 1.32; font-weight: 500; color: rgba(255, 255, 255, 0.88); }
 .ladder-detail.is-swapping > * { animation: rise 0.5s var(--ease) both; }
@@ -727,7 +722,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 .flow-step.during { background: var(--tint); min-height: 240px; }
 .flow-step.after { background: var(--amber); min-height: 460px; }
 .flow-when { font-size: 32px; font-weight: 700; opacity: 0.75; }
-.reveal .flow-what { font-size: 76px; font-weight: 850; font-stretch: 105%; letter-spacing: -0.035em; line-height: 0.95; }
+.reveal .flow-what { font-size: 76px; font-weight: 800; letter-spacing: -0.035em; line-height: 0.95; }
 .flow-step.during .flow-what { font-size: 54px; }
 
 /* ---------- Story ---------- */
@@ -746,7 +741,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 .story-row:last-child { background: var(--amber); }
 .story-from { font-size: 44px; font-weight: 600; color: var(--muted); }
 .story-row:last-child .story-from { color: rgba(20, 29, 56, 0.75); }
-.reveal .story-to { font-size: 64px; font-weight: 850; font-stretch: 105%; letter-spacing: -0.03em; line-height: 1; }
+.reveal .story-to { font-size: 64px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
 
 /* ---------- Four verbs ---------- */
 
