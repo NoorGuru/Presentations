@@ -3,90 +3,21 @@ outputs = ["Reveal"]
 weight = 2
 +++
 
-<div data-salary-poll>
-  <div class="poll-head">
-    <div>
-      <span class="eyebrow">ACT 01 · REALITY CHECK</span>
-      <h2 class="slide-title">Be honest. Day-1 salary?</h2>
-    </div>
-    <div class="poll-controls">
-      <div class="poll-total">Hands: <strong data-poll-total>0</strong></div>
-      <button type="button" class="poll-reset" data-poll-reset>Reset [0]</button>
-    </div>
-  </div>
-  <div class="poll-grid">
-    <div class="poll-card" data-bucket="0">
-      <div class="poll-fill"></div>
-      <div class="poll-card-top">
-        <div class="poll-key">1</div>
-        <div class="poll-label">&lt; 500</div>
-        <div class="poll-unit">JOD / month</div>
-      </div>
-      <div class="poll-card-mid">
-        <div class="poll-count" data-count>0</div>
-        <div class="poll-pct" data-pct>0%</div>
-      </div>
-      <div class="poll-card-bot">
-        <span>Tap to add</span>
-        <button type="button" class="poll-minus" data-minus aria-label="Subtract">−</button>
-      </div>
-    </div>
-    <div class="poll-card" data-bucket="1">
-      <div class="poll-fill"></div>
-      <div class="poll-card-top">
-        <div class="poll-key">2</div>
-        <div class="poll-label">500 – 800</div>
-        <div class="poll-unit">JOD / month</div>
-      </div>
-      <div class="poll-card-mid">
-        <div class="poll-count" data-count>0</div>
-        <div class="poll-pct" data-pct>0%</div>
-      </div>
-      <div class="poll-card-bot">
-        <span>Tap to add</span>
-        <button type="button" class="poll-minus" data-minus aria-label="Subtract">−</button>
-      </div>
-    </div>
-    <div class="poll-card" data-bucket="2">
-      <div class="poll-fill"></div>
-      <div class="poll-card-top">
-        <div class="poll-key">3</div>
-        <div class="poll-label">800 – 1,200</div>
-        <div class="poll-unit">JOD / month</div>
-      </div>
-      <div class="poll-card-mid">
-        <div class="poll-count" data-count>0</div>
-        <div class="poll-pct" data-pct>0%</div>
-      </div>
-      <div class="poll-card-bot">
-        <span>Tap to add</span>
-        <button type="button" class="poll-minus" data-minus aria-label="Subtract">−</button>
-      </div>
-    </div>
-    <div class="poll-card" data-bucket="3">
-      <div class="poll-fill"></div>
-      <div class="poll-card-top">
-        <div class="poll-key">4</div>
-        <div class="poll-label">1,200+</div>
-        <div class="poll-unit">JOD / month</div>
-      </div>
-      <div class="poll-card-mid">
-        <div class="poll-count" data-count>0</div>
-        <div class="poll-pct" data-pct>0%</div>
-      </div>
-      <div class="poll-card-bot">
-        <span>Tap to add</span>
-        <button type="button" class="poll-minus" data-minus aria-label="Subtract">−</button>
-      </div>
-    </div>
-  </div>
-  <div class="poll-hint">Click cards or press keys 1–4 to tally live · Shift+click or − to undo · 0 to reset</div>
+{{% section %}}
+
+{{< slide class="dark-slide" >}}
+
+<div class="ask-wrap">
+  <span class="eyebrow eyebrow--dark">Before I introduce myself</span>
+  <p class="ask-kicker">Be honest.</p>
+  <h2 class="ask-question">What do you expect<br>for your first salary?</h2>
 </div>
 
 {{% note %}}
-**0:00 – 0:02 · Live Crowd Hook**
-- Ask before introducing yourself: *"Before I tell you who I am — be honest. How much do you expect for your very first salary after graduation? Hands up for under 500 JD? 500–800? 800–1,200? 1,200+?"*
-- Tap the cards (or keys `1` `2` `3` `4`) to build the live bars on screen. React to the room's energy!
+**0:00 – 0:02 · Ask it open. Nothing on screen but the question.**
+- Say it before you introduce yourself. Let a few people shout a number. Don't tally, and don't offer ranges.
+- Do **not** say 500, 800, or 1,200 yet. Those numbers are on the next slide, and saying them now anchors the room.
+- When the shouts land, go ↓ to the market gap and only then put the real ranges up.
 {{% /note %}}
 
 ---
@@ -168,4 +99,7 @@ weight = 2
 **0:04 – 0:05 · Make It Personal**
 - Bring it home right here: you sat in these exact JU classrooms, taught volunteer Java/C++/OOP sessions on campus, interned at Samsung R&D & Atypon, and worked through Atypon → Amazon → Expedia Group (SDE III).
 - Transition smoothly: "So before we talk buzzwords — here are 3 blunt things to start doing *tonight*."
+- **Navigation:** this act is a vertical section. Space or ↓ stays inside it. → jumps to Act 2.
 {{% /note %}}
+
+{{% /section %}}
