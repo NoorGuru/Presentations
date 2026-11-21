@@ -3,6 +3,8 @@ outputs = ["Reveal"]
 weight = 7
 +++
 
+{{% section %}}
+
 {{< slide class="dark-slide" >}}
 
 <div class="act-wrap">
@@ -10,90 +12,93 @@ weight = 7
   <div>
     <span class="eyebrow eyebrow--dark">ACT 06 · 0:34 – 0:40</span>
   </div>
-  <h1 class="act-title">Your Unfair Advantage</h1>
-  <p class="act-sub">The 3 human skills that compound — no matter which model drops next month.</p>
+  <h1 class="act-title">What to get good at</h1>
+  <p class="act-sub">These three stay useful no matter which tool is popular next month.</p>
   <div class="act-bar"></div>
 </div>
 
 {{% note %}}
-**0:34 · Act 6 Transition**
-- Models leapfrog every few weeks. Don't tie your identity to one tool or one prompt trick — invest in the 3 skills that compound for a decade.
+**0:34**
+- Plain words. Skip "context engineering" unless you want to translate it once.
 {{% /note %}}
 
 ---
 
-<span class="eyebrow">SKILLS FOR THE AI ERA</span>
-<h2 class="slide-title">What Compounds Every Year</h2>
+<span class="eyebrow">SKILLS THAT STILL COMPOUND</span>
+<h2 class="slide-title">The model will change. These won't.</h2>
 
 <div class="pillar-grid">
   <div class="pillar-card pillar-card--cobalt fragment">
     <div>
       <div class="pillar-num">01</div>
-      <h3 class="pillar-title">Context<br>Engineering</h3>
-      <p class="pillar-body">Knowing <em>which</em> constraints, architecture, and business rules to feed the system.</p>
+      <h3 class="pillar-title">Tell it what matters</h3>
+      <p class="pillar-body">The rules of the app. What not to touch. What "done" looks like. Vague prompt, vague code.</p>
     </div>
-    <div class="pillar-kicker">Garbage context → garbage output, fast.</div>
+    <div class="pillar-kicker">You can't brief it if you don't understand the problem.</div>
   </div>
   <div class="pillar-card pillar-card--violet fragment">
     <div>
       <div class="pillar-num">02</div>
-      <h3 class="pillar-title">System Thinking &amp; Debugging</h3>
-      <p class="pillar-body">Tracing <em>why</em> a distributed system actually failed when the AI starts going in circles.</p>
+      <h3 class="pillar-title">Debug when it loops</h3>
+      <p class="pillar-body">AI will try the same wrong fix five times. You have to read the error and know where the system actually broke.</p>
     </div>
-    <div class="pillar-kicker">Real bugs live across boundaries, not single functions.</div>
+    <div class="pillar-kicker">That's the reading muscle, again.</div>
   </div>
   <div class="pillar-card pillar-card--orange fragment">
     <div>
       <div class="pillar-num">03</div>
-      <h3 class="pillar-title">Ownership<br>&amp; Taste</h3>
-      <p class="pillar-body">Caring about the actual user and knowing <em>what</em> is worth building in the first place.</p>
+      <h3 class="pillar-title">Decide what's worth building</h3>
+      <p class="pillar-body">AI will build whatever you ask. Someone still has to care about the user and cut the scope.</p>
     </div>
-    <div class="pillar-kicker">AI can build anything. You decide what matters.</div>
+    <div class="pillar-kicker">Taste is a practice, not a job title.</div>
   </div>
 </div>
 
 {{% note %}}
-**0:34 – 0:37 · The 3 Compounding Skills**
-- **Context Engineering:** Knowing what information, specs, invariants, and guardrails make an agent succeed.
-- **System Thinking & Debugging:** When an agent loops 5 times trying to patch a race condition or prod latency spike, *you* are the one who reads logs, traces requests, and understands the system.
-- **Ownership & Taste:** Caring deeply about the end user, simplifying scope, and owning outcomes — not tickets.
+**0:35 – 0:37**
+- 01 is "context" in normal speech: the AI only knows what you give it. Your job is to know the constraints.
+- 02: when it gets stuck, you are the debugger. Tie it back to reading code and HTTP errors.
+- 03: ownership. A feature nobody needs, generated quickly, is still a bad feature.
 {{% /note %}}
 
 ---
 
-<span class="eyebrow eyebrow--teal">YOUR WEEKEND CHALLENGE</span>
-<h2 class="slide-title">You Don't Need a Big Tech Badge to Start</h2>
+<span class="eyebrow eyebrow--teal">THIS WEEK, NOT "SOMEDAY"</span>
+<h2 class="slide-title">You don't need a big-tech badge.</h2>
 
 <div class="challenge-grid">
   <div class="challenge-step fragment">
-    <div class="challenge-idx">STEP 01</div>
-    <div class="challenge-text">Open VS Code tonight</div>
-    <div class="challenge-sub">Pick a real small repo you care about.</div>
+    <div class="challenge-idx">01</div>
+    <div class="challenge-text">One repo on GitHub</div>
+    <div class="challenge-sub">README. How to run it. Small commits.</div>
   </div>
   <div class="challenge-step fragment">
-    <div class="challenge-idx">STEP 02</div>
-    <div class="challenge-text">Wire 1 MCP or a 60-line agent</div>
-    <div class="challenge-sub">Stop watching tutorials — plug tools into a real loop.</div>
+    <div class="challenge-idx">02</div>
+    <div class="challenge-text">One pull request</div>
+    <div class="challenge-sub">You can explain every line out loud.</div>
   </div>
   <div class="challenge-step fragment">
-    <div class="challenge-idx">STEP 03</div>
-    <div class="challenge-text">Break it &amp; review ruthlessly</div>
-    <div class="challenge-sub">Hunt its bugs, write tests, tighten the guardrails.</div>
+    <div class="challenge-idx">03</div>
+    <div class="challenge-text">Let AI review it</div>
+    <div class="challenge-sub">Ask what's wrong. Fix only what you agree with.</div>
   </div>
   <div class="challenge-step challenge-step--final fragment">
-    <div class="challenge-idx">STEP 04</div>
-    <div class="challenge-text">Push it to GitHub</div>
-    <div class="challenge-sub">Real proof you can defend in any interview.</div>
+    <div class="challenge-idx">04</div>
+    <div class="challenge-text">Read one file you didn't write</div>
+    <div class="challenge-sub">Five lines on what it does. That's the job.</div>
   </div>
 </div>
 
 <div class="challenge-footer fragment">
-  Same JU campus. Better tools than I ever had. Go build something you're proud to sign your name on.
+  Same classrooms. Start with Git, HTTP, and code you can explain.
 </div>
 
 {{% note %}}
-**0:37 – 0:39 · Heartfelt JU Close**
-- Remind them they don't need an Expedia or Amazon badge to start working like a 2026 engineer.
-- Issue the concrete weekend challenge (open VS Code tonight, wire up one MCP server or write a 60-line agent loop, break it, review it ruthlessly, push it to GitHub).
-- Advance to the signature outro & open rapid-fire Q&A!
+**0:37 – 0:39 · Close, then Q&A**
+- They do not need to wire an MCP server this weekend. That's a later step. If a strong student asks, point them there after.
+- The assignment is the four basics: a repo, a PR they can defend, AI as a reviewer, and reading someone else's file.
+- JU line: you sat here, the tools are better now, the fundamentals are the same ones that got you the job.
+- → from here goes to Questions.
 {{% /note %}}
+
+{{% /section %}}

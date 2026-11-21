@@ -3,6 +3,8 @@ outputs = ["Reveal"]
 weight = 8
 +++
 
+{{% section %}}
+
 {{% slide content="slides.outro" %}}
 
 {{% note %}}
@@ -10,3 +12,5 @@ weight = 8
 - Signature outro (`Questions` → `Don't You Dare` → `bynoor.io`).
 - Encourage blunt questions about salaries, interviews, JU → Big Tech, MCP/Skills, or breaking into AI engineering!
 {{% /note %}}
+
+{{% /section %}}

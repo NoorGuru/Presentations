@@ -3,55 +3,57 @@ outputs = ["Reveal"]
 weight = 5
 +++
 
+{{% section %}}
+
 {{< slide class="dark-coral" >}}
 
 <div class="act-wrap">
   <div class="act-ghost-num">04</div>
   <div>
-    <span class="eyebrow eyebrow--dark-coral">ACT 04 · 0:19 – 0:26</span>
+    <span class="eyebrow eyebrow--dark-coral">ACT 04 · 0:20 – 0:28</span>
   </div>
-  <h1 class="act-title">The Velocity Trap</h1>
-  <p class="act-sub">Quality, code review, testing &amp; security — where AI actually breaks in production.</p>
+  <h1 class="act-title">AI is fast. Fast at bugs, too.</h1>
+  <p class="act-sub">A student-level example, then one story from this week.</p>
   <div class="act-bar act-bar--coral"></div>
 </div>
 
 {{% note %}}
-**0:19 · Act 4 Transition**
-- Now that we see the shiny stack — here is the dark side nobody puts in LinkedIn demos.
+**0:20 · Keep this concrete**
+- One idea: speed copies your habits. Then a Java snippet they can actually see, then Java4Shell in one minute, no internals.
 {{% /note %}}
 
 ---
 
-<span class="eyebrow eyebrow--coral">BEYOND CODE GENERATION</span>
-<h2 class="slide-title">Speed Multiplies Everything</h2>
+<span class="eyebrow eyebrow--coral">THE TRAP</span>
+<h2 class="slide-title">Same tool. Two outcomes.</h2>
 
 <div class="velocity-grid">
   <div class="velocity-card velocity-card--good">
-    <div class="eyebrow eyebrow--teal" style="align-self:flex-start;margin:0;">DISCIPLINED ENGINEER + AI</div>
-    <div class="velocity-big">5×</div>
+    <div class="eyebrow eyebrow--teal" style="align-self:flex-start;margin:0;">YOU UNDERSTAND THE CODE</div>
+    <div class="velocity-big">Faster</div>
     <div>
-      <div class="velocity-label">Real Engineering Leverage</div>
-      <div class="velocity-sub">Faster specs, stronger tests, cleaner refactors, verified merges.</div>
+      <div class="velocity-label">You still know what shipped</div>
+      <div class="velocity-sub">AI drafts. You check it, test it, and can explain it.</div>
     </div>
   </div>
   <div class="velocity-card velocity-card--trap fragment">
-    <div class="eyebrow eyebrow--coral" style="align-self:flex-start;margin:0;">BLIND COPY-PASTE + AI</div>
-    <div class="velocity-big">5×</div>
+    <div class="eyebrow eyebrow--coral" style="align-self:flex-start;margin:0;">YOU PASTE AND HOPE</div>
+    <div class="velocity-big">Faster</div>
     <div>
-      <div class="velocity-label">Tech Debt &amp; Vulnerabilities</div>
-      <div class="velocity-sub">Shipped in half the time — with zero understanding of what broke.</div>
+      <div class="velocity-label">You ship bugs you can't see</div>
+      <div class="velocity-sub">It compiles. The demo works. The bug is still in there.</div>
     </div>
   </div>
 </div>
 
 <div class="punch-banner fragment">
-  Let's test your eyes right now. <strong>60 seconds on the clock.</strong>
+  Look at this login method. <strong>What would you refuse to merge?</strong>
 </div>
 
 {{% note %}}
-**0:20 – 0:21 · Frame the Velocity Trap**
-- AI doesn't magically make bad engineers good — it amplifies whatever habits you already have.
-- Tease the crowd challenge on the next slide: "I'm putting a real-looking AI PR on screen. It compiles. It passes a quick curl test. You have 60 seconds to yell out what's wrong."
+**0:21 · 20 seconds, then the code**
+- Don't say "technical debt." Say: if you don't understand it, you just get wrong code sooner.
+- Tell them the next screen compiles and the happy path works.
 {{% /note %}}
 
 ---
@@ -59,52 +61,48 @@ weight = 5
 <div data-pr-diff>
   <div class="pr-top">
     <div>
-      <span class="eyebrow eyebrow--coral" style="margin-bottom:10px;">60-SECOND CROWD CHALLENGE · SPOT THE AI TRAP</span>
-      <h2 class="slide-title" style="font-size:60px !important;margin:0 !important;">Looks clean. Compiles. Would you merge?</h2>
+      <span class="eyebrow eyebrow--coral" style="margin-bottom:10px;">LOOK AT THE CODE · YELL IT OUT</span>
+      <h2 class="slide-title" style="font-size:58px !important;margin:0 !important;">It compiles. The demo logs in. What's wrong?</h2>
     </div>
     <div class="pr-pills">
-      <button type="button" class="pr-btn" data-toggle="trap1">Trap 1: Security</button>
-      <button type="button" class="pr-btn" data-toggle="trap2">Trap 2: Data Leak</button>
-      <button type="button" class="pr-btn" data-toggle="fix">Show Fix</button>
+      <button type="button" class="pr-btn" data-toggle="trap1">Bug 1: SQL</button>
+      <button type="button" class="pr-btn" data-toggle="trap2">Bug 2: ==</button>
+      <button type="button" class="pr-btn" data-toggle="fix">Show the fix</button>
     </div>
   </div>
   <div class="pr-shell">
     <div class="pr-header">
       <div class="pr-header-left">
         <span class="pr-status-open">Open</span>
-        <strong>PR #418</strong>
-        <span>src/main/java/com/app/OrderController.java</span>
+        <strong>PR #12</strong>
+        <span>LoginService.java</span>
       </div>
-      <span class="pr-diffstat">+13  -0</span>
+      <span class="pr-diffstat">+8  -0</span>
     </div>
     <div class="pr-code">
-      <div class="diff-line"><span class="diff-ln">1</span><span class="diff-sign">+</span><span>@RestController</span></div>
-      <div class="diff-line"><span class="diff-ln">2</span><span class="diff-sign">+</span><span>@RequestMapping("/api/orders")</span></div>
-      <div class="diff-line"><span class="diff-ln">3</span><span class="diff-sign">+</span><span>public class OrderController {</span></div>
+      <div class="diff-line"><span class="diff-ln">1</span><span class="diff-sign">+</span><span>public boolean login(String email, String password) {</span></div>
+      <div class="diff-line" data-trap="1"><span class="diff-ln">2</span><span class="diff-sign">+</span><span>    String sql = "SELECT * FROM users WHERE email = '" + email + "'";</span></div>
+      <div class="diff-line"><span class="diff-ln">3</span><span class="diff-sign">+</span><span>    User user = db.query(sql);</span></div>
       <div class="diff-line"><span class="diff-ln">4</span><span class="diff-sign">+</span><span></span></div>
-      <div class="diff-line" data-trap="1"><span class="diff-ln">5</span><span class="diff-sign">+</span><span>    @GetMapping("/{orderId}")</span></div>
-      <div class="diff-line" data-trap="2"><span class="diff-ln">6</span><span class="diff-sign">+</span><span>    public ResponseEntity&lt;Order&gt; getOrder(@PathVariable Long orderId) {</span></div>
-      <div class="diff-line" data-trap="1"><span class="diff-ln">7</span><span class="diff-sign">+</span><span>        Order order = orderRepo.findById(orderId)</span></div>
-      <div class="diff-line"><span class="diff-ln">8</span><span class="diff-sign">+</span><span>                .orElseThrow(() -&gt; new NotFoundException("Order not found"));</span></div>
-      <div class="diff-line"><span class="diff-ln">9</span><span class="diff-sign">+</span><span></span></div>
-      <div class="diff-line" data-trap="2"><span class="diff-ln">10</span><span class="diff-sign">+</span><span>        order.setItems(itemRepo.findByOrderId(orderId));</span></div>
-      <div class="diff-line" data-trap="2"><span class="diff-ln">11</span><span class="diff-sign">+</span><span>        return ResponseEntity.ok(order);</span></div>
-      <div class="diff-line"><span class="diff-ln">12</span><span class="diff-sign">+</span><span>    }</span></div>
-      <div class="diff-line"><span class="diff-ln">13</span><span class="diff-sign">+</span><span>}</span></div>
+      <div class="diff-line" data-trap="2"><span class="diff-ln">5</span><span class="diff-sign">+</span><span>    if (user != null &amp;&amp; user.password == password) {</span></div>
+      <div class="diff-line"><span class="diff-ln">6</span><span class="diff-sign">+</span><span>        return true;</span></div>
+      <div class="diff-line"><span class="diff-ln">7</span><span class="diff-sign">+</span><span>    }</span></div>
+      <div class="diff-line"><span class="diff-ln">8</span><span class="diff-sign">+</span><span>    return false;</span></div>
+      <div class="diff-line"><span class="diff-ln">9</span><span class="diff-sign">+</span><span>}</span></div>
     </div>
   </div>
   <div class="pr-annotations">
     <div class="pr-review-box pr-review-box--coral" data-review="1">
-      <div class="pr-review-title">🚨 TRAP #1 · BROKEN ACCESS CONTROL (IDOR)</div>
-      <div class="pr-review-text">Zero ownership check! Any logged-in user can hit <code>/api/orders/1002</code> and read someone else's order.</div>
+      <div class="pr-review-title">BUG 1 · THE EMAIL IS GLUED INTO THE SQL</div>
+      <div class="pr-review-text">Whatever the user types becomes part of the query. Use a placeholder, not string concat.</div>
     </div>
     <div class="pr-review-box pr-review-box--amber" data-review="2">
-      <div class="pr-review-title">⚠️ TRAP #2 · RAW JPA ENTITY LEAK</div>
-      <div class="pr-review-text">Returning <code>Order</code> directly instead of a DTO leaks internal DB fields (payment tokens, PII) &amp; risks lazy-load N+1 serialization.</div>
+      <div class="pr-review-title">BUG 2 · == IS THE WRONG CHECK</div>
+      <div class="pr-review-text">In Java, == asks "same object?", not "same text?". Use equals(). AI writes this a lot.</div>
     </div>
   </div>
   <div class="pr-fix-bar" data-fix-bar>
-    ✓ Fix: Inject <strong>@AuthenticationPrincipal User user</strong> → query <strong>findByIdAndUserId(orderId, user.getId())</strong> → map to <strong>OrderResponseDto</strong>
+    Fix: a SQL placeholder for the email, and <strong>password.equals(...)</strong> — then you still read the diff before you merge.
   </div>
   <div class="step-triggers" aria-hidden="true">
     <span class="fragment" data-pr-step="1"></span>
@@ -114,110 +112,100 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:21 – 0:24 · Interactive "Spot the AI Trap" (60 seconds)**
-- Let the room stare at the PR diff for 30–45 seconds and yell out bugs!
-- Ask: *"It compiles. Happy-path Postman request returns 200 OK. Who hits Merge?"*
-- Advance once (or click **Trap 1**): **IDOR / Broken Access Control** — AI happily wrote `findById(orderId)` without scoping to the authenticated user! Change `1001` to `1002` and you just dumped another customer's order.
-- Advance again (or click **Trap 2**): **Raw Entity Leak** — returning the JPA `Order` entity instead of a response DTO leaks internal/PII columns and triggers lazy-loading surprises.
-- Advance a third time (or click **Show Fix**): show the clean 1-line fix. Notice how the GitHub PR diff view itself reinforces why PR review is your real superpower!
+**0:22 – 0:25 · Let them shout. Then reveal.**
+- Give them 20–30 seconds. Ask a couple of people before you click.
+- **Bug 1:** the email is concatenated into SQL. They've seen this if they took databases. You don't need the attack string. Just: the user controls the query. Fix is a placeholder / prepared statement.
+- **Bug 2:** `==` on strings. First-year Java. AI still ships it because the happy path can pass if both sides happen to be the same object.
+- **Fix:** say the rule, don't live-code it. "AI wrote a draft. You are the one who knows SQL and Java."
+- Optional verbal extra if someone spots it: the password is compared in plain text. Don't turn that into a third lecture.
 {{% /note %}}
 
 ---
 
-<span class="eyebrow eyebrow--teal">THE REAL AI WORKFLOW</span>
-<h2 class="slide-title">Move AI Upstream &amp; Downstream</h2>
+<span class="eyebrow eyebrow--teal">WHERE TO USE AI</span>
+<h2 class="slide-title">Not only in the middle.</h2>
 
 <div class="sdlc-flow">
   <div class="sdlc-stage sdlc-stage--up fragment">
-    <div class="sdlc-tag">UPSTREAM · BEFORE CODE</div>
-    <h3 class="sdlc-title">Think &amp; Stress-Test</h3>
+    <div class="sdlc-tag">BEFORE YOU CODE</div>
+    <h3 class="sdlc-title">Ask it to poke holes</h3>
     <ul class="sdlc-list">
-      <li>→ Architecture critique</li>
-      <li>→ Edge-case discovery</li>
-      <li>→ Threat modeling</li>
+      <li>→ What's weak in this idea?</li>
+      <li>→ What input breaks it?</li>
     </ul>
   </div>
   <div class="sdlc-stage sdlc-stage--mid">
-    <div class="sdlc-tag">MIDDLE</div>
-    <h3 class="sdlc-title">Code Gen</h3>
+    <div class="sdlc-tag">WHILE YOU CODE</div>
+    <h3 class="sdlc-title">Let it draft</h3>
     <ul class="sdlc-list">
-      <li>→ Fast first drafts</li>
-      <li>→ Boilerplate</li>
+      <li>→ First version</li>
+      <li>→ Boring boilerplate</li>
     </ul>
   </div>
   <div class="sdlc-stage sdlc-stage--down fragment">
-    <div class="sdlc-tag">DOWNSTREAM · BEFORE MERGE</div>
-    <h3 class="sdlc-title">Verify &amp; Harden</h3>
+    <div class="sdlc-tag">BEFORE YOU SUBMIT</div>
+    <h3 class="sdlc-title">Then you check</h3>
     <ul class="sdlc-list">
-      <li>→ Draft test suites</li>
-      <li>→ Pre-PR security checks</li>
-      <li>→ Docs &amp; diff review</li>
+      <li>→ Ask for tests</li>
+      <li>→ Read the diff yourself</li>
     </ul>
   </div>
 </div>
 
 <div class="merge-rule fragment">
-  AI writes drafts. <span>You sign your name on the merge button.</span>
+  AI writes the draft. <span>You explain it, or you don't merge it.</span>
 </div>
 
 {{% note %}}
-**0:24 – 0:25 · The Golden Rule**
-- Most students only use AI in the tiny middle box ("write code").
-- Senior engineers push AI **upstream** (roast my design, find edge cases) and **downstream** (generate unit/integration tests, run pre-PR security reviews, catch missing auth checks).
-- Deliver the closing line slow and clear: *"AI writes drafts. You sign your name on the merge button."*
-- Transition into Java4Shell: *"And security isn't just about bugs AI writes in YOUR PR — let me show you what happened literally 4 days ago."*
+**0:25 – 0:26**
+- Most of them only use the middle box: "write my code."
+- The useful move is before (critique my idea) and after (tests, then I read it).
+- Say the bottom line slowly. Then: "And this isn't only student homework. This week, AI found a bug inside Java itself."
 {{% /note %}}
 
 ---
 
 {{< slide class="dark-coral" >}}
 
-<span class="eyebrow eyebrow--dark-coral">BREAKING · NOV 17, 2026 · CVE-2026-114938</span>
-<h2 class="slide-title" style="font-size:70px !important;">Java4Shell: <span class="accent-orange">&lt; $200</span> vs. The Java Ecosystem</h2>
-
-<div class="cve-trigger">
-  <span class="cve-trigger-label">TRIGGER</span>
-  <code>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</code>
-  <span class="cve-trigger-meta">65 chars → OpenJDK HotSpot Base64 overflow → pre-auth RCE</span>
-</div>
+<span class="eyebrow eyebrow--dark-coral">THIS WEEK · JAVA4SHELL</span>
+<h2 class="slide-title" style="font-size:68px !important;">Under $200 of AI. Then every Java system needed a fix.</h2>
 
 <div class="cve-grid">
   <div class="cve-stat cve-stat--orange fragment">
-    <div class="cve-stat-tag">ATTACK COST</div>
+    <div class="cve-stat-tag">WHAT IT COST TO FIND</div>
     <div class="cve-stat-num">&lt; $200</div>
-    <div class="cve-stat-desc"><strong>1 hr</strong> to discover · <strong>2 hrs</strong> to build a working exploit using AI (Codex).</div>
+    <div class="cve-stat-desc">A few hours with AI. A researcher pointed it at Java itself and found a serious bug.</div>
   </div>
   <div class="cve-stat cve-stat--coral fragment">
-    <div class="cve-stat-tag">BLAST RADIUS</div>
-    <div class="cve-stat-num">OpenJDK</div>
-    <div class="cve-stat-desc">Base64 runtime flaw hitting <strong>Java 17 / 21 / 25 / 27</strong> — Spring Boot, Jira, Jenkins, Kafka &amp; more.</div>
+    <div class="cve-stat-tag">WHAT BROKE</div>
+    <div class="cve-stat-num">Java</div>
+    <div class="cve-stat-desc">Not one app. The runtime. Companies had to patch Java across their systems.</div>
   </div>
   <div class="cve-stat cve-stat--teal fragment">
-    <div class="cve-stat-tag">DEFENSE REALITY</div>
-    <div class="cve-stat-num">48h ago</div>
-    <div class="cve-stat-desc">Global Java fleets scrambling to patch every runtime across prod — <strong>including ours</strong>.</div>
+    <div class="cve-stat-tag">WHAT THAT LOOKS LIKE</div>
+    <div class="cve-stat-num">2 days ago</div>
+    <div class="cve-stat-desc">We were still rolling that fix out. The whole Java estate, not one repo.</div>
   </div>
 </div>
 
 <div class="cve-bottom fragment">
   <div class="cve-quote">
-    “Most early AI results were slop. AI brings the horsepower — the human brings the context.”
-    <span>— Calif Security Research (Java4Shell disclosure)</span>
+    The AI got there faster. A person still had to understand the bug.
   </div>
   <div class="cve-bridge">
-    Attack cost just dropped to <strong>$200</strong>.<br>
-    Now imagine patching hundreds of services by hand…
+    Finding it was cheap.<br>
+    <strong>Fixing it everywhere was the job.</strong>
   </div>
 </div>
 
 {{% note %}}
-**0:25 – 0:26 · Breaking Real-World Proof: Java4Shell (Nov 17, 2026)**
-- Drop the live, fresh-off-the-press reality check: *"This isn't theory. Four days ago — November 17 — Java4Shell (CVE-2026-114938) dropped."*
-- Walk the 3 cards:
-  1. **< $200 & 3 hours:** One security researcher (Quang Luong at Calif) pointed AI (OpenAI Codex) at OpenJDK HotSpot's Base64 decoder. 1 hour to find a deep x86-64 AVX-512 assembly memory-corruption bug, 2 hours to build a working exploit — under $200 in AI tokens!
-  2. **OpenJDK Blast Radius:** Literally 64 `A`s + `=` overflows the heap buffer in Java's own Base64 decoder (used in HTTP Basic Auth, JWTs, uploads, TLS) — affecting OpenJDK 17, 21, 25, 27 across Spring Boot, Keycloak, Jenkins, Jira, Kafka, etc.
-  3. **48 Hours Ago (Your Personal Story — verbal!):** Share that at Expedia just **2 days ago**, your teams had to scramble to roll out fixes across Java services — the whole Java ecosystem had to move fast on a runtime-level vulnerability.
-- Hit the Calif quote + bridge straight into Act 5:
-  - Notice even the hacker said *"most early AI results were slop — AI brought horsepower, the human brought context."*
-  - And the asymmetry is real: **<$200** of AI tokens forced companies worldwide to remediate entire fleets of Java codebases. *"Now imagine doing fleet-wide upgrades and migrations by hand… THAT brings us to Act 5: real production war stories."*
+**0:26 – 0:28 · One story. No assembly, no payload, no CVE number unless someone asks.**
+- November 17, 2026. Researchers named it Java4Shell. A bug in Java's own Base64 decoder. On some servers it can be serious. You do not need the trigger string or the CPU details on stage.
+- The number that matters for this room: under $200 and a few hours of AI. Then companies had to patch Java everywhere.
+- Your part, said out loud, not as a logo: about two days ago we were still pushing that fix across our Java systems. It wasn't one service. It was the platform.
+- If they ask "how bad": high risk, not "the internet is on fire," and it depends on the machine. Don't oversell it into Log4Shell.
+- Bridge: "That's the job AI doesn't remove. Someone has to understand the change and roll it out safely. Which is the next story, told simply."
+- This act is one column: trap → login bug → where to use AI → Java4Shell. Space walks down. → jumps to the work story.
 {{% /note %}}
+
+{{% /section %}}

@@ -5,9 +5,6 @@ date = 2026-11-21
 outputs = ["Reveal"]
 url = "/ai-swe-2026/"
 weight = 1
-
-[reveal_hugo]
-navigation_mode = "linear"
 +++
 
 {{< slide class="hero-slide" >}}
@@ -30,5 +27,5 @@ navigation_mode = "linear"
 {{% note %}}
 **0:00 — Opening Vibe (30 sec)**
 - Keep this super brief! Don't introduce your bio yet — save it for after the salary hook.
-- Kill the "formal university seminar" energy right away: smile, step forward, and advance straight to Slide 2 for the live hands-up salary poll.
+- Kill the "formal university seminar" energy right away: smile, step forward, and go → to the salary question. Ask it open. No numbers until the next slide.
 {{% /note %}}

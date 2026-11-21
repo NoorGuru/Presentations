@@ -129,46 +129,46 @@
      ------------------------------------------------------------------------ */
   var LADDER_DATA = {
     "0": {
-      badge: "LAYER 1 · FOUNDATION",
-      title: "Git, PRs & APIs",
-      metaphor: "The non-negotiable concrete slab",
-      desc: "Without clean Git diffs, PR review discipline, and solid API fluency, every AI layer above collapses into broken production changes.",
-      example: "PR = your safety gate  |  APIs = how agents touch the real world"
+      badge: "START HERE",
+      title: "The basics",
+      metaphor: "Git, HTTP, SQL, one language",
+      desc: "AI sits on top of these. If you can't branch, read a pull request, call an API, or explain your own code, the tools above just make a mess faster.",
+      example: "Practice the basics this semester. Learn the names above them so they stop sounding like magic."
     },
     "1": {
-      badge: "LAYER 2 · STEP 01",
+      badge: "STEP 01",
       title: "AI / LLMs",
-      metaphor: "A brain in a jar",
-      desc: "Brilliant at syntax, refactoring, and explaining concepts — but completely blind to your repository, logs, tickets, and production state.",
-      example: "Chat window + inline autocomplete (zero direct environment access)"
+      metaphor: "A smart chat box",
+      desc: "ChatGPT, Copilot, Gemini. Great at explaining code and drafting a first version. Blind to your project unless you paste it in.",
+      example: "Use it to explain code and poke holes in your idea. Don't submit what you can't explain."
     },
     "2": {
-      badge: "LAYER 2 · STEP 02",
+      badge: "STEP 02",
       title: "MCP",
-      metaphor: "The USB-C port for AI",
-      desc: "Model Context Protocol gives your AI one standard plug into GitHub, databases, logs, and internal docs — no more copy-pasting screenshots.",
-      example: "IDE / Agent <--[ MCP ]--> GitHub · Postgres · Logs · Internal Docs"
+      metaphor: "A plug for the AI",
+      desc: "Instead of pasting screenshots, you connect the AI to GitHub, a database, or your notes. MCP is just the standard plug that makes that possible.",
+      example: "You don't need to build one this semester. Just know why copy-paste isn't the real workflow."
     },
     "3": {
-      badge: "LAYER 2 · STEP 03",
+      badge: "STEP 03",
       title: "Skills",
-      metaphor: "Version-controlled team playbooks",
-      desc: "Encode your team's testing rules, security checklists, or migration steps in Git so every engineer's AI follows the exact same standard.",
-      example: ".skills/migrate-service/SKILL.md -> deterministic rules, not vibes"
+      metaphor: "A saved checklist",
+      desc: "A markdown file in the repo that says: test it this way, don't touch these files, follow these steps. Every person's AI then follows the same rules.",
+      example: "Think of it as a README the AI is required to read before it edits."
     },
     "4": {
-      badge: "LAYER 2 · STEP 04",
+      badge: "STEP 04",
       title: "Agents",
-      metaphor: "LLM + Tools + a Loop",
-      desc: "Instead of only printing text, an agent reads files, runs tests in the terminal, inspects the stack trace, and fixes its own mistakes.",
-      example: "Read code -> Edit -> Run mvn test -> See failure -> Fix -> Pass"
+      metaphor: "Chat, plus it can use the computer",
+      desc: "An agent doesn't only reply. It can open files, run a command, read the error, and try again. That's it: model + tools + a loop.",
+      example: "Read the file → edit → run the tests → see the failure → fix it."
     },
     "5": {
-      badge: "LAYER 2 · STEP 05",
-      title: "Autonomous Agents",
-      metaphor: "Bounded autonomy while you sleep",
-      desc: "Handles scoped multi-step tasks asynchronously — strictly constrained by sandboxes, automated test gates, and human PR approval.",
-      example: "Scoped ticket -> Branch -> Verify CI -> PR waiting for you at 9 AM"
+      badge: "STEP 05",
+      title: "Autonomous agents",
+      metaphor: "It keeps going while you're away",
+      desc: "Same idea, left running on a small, clear task. It can open a pull request overnight. A person still reads it and decides what merges.",
+      example: "Useful later. Worthless if you can't review the PR it opens."
     }
   };
 
