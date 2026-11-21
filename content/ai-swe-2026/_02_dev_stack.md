@@ -64,14 +64,19 @@ weight = 3
     </div>
     <div class="term in d5" style="font-size:36px;"><span class="prompt">SELECT</span> u.name, o.total<br><span class="prompt">FROM</span> users u<br><span class="prompt">JOIN</span> orders o<br>&nbsp;&nbsp;<span class="prompt">ON</span> o.user_id = u.id<br><span class="prompt">WHERE</span> o.total &gt; 100;</div>
   </div>
+  <div class="step-triggers" aria-hidden="true">
+    <span class="fragment" data-lang-step="1">&nbsp;</span>
+    <span class="fragment" data-lang-step="2">&nbsp;</span>
+    <span class="fragment" data-lang-step="3">&nbsp;</span>
+    <span class="fragment" data-lang-step="4">&nbsp;</span>
+  </div>
 </div>
 
 {{% note %}}
-**One language + SQL · let it play.**
-- Slide opens on Java. It auto-plays: strike → JavaScript → Rust → Go → **One language**.
-- Talk over it. Don't click through. About 6 seconds to the landing.
-- When it lands, say: "Pick one. Go deep. Explain every line. Whiteboard a JOIN. The language is not the point."
-- Click the name if you need to skip to the end. Then ↓.
+**One language + SQL · four clicks (Space or ↓).**
+- Opens on Java. Each click: red strike, then the next language.
+- Java → JavaScript → Rust → Go → **One language** + “The language is not the point.”
+- Land it: "Pick one. Go deep. The language is not the point." Then ↓.
 {{% /note %}}
 
 ---
