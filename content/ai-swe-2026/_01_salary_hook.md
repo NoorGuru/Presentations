@@ -20,23 +20,11 @@ weight = 2
 
 ---
 
-<div class="stage">
-  <h2 class="t-huge"><span class="line"><span>Same degree.</span></span><span class="line"><span class="d2">Same city.</span></span></h2>
-  <p class="t-lead in d5">Three real Day-1 offers. All in Amman.</p>
-</div>
-
-{{% note %}}
-**0:02 · Set the frame.** Same degree, same city. No remote fantasy. The next three slides are one climb: the number and the bars grow each click.
-{{% /note %}}
-
----
-
 {{< slide auto-animate="true" auto-animate-id="tiers" >}}
 
 <div class="tier">
   <div class="tier-copy">
-    <p class="t-lead in" data-id="tier-label">Local shops</p>
-    <p class="t-mega num tier-num in d1" data-id="tier-num" style="--size:200px;"><span><span data-count="350">350</span>–</span><span data-count="550">550</span></p>
+    <p class="t-mega num tier-num in d1" data-id="tier-num" style="--size:200px;"><span><span data-count="350">350</span> – </span><span data-count="550">550</span></p>
     <p class="t-small in d4" data-id="tier-sub">JOD a month. Agencies and small software houses.</p>
   </div>
   <div class="tier-bars">
@@ -54,8 +42,7 @@ weight = 2
 
 <div class="tier">
   <div class="tier-copy">
-    <p class="t-lead" data-id="tier-label">Product companies</p>
-    <p class="t-mega num tier-num" data-id="tier-num" style="--size:250px;"><span><span data-count="600" data-from="350">600</span>–</span><span data-count="1000" data-from="550">1,000</span></p>
+    <p class="t-mega num tier-num" data-id="tier-num" style="--size:250px;"><span><span data-count="600" data-from="350">600</span> – </span><span data-count="1000" data-from="550">1,000</span></p>
     <p class="t-small" data-id="tier-sub">JOD a month. Local and regional tech. Strong full-stack juniors.</p>
   </div>
   <div class="tier-bars">
@@ -75,7 +62,7 @@ weight = 2
 <div class="tier">
   <div class="tier-copy">
     <p class="t-lead" data-id="tier-label">Multinationals, in Amman</p>
-    <p class="t-mega num tier-num" data-id="tier-num" style="--size:310px;"><span><span data-count="1500" data-from="600">1,500</span>–</span><span><span data-count="2000" data-from="1000">2,000</span>+</span></p>
+    <p class="t-mega num tier-num" data-id="tier-num" style="--size:310px;"><span><span data-count="1500" data-from="600">1,500</span> – </span><span><span data-count="2000" data-from="1000">2,000</span>+</span></p>
     <p class="t-small" data-id="tier-sub">JOD a month. Amazon, Expedia, Careem, and peers.</p>
   </div>
   <div class="tier-bars">
@@ -119,8 +106,7 @@ weight = 2
 {{< slide class="amber" >}}
 
 <div class="stage">
-  <p class="t-lead in">So what separates those three offers?</p>
-  <h2 class="t-mega"><span class="line"><span class="d2">Judgment.</span></span></h2>
+  <h2 class="t-mega"><span class="line"><span class="d2">So what separates those offers?</span></span></h2>
 </div>
 
 {{% note %}}
@@ -131,7 +117,7 @@ weight = 2
 
 <div class="stage">
   <h2 class="t-huge"><span class="line"><span>I sat in</span></span><span class="line"><span class="d1">these chairs.</span></span></h2>
-  <p class="t-lead in d4">Computer Engineering, University of Jordan.</p>
+  <h3 class="t-lead in d4">Computer Engineering, University of Jordan.</h3>
 </div>
 
 {{% note %}}
@@ -189,12 +175,14 @@ weight = 2
 {{< slide class="navy" >}}
 
 <div class="stage">
-  <p class="t-lead in" style="max-width:34ch;">The market used to forgive a junior who couldn’t explain their code.</p>
-  <h2 class="t-mega"><span class="line"><span class="d3">Not</span></span><span class="line"><span class="d4"><span class="mark" style="--md:1.2s;">anymore.</span></span></span></h2>
+  <p class="t-lead in">AI wrote it. Now they ask:</p>
+  <h2 class="t-mega" style="font-size:420px;"><span class="line"><span class="d3"><span class="mark" style="--md:1.1s;">Why?</span></span></span></h2>
 </div>
 
 {{% note %}}
-**0:06 · The punch, slowly.** That forgiveness is gone, because AI already produces that code. Bridge →: "So let's start at the bottom of that tower."
+**0:06 · The punch. Say "Why?" and stop.**
+- Working code used to be proof you understood it. Now AI writes working code, so interviewers and reviewers ask the next question.
+- Bridge →: "And to answer why, you need the bottom of that tower."
 {{% /note %}}
 
 {{% /section %}}
