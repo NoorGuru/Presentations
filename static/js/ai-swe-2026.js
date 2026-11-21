@@ -181,8 +181,8 @@
   }
 
   /* ---------- Language cycle ---------- */
-  /* Auto-plays when the slide opens. ↓ skips fragments in this deck, so fragments
-     were the wrong driver — the cycle must run itself after Java lands. */
+  /* Clicker-driven: each step uses the same .strike sweep as the rest of the deck.
+     ↓ normally skips fragments — remap it on this slide so Space and ↓ both step. */
 
   var LANGS = ["Java", "JavaScript", "Rust", "Go", "One language"];
   var LANG_SIZE = { Java: "200px", JavaScript: "112px", Rust: "200px", Go: "200px", "One language": "108px" };
@@ -193,21 +193,19 @@
     var nameEl = root.querySelector("[data-lang-name]");
     var punch = root.querySelector("[data-lang-punch]");
     var step = 0;
-    var timers = [];
-    var running = false;
+    var busy = false;
+    var timer = null;
+    var queued = null;
 
-    function clearTimers() {
-      timers.forEach(clearTimeout);
-      timers = [];
-      running = false;
-    }
-
-    function later(fn, ms) {
-      timers.push(setTimeout(fn, ms));
+    function clearTimer() {
+      if (timer) { clearTimeout(timer); timer = null; }
     }
 
     function paint(next, animate) {
-      nameEl.classList.remove("is-struck", "is-swapping", "is-arriving", "is-final");
+      clearTimer();
+      busy = false;
+      nameEl.classList.remove("strike", "is-swapping", "is-arriving", "is-final");
+      nameEl.style.removeProperty("--sd");
       nameEl.textContent = LANGS[next];
       nameEl.style.fontSize = LANG_SIZE[LANGS[next]] || "160px";
       nameEl.classList.toggle("is-final", next === LANGS.length - 1);
@@ -217,68 +215,70 @@
         nameEl.classList.add("is-arriving");
       }
       step = next;
+      if (queued !== null && queued !== step) {
+        var q = queued;
+        queued = null;
+        goTo(q);
+      }
     }
 
     function swapTo(next) {
-      if (reduceMotion) {
-        paint(next, false);
-        return;
-      }
+      busy = true;
       nameEl.classList.remove("is-arriving", "is-final");
-      nameEl.classList.add("is-struck");
-      later(function () {
+      // Same reviewer's-pen strike used on "syntax" and the habit slides.
+      nameEl.style.setProperty("--sd", "0s");
+      nameEl.classList.add("strike");
+      void nameEl.offsetWidth;
+      clearTimer();
+      timer = setTimeout(function () {
         nameEl.classList.add("is-swapping");
-        later(function () {
+        timer = setTimeout(function () {
           paint(next, true);
         }, 280);
-      }, 450);
+      }, 520);
     }
 
-    function play() {
-      clearTimers();
-      paint(0, false);
-      if (punch) punch.classList.remove("is-shown");
-      if (reduceMotion) {
-        paint(LANGS.length - 1, false);
+    function goTo(next) {
+      next = Math.max(0, Math.min(LANGS.length - 1, next));
+      if (next === step && !busy) return;
+      if (busy) { queued = next; return; }
+      if (reduceMotion || next !== step + 1) {
+        paint(next, next > step && !reduceMotion);
         return;
       }
-      running = true;
-      // Beat 1: let Java sit. Then strike → JS → Rust → Go → One language.
-      var at = 1100;
-      for (var i = 1; i < LANGS.length; i++) {
-        (function (next, start) {
-          later(function () {
-            if (!currentSlideHas(root)) return;
-            swapTo(next);
-          }, start);
-        })(i, at);
-        at += 1400;
+      swapTo(next);
+    }
+
+    function fromFragments() {
+      var max = 0;
+      root.querySelectorAll(".step-triggers .fragment.visible").forEach(function (el) {
+        max = Math.max(max, Number(el.dataset.langStep));
+      });
+      goTo(max);
+    }
+
+    // ↓ / ↑ step fragments on this slide instead of jumping vertically.
+    document.addEventListener("keydown", function (e) {
+      if (!currentSlideHas(root) || e.metaKey || e.ctrlKey || e.altKey) return;
+      var avail = Reveal.availableFragments();
+      if (e.key === "ArrowDown" && avail.next) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        Reveal.nextFragment();
+      } else if (e.key === "ArrowUp" && avail.prev) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        Reveal.prevFragment();
       }
-      later(function () { running = false; }, at);
-    }
+    }, true);
 
-    function stop() {
-      clearTimers();
-      paint(0, false);
-    }
-
-    // Click the name to skip straight to the landing.
-    nameEl.style.cursor = "pointer";
-    nameEl.title = "Skip to the point";
-    nameEl.addEventListener("click", function (e) {
-      e.stopPropagation();
-      clearTimers();
-      paint(LANGS.length - 1, !reduceMotion);
-    });
-
+    Reveal.on("fragmentshown", fromFragments);
+    Reveal.on("fragmenthidden", fromFragments);
     Reveal.on("slidechanged", function (ev) {
-      if (ev.currentSlide.contains(root)) play();
-      else stop();
+      if (ev.currentSlide.contains(root)) fromFragments();
+      else paint(0, false);
     });
-    if (Reveal.isReady() && currentSlideHas(root)) play();
-    else Reveal.on("ready", function (ev) {
-      if (ev.currentSlide.contains(root)) play();
-    });
+    paint(0, false);
   }
 
   function boot() {
