@@ -1570,3 +1570,139 @@ body.is-dark-slide .slide-meta a:hover {
   font-weight: 600;
   color: var(--ai-ink);
 }
+
+/* ==========================================================================
+   Act 4 Bridge: Java4Shell (CVE-2026-114938) Breaking Security Case Study
+   ========================================================================== */
+
+.cve-trigger {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 14px 0 26px;
+  padding: 14px 22px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.34);
+  border: 1.5px solid rgba(248, 113, 113, 0.42);
+}
+
+.cve-trigger-label {
+  font-family: var(--r-code-font);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(220, 38, 38, 0.28);
+  color: #fca5a5;
+}
+
+.cve-trigger code {
+  font-family: var(--r-code-font) !important;
+  font-size: 21px !important;
+  color: #fde68a !important;
+  background: transparent !important;
+  padding: 0 !important;
+  letter-spacing: 0.02em;
+}
+
+.cve-trigger-meta {
+  font-size: 23px;
+  color: rgba(241, 245, 249, 0.8);
+  margin-left: auto;
+}
+
+.cve-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.cve-stat {
+  padding: 28px 30px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  border-top: 8px solid var(--cve-color, var(--ai-orange));
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cve-stat--orange { --cve-color: var(--ai-orange); }
+.cve-stat--coral  { --cve-color: #f87171; }
+.cve-stat--teal   { --cve-color: #2dd4bf; }
+
+.cve-stat-tag {
+  font-family: var(--r-code-font);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--cve-color);
+}
+
+.cve-stat-num {
+  font-size: 82px;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 12px 0;
+}
+
+.cve-stat-desc {
+  font-size: 26px;
+  line-height: 1.35;
+  color: rgba(241, 245, 249, 0.84);
+}
+
+.cve-stat-desc strong {
+  color: #ffffff;
+}
+
+.cve-bottom {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.cve-quote {
+  padding: 22px 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 6px solid rgba(255, 255, 255, 0.35);
+  font-size: 26px;
+  line-height: 1.35;
+  color: rgba(241, 245, 249, 0.9);
+  font-style: italic;
+}
+
+.cve-quote span {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-family: var(--r-code-font);
+  font-size: 19px;
+  color: rgba(241, 245, 249, 0.62);
+}
+
+.cve-bridge {
+  padding: 22px 28px;
+  border-radius: 18px;
+  background: rgba(247, 148, 29, 0.14);
+  border: 2px solid var(--ai-orange);
+  font-size: 28px;
+  line-height: 1.35;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cve-bridge strong {
+  color: #ffb347;
+}

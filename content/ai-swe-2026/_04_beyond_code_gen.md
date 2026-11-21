@@ -161,8 +161,63 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:24 – 0:26 · The Golden Rule**
+**0:24 – 0:25 · The Golden Rule**
 - Most students only use AI in the tiny middle box ("write code").
 - Senior engineers push AI **upstream** (roast my design, find edge cases) and **downstream** (generate unit/integration tests, run pre-PR security reviews, catch missing auth checks).
 - Deliver the closing line slow and clear: *"AI writes drafts. You sign your name on the merge button."*
+- Transition into Java4Shell: *"And security isn't just about bugs AI writes in YOUR PR — let me show you what happened literally 4 days ago."*
+{{% /note %}}
+
+---
+
+{{< slide class="dark-coral" >}}
+
+<span class="eyebrow eyebrow--dark-coral">BREAKING · NOV 17, 2026 · CVE-2026-114938</span>
+<h2 class="slide-title" style="font-size:70px !important;">Java4Shell: <span class="accent-orange">&lt; $200</span> vs. The Java Ecosystem</h2>
+
+<div class="cve-trigger">
+  <span class="cve-trigger-label">TRIGGER</span>
+  <code>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</code>
+  <span class="cve-trigger-meta">65 chars → OpenJDK HotSpot Base64 overflow → pre-auth RCE</span>
+</div>
+
+<div class="cve-grid">
+  <div class="cve-stat cve-stat--orange fragment">
+    <div class="cve-stat-tag">ATTACK COST</div>
+    <div class="cve-stat-num">&lt; $200</div>
+    <div class="cve-stat-desc"><strong>1 hr</strong> to discover · <strong>2 hrs</strong> to build a working exploit using AI (Codex).</div>
+  </div>
+  <div class="cve-stat cve-stat--coral fragment">
+    <div class="cve-stat-tag">BLAST RADIUS</div>
+    <div class="cve-stat-num">OpenJDK</div>
+    <div class="cve-stat-desc">Base64 runtime flaw hitting <strong>Java 17 / 21 / 25 / 27</strong> — Spring Boot, Jira, Jenkins, Kafka &amp; more.</div>
+  </div>
+  <div class="cve-stat cve-stat--teal fragment">
+    <div class="cve-stat-tag">DEFENSE REALITY</div>
+    <div class="cve-stat-num">48h ago</div>
+    <div class="cve-stat-desc">Global Java fleets scrambling to patch every runtime across prod — <strong>including ours</strong>.</div>
+  </div>
+</div>
+
+<div class="cve-bottom fragment">
+  <div class="cve-quote">
+    “Most early AI results were slop. AI brings the horsepower — the human brings the context.”
+    <span>— Calif Security Research (Java4Shell disclosure)</span>
+  </div>
+  <div class="cve-bridge">
+    Attack cost just dropped to <strong>$200</strong>.<br>
+    Now imagine patching hundreds of services by hand…
+  </div>
+</div>
+
+{{% note %}}
+**0:25 – 0:26 · Breaking Real-World Proof: Java4Shell (Nov 17, 2026)**
+- Drop the live, fresh-off-the-press reality check: *"This isn't theory. Four days ago — November 17 — Java4Shell (CVE-2026-114938) dropped."*
+- Walk the 3 cards:
+  1. **< $200 & 3 hours:** One security researcher (Quang Luong at Calif) pointed AI (OpenAI Codex) at OpenJDK HotSpot's Base64 decoder. 1 hour to find a deep x86-64 AVX-512 assembly memory-corruption bug, 2 hours to build a working exploit — under $200 in AI tokens!
+  2. **OpenJDK Blast Radius:** Literally 64 `A`s + `=` overflows the heap buffer in Java's own Base64 decoder (used in HTTP Basic Auth, JWTs, uploads, TLS) — affecting OpenJDK 17, 21, 25, 27 across Spring Boot, Keycloak, Jenkins, Jira, Kafka, etc.
+  3. **48 Hours Ago (Your Personal Story — verbal!):** Share that at Expedia just **2 days ago**, your teams had to scramble to roll out fixes across Java services — the whole Java ecosystem had to move fast on a runtime-level vulnerability.
+- Hit the Calif quote + bridge straight into Act 5:
+  - Notice even the hacker said *"most early AI results were slop — AI brought horsepower, the human brought context."*
+  - And the asymmetry is real: **<$200** of AI tokens forced companies worldwide to remediate entire fleets of Java codebases. *"Now imagine doing fleet-wide upgrades and migrations by hand… THAT brings us to Act 5: real production war stories."*
 {{% /note %}}
