@@ -1,5 +1,5 @@
 baseURL = "https://present.bynoor.io/"
-title = "Noor | Show"
+title = "Noor | Presentations"
 theme = "reveal-hugo"
 defaultContentLanguage = "en"
 
@@ -17,14 +17,11 @@ mediaType = "text/html"
 isHTML = true
 
 [params.reveal_hugo]
-theme = "blood"
+theme = "white"
 history = true
+width = 1920
+height = 1080
 slide_number = false
-#highlight_theme = "dracula"
-#highlight_theme = "night-owl"
-#highlight_theme = "pojoaque"
-highlight_theme = "vs2015"
-#transition = 'zoom'
-#transition_speed = 'fast'
-# custom_theme was forcing a near-blank white look over blood
-# custom_theme = "reveal-hugo/themes/robot-lung.css"
+highlight_theme = "github"
+transition = "slide"
+background_transition = "fade"

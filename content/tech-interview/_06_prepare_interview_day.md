@@ -4,7 +4,6 @@ weight = 7
 +++
 
 
-<p class="twitter">@mohnoor94</p>
 
 {{% section %}}
 

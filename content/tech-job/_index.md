@@ -1,11 +1,19 @@
 +++
 title = "Cracking the Tech Job Market"
+description = "Frontend, backend, and the basics that get you hired."
+date = 2022-11-05
+tab = "Market"
+address = "market"
+photo = "photos/university-students-in-a-technology-learning-classroom.jpg"
+photo_alt = "Students in a classroom, facing a slide on the projector screen."
 outputs = ["Reveal"]
+url = "/market/"
 aliases = [
-"/TechJobMarket",
-"/tech-job-market"
+"/tech-job/",
+"/TechJobMarket/",
+"/tech-job-market/"
 ]
-weight = 1
+weight = 2
 +++
 
 # Cracking the Tech Job Market
@@ -13,7 +21,6 @@ weight = 1
 ##### by: 'Mohammad Noor' AbuKhleif
 
 ##### [bynoor.io](https://www.bynoor.io)
-##### [@mohnoor94](https://go.bynoor.io/twitter)
-##### www.linkedin.com/in/mohnoor94/
+##### [linkedin.com/in/mohnoor94](https://www.linkedin.com/in/mohnoor94/)
 
-### {{% fragment %}} [go.bynoor.io/tech-job](https://go.bynoor.io/tech-job) {{% /fragment %}}
+### {{% fragment %}} [present.bynoor.io/market](https://present.bynoor.io/market) {{% /fragment %}}

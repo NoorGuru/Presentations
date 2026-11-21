@@ -1,0 +1,25 @@
+<script>
+(function () {
+  function fit() {
+    if (!window.Reveal || !Reveal.getComputedSlideSize) return;
+    var limit = Reveal.getComputedSlideSize().height;
+    var sections = document.querySelectorAll(".reveal .slides section:not(.stack)");
+    sections.forEach(function (section) { section.classList.remove("is-scroll"); });
+    sections.forEach(function (section) {
+      if (section.scrollHeight > limit - 8) section.classList.add("is-scroll");
+    });
+  }
+
+  function bind() {
+    if (!window.Reveal || bind.done) return;
+    bind.done = true;
+    Reveal.on("ready", fit);
+    Reveal.on("resize", fit);
+    Reveal.on("slidechanged", fit);
+    if (Reveal.isReady && Reveal.isReady()) fit();
+  }
+
+  if (document.readyState === "complete") bind();
+  else window.addEventListener("load", bind);
+})();
+</script>

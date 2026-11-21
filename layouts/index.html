@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang | default "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ or .Title .Site.Title }}</title>
+    <meta name="description" content="Talks by Mohammad Noor AbuKhleif.">
+    <meta name="color-scheme" content="light">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ "css/home.css" | relURL }}">
+  </head>
+  <body>
+    <main class="page">
+      <header class="head">
+        <div>
+          <h1>Presentations</h1>
+          <p>Mohammad Noor AbuKhleif</p>
+        </div>
+        <a class="site" href="https://www.bynoor.io">bynoor.io</a>
+      </header>
+
+      <ul class="talks">
+        {{- range (where .Site.Sections "Kind" "section").ByDate.Reverse -}}
+          {{- if .Title -}}
+            {{- $path := strings.TrimSuffix "/" .RelPermalink -}}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            <span class="talk">
+              <span class="title">{{ .Title }}</span>
+              <span class="url">present.bynoor.io{{ $path }}</span>
+            </span>
+            {{- if gt .Date.Year 1 -}}
+            <time datetime="{{ .Date.Format "2006-01" }}">{{ .Date.Format "January 2006" }}</time>
+            {{- end -}}
+          </a>
+        </li>
+          {{- end -}}
+        {{- end -}}
+      </ul>
+    </main>
+  </body>
+</html>
