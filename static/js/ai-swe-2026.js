@@ -1,328 +1,191 @@
 /**
- * Interactive stage enhancements for /ai-swe-2026/
- * 1. Dark-slide chrome adaptation (.slide-meta contrast)
- * 2. Live clickable Salary Poll counter (click cards or press 1-4; 0 to reset)
- * 3. Step-by-step 2026 Dev Stack Ladder (clicker fragments + direct click)
- * 4. GitHub PR Diff "Spot the AI Trap" (clicker fragments + direct toggle buttons)
+ * Stage behaviour for /ai-swe-2026/
+ * - footer contrast on navy and amber slides
+ * - numbers that count up when their slide opens
+ * - the stack ladder (clicker, click, or keys 0-5)
+ * - the pull request diff (clicker, buttons, line click, or keys 1-3)
+ * - the weekend checklist
  */
 (function () {
   "use strict";
 
-  /* ------------------------------------------------------------------------
-     1. Dark slide detection for bottom .slide-meta bar
-     ------------------------------------------------------------------------ */
-  function syncDarkChrome(slide) {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function onSlide(slide) {
     if (!slide) return;
-    var isDark =
-      slide.classList.contains("hero-slide") ||
-      slide.classList.contains("dark-slide") ||
-      slide.classList.contains("dark-coral") ||
-      slide.classList.contains("dark-teal");
-    document.body.classList.toggle("is-dark-slide", isDark);
+    document.body.classList.toggle("is-dark-slide", slide.classList.contains("navy"));
+    document.body.classList.toggle("is-amber-slide", slide.classList.contains("amber"));
+    countUp(slide);
   }
 
-  /* ------------------------------------------------------------------------
-     2. Live Salary Poll Counter
-     ------------------------------------------------------------------------ */
-  var POLL_KEY = "ai_swe_2026_salary_poll_v1";
-
-  function initSalaryPoll() {
-    var root = document.querySelector("[data-salary-poll]");
-    if (!root || root.dataset.bound) return;
-    root.dataset.bound = "1";
-
-    var counts = [0, 0, 0, 0];
-    try {
-      var saved = JSON.parse(sessionStorage.getItem(POLL_KEY) || "null");
-      if (Array.isArray(saved) && saved.length === 4) {
-        counts = saved.map(function (n) { return Math.max(0, Number(n) || 0); });
-      }
-    } catch (_) {}
-
-    var cards = Array.prototype.slice.call(root.querySelectorAll(".poll-card"));
-    var totalEl = root.querySelector("[data-poll-total]");
-    var resetBtn = root.querySelector("[data-poll-reset]");
-
-    function save() {
-      try { sessionStorage.setItem(POLL_KEY, JSON.stringify(counts)); } catch (_) {}
-    }
-
-    function render() {
-      var total = counts.reduce(function (a, b) { return a + b; }, 0);
-      var maxVal = Math.max.apply(null, counts.concat([1]));
-      if (totalEl) totalEl.textContent = String(total);
-
-      cards.forEach(function (card, idx) {
-        var val = counts[idx];
-        var pct = total > 0 ? Math.round((val / total) * 100) : 0;
-        var fillHeight = total > 0 ? Math.round((val / maxVal) * 78) : 0;
-
-        var countEl = card.querySelector("[data-count]");
-        var pctEl = card.querySelector("[data-pct]");
-        var fillEl = card.querySelector(".poll-fill");
-
-        if (countEl) countEl.textContent = String(val);
-        if (pctEl) pctEl.textContent = pct + "%";
-        if (fillEl) fillEl.style.height = fillHeight + "%";
-        card.classList.toggle("has-votes", val > 0);
-      });
-    }
-
-    function bump(idx, delta) {
-      if (idx < 0 || idx >= counts.length) return;
-      counts[idx] = Math.max(0, counts[idx] + delta);
-      save();
-      render();
-      var card = cards[idx];
-      if (card) {
-        card.classList.add("is-bumping");
-        setTimeout(function () { card.classList.remove("is-bumping"); }, 120);
-      }
-    }
-
-    cards.forEach(function (card, idx) {
-      card.addEventListener("click", function (e) {
-        if (e.target.closest("[data-minus]")) return;
-        bump(idx, e.shiftKey ? -1 : 1);
-      });
-
-      var minusBtn = card.querySelector("[data-minus]");
-      if (minusBtn) {
-        minusBtn.addEventListener("click", function (e) {
-          e.stopPropagation();
-          bump(idx, -1);
-        });
-      }
-    });
-
-    if (resetBtn) {
-      resetBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        counts = [0, 0, 0, 0];
-        save();
-        render();
-      });
-    }
-
-    document.addEventListener("keydown", function (e) {
-      if (!window.Reveal) return;
-      var current = Reveal.getCurrentSlide();
-      if (!current || !current.contains(root)) return;
-      if (e.metaKey || e.ctrlKey || e.altKey) return;
-
-      if (e.key >= "1" && e.key <= "4") {
-        e.preventDefault();
-        bump(Number(e.key) - 1, e.shiftKey ? -1 : 1);
-      } else if (e.key === "0") {
-        e.preventDefault();
-        counts = [0, 0, 0, 0];
-        save();
-        render();
-      }
-    });
-
-    render();
+  function format(n) {
+    return Math.round(n).toLocaleString("en-US");
   }
 
-  /* ------------------------------------------------------------------------
-     3. Step-by-Step 2026 Dev Stack Ladder
-     ------------------------------------------------------------------------ */
-  var LADDER_DATA = {
-    "0": {
-      badge: "START HERE",
-      title: "The basics",
-      metaphor: "Git, HTTP, SQL, one language",
-      desc: "AI sits on top of these. If you can't branch, read a pull request, call an API, or explain your own code, the tools above just make a mess faster.",
-      example: "Practice the basics this semester. Learn the names above them so they stop sounding like magic."
-    },
-    "1": {
-      badge: "STEP 01",
-      title: "AI / LLMs",
-      metaphor: "A smart chat box",
-      desc: "ChatGPT, Copilot, Gemini. Great at explaining code and drafting a first version. Blind to your project unless you paste it in.",
-      example: "Use it to explain code and poke holes in your idea. Don't submit what you can't explain."
-    },
-    "2": {
-      badge: "STEP 02",
-      title: "MCP",
-      metaphor: "A plug for the AI",
-      desc: "Instead of pasting screenshots, you connect the AI to GitHub, a database, or your notes. MCP is just the standard plug that makes that possible.",
-      example: "You don't need to build one this semester. Just know why copy-paste isn't the real workflow."
-    },
-    "3": {
-      badge: "STEP 03",
-      title: "Skills",
-      metaphor: "A saved checklist",
-      desc: "A markdown file in the repo that says: test it this way, don't touch these files, follow these steps. Every person's AI then follows the same rules.",
-      example: "Think of it as a README the AI is required to read before it edits."
-    },
-    "4": {
-      badge: "STEP 04",
-      title: "Agents",
-      metaphor: "Chat, plus it can use the computer",
-      desc: "An agent doesn't only reply. It can open files, run a command, read the error, and try again. That's it: model + tools + a loop.",
-      example: "Read the file → edit → run the tests → see the failure → fix it."
-    },
-    "5": {
-      badge: "STEP 05",
-      title: "Autonomous agents",
-      metaphor: "It keeps going while you're away",
-      desc: "Same idea, left running on a small, clear task. It can open a pull request overnight. A person still reads it and decides what merges.",
-      example: "Useful later. Worthless if you can't review the PR it opens."
-    }
+  function countUp(slide) {
+    slide.querySelectorAll("[data-count]").forEach(function (el) {
+      var target = Number(el.dataset.count);
+      if (reduceMotion) { el.textContent = format(target); return; }
+      var start = performance.now();
+      var delay = Number(el.dataset.delay || 150);
+      var duration = 1100;
+      el.textContent = "0";
+      function tick(now) {
+        var t = Math.min(1, Math.max(0, (now - start - delay) / duration));
+        var eased = 1 - Math.pow(1 - t, 4);
+        el.textContent = format(target * eased);
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  function currentSlideHas(root) {
+    var current = window.Reveal && Reveal.getCurrentSlide();
+    return !!(current && current.contains(root));
+  }
+
+  /* ---------- Stack ladder ---------- */
+
+  var LADDER = {
+    0: { title: "The basics", metaphor: "Git, HTTP, SQL, one language", desc: "Everything above sits on this. Shaky here, and the tools only make a mess faster." },
+    1: { title: "LLMs", metaphor: "A smart chat box", desc: "ChatGPT, Copilot, Claude. Great at drafts. Blind to your project unless you show it." },
+    2: { title: "MCP", metaphor: "A plug", desc: "Connects the AI to GitHub, a database, or your docs. No more pasting screenshots." },
+    3: { title: "Skills", metaphor: "A saved checklist", desc: "A file in the repo the AI must follow. Test it this way. Don’t touch that." },
+    4: { title: "Agents", metaphor: "It can use the computer", desc: "Opens files, runs the tests, reads the error, tries again. Model, tools, loop." },
+    5: { title: "Autonomous", metaphor: "It keeps going", desc: "Runs on a small task while you sleep and opens a pull request. You still review it." }
   };
 
-  function initStackLadder() {
+  function initLadder() {
     var root = document.querySelector("[data-stack-ladder]");
-    if (!root || root.dataset.bound) return;
-    root.dataset.bound = "1";
+    if (!root) return;
+    var rungs = Array.prototype.slice.call(root.querySelectorAll(".rung"));
+    var detail = root.querySelector(".ladder-detail");
+    var title = root.querySelector("[data-ladder-title]");
+    var metaphor = root.querySelector("[data-ladder-metaphor]");
+    var desc = root.querySelector("[data-ladder-desc]");
+    var unlocked = 0;
+    var active = -1;
 
-    var rungs = Array.prototype.slice.call(root.querySelectorAll(".ladder-rung"));
-    var foundation = root.querySelector(".ladder-foundation");
-    var badgeEl = root.querySelector("[data-ladder-badge]");
-    var titleEl = root.querySelector("[data-ladder-title]");
-    var metaphorEl = root.querySelector("[data-ladder-metaphor]");
-    var descEl = root.querySelector("[data-ladder-desc]");
-    var exampleEl = root.querySelector("[data-ladder-example]");
-
-    var unlockedUpTo = 0;
-
-    function setActive(stepStr, unlockLevel) {
-      var stepNum = Number(stepStr);
-      if (typeof unlockLevel === "number") {
-        unlockedUpTo = Math.max(0, unlockLevel);
-      } else if (stepNum > unlockedUpTo) {
-        unlockedUpTo = stepNum;
-      }
-
-      if (foundation) {
-        foundation.classList.toggle("is-active", stepNum === 0);
-      }
-
+    function set(step) {
+      unlocked = Math.max(unlocked, step);
       rungs.forEach(function (rung) {
-        var rStep = Number(rung.dataset.step);
-        rung.classList.toggle("is-unlocked", rStep <= unlockedUpTo);
-        rung.classList.toggle("is-active", rStep === stepNum);
+        var s = Number(rung.dataset.step);
+        rung.classList.toggle("is-unlocked", s <= unlocked);
+        rung.classList.toggle("is-active", s === step);
+        rung.setAttribute("aria-pressed", String(s === step));
       });
+      if (step === active) return;
+      active = step;
+      var info = LADDER[step];
+      title.textContent = info.title;
+      metaphor.textContent = info.metaphor;
+      desc.textContent = info.desc;
+      if (!reduceMotion) {
+        detail.classList.remove("is-swapping");
+        void detail.offsetWidth;
+        detail.classList.add("is-swapping");
+      }
+    }
 
-      var info = LADDER_DATA[String(stepNum)] || LADDER_DATA["0"];
-      if (badgeEl) badgeEl.textContent = info.badge;
-      if (titleEl) titleEl.textContent = info.title;
-      if (metaphorEl) metaphorEl.textContent = info.metaphor;
-      if (descEl) descEl.textContent = info.desc;
-      if (exampleEl) exampleEl.textContent = info.example;
+    function fromFragments() {
+      var max = 0;
+      root.querySelectorAll(".step-triggers .fragment.visible").forEach(function (el) {
+        max = Math.max(max, Number(el.dataset.ladderStep));
+      });
+      unlocked = max;
+      set(max);
     }
 
     rungs.forEach(function (rung) {
-      rung.addEventListener("click", function () {
-        var s = Number(rung.dataset.step);
-        setActive(s, Math.max(unlockedUpTo, s));
-      });
+      rung.addEventListener("click", function () { set(Number(rung.dataset.step)); });
     });
 
-    if (foundation) {
-      foundation.addEventListener("click", function () {
-        setActive(0, unlockedUpTo);
-      });
-    }
+    document.addEventListener("keydown", function (e) {
+      if (!currentSlideHas(root) || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key >= "0" && e.key <= "5") { e.preventDefault(); set(Number(e.key)); }
+    });
 
-    function syncFromFragments() {
-      var visible = root.querySelectorAll(".step-triggers .fragment.visible");
-      var maxStep = 0;
-      visible.forEach(function (el) {
-        var s = Number(el.dataset.ladderStep || 0);
-        if (s > maxStep) maxStep = s;
-      });
-      setActive(maxStep, maxStep);
-    }
-
-    if (window.Reveal) {
-      Reveal.on("fragmentshown", syncFromFragments);
-      Reveal.on("fragmenthidden", syncFromFragments);
-      Reveal.on("slidechanged", function (ev) {
-        if (ev.currentSlide && ev.currentSlide.contains(root)) {
-          syncFromFragments();
-        }
-      });
-    }
-
-    setActive(0, 0);
+    Reveal.on("fragmentshown", fromFragments);
+    Reveal.on("fragmenthidden", fromFragments);
+    Reveal.on("slidechanged", function (ev) { if (ev.currentSlide.contains(root)) fromFragments(); });
+    set(0);
   }
 
-  /* ------------------------------------------------------------------------
-     4. GitHub-Style PR Diff ("Spot the AI Trap")
-     ------------------------------------------------------------------------ */
-  function initPrDiff() {
+  /* ---------- Pull request diff ---------- */
+
+  function initDiff() {
     var root = document.querySelector("[data-pr-diff]");
-    if (!root || root.dataset.bound) return;
-    root.dataset.bound = "1";
-
+    if (!root) return;
     var state = { trap1: false, trap2: false, fix: false };
-
-    var btn1 = root.querySelector('[data-toggle="trap1"]');
-    var btn2 = root.querySelector('[data-toggle="trap2"]');
-    var btnFix = root.querySelector('[data-toggle="fix"]');
-
-    var lines1 = root.querySelectorAll('[data-trap="1"]');
-    var lines2 = root.querySelectorAll('[data-trap="2"]');
-    var box1 = root.querySelector('[data-review="1"]');
-    var box2 = root.querySelector('[data-review="2"]');
-    var fixBar = root.querySelector("[data-fix-bar]");
+    var btn = {
+      trap1: root.querySelector('[data-toggle="trap1"]'),
+      trap2: root.querySelector('[data-toggle="trap2"]'),
+      fix: root.querySelector('[data-toggle="fix"]')
+    };
+    var onClass = { trap1: "is-on-red", trap2: "is-on-amber", fix: "is-on-green" };
 
     function render() {
-      lines1.forEach(function (el) { el.classList.toggle("trap-1-active", state.trap1); });
-      lines2.forEach(function (el) { el.classList.toggle("trap-2-active", state.trap2); });
-      if (box1) box1.classList.toggle("is-shown", state.trap1);
-      if (box2) box2.classList.toggle("is-shown", state.trap2);
-      if (fixBar) fixBar.classList.toggle("is-shown", state.fix);
-
-      if (btn1) btn1.classList.toggle("is-on-coral", state.trap1);
-      if (btn2) btn2.classList.toggle("is-on-amber", state.trap2);
-      if (btnFix) btnFix.classList.toggle("is-on-green", state.fix);
+      root.querySelectorAll('[data-trap="1"]').forEach(function (el) { el.classList.toggle("trap-1-active", state.trap1); });
+      root.querySelectorAll('[data-trap="2"]').forEach(function (el) { el.classList.toggle("trap-2-active", state.trap2); });
+      root.querySelector('[data-review="1"]').classList.toggle("is-shown", state.trap1);
+      root.querySelector('[data-review="2"]').classList.toggle("is-shown", state.trap2);
+      root.querySelector("[data-fix]").classList.toggle("is-shown", state.fix);
+      Object.keys(btn).forEach(function (k) {
+        btn[k].classList.toggle(onClass[k], state[k]);
+        btn[k].setAttribute("aria-pressed", String(state[k]));
+      });
     }
 
-    if (btn1) btn1.addEventListener("click", function () { state.trap1 = !state.trap1; render(); });
-    if (btn2) btn2.addEventListener("click", function () { state.trap2 = !state.trap2; render(); });
-    if (btnFix) btnFix.addEventListener("click", function () { state.fix = !state.fix; render(); });
+    function toggle(k) { state[k] = !state[k]; render(); }
 
-    function syncFromFragments() {
-      var t1 = root.querySelector('.step-triggers [data-pr-step="1"]');
-      var t2 = root.querySelector('.step-triggers [data-pr-step="2"]');
-      var t3 = root.querySelector('.step-triggers [data-pr-step="3"]');
-      state.trap1 = !!(t1 && t1.classList.contains("visible"));
-      state.trap2 = !!(t2 && t2.classList.contains("visible"));
-      state.fix = !!(t3 && t3.classList.contains("visible"));
+    Object.keys(btn).forEach(function (k) { btn[k].addEventListener("click", function () { toggle(k); }); });
+    root.querySelectorAll('[data-trap="1"]').forEach(function (el) { el.addEventListener("click", function () { toggle("trap1"); }); });
+    root.querySelectorAll('[data-trap="2"]').forEach(function (el) { el.addEventListener("click", function () { toggle("trap2"); }); });
+
+    document.addEventListener("keydown", function (e) {
+      if (!currentSlideHas(root) || e.metaKey || e.ctrlKey || e.altKey) return;
+      var map = { "1": "trap1", "2": "trap2", "3": "fix" };
+      if (map[e.key]) { e.preventDefault(); toggle(map[e.key]); }
+    });
+
+    function fromFragments() {
+      ["trap1", "trap2", "fix"].forEach(function (k, i) {
+        var t = root.querySelector('.step-triggers [data-pr-step="' + (i + 1) + '"]');
+        state[k] = t.classList.contains("visible");
+      });
       render();
     }
 
-    if (window.Reveal) {
-      Reveal.on("fragmentshown", syncFromFragments);
-      Reveal.on("fragmenthidden", syncFromFragments);
-      Reveal.on("slidechanged", function (ev) {
-        if (ev.currentSlide && ev.currentSlide.contains(root)) {
-          syncFromFragments();
-        }
-      });
-    }
-
+    Reveal.on("fragmentshown", fromFragments);
+    Reveal.on("fragmenthidden", fromFragments);
+    Reveal.on("slidechanged", function (ev) { if (ev.currentSlide.contains(root)) fromFragments(); });
     render();
   }
 
-  /* ------------------------------------------------------------------------
-     Bootstrap on Reveal Ready
-     ------------------------------------------------------------------------ */
-  function boot() {
-    initSalaryPoll();
-    initStackLadder();
-    initPrDiff();
+  /* ---------- Weekend checklist ---------- */
 
-    if (window.Reveal) {
-      Reveal.on("ready", function (ev) { syncDarkChrome(ev.currentSlide); });
-      Reveal.on("slidechanged", function (ev) { syncDarkChrome(ev.currentSlide); });
-      if (Reveal.isReady && Reveal.isReady()) {
-        syncDarkChrome(Reveal.getCurrentSlide());
+  function initChecklist() {
+    document.querySelectorAll("[data-checklist] .check").forEach(function (item) {
+      function flip() {
+        var on = item.classList.toggle("is-checked");
+        item.setAttribute("aria-pressed", String(on));
       }
-    }
+      item.addEventListener("click", flip);
+      item.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); flip(); }
+      });
+    });
+  }
+
+  function boot() {
+    if (!window.Reveal) return;
+    initLadder();
+    initDiff();
+    initChecklist();
+    Reveal.on("slidechanged", function (ev) { onSlide(ev.currentSlide); });
+    if (Reveal.isReady()) onSlide(Reveal.getCurrentSlide());
+    else Reveal.on("ready", function (ev) { onSlide(ev.currentSlide); });
   }
 
   if (document.readyState === "complete") boot();

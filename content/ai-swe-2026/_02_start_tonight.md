@@ -5,114 +5,126 @@ weight = 3
 
 {{% section %}}
 
-{{< slide class="dark-slide" >}}
+{{< slide class="amber" >}}
 
-<div class="act-wrap">
-  <div class="act-ghost-num">02</div>
-  <div>
-    <span class="eyebrow eyebrow--dark">ACT 02 · 0:05 – 0:09</span>
-  </div>
-  <h1 class="act-title">Start Doing This <span class="accent-orange">Tonight</span></h1>
-  <p class="act-sub">Four habits. No job offer required.</p>
-  <div class="act-bar"></div>
+<div class="stage">
+  <h1 class="t-mega"><span class="line"><span>Start</span></span><span class="line"><span class="d1">tonight.</span></span></h1>
+  <p class="t-lead in d4">Four habits. No job offer required.</p>
 </div>
 
 {{% note %}}
-**0:05 · Act door. One sentence, then ↓.**
-- Don't teach the habits up here. The next slide is the 4–5 minutes.
+**0:05 · Part door.** One sentence, then ↓. Each habit gets its own slide, about a minute each.
 {{% /note %}}
 
 ---
 
-<div class="habit-deck">
-<span class="eyebrow eyebrow--cobalt">BEFORE THE WEEKEND</span>
-<h2 class="slide-title">Start Doing This Tonight</h2>
-<p class="slide-subtitle">4 habits you can build before the weekend — no job offer required.</p>
-
-<div class="habit-grid">
-  <article class="habit-card habit-card--cobalt fragment">
-    <div class="habit-head">
-      <span class="habit-idx">01</span>
-      <h3 class="habit-title">Open PRs to yourself</h3>
-    </div>
-    <p class="habit-stop"><span class="habit-label">Stop</span> <s><code>Project_Final_v3_REAL.zip</code> and <code>git commit -m "fix"</code> straight to <code>main</code></s></p>
-    <p class="habit-do"><span class="habit-label">Tonight · 15m</span> Branch your grad project, open a PR to yourself, and read the diff before you merge.</p>
-  </article>
-  <article class="habit-card habit-card--orange fragment">
-    <div class="habit-head">
-      <span class="habit-idx">02</span>
-      <h3 class="habit-title">5 minutes, then say it out loud</h3>
-    </div>
-    <p class="habit-stop"><span class="habit-label">Stop</span> <s>Pasting the stack trace into AI and pushing code you can't explain</s></p>
-    <p class="habit-do"><span class="habit-label">Tonight · every bug</span> Write your own hypothesis for 5 minutes. Then say why the fix works before you push.</p>
-  </article>
-  <article class="habit-card habit-card--teal fragment">
-    <div class="habit-head">
-      <span class="habit-idx">03</span>
-      <h3 class="habit-title">Move AI out of the browser tab</h3>
-    </div>
-    <p class="habit-stop"><span class="habit-label">Stop</span> <s>Copy-pasting snippets back and forth from a chat window</s></p>
-    <p class="habit-do"><span class="habit-label">Tonight · 15m</span> Run AI in your editor. Add a 10-line <code>AGENTS.md</code>: stack, commands, rules.</p>
-  </article>
-  <article class="habit-card habit-card--violet fragment">
-    <div class="habit-head">
-      <span class="habit-idx">04</span>
-      <h3 class="habit-title">Build one loud repo</h3>
-    </div>
-    <p class="habit-stop"><span class="habit-label">Stop</span> <s>A buzzword CV — Java, Python, SQL, React — like everyone else's</s></p>
-    <p class="habit-do"><span class="habit-label">Tonight · 30m</span> Deploy one project. README with a demo GIF, a sketch, and one nasty bug you fixed.</p>
-  </article>
-</div>
-
-<p class="habit-foot">You don't need a senior title to build senior habits.</p>
+<div class="stage">
+  <p class="stop-line in"><span class="strike">Final_v3_REAL.zip</span></p>
+  <h2 class="t-huge"><span class="line"><span class="d3">PR yourself.</span></span></h2>
+  <p class="t-lead in d5">Open a pull request to yourself. Read the diff.</p>
 </div>
 
 {{% note %}}
-**0:05 – 0:10 · About 4–5 minutes. One card per click.**
-- **01:** University trains you to hand in a ZIP and push to `main`. Opening a PR to yourself is the review muscle you'll need on Day 1, when an AI diff looks fine and isn't.
-- **02:** If AI debugs every lab, you graduate with no debugging muscle. The market no longer forgives a junior who can't organize the thought or explain the code. If you can't defend line 14, an interviewer hears it in about 90 seconds.
-- **03:** Stop treating AI like a smarter Google tab. A 10-line `AGENTS.md` is the first taste of telling the tool what matters — stack, how to build, what not to touch. That's the setup for MCP, skills, and agents in the next act.
-- **04:** Hiring managers skim past the same buzzword CV. One live repo with an honest bug note beats ten dead course assignments.
-- Bridge ↓: AI didn't cancel DSA, OOP, or databases. It kept them, and added this bar on top.
-- → jumps to Act 3. Space or ↓ stays here: four habits, then the junior bar.
+**Habit 1 · 15 minutes tonight.**
+- University trains you to hand in a ZIP and push to `main`. A pull request to yourself builds the review muscle you need on Day 1, when an AI diff looks fine and isn't.
 {{% /note %}}
 
 ---
 
-<span class="eyebrow eyebrow--amber">THE BAR MOVED UP</span>
-<h2 class="slide-title">AI didn't cancel the fundamentals.</h2>
-<p class="slide-subtitle">Same foundation. A higher junior bar on top.</p>
+{{< slide class="navy" >}}
 
-<div class="bar-split">
-  <div class="bar-col fragment">
-    <div class="bar-col-tag">Still required · the baseline</div>
-    <ol class="bar-list">
-      <li><span class="bar-idx">01</span>A programming language</li>
-      <li><span class="bar-idx">02</span>Data structures &amp; algorithms</li>
-      <li><span class="bar-idx">03</span>OOP</li>
-      <li><span class="bar-idx">04</span>Databases</li>
-    </ol>
-  </div>
-  <div class="bar-col bar-col--raised fragment">
-    <div class="bar-col-tag">Added today · the new bar</div>
-    <ol class="bar-list">
-      <li><span class="bar-idx">01</span>AI tools, used on purpose</li>
-      <li><span class="bar-idx">02</span>Explain it out loud</li>
-      <li><span class="bar-idx">03</span>Prove the output is right</li>
-    </ol>
-  </div>
-</div>
-
-<div class="punch-banner fragment">
-  The market used to forgive a junior who couldn't explain the code. <strong>Not anymore.</strong> If you can't explain it and prove it's right, AI can already produce it.
+<div class="stage">
+  <p class="stop-line in"><span class="strike">paste error → ask AI → push</span></p>
+  <h2 class="t-huge"><span class="line"><span class="d3">Guess first.</span></span></h2>
+  <p class="t-lead in d5">Five minutes on your own theory. Then say why the fix works, out loud.</p>
 </div>
 
 {{% note %}}
-**Right after the four habits. One minute.**
-- Left column first: language, DSA, OOP, databases. Skipping these because "AI writes the code" is the trap. Companies in Amman still test this.
-- Then the right column: what used to be a senior expectation is now part of the junior job. Use the tools without trusting them. Structure your thoughts out loud. Verify.
-- Punch line, slowly: the market used to hire someone who could write CRUD and struggle to explain it. That forgiveness is gone, because AI already produces that code.
-- Bridge → Act 3: "So practice the basics you can use on Monday: Git, HTTP, one language, SQL, and reading."
+**Habit 2 · every bug.**
+- If AI debugs every lab, you graduate with no debugging muscle.
+- If you can't defend line 14, an interviewer hears it in about 90 seconds.
+{{% /note %}}
+
+---
+
+<div class="stage">
+  <p class="stop-line in"><span class="strike">copy, paste, chat tab, repeat</span></p>
+  <h2 class="t-huge"><span class="line"><span class="d3">AI in your</span></span><span class="line"><span class="d4">editor.</span></span></h2>
+  <p class="t-lead in d6">Plus a ten-line <code>AGENTS.md</code>: your stack, your commands, your rules.</p>
+</div>
+
+{{% note %}}
+**Habit 3 · 15 minutes tonight.**
+- Stop treating AI like a smarter Google tab.
+- `AGENTS.md` is the first taste of telling the tool what matters. It sets up MCP, skills, and agents later.
+{{% /note %}}
+
+---
+
+{{< slide class="navy" >}}
+
+<div class="stage">
+  <p class="stop-line in"><span class="strike">Java, Python, SQL, React…</span></p>
+  <h2 class="t-huge"><span class="line"><span class="d3">One loud repo.</span></span></h2>
+  <p class="t-lead in d5">Live demo. Clear README. One nasty bug you fixed, explained.</p>
+</div>
+
+{{% note %}}
+**Habit 4 · 30 minutes tonight.**
+- Hiring managers skim past the same buzzword CV. One live repo with an honest bug note beats ten dead course assignments.
+- Bridge ↓: AI didn't cancel the fundamentals.
+{{% /note %}}
+
+---
+
+<div class="stage">
+  <h2 class="t-huge"><span class="line"><span>AI didn’t cancel</span></span><span class="line"><span class="d1">the basics.</span></span></h2>
+  <p class="t-lead in d4">It raised the bar on top of them.</p>
+</div>
+
+{{% note %}}
+**0:09.** DSA, OOP, databases are still tested in Amman. ↓ to watch the bar go up.
+{{% /note %}}
+
+---
+
+{{< slide class="navy" >}}
+
+<div class="stage">
+  <div class="split" style="align-items:end;grid-template-columns:1.1fr 0.9fr;gap:72px;">
+    <div>
+      <h2 class="t-big"><span class="line"><span>The junior</span></span><span class="line"><span class="d1">bar moved.</span></span></h2>
+      <p class="t-lead in d3" style="margin-top:36px;">Bottom: still required.<br>Top: new since AI.</p>
+    </div>
+    <div class="tower">
+      <div class="tower-block new fragment drop" data-fragment-index="3">Prove it’s right</div>
+      <div class="tower-block new fragment drop" data-fragment-index="2">Explain it out loud</div>
+      <div class="tower-block new fragment drop" data-fragment-index="1">Use AI on purpose</div>
+      <div class="tower-block in d2">A programming language</div>
+      <div class="tower-block in d3">Data structures</div>
+      <div class="tower-block in d4">OOP</div>
+      <div class="tower-block in d5">Databases</div>
+    </div>
+  </div>
+</div>
+
+{{% note %}}
+**One minute. Three clicks, the tower grows.**
+- The bottom four: skipping them because "AI writes the code" is the trap.
+- Each amber block used to be a senior expectation. Now it's the junior job.
+{{% /note %}}
+
+---
+
+{{< slide class="amber" >}}
+
+<div class="stage">
+  <p class="t-lead in" style="max-width:34ch;">The market used to forgive a junior who couldn’t explain their code.</p>
+  <h2 class="t-mega"><span class="line"><span class="d3">Not</span></span><span class="line"><span class="d4">anymore.</span></span></h2>
+</div>
+
+{{% note %}}
+**The punch, slowly.** That forgiveness is gone, because AI already produces that code. Bridge →: "So practise the basics you'll use on Monday."
 {{% /note %}}
 
 {{% /section %}}
