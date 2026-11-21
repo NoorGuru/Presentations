@@ -57,28 +57,21 @@ weight = 3
 <div class="stage lang-cycle" data-lang-cycle>
   <div class="split" style="grid-template-columns:1.2fr 0.8fr;gap:64px;">
     <div>
-      <h2 class="t-huge"><span class="line"><span><span data-lang-name class="lang-name">Java</span></span></span></h2>
+      <h2 class="t-huge lang-title"><span data-lang-name class="lang-name">Java</span></h2>
       <p class="t-big in d1" style="margin-top:8px;">is enough.</p>
       <p class="t-big in d4" style="margin-top:28px;"><span class="mark" style="--md:1.1s;">+ SQL</span></p>
       <p class="lang-punch" data-lang-punch style="margin-top:28px;">The language is not the point.</p>
     </div>
     <div class="term in d5" style="font-size:36px;"><span class="prompt">SELECT</span> u.name, o.total<br><span class="prompt">FROM</span> users u<br><span class="prompt">JOIN</span> orders o<br>&nbsp;&nbsp;<span class="prompt">ON</span> o.user_id = u.id<br><span class="prompt">WHERE</span> o.total &gt; 100;</div>
   </div>
-  <div class="step-triggers" aria-hidden="true">
-    <span class="fragment" data-lang-step="1"></span>
-    <span class="fragment" data-lang-step="2"></span>
-    <span class="fragment" data-lang-step="3"></span>
-    <span class="fragment" data-lang-step="4"></span>
-  </div>
 </div>
 
 {{% note %}}
-**One language + SQL · four clicks.**
-- Start on Java (what they already have at JU). Don't linger.
-- Click: strike Java → JavaScript. Same idea.
-- Click: Rust. Click: Go. Keep it playful and fast — about a second each.
-- Last click lands on **One language**. Say: "Pick one. Go deep. Explain every line. Whiteboard a JOIN. The language is not the point."
-- Don't collect frameworks. A lot of real bugs are data bugs, and interviews still test this.
+**One language + SQL · let it play.**
+- Slide opens on Java. It auto-plays: strike → JavaScript → Rust → Go → **One language**.
+- Talk over it. Don't click through. About 6 seconds to the landing.
+- When it lands, say: "Pick one. Go deep. Explain every line. Whiteboard a JOIN. The language is not the point."
+- Click the name if you need to skip to the end. Then ↓.
 {{% /note %}}
 
 ---
