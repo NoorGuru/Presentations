@@ -409,6 +409,87 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 
 /* ---------- Basics ---------- */
 
+/* Language cycle: strike the current name, then swap to the next. */
+.lang-cycle { position: relative; }
+
+.lang-name {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.2s var(--ease);
+}
+
+.lang-name.is-struck {
+  color: var(--muted);
+}
+
+.lang-name.is-struck::after {
+  content: "";
+  position: absolute;
+  left: -0.06em;
+  right: -0.06em;
+  top: 52%;
+  height: 0.12em;
+  background: var(--red);
+  transform-origin: left center;
+  animation: sweep 0.35s var(--ease) both;
+}
+
+.lang-name.is-swapping {
+  animation: lang-out 0.28s var(--ease) both;
+}
+
+.lang-name.is-arriving {
+  animation: lang-in 0.45s var(--ease) both;
+}
+
+.lang-name.is-final {
+  z-index: 0;
+}
+
+.lang-name.is-final::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -0.06em;
+  right: -0.06em;
+  top: 0.42em;
+  bottom: 0.02em;
+  background: var(--amber);
+  transform-origin: left center;
+  animation: sweep 0.55s var(--ease) both;
+}
+
+.lang-punch {
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.45s var(--ease), transform 0.55s var(--ease);
+}
+
+.lang-punch.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes lang-out {
+  to { opacity: 0; transform: translateY(28px) scale(0.92); }
+}
+
+@keyframes lang-in {
+  from { opacity: 0; transform: translateY(-36px) scale(0.92); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-name.is-struck::after,
+  .lang-name.is-swapping,
+  .lang-name.is-arriving { animation: none !important; }
+  .lang-punch { transition: none; }
+}
+
 .term {
   font-family: var(--mono); /* taste-skill-ignore: literal shell and SQL */
   font-size: 44px;
