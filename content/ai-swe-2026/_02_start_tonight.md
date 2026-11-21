@@ -13,55 +13,68 @@ weight = 3
     <span class="eyebrow eyebrow--dark">ACT 02 · 0:05 – 0:09</span>
   </div>
   <h1 class="act-title">Start Doing This <span class="accent-orange">Tonight</span></h1>
-  <p class="act-sub">Three habits. You can start all of them before the weekend.</p>
+  <p class="act-sub">Four habits. No job offer required.</p>
   <div class="act-bar"></div>
 </div>
 
 {{% note %}}
-**0:05 · Act 2**
-- Short on purpose. Don't turn this into resume advice.
-- The long part of the talk is the next act: the basics and the stack.
+**0:05 · Act door. One sentence, then ↓.**
+- Don't teach the habits up here. The next slide is the 4–5 minutes.
 {{% /note %}}
 
 ---
 
-<span class="eyebrow eyebrow--cobalt">BEFORE GRADUATION</span>
-<h2 class="slide-title">Three habits. Start this week.</h2>
+<div class="habit-deck">
+<span class="eyebrow eyebrow--cobalt">BEFORE THE WEEKEND</span>
+<h2 class="slide-title">Start Doing This Tonight</h2>
+<p class="slide-subtitle">4 habits you can build before the weekend — no job offer required.</p>
 
-<div class="pillar-grid">
-  <div class="pillar-card pillar-card--cobalt fragment">
-    <div>
-      <div class="pillar-num">01</div>
-      <h3 class="pillar-title">Put the project on GitHub</h3>
-      <p class="pillar-body">A link someone can open. A README that says how to run it. Small commits, not one giant dump.</p>
+<div class="habit-grid">
+  <article class="habit-card habit-card--cobalt fragment">
+    <div class="habit-head">
+      <span class="habit-idx">01</span>
+      <h3 class="habit-title">Open PRs to yourself</h3>
     </div>
-    <div class="pillar-kicker">A ZIP file disappears. A repo is proof.</div>
-  </div>
-  <div class="pillar-card pillar-card--orange fragment">
-    <div>
-      <div class="pillar-num">02</div>
-      <h3 class="pillar-title">Think out loud. Defend every line.</h3>
-      <p class="pillar-body">Say why it works before you push, and before an interview. Then let AI try to break it. If you can't explain a line, you can't tell if it's right.</p>
+    <p class="habit-stop"><span class="habit-label">Stop</span> <s><code>Project_Final_v3_REAL.zip</code> and <code>git commit -m "fix"</code> straight to <code>main</code></s></p>
+    <p class="habit-do"><span class="habit-label">Tonight · 15m</span> Branch your grad project, open a PR to yourself, and read the diff before you merge.</p>
+  </article>
+  <article class="habit-card habit-card--orange fragment">
+    <div class="habit-head">
+      <span class="habit-idx">02</span>
+      <h3 class="habit-title">5 minutes, then say it out loud</h3>
     </div>
-    <div class="pillar-kicker">Silent coding isn't enough anymore.</div>
-  </div>
-  <div class="pillar-card pillar-card--teal fragment">
-    <div>
-      <div class="pillar-num">03</div>
-      <h3 class="pillar-title">Read code you didn't write</h3>
-      <p class="pillar-body">Class is mostly a blank file. The job is mostly someone else's code, and a pull request to review.</p>
+    <p class="habit-stop"><span class="habit-label">Stop</span> <s>Pasting the stack trace into AI and pushing code you can't explain</s></p>
+    <p class="habit-do"><span class="habit-label">Tonight · every bug</span> Write your own hypothesis for 5 minutes. Then say why the fix works before you push.</p>
+  </article>
+  <article class="habit-card habit-card--teal fragment">
+    <div class="habit-head">
+      <span class="habit-idx">03</span>
+      <h3 class="habit-title">Move AI out of the browser tab</h3>
     </div>
-    <div class="pillar-kicker">One file a week is enough to start.</div>
-  </div>
+    <p class="habit-stop"><span class="habit-label">Stop</span> <s>Copy-pasting snippets back and forth from a chat window</s></p>
+    <p class="habit-do"><span class="habit-label">Tonight · 15m</span> Run AI in your editor. Add a 10-line <code>AGENTS.md</code>: stack, commands, rules.</p>
+  </article>
+  <article class="habit-card habit-card--violet fragment">
+    <div class="habit-head">
+      <span class="habit-idx">04</span>
+      <h3 class="habit-title">Build one loud repo</h3>
+    </div>
+    <p class="habit-stop"><span class="habit-label">Stop</span> <s>A buzzword CV — Java, Python, SQL, React — like everyone else's</s></p>
+    <p class="habit-do"><span class="habit-label">Tonight · 30m</span> Deploy one project. README with a demo GIF, a sketch, and one nasty bug you fixed.</p>
+  </article>
+</div>
+
+<p class="habit-foot">You don't need a senior title to build senior habits.</p>
 </div>
 
 {{% note %}}
-**0:05 – 0:09 · Talk through each card, then move on**
-- **GitHub:** "FinalProject_v3_FINAL.zip" is not a portfolio. One public repo, a README, a way to run it.
-- **Explain and verify:** the bad habit is pasting the homework prompt and submitting the answer. Flip it: you say why the solution works, out loud, then let AI try to break it. If you can't defend a line, it isn't yours yet — and you have no way to know the AI got it right.
-- **Reading:** ask who has opened a real GitHub repo that isn't their own. That's the muscle. AI made reading even more of the job, because it writes a lot of code you then have to check.
-- Bridge ↓: "AI didn't delete what you learned in class. It kept it, and added a bar juniors used to be forgiven for missing."
-- → jumps to Act 3. Space or ↓ stays inside this act: habits, then the junior bar.
+**0:05 – 0:10 · About 4–5 minutes. One card per click.**
+- **01:** University trains you to hand in a ZIP and push to `main`. Opening a PR to yourself is the review muscle you'll need on Day 1, when an AI diff looks fine and isn't.
+- **02:** If AI debugs every lab, you graduate with no debugging muscle. The market no longer forgives a junior who can't organize the thought or explain the code. If you can't defend line 14, an interviewer hears it in about 90 seconds.
+- **03:** Stop treating AI like a smarter Google tab. A 10-line `AGENTS.md` is the first taste of telling the tool what matters — stack, how to build, what not to touch. That's the setup for MCP, skills, and agents in the next act.
+- **04:** Hiring managers skim past the same buzzword CV. One live repo with an honest bug note beats ten dead course assignments.
+- Bridge ↓: AI didn't cancel DSA, OOP, or databases. It kept them, and added this bar on top.
+- → jumps to Act 3. Space or ↓ stays here: four habits, then the junior bar.
 {{% /note %}}
 
 ---
@@ -95,7 +108,7 @@ weight = 3
 </div>
 
 {{% note %}}
-**Right after the three habits. One minute.**
+**Right after the four habits. One minute.**
 - Left column first: language, DSA, OOP, databases. Skipping these because "AI writes the code" is the trap. Companies in Amman still test this.
 - Then the right column: what used to be a senior expectation is now part of the junior job. Use the tools without trusting them. Structure your thoughts out loud. Verify.
 - Punch line, slowly: the market used to hire someone who could write CRUD and struggle to explain it. That forgiveness is gone, because AI already produces that code.
