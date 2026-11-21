@@ -222,25 +222,25 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 .d6 { --d: 0.8s; }
 .d7 { --d: 1s; }
 
-/* Hide only while the slide is not current. Using animation-fill backwards alone can
-   leave headlines stuck off-screen in Safari if the animation never commits. */
+/* Apply the initial hidden state during animation delays (`both`) so delayed
+   elements never flash at their resting position before animating in. */
 .reveal .slides section:not(.present) .in,
 .reveal .slides section:not(.present) .pop { opacity: 0; }
 
 .reveal .slides section:not(.present) .line > span { transform: translateY(110%); }
 
 .reveal .slides section.present:not(.stack) .in {
-  animation: rise 0.8s var(--ease) forwards;
+  animation: rise 0.8s var(--ease) both;
   animation-delay: var(--d, 0s);
 }
 
 .reveal .slides section.present:not(.stack) .line > span {
-  animation: line-up 0.9s var(--ease) forwards;
+  animation: line-up 0.9s var(--ease) both;
   animation-delay: var(--d, 0s);
 }
 
 .reveal .slides section.present:not(.stack) .pop {
-  animation: pop 0.7s var(--ease) forwards;
+  animation: pop 0.7s var(--ease) both;
   animation-delay: var(--d, 0s);
 }
 
@@ -282,11 +282,26 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 .reveal .slides section .settled .mark::before,
 .reveal .slides section .settled .strike::after { animation: none !important; }
 
-@keyframes rise { from { opacity: 0; transform: translateY(56px); } }
-@keyframes line-up { from { transform: translateY(110%); } }
-@keyframes pop { from { opacity: 0; transform: scale(0.7); } }
-@keyframes sweep { from { transform: scaleX(0); } }
-@keyframes grow-y { from { transform: scaleY(0); } }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(56px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes line-up {
+  from { transform: translateY(110%); }
+  to { transform: none; }
+}
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes sweep {
+  from { transform: scaleX(0); }
+  to { transform: none; }
+}
+@keyframes grow-y {
+  from { transform: scaleY(0); }
+  to { transform: none; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .reveal .slides section.present:not(.stack) .in,
@@ -438,11 +453,11 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 
 /* .strike (shared reviewer's pen) is toggled by JS on each click. */
 .lang-name.is-swapping {
-  animation: lang-out 0.28s var(--ease) forwards;
+  animation: lang-out 0.28s var(--ease) both;
 }
 
 .lang-name.is-arriving {
-  animation: lang-in 0.45s var(--ease) forwards;
+  animation: lang-in 0.45s var(--ease) both;
 }
 
 .lang-name.is-final {
@@ -459,7 +474,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   bottom: 0.02em;
   background: var(--amber);
   transform-origin: left center;
-  animation: sweep 0.55s var(--ease) forwards;
+  animation: sweep 0.55s var(--ease) both;
 }
 
 .lang-punch {
