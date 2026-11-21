@@ -1,0 +1,264 @@
+/**
+ * White decks. Same faces and inks as the index, built to be read on a projector.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+:root {
+  --noor-bg: #ffffff;
+  --noor-ink: #1f2b4d;
+  --noor-muted: #3e4866;
+  --noor-accent: #f7941d;
+  --noor-soft: #f4f4f2;
+  --noor-field: #e3e1dc;
+
+  --r-background-color: #ffffff;
+  --r-main-font: "Source Sans 3", "Source Sans Pro", "Helvetica Neue", sans-serif;
+  --r-main-font-size: 60px;
+  --r-main-color: var(--noor-ink);
+  --r-heading-font: "Source Sans 3", "Source Sans Pro", "Helvetica Neue", sans-serif;
+  --r-heading-color: var(--noor-ink);
+  --r-heading-font-weight: 600;
+  --r-heading-text-transform: none;
+  --r-heading-letter-spacing: 0;
+  --r-heading-line-height: 1.15;
+  --r-heading-margin: 0 0 0.4em 0;
+  --r-heading1-size: 2.4em;
+  --r-heading2-size: 1.7em;
+  --r-heading3-size: 1.25em;
+  --r-heading4-size: 1.05em;
+  --r-block-margin: 0.45em;
+  --r-link-color: var(--noor-ink);
+  --r-link-color-dark: #152038;
+  --r-link-color-hover: var(--noor-ink);
+  --r-selection-background-color: var(--noor-accent);
+  --r-selection-color: var(--noor-ink);
+  --r-code-font: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.reveal-viewport,
+.reveal-viewport .slide-background {
+  background: #ffffff;
+}
+
+.reveal {
+  font-weight: 400;
+  font-stretch: normal;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.reveal .slides section {
+  text-align: left;
+}
+
+/* Keep every slide inside the frame. Wide content was stretching the slide past the edge. */
+.reveal .slides > section,
+.reveal .slides > section > section {
+  width: 100%;
+  left: 0;
+  box-sizing: border-box;
+  padding: 16px 64px 88px;
+}
+
+.reveal .slides > section.stack {
+  padding: 0;
+  height: 100%;
+}
+
+.reveal .slides section.is-scroll {
+  top: 0 !important;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-transform: none !important;
+  font-family: var(--r-heading-font);
+  color: var(--noor-ink);
+  letter-spacing: 0;
+  font-stretch: normal;
+  line-height: 1.15;
+}
+
+.reveal h1 {
+  font-size: 2.15em;
+  line-height: 1.12;
+}
+
+.reveal h5,
+.reveal h6 {
+  font-family: var(--r-main-font);
+  font-weight: 500;
+  font-size: 0.62em;
+  letter-spacing: 0;
+  color: var(--noor-muted);
+}
+
+.reveal p {
+  text-align: inherit;
+  line-height: 1.35;
+}
+
+.reveal strong { font-weight: 600; }
+
+.reveal a {
+  color: var(--noor-ink);
+  text-decoration: none;
+  border-bottom: 0.14em solid var(--noor-accent);
+}
+
+.reveal a:hover {
+  background: var(--noor-accent);
+}
+
+.reveal ul,
+.reveal ol {
+  display: block;
+  margin: 0.4em 0 0.4em 1.1em;
+}
+
+.reveal li {
+  margin: 0.28em 0;
+  line-height: 1.3;
+}
+
+.reveal ul li::marker { color: var(--noor-accent); }
+
+.reveal blockquote {
+  width: 100%;
+  margin: 0.6em 0;
+  padding: 0.15em 0 0.15em 0.7em;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+  border-left: 0.22em solid var(--noor-accent);
+  font-style: italic;
+  color: var(--noor-muted);
+}
+
+.reveal pre {
+  width: 100%;
+  max-width: 100%;
+  max-height: 58%;
+  margin: 0.6em 0;
+  box-shadow: none;
+  border: 0;
+  background: var(--noor-soft);
+  overflow: auto;
+}
+
+.reveal pre code {
+  padding: 0.9em 1em;
+  max-height: none;
+  font-family: var(--r-code-font);
+  font-size: 0.52em;
+  line-height: 1.45;
+  background: transparent;
+  color: var(--noor-ink);
+}
+
+.reveal table {
+  width: 100%;
+  max-width: 100%;
+  margin: 0.35em 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.55em;
+  line-height: 1.3;
+}
+
+.reveal th,
+.reveal td {
+  white-space: normal;
+  overflow-wrap: break-word;
+  vertical-align: top;
+  text-align: left;
+  padding: 0.4em 0.5em;
+  border-bottom: 1px solid var(--noor-field);
+}
+
+.reveal th {
+  background: var(--noor-soft);
+  font-weight: 600;
+}
+
+.reveal th:nth-child(1),
+.reveal td:nth-child(1) { width: 20%; }
+.reveal th:nth-child(2),
+.reveal td:nth-child(2) { width: 20%; }
+.reveal th:nth-child(3),
+.reveal td:nth-child(3) { width: 24%; }
+.reveal th:nth-child(4),
+.reveal td:nth-child(4) { width: 36%; }
+
+.reveal td code,
+.reveal th code {
+  white-space: normal;
+}
+
+.reveal img,
+.reveal video {
+  max-width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.reveal :not(pre) > code {
+  font-family: var(--r-code-font);
+  font-size: 0.78em;
+  background: var(--noor-soft);
+  color: var(--noor-ink);
+  padding: 0.05em 0.28em;
+}
+
+.reveal .progress { color: var(--noor-accent); height: 4px; }
+.reveal .controls { color: var(--noor-accent); }
+
+.slide-meta {
+  position: fixed;
+  z-index: 8;
+  left: 22px;
+  right: 132px;
+  bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.slide-links {
+  display: flex;
+  gap: 16px;
+}
+
+.slide-path {
+  color: var(--noor-muted);
+}
+
+.slide-meta a {
+  color: var(--noor-muted) !important;
+  background: none !important;
+  border-bottom: 0;
+}
+
+.slide-meta a:hover { color: var(--noor-ink) !important; }
+
+.smaller-img {
+  max-width: 50% !important;
+  max-height: 50% !important;
+}
+
+@media (max-width: 900px) {
+  :root { --r-main-font-size: 26px; }
+  .slide-meta { font-size: 13px; left: 12px; right: 108px; bottom: 14px; }
+}
