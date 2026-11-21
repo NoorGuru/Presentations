@@ -412,6 +412,12 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 /* Language cycle: strike the current name, then swap to the next. */
 .lang-cycle { position: relative; }
 
+.reveal .lang-title {
+  margin: 0;
+  line-height: 0.9;
+  overflow: visible;
+}
+
 .lang-name {
   display: inline-block;
   position: relative;
