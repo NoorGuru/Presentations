@@ -247,7 +247,7 @@ weight = 2
 {{% note %}}
 **0:06 · The punch. Say "Why?" and stop.**
 - Working code used to be proof you understood it. Now AI writes working code, so interviewers and reviewers ask the next question.
-- Bridge →: "And to answer why, you need the foundation."
+- Bridge →: "Uni starts the foundation. Now let's look at the three day-1 basics AI made non-negotiable—and then the buzzwords."
 {{% /note %}}
 
 {{% /section %}}

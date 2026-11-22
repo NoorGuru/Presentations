@@ -1,6 +1,6 @@
 +++
 outputs = ["Reveal"]
-weight = 5
+weight = 6
 +++
 
 {{% section %}}
@@ -30,7 +30,7 @@ weight = 5
 {{% note %}}
 **0:26 – 0:28 · A platform migration, without the diagram.**
 - Pain: large migrations across lots of teams. Every repo is a little different. A clever prompt is not a plan. The model invents steps.
-- Point back at the ladder: the editor, MCP so it reads internal docs, Skills for the checklist. Then a human approves the PR.
+- Point back at the AI stack: the editor, MCP so it reads internal docs, Skills for the checklist. Then a human approves the PR.
 - Land it: this only works because someone knows Git, APIs, and how to read a diff.
 {{% /note %}}
 

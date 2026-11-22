@@ -1,6 +1,6 @@
 +++
 outputs = ["Reveal"]
-weight = 6
+weight = 7
 +++
 
 {{% section %}}

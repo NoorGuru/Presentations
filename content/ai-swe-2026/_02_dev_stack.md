@@ -8,48 +8,80 @@ weight = 3
 {{< slide class="amber" >}}
 
 <div class="stage">
-  <h1 class="t-huge"><span class="line"><span>Foundation</span></span><span class="line"><span class="d1"><span class="mark" style="--md:0.8s;">first.</span></span></span></h1>
-  <p class="t-lead in d4">Four skills that stay. Then the buzzwords.</p>
+  <h1 class="t-huge" style="font-size:184px;"><span class="line"><span>Needed before.</span></span><span class="line"><span class="d1"><span class="mark" style="--md:0.8s;">Essential now.</span></span></span></h1>
+  <p class="t-lead in d4" style="max-width:34ch;">Three job basics AI made non-negotiable.</p>
 </div>
 
 {{% note %}}
-**0:07 · This is the center of the talk.**
-- Four foundational skills, one slide each, then the names they'll hear at work, in plain words.
+**0:07 · Bridge from Part 1.**
+- Part 1 was the 5-skill foundation universities and interviews test.
+- This part is the day-1 craft that mattered *before* AI—and matters 10× more *now*: Git & GitHub, APIs, and one language + SQL.
 - Ask: "Who can open a branch and a PR without googling the commands?" Hands. That's the gap, not Java syntax.
 {{% /note %}}
 
 ---
 
 <div class="stage">
-  <div class="split">
+  <div class="split" style="grid-template-columns:0.95fr 1.05fr;gap:72px;">
     <div>
-      <h2 class="t-mega"><span class="line"><span>Git.</span></span></h2>
-      <p class="t-lead in d3" style="margin-top:32px;">How you show work. How bad AI code gets caught.</p>
+      <h2 class="t-big"><span class="line"><span>Git &amp;</span></span><span class="line"><span class="d1">GitHub.</span></span></h2>
+      <p class="t-lead in d3" style="margin-top:32px;">Before: how teams didn’t overwrite each other.<br>Now: how bad AI code gets caught.</p>
     </div>
-    <div class="term in d4"><span class="prompt">$</span> git switch -c fix-login<br><span class="prompt">$</span> git commit -m "Fix login"<br><span class="prompt">$</span> git push<br><span class="dim"># open a pull request</span></div>
+    <div class="git-stack">
+      <div class="term in d3">
+        <div class="term-tag">Git · your machine</div>
+        <span class="prompt">$</span> git switch -c fix-login<br><span class="prompt">$</span> git commit -m "Fix login"<br><span class="prompt">$</span> git push
+      </div>
+      <div class="gh-card in d5">
+        <div class="gh-top"><span class="gh-badge">Open PR</span><span class="gh-title">GitHub · Pull Request</span></div>
+        <div class="gh-sub">Where a human reads the diff before AI code hits <code>main</code>.</div>
+      </div>
+    </div>
   </div>
 </div>
 
 {{% note %}}
-**Git · one minute.** AI can write 200 lines in a minute. The pull request is where a human says yes or no.
+**Git & GitHub · one minute.**
+- Make the split clear: **Git** tracks your changes and branches locally; **GitHub** is where the team reviews them in a Pull Request.
+- AI can write 200 lines in a minute. The pull request is where a human says yes or no.
 {{% /note %}}
 
 ---
 
 {{< slide class="navy" >}}
 
-<div class="stage">
-  <h2 class="t-big"><span class="line"><span>AI tools just</span></span><span class="line"><span class="d1">call APIs.</span></span></h2>
-  <div class="codes" style="margin-top:40px;">
-    <div class="code-cell pop d3"><div class="code-num">200</div><div class="code-label">OK</div></div>
-    <div class="code-cell pop d4"><div class="code-num">401</div><div class="code-label">Who are you?</div></div>
-    <div class="code-cell pop d5"><div class="code-num">404</div><div class="code-label">Not here</div></div>
+<div class="stage tight">
+  <div>
+    <h2 class="t-big" style="font-size:122px;"><span class="line"><span>How apps</span></span><span class="line"><span class="d1"><span class="mark" style="--md:0.75s;">call each other.</span></span></span></h2>
+    <p class="t-lead in d3" style="margin-top:20px;max-width:none;">Websites, mobile apps, and AI tools all speak the same language: APIs.</p>
+  </div>
+  <div class="api-flow in d4">
+    <div class="api-node">
+      <span class="api-role">Client · App or AI</span>
+      <span class="api-code">POST /login</span>
+    </div>
+    <div class="api-pipe" aria-hidden="true">
+      <span class="api-verb">Request →</span>
+      <span class="api-line"></span>
+      <span class="api-verb is-back">← JSON + Status</span>
+    </div>
+    <div class="api-node is-server">
+      <span class="api-role">Server · API</span>
+      <span class="api-code">Checks DB</span>
+    </div>
+  </div>
+  <div class="codes api-codes">
+    <div class="code-cell pop d5"><div class="code-num">200</div><div class="code-label">OK</div></div>
+    <div class="code-cell pop d5"><div class="code-num">401</div><div class="code-label">Who are you?</div></div>
+    <div class="code-cell pop d6"><div class="code-num">404</div><div class="code-label">Not here</div></div>
     <div class="code-cell pop d6"><div class="code-num">500</div><div class="code-label">We broke it</div></div>
   </div>
 </div>
 
 {{% note %}}
-**HTTP · one minute.** Walk one example they know: login button → request → 200 or 401. If they can't read that, they can't debug an AI tool either, because the tool does the same thing.
+**APIs · one minute.**
+- Walk one example everyone knows: tap Login → your phone sends `POST /login` to a server → the server checks the database and answers `200` (let them in) or `401` (wrong password).
+- Why it matters even more now: every AI model, plugin, and MCP tool works the exact same way—calling APIs. If you can't read a request and a status code, you can't debug an AI tool either.
 {{% /note %}}
 
 ---
@@ -76,71 +108,7 @@ weight = 3
 **One language + SQL · four clicks (Space or ↓).**
 - Opens on Java. Each click: red strike, then the next language.
 - Java → JavaScript → Rust → Go → **One language** + “The language is not the point.”
-- Land it: "Pick one. Go deep. The language is not the point." Then ↓.
-{{% /note %}}
-
----
-
-{{< slide class="navy" >}}
-
-<div class="stage">
-  <h2 class="t-mega"><span class="line"><span>Read before</span></span><span class="line"><span class="d1">you write.</span></span></h2>
-  <p class="t-lead in d4">One file you didn’t write. Five lines on what it does.</p>
-</div>
-
-{{% note %}}
-**Reading.** University grades you on a blank file. Your first week at work is a repo that already exists. One file a week, out loud. Take a question here if the room is warm.
-{{% /note %}}
-
----
-
-<div class="stage tight" data-stack-ladder>
-  <h2 class="t-mid in">Same ladder. Plain words.</h2>
-  <div class="ladder">
-    <div class="rungs">
-      <button type="button" class="rung" data-step="5" aria-pressed="false">Autonomous</button>
-      <button type="button" class="rung" data-step="4" aria-pressed="false">Agents</button>
-      <button type="button" class="rung" data-step="3" aria-pressed="false">Skills</button>
-      <button type="button" class="rung" data-step="2" aria-pressed="false">MCP</button>
-      <button type="button" class="rung" data-step="1" aria-pressed="false">LLMs</button>
-      <button type="button" class="rung base is-active" data-step="0" aria-pressed="true">Foundation</button>
-    </div>
-    <div class="ladder-detail" aria-live="polite">
-      <h3 class="ladder-title" data-ladder-title>Foundation</h3>
-      <p class="ladder-metaphor" data-ladder-metaphor>Git, HTTP, SQL, one language</p>
-      <p class="ladder-desc" data-ladder-desc>Everything above sits on this. Shaky here, and the tools only make a mess faster.</p>
-    </div>
-  </div>
-  <div class="step-triggers" aria-hidden="true">
-    <span class="fragment" data-ladder-step="1"></span>
-    <span class="fragment" data-ladder-step="2"></span>
-    <span class="fragment" data-ladder-step="3"></span>
-    <span class="fragment" data-ladder-step="4"></span>
-    <span class="fragment" data-ladder-step="5"></span>
-  </div>
-</div>
-
-{{% note %}}
-**0:13 – 0:17 · One click per step. About 30 seconds each. Don't lecture.**
-- Clicker steps up; you can also click a rung or press 0–5.
-- **LLM:** a smart chat box. It cannot see your repo unless you show it.
-- **MCP:** a plug, so the AI reads GitHub or docs instead of you pasting screenshots.
-- **Skills:** a checklist file the AI has to follow.
-- **Agent:** the chat box can now run commands, see the error, and try again.
-- **Autonomous:** leave it running on a small task. It might open a PR. You still have to read it.
-{{% /note %}}
-
----
-
-{{< slide class="amber" >}}
-
-<div class="stage">
-  <p class="t-lead in">You don’t need all five this year.</p>
-  <h2 class="t-huge"><span class="line"><span class="d2">Master the</span></span><span class="line"><span class="d3"><span class="mark" style="--md:1.1s;">foundation.</span></span></span></h2>
-</div>
-
-{{% note %}}
-**Close the part.** "You need the foundation, and you need to stop being scared of the words." →
+- Land it: "Pick one. Go deep. Plus SQL—because almost every real app stores data in a database." Then → to the AI stack section.
 {{% /note %}}
 
 {{% /section %}}
