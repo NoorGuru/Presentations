@@ -1426,47 +1426,285 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   pointer-events: none;
 }
 
-/* ---------- Where to use AI (How you prevent PR #12) ---------- */
+/* ---------- Beyond Code Generation (3 stages + Big Picture) ---------- */
+
+.wf-split {
+  grid-template-columns: 0.94fr 1.06fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.wf-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wf-sub {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: -6px 0 4px;
+}
+
+.wf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 6px;
+}
+
+.wf-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 22px;
+  border-left: 5px solid var(--amber);
+}
+
+.wf-item b {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.wf-item span {
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.32;
+  opacity: 0.78;
+}
+
+.wf-ex {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  padding: 34px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.wf-ex.is-light {
+  background: var(--tint);
+  border: 1px solid rgba(20, 29, 56, 0.12);
+}
+
+.wf-ex-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.wf-ex.is-light .wf-ex-head {
+  border-bottom-color: rgba(20, 29, 56, 0.14);
+}
+
+.wf-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+
+.wf-tag.is-mint { color: #6ee7b7; }
+.wf-tag.is-red { color: var(--red); }
+
+.wf-prompt-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 6px solid var(--amber);
+  padding: 22px 24px;
+  border-radius: 4px;
+}
+
+.reveal .wf-prompt-box p {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.34;
+  margin: 0;
+  color: #fff;
+}
+
+.wf-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wf-check {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.wf-check > span:first-child {
+  color: #6ee7b7;
+  font-weight: 800;
+}
+
+.wf-compare {
+  padding: 24px 26px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wf-compare.is-bad {
+  background: #fff;
+  border-left: 6px solid var(--red);
+  color: var(--ink);
+}
+
+.wf-compare.is-good {
+  background: var(--ink);
+  border-left: 6px solid #6ee7b7;
+  color: #fff;
+}
+
+.reveal .wf-compare p {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.32;
+  margin: 0;
+}
+
+.wf-compare-out {
+  font-size: 22px;
+  font-weight: 600;
+  opacity: 0.72;
+  margin-top: 4px;
+}
+
+.wf-compare.is-good .wf-compare-out { color: #6ee7b7; opacity: 1; }
+.wf-compare.is-bad .wf-compare-out { color: var(--red); opacity: 1; }
+
+.wf-tests {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(10, 15, 30, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 24px 26px;
+}
+
+.wf-test {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.wf-pass {
+  background: rgba(110, 231, 183, 0.18);
+  color: #6ee7b7;
+  border: 1px solid rgba(110, 231, 183, 0.4);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.wf-human {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--amber);
+  color: var(--ink);
+  padding: 22px 24px;
+  border-radius: 6px;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.wf-human-badge {
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.reveal .wf-ex code,
+.reveal .navy .wf-ex code,
+.reveal .wf-compare.is-good code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.14);
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: inherit;
+}
+
+/* Big Picture 3-column flow on Paper */
 
 .flow {
   display: grid;
-  grid-template-columns: 1.28fr 0.78fr 1.28fr;
+  grid-template-columns: 1.26fr 0.82fr 1.26fr;
   gap: 20px;
   align-items: end;
   margin-top: 20px;
 }
 
 .flow-step {
-  padding: 36px 36px 38px;
+  padding: 34px 36px 36px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 18px;
+  gap: 16px;
   border-radius: 6px;
 }
 
 .flow-step.before {
-  background: #fff;
-  color: var(--ink);
-  min-height: 430px;
+  background: var(--ink);
+  color: #fff;
+  min-height: 410px;
 }
 
 .flow-step.during {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: rgba(255, 255, 255, 0.72);
-  min-height: 275px;
+  background: var(--tint);
+  border: 1px solid rgba(20, 29, 56, 0.12);
+  color: var(--ink);
+  min-height: 295px;
 }
 
 .flow-step.after {
   background: var(--amber);
   color: var(--ink);
-  min-height: 430px;
+  min-height: 410px;
 }
 
 .flow-when {
   font-family: var(--mono);
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1474,71 +1712,71 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 }
 
 .reveal .flow-what {
-  font-size: 70px;
+  font-size: 64px;
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 0.96;
 }
 
 .flow-step.during .flow-what {
-  font-size: 50px;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 48px;
 }
 
-.flow-prompt {
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.3;
-  padding: 20px 22px;
-  border-radius: 4px;
-  margin-top: 6px;
-}
-
-.reveal .flow-prompt code,
-.reveal .navy .flow-prompt > code {
-  font-family: var(--mono);
-  font-size: 0.9em;
-  font-weight: 700;
-  background: none;
+.reveal ul.flow-bullets {
+  list-style: none;
+  margin: 4px 0 0;
   padding: 0;
-  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.flow-step.before .flow-prompt {
-  background: var(--tint);
-  color: var(--ink);
+.reveal ul.flow-bullets li {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.25;
+  padding-left: 22px;
+  position: relative;
 }
 
-.flow-step.during .flow-prompt {
-  background: rgba(255, 255, 255, 0.07);
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 26px;
-  padding: 16px 18px;
+.reveal ul.flow-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
 }
 
-.flow-step.after .flow-prompt {
-  background: rgba(20, 29, 56, 0.11);
-  color: var(--ink);
-}
+.flow-step.before ul.flow-bullets li::before { background: var(--amber); opacity: 1; }
+.flow-step.during ul.flow-bullets li { font-size: 24px; color: var(--muted); }
 
 .flow-out {
   margin-top: auto;
   padding-top: 14px;
-  border-top: 1px solid currentColor;
-  border-top-color: rgba(20, 29, 56, 0.16);
-  font-size: 25px;
+  border-top: 1px solid rgba(20, 29, 56, 0.16);
+  font-size: 24px;
   font-weight: 700;
   line-height: 1.25;
 }
 
-.flow-step.before .flow-out { color: #0f766e; }
-.flow-step.during .flow-out {
+.flow-step.before .flow-out {
   border-top-color: rgba(255, 255, 255, 0.16);
-  font-size: 22px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.56);
+  color: #6ee7b7;
 }
-.flow-step.after .flow-out { color: var(--ink); }
+
+.flow-step.during .flow-out {
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.flow-step.after .flow-out {
+  color: var(--ink);
+}
 
 /* ---------- Java4Shell · The $200 Spark & War Room ---------- */
 
