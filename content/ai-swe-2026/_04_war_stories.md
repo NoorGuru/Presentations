@@ -91,7 +91,7 @@ weight = 6
 </div>
 
 {{% note %}}
-**0:31 · The punch.** Then →: "So here's what you do tonight."
+**0:31 · The punch.** Then →: "Before I give you your four habits for tonight, one quick fun detour."
 {{% /note %}}
 
 {{% /section %}}
