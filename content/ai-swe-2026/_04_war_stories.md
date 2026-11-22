@@ -74,7 +74,7 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:29 – 0:31 · Four clicks. This is the tower's top, said as verbs.**
+**0:29 – 0:31 · Four clicks. This is the new bar above the foundation, said as verbs.**
 - **Brief it** = use AI on purpose. The AI only knows what you give it.
 - **Say it** = explain it out loud. Interviews and pull requests both ask for this.
 - **Prove it** = prove it's right. Why DSA, SQL, and reading code still matter: you need something to check against.

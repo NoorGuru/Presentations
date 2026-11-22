@@ -50,7 +50,7 @@
   /* ---------- Stack ladder ---------- */
 
   var LADDER = {
-    0: { title: "The basics", metaphor: "Git, HTTP, SQL, one language", desc: "Everything above sits on this. Shaky here, and the tools only make a mess faster." },
+    0: { title: "Foundation", metaphor: "Git, HTTP, SQL, one language", desc: "Everything above sits on this. Shaky here, and the tools only make a mess faster." },
     1: { title: "LLMs", metaphor: "A smart chat box", desc: "ChatGPT, Copilot, Claude. Great at drafts. Blind to your project unless you show it." },
     2: { title: "MCP", metaphor: "A plug", desc: "Connects the AI to GitHub, a database, or your docs. No more pasting screenshots." },
     3: { title: "Skills", metaphor: "A saved checklist", desc: "A file in the repo the AI must follow. Test it this way. Don’t touch that." },
@@ -281,12 +281,36 @@
     paint(0, false);
   }
 
+  /* ---------- Bar shift fragment stepping ---------- */
+  /* Allow ↓ / ↑ to step through fragments on both the 2017 and 2026 bar slides. */
+
+  function initBarSteps() {
+    var roots = Array.prototype.slice.call(document.querySelectorAll("[data-bar-steps]"));
+    if (!roots.length) return;
+    document.addEventListener("keydown", function (e) {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      var active = roots.some(currentSlideHas);
+      if (!active) return;
+      var avail = Reveal.availableFragments();
+      if (e.key === "ArrowDown" && avail.next) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        Reveal.nextFragment();
+      } else if (e.key === "ArrowUp" && avail.prev) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        Reveal.prevFragment();
+      }
+    }, true);
+  }
+
   function boot() {
     if (!window.Reveal) return;
     initLadder();
     initDiff();
     initChecklist();
     initLangCycle();
+    initBarSteps();
     Reveal.on("slidechanged", function (ev) { onSlide(ev.currentSlide); });
     if (Reveal.isReady()) onSlide(Reveal.getCurrentSlide());
     else Reveal.on("ready", function (ev) { onSlide(ev.currentSlide); });

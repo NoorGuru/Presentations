@@ -8,13 +8,13 @@ weight = 3
 {{< slide class="amber" >}}
 
 <div class="stage">
-  <h1 class="t-mega"><span class="line"><span>Basics</span></span><span class="line"><span class="d1"><span class="mark" style="--md:0.8s;">first.</span></span></span></h1>
-  <p class="t-lead in d4">The bottom of that tower. Then the buzzwords.</p>
+  <h1 class="t-huge"><span class="line"><span>Foundation</span></span><span class="line"><span class="d1"><span class="mark" style="--md:0.8s;">first.</span></span></span></h1>
+  <p class="t-lead in d4">Four skills that stay. Then the buzzwords.</p>
 </div>
 
 {{% note %}}
 **0:07 · This is the center of the talk.**
-- Four basics, one slide each, then the names they'll hear at work, in plain words.
+- Four foundational skills, one slide each, then the names they'll hear at work, in plain words.
 - Ask: "Who can open a branch and a PR without googling the commands?" Hands. That's the gap, not Java syntax.
 {{% /note %}}
 
@@ -103,10 +103,10 @@ weight = 3
       <button type="button" class="rung" data-step="3" aria-pressed="false">Skills</button>
       <button type="button" class="rung" data-step="2" aria-pressed="false">MCP</button>
       <button type="button" class="rung" data-step="1" aria-pressed="false">LLMs</button>
-      <button type="button" class="rung base is-active" data-step="0" aria-pressed="true">The basics</button>
+      <button type="button" class="rung base is-active" data-step="0" aria-pressed="true">Foundation</button>
     </div>
     <div class="ladder-detail" aria-live="polite">
-      <h3 class="ladder-title" data-ladder-title>The basics</h3>
+      <h3 class="ladder-title" data-ladder-title>Foundation</h3>
       <p class="ladder-metaphor" data-ladder-metaphor>Git, HTTP, SQL, one language</p>
       <p class="ladder-desc" data-ladder-desc>Everything above sits on this. Shaky here, and the tools only make a mess faster.</p>
     </div>
@@ -136,11 +136,11 @@ weight = 3
 
 <div class="stage">
   <p class="t-lead in">You don’t need all five this year.</p>
-  <h2 class="t-mega"><span class="line"><span class="d2">Master the</span></span><span class="line"><span class="d3"><span class="mark" style="--md:1.1s;">bottom.</span></span></span></h2>
+  <h2 class="t-huge"><span class="line"><span class="d2">Master the</span></span><span class="line"><span class="d3"><span class="mark" style="--md:1.1s;">foundation.</span></span></span></h2>
 </div>
 
 {{% note %}}
-**Close the part.** "You need the bottom, and you need to stop being scared of the words." →
+**Close the part.** "You need the foundation, and you need to stop being scared of the words." →
 {{% /note %}}
 
 {{% /section %}}

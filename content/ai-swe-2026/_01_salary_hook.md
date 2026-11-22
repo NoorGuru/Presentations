@@ -146,28 +146,93 @@ weight = 2
 
 ---
 
-<div class="stage">
-  <div class="split" style="align-items:end;grid-template-columns:1.1fr 0.9fr;gap:72px;">
-    <div>
-      <h2 class="t-big"><span class="line"><span>The junior</span></span><span class="line"><span class="d1">bar moved.</span></span></h2>
-      <p class="t-lead in d3" style="margin-top:36px;">Bottom: still required.<br>Top: new since AI.</p>
+{{< slide auto-animate="true" auto-animate-id="junior-bar" >}}
+
+<div class="stage" data-bar-steps>
+  <div class="bar-layout">
+    <div class="bar-copy">
+      <span class="bar-era in" data-id="bar-era">2017</span>
+      <h2 class="t-big"><span class="line" data-id="bar-h1"><span>The junior</span></span><span class="line"><span class="d1">bar.</span></span></h2>
+      <p class="t-lead in d2" data-id="bar-sub">Five skills got you hired.</p>
     </div>
-    <div class="tower">
-      <div class="tower-block new fragment drop" data-fragment-index="3">Prove it’s right</div>
-      <div class="tower-block new fragment drop" data-fragment-index="2">Explain it out loud</div>
-      <div class="tower-block new fragment drop" data-fragment-index="1">Use AI on purpose</div>
-      <div class="tower-block in d2">A programming language</div>
-      <div class="tower-block in d3">Data structures</div>
-      <div class="tower-block in d4">OOP</div>
-      <div class="tower-block in d5">Databases</div>
+    <div class="bar-viz is-then">
+      <div class="extra-mile fragment drop" data-fragment-index="6" data-id="extra-mile">
+        <span class="extra-text">Spring / Node · Real projects</span>
+        <span class="extra-tag">Extra mile</span>
+      </div>
+      <div class="bar-line in d2" data-id="the-bar">
+        <span class="bar-rule"></span>
+        <span class="bar-tag">2017 · HIRED</span>
+      </div>
+      <div class="foundation-stack">
+        <div class="f-block fragment" data-fragment-index="1" data-id="f-lang">One language</div>
+        <div class="f-block fragment" data-fragment-index="2" data-id="f-dsa">Problem solving (DSA)</div>
+        <div class="f-block fragment" data-fragment-index="3" data-id="f-oop">OOP</div>
+        <div class="f-block fragment" data-fragment-index="4" data-id="f-db">Databases</div>
+        <div class="f-block fragment" data-fragment-index="5" data-id="f-soft">Soft skills</div>
+      </div>
     </div>
   </div>
 </div>
 
 {{% note %}}
-**0:05 – 0:06 · Three clicks, the tower grows.**
-- The bottom four are still tested in Amman. Skipping them because "AI writes the code" is the trap.
-- Each amber block used to be a senior expectation. Now it's the junior job. Remember these three; they come back near the end.
+**0:05 · 2017 · Six clicks (Space or ↓).**
+- Clicks 1–5 reveal each foundation skill under the `2017 · HIRED` bar: one language, problem solving (DS & Algos), OOP, databases, soft skills.
+- Click 6 drops `Spring / Node · Real projects` *above* the bar — that used to be the extra mile that made you stand out.
+- Next click ↓ animates the shift to 2026.
+{{% /note %}}
+
+---
+
+{{< slide auto-animate="true" auto-animate-id="junior-bar" >}}
+
+<div class="stage" data-bar-steps>
+  <div class="bar-layout">
+    <div class="bar-copy">
+      <span class="bar-era is-now" data-id="bar-era">2026</span>
+      <h2 class="t-big"><span class="line settled" data-id="bar-h1"><span>The junior</span></span><span class="line"><span>bar <span class="mark" style="--md:0.55s;">moved.</span></span></span></h2>
+      <p class="t-lead" data-id="bar-sub">The foundation stayed.<br>Bonus became baseline.</p>
+    </div>
+    <div class="bar-viz is-now">
+      <div class="bar-line is-now" data-id="the-bar">
+        <span class="bar-rule"></span>
+        <span class="bar-tag">2026 · HIRED</span>
+      </div>
+      <div class="bar-new-stack">
+        <div class="bar-new-block fragment drop" data-fragment-index="3"><span class="bar-num">03</span>Prove it’s right</div>
+        <div class="bar-new-block fragment drop" data-fragment-index="2"><span class="bar-num">02</span>Explain it out loud</div>
+        <div class="bar-new-block fragment drop" data-fragment-index="1"><span class="bar-num">01</span>Use AI on purpose</div>
+      </div>
+      <div class="extra-mile is-expected" data-id="extra-mile">
+        <span class="extra-text">Spring / Node · Real projects</span>
+        <span class="extra-tag">Now expected</span>
+      </div>
+      <div class="bar-ghost" aria-hidden="true">
+        <span class="bar-ghost-rule"></span>
+        <span class="bar-ghost-tag">2017 bar</span>
+      </div>
+      <div class="foundation-plinth">
+        <div class="foundation-head">
+          <span class="foundation-name">The Foundation</span>
+          <span class="foundation-note">Still required</span>
+        </div>
+        <div class="foundation-grid">
+          <div class="f-block span-3" data-id="f-lang">One language</div>
+          <div class="f-block span-3" data-id="f-dsa">Problem solving (DSA)</div>
+          <div class="f-block span-2" data-id="f-oop">OOP</div>
+          <div class="f-block span-2" data-id="f-db">Databases</div>
+          <div class="f-block span-2" data-id="f-soft">Soft skills</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{% note %}}
+**0:05 – 0:06 · Three clicks (Space or ↓) fill the gap.**
+- Those five didn't disappear — they became **the foundation**. Still tested in Amman. Skipping them because "AI writes the code" is the trap.
+- Yesterday's extra mile (Spring, Node, shipping a real project) dropped *below* the bar — AI scaffolds a CRUD app in an afternoon, so having one is no longer a bonus.
+- Each amber block used to be a senior expectation. Now it's the junior bar. Remember these three; they come back near the end.
 {{% /note %}}
 
 ---
@@ -182,7 +247,7 @@ weight = 2
 {{% note %}}
 **0:06 · The punch. Say "Why?" and stop.**
 - Working code used to be proof you understood it. Now AI writes working code, so interviewers and reviewers ask the next question.
-- Bridge →: "And to answer why, you need the bottom of that tower."
+- Bridge →: "And to answer why, you need the foundation."
 {{% /note %}}
 
 {{% /section %}}
