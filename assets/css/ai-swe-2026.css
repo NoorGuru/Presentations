@@ -1297,7 +1297,31 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 .reveal-viewport .slide-background.bleed {
   background: linear-gradient(90deg, var(--paper) 50%, var(--ink) 50%) !important; /* taste-skill-ignore: hard split, not a fade */
 }
-.half.dark .t-huge { color: var(--amber); }
+.half.dark .t-huge,
+.half.dark .t-big,
+.half.dark .mult-x { color: var(--amber); }
+
+.mult-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.mult-word {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mult-x {
+  font-size: 210px;
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+}
+
+.reveal .mult-word .t-big { font-size: 132px; }
 
 /* ---------- PR diff (real interface fragment) ---------- */
 

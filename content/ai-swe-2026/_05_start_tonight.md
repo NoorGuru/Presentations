@@ -30,7 +30,7 @@ weight = 7
 {{% note %}}
 **Habit 1 · 15 minutes tonight.**
 - University trains you to hand in a ZIP and push to `main`. A pull request to yourself builds the review muscle you need on Day 1, when an AI diff looks fine and isn't.
-- Callback: PR #12 was the login bug they caught together.
+- Callback: PR #12 was the refund bug they caught together.
 {{% /note %}}
 
 ---

@@ -117,7 +117,7 @@ weight = 4
       <div class="skill-bar"><span class="mono">AGENTS.md</span><span class="skill-pill">Repo rules</span></div>
       <ul class="skill-list">
         <li><span class="skill-check">✓</span>Always write JUnit tests</li>
-        <li><span class="skill-check">✓</span>Never glue input into SQL</li>
+        <li><span class="skill-check">✓</span>Check auth on every endpoint</li>
         <li><span class="skill-check">✓</span>Run <code>mvn test</code> before finishing</li>
         <li><span class="skill-check">✓</span>Keep PRs small &amp; readable</li>
       </ul>
@@ -225,7 +225,7 @@ weight = 4
     <div class="bp-card fragment" data-fragment-index="3">
       <span class="bp-step">03 · Follows rules</span>
       <b class="bp-name">Skills</b>
-      <p class="bp-ex">Reads <code>AGENTS.md</code>: parameterized SQL + tests</p>
+      <p class="bp-ex">Reads <code>AGENTS.md</code>: auth checks + JUnit tests</p>
     </div>
     <div class="bp-card fragment" data-fragment-index="4">
       <span class="bp-step">04 · Runs the loop</span>
@@ -285,7 +285,7 @@ weight = 4
 **Close the part · The daily muscle.**
 - Every layer we just saw, from LLMs to overnight agents, creates more code for *you* to read.
 - Weekly habit: open one file you didn't write and explain what it does in five lines, out loud.
-- Bridge →: "Let's test that muscle right now. Because AI is fast at bugs, too."
+- Bridge →: "Let's test that muscle right now. Because AI is a multiplier."
 {{% /note %}}
 
 {{% /section %}}
