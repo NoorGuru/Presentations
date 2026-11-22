@@ -45,7 +45,7 @@ weight = 8
 {{% note %}}
 **Habit 2 · every bug.**
 - If AI debugs every lab, you graduate with no debugging muscle.
-- This is "Say it" in practice. If you can't defend line 14, an interviewer hears it in about 90 seconds.
+- This is "explain it out loud" in practice. If you can't defend line 14, an interviewer hears it in about 90 seconds.
 {{% /note %}}
 
 ---
@@ -62,7 +62,7 @@ weight = 8
 {{% note %}}
 **Habit 3 · 15 minutes tonight.**
 - Stop treating AI like a smarter Google tab.
-- `AGENTS.md` is "Brief it": your stack, your commands, your rules. It's the Skills rung of the ladder, at student size.
+- `AGENTS.md` is "use AI on purpose": your stack, your commands, your rules. It's Skills from the AI stack, at student size.
 {{% /note %}}
 
 ---

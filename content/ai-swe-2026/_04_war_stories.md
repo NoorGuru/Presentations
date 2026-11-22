@@ -211,20 +211,22 @@ weight = 6
 
 <div class="stage">
   <h2 class="t-lead muted settled" data-id="question" style="max-width:none;">So what are they paying you for?</h2>
-  <div class="verbs">
-    <div class="fragment"><h2 class="t-big">Brief it.</h2><p class="verb-say">Write the playbooks and rules it follows.</p></div>
-    <div class="fragment"><h2 class="t-big">Say it.</h2><p class="verb-say">Explain every change so the app team can follow.</p></div>
-    <div class="fragment"><h2 class="t-big">Prove it.</h2><p class="verb-say">Validation checks, then a human reviews every PR.</p></div>
-    <div class="fragment"><h2 class="t-big">See it.</h2><p class="verb-say">Decide what is safe to automate, and when to ship.</p></div>
+  <div class="who-list">
+    <div class="who-row fragment"><span class="who-q">Who builds the tools?</span><span class="who-a">You.</span></div>
+    <div class="who-row fragment"><span class="who-q">Who decided what’s safe to automate?</span><span class="who-a">You.</span></div>
+    <div class="who-row fragment"><span class="who-q">Who reviews the pull request?</span><span class="who-a">You.</span></div>
+    <div class="who-row fragment"><span class="who-q">Who gets paged when it breaks?</span><span class="who-a">You.</span></div>
   </div>
+  <p class="t-big who-verdict fragment">Not for typing. <span class="mark-f">For judgment.</span></p>
 </div>
 
 {{% note %}}
-**0:30 – 0:31 · Four clicks. The new bar above the foundation, said as verbs, all from EG Wizard.**
-- **Brief it** = use AI on purpose. I write the playbooks; the AI only knows what we give it.
-- **Say it** = explain it out loud. The summary has to make sense to a team that didn't write the change.
-- **Prove it** = prove it's right. Validation, then human review. Why DSA, SQL, and reading code still matter.
-- **See it:** the one AI can't do for you. Choosing what's safe to automate is the actual engineering.
+**0:30 – 0:31 · Five clicks. Ask each question out loud and let the room answer before "You." lands.**
+- By the third question they'll shout "you" before it appears. That's the point.
+- Pivot from my story to theirs: the setup line was EG Wizard, these questions are about any engineer's job.
+- Who builds the tools: someone had to understand the framework deeply enough to build EG Wizard and write its playbooks. Who decided what's safe: that's the "Needs a human" line from the last slide. Who reviews: same rule as PR #12. Who gets paged: "AI wrote it. You own it."
+- Click 5: "They don't pay you for typing. They pay you for judgment."
+- Callback to Part 1: this is the new bar. Use AI on purpose, explain it out loud, prove it's right.
 {{% /note %}}
 
 ---
@@ -233,7 +235,7 @@ weight = 6
 
 <div class="stage">
   <h2 class="t-huge"><span class="line"><span>The model</span></span><span class="line"><span class="d1">will change.</span></span></h2>
-  <h2 class="t-huge"><span class="line"><span class="d4"><span class="mark" style="--md:1.2s;">These won’t.</span></span></span></h2>
+  <h2 class="t-huge"><span class="line"><span class="d4"><span class="mark" style="--md:1.2s;">You still decide.</span></span></span></h2>
 </div>
 
 {{% note %}}
