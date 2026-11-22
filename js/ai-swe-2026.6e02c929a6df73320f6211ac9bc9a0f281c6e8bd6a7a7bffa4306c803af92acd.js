@@ -47,73 +47,6 @@
     return !!(current && current.contains(root));
   }
 
-  /* ---------- Stack ladder ---------- */
-
-  var LADDER = {
-    0: { title: "Foundation", metaphor: "Git, HTTP, SQL, one language", desc: "Everything above sits on this. Shaky here, and the tools only make a mess faster." },
-    1: { title: "LLMs", metaphor: "A smart chat box", desc: "ChatGPT, Copilot, Claude. Great at drafts. Blind to your project unless you show it." },
-    2: { title: "MCP", metaphor: "A plug", desc: "Connects the AI to GitHub, a database, or your docs. No more pasting screenshots." },
-    3: { title: "Skills", metaphor: "A saved checklist", desc: "A file in the repo the AI must follow. Test it this way. Don’t touch that." },
-    4: { title: "Agents", metaphor: "It can use the computer", desc: "Opens files, runs the tests, reads the error, tries again. Model, tools, loop." },
-    5: { title: "Autonomous", metaphor: "It keeps going", desc: "Runs on a small task while you sleep and opens a pull request. You still review it." }
-  };
-
-  function initLadder() {
-    var root = document.querySelector("[data-stack-ladder]");
-    if (!root) return;
-    var rungs = Array.prototype.slice.call(root.querySelectorAll(".rung"));
-    var detail = root.querySelector(".ladder-detail");
-    var title = root.querySelector("[data-ladder-title]");
-    var metaphor = root.querySelector("[data-ladder-metaphor]");
-    var desc = root.querySelector("[data-ladder-desc]");
-    var unlocked = 0;
-    var active = -1;
-
-    function set(step) {
-      unlocked = Math.max(unlocked, step);
-      rungs.forEach(function (rung) {
-        var s = Number(rung.dataset.step);
-        rung.classList.toggle("is-unlocked", s <= unlocked);
-        rung.classList.toggle("is-active", s === step);
-        rung.setAttribute("aria-pressed", String(s === step));
-      });
-      if (step === active) return;
-      active = step;
-      var info = LADDER[step];
-      title.textContent = info.title;
-      metaphor.textContent = info.metaphor;
-      desc.textContent = info.desc;
-      if (!reduceMotion) {
-        detail.classList.remove("is-swapping");
-        void detail.offsetWidth;
-        detail.classList.add("is-swapping");
-      }
-    }
-
-    function fromFragments() {
-      var max = 0;
-      root.querySelectorAll(".step-triggers .fragment.visible").forEach(function (el) {
-        max = Math.max(max, Number(el.dataset.ladderStep));
-      });
-      unlocked = max;
-      set(max);
-    }
-
-    rungs.forEach(function (rung) {
-      rung.addEventListener("click", function () { set(Number(rung.dataset.step)); });
-    });
-
-    document.addEventListener("keydown", function (e) {
-      if (!currentSlideHas(root) || e.metaKey || e.ctrlKey || e.altKey) return;
-      if (e.key >= "0" && e.key <= "5") { e.preventDefault(); set(Number(e.key)); }
-    });
-
-    Reveal.on("fragmentshown", fromFragments);
-    Reveal.on("fragmenthidden", fromFragments);
-    Reveal.on("slidechanged", function (ev) { if (ev.currentSlide.contains(root)) fromFragments(); });
-    set(0);
-  }
-
   /* ---------- Pull request diff ---------- */
 
   function initDiff() {
@@ -281,11 +214,11 @@
     paint(0, false);
   }
 
-  /* ---------- Bar shift fragment stepping ---------- */
-  /* Allow ↓ / ↑ to step through fragments on both the 2017 and 2026 bar slides. */
+  /* ---------- Fragment stepping with ↓ / ↑ ---------- */
+  /* Allow ↓ / ↑ to step through fragments on bar-shift and big-picture slides. */
 
-  function initBarSteps() {
-    var roots = Array.prototype.slice.call(document.querySelectorAll("[data-bar-steps]"));
+  function initStepFragments() {
+    var roots = Array.prototype.slice.call(document.querySelectorAll("[data-bar-steps], [data-step-fragments]"));
     if (!roots.length) return;
     document.addEventListener("keydown", function (e) {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
@@ -306,11 +239,10 @@
 
   function boot() {
     if (!window.Reveal) return;
-    initLadder();
     initDiff();
     initChecklist();
     initLangCycle();
-    initBarSteps();
+    initStepFragments();
     Reveal.on("slidechanged", function (ev) { onSlide(ev.currentSlide); });
     if (Reveal.isReady()) onSlide(Reveal.getCurrentSlide());
     else Reveal.on("ready", function (ev) { onSlide(ev.currentSlide); });
