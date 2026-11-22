@@ -1426,29 +1426,351 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   pointer-events: none;
 }
 
-/* ---------- Where to use AI ---------- */
+/* ---------- Where to use AI (How you prevent PR #12) ---------- */
 
 .flow {
   display: grid;
-  grid-template-columns: 1.4fr 0.7fr 1.4fr;
-  gap: 16px;
+  grid-template-columns: 1.28fr 0.78fr 1.28fr;
+  gap: 20px;
   align-items: end;
+  margin-top: 20px;
 }
 
 .flow-step {
-  padding: 40px 40px 44px;
+  padding: 36px 36px 38px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  gap: 18px;
+  border-radius: 6px;
+}
+
+.flow-step.before {
+  background: #fff;
+  color: var(--ink);
+  min-height: 430px;
+}
+
+.flow-step.during {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.72);
+  min-height: 275px;
+}
+
+.flow-step.after {
+  background: var(--amber);
+  color: var(--ink);
+  min-height: 430px;
+}
+
+.flow-when {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.reveal .flow-what {
+  font-size: 70px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+}
+
+.flow-step.during .flow-what {
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.flow-prompt {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 20px 22px;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+.reveal .flow-prompt code,
+.reveal .navy .flow-prompt > code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  font-weight: 700;
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+.flow-step.before .flow-prompt {
+  background: var(--tint);
+  color: var(--ink);
+}
+
+.flow-step.during .flow-prompt {
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 26px;
+  padding: 16px 18px;
+}
+
+.flow-step.after .flow-prompt {
+  background: rgba(20, 29, 56, 0.11);
+  color: var(--ink);
+}
+
+.flow-out {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid currentColor;
+  border-top-color: rgba(20, 29, 56, 0.16);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.flow-step.before .flow-out { color: #0f766e; }
+.flow-step.during .flow-out {
+  border-top-color: rgba(255, 255, 255, 0.16);
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.56);
+}
+.flow-step.after .flow-out { color: var(--ink); }
+
+/* ---------- Java4Shell · The $200 Spark & War Room ---------- */
+
+.j4s-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.j4s-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.j4s-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.j4s-meta {
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.j4s-spark {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 44px;
+  align-items: stretch;
+  margin-top: 12px;
+}
+
+.j4s-cost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 18px;
 }
 
-.flow-step.before { background: var(--ink); color: #fff; min-height: 460px; }
-.flow-step.during { background: var(--tint); min-height: 240px; }
-.flow-step.after { background: var(--amber); min-height: 460px; }
-.flow-when { font-size: 32px; font-weight: 700; opacity: 0.75; }
-.reveal .flow-what { font-size: 76px; font-weight: 800; letter-spacing: -0.035em; line-height: 0.95; }
-.flow-step.during .flow-what { font-size: 54px; }
+.reveal .j4s-num {
+  font-size: 295px;
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.reveal .j4s-cost-sub {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--muted);
+  margin: 0;
+}
+
+.j4s-alert {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+  padding: 44px 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  border-top: 8px solid var(--red);
+}
+
+.j4s-alert-tag {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ff8a7a;
+}
+
+.reveal .j4s-alert-lead {
+  font-size: 62px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0;
+  color: #fff;
+}
+
+.j4s-hi {
+  color: var(--amber);
+  white-space: nowrap;
+}
+
+.j4s-lead-dim {
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.j4s-alert-foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 26px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.j4s-alert-foot b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.52);
+  margin-bottom: 6px;
+}
+
+.j4s-ratio {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.j4s-ratio-small {
+  padding: 16px 26px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.86);
+  white-space: nowrap;
+}
+
+.j4s-ratio-arrow {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--amber);
+  letter-spacing: -0.08em;
+}
+
+.j4s-ratio-big {
+  padding: 16px 28px;
+  border-radius: 6px;
+  background: rgba(200, 55, 45, 0.24);
+  border: 1.5px solid rgba(255, 138, 122, 0.55);
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffb4a8;
+  letter-spacing: 0.02em;
+}
+
+.j4s-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.j4s-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 295px;
+}
+
+.j4s-step {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.j4s-card-title {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #fff;
+}
+
+.j4s-card-desc {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.32;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: auto;
+}
+
+.j4s-card.is-work {
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+.j4s-card.is-work .j4s-step {
+  color: rgba(20, 29, 56, 0.68);
+}
+
+.j4s-card.is-work .j4s-card-title {
+  color: var(--ink);
+}
+
+.j4s-card.is-work .j4s-card-desc {
+  color: rgba(20, 29, 56, 0.86);
+  font-weight: 600;
+}
 
 /* ---------- Story ---------- */
 
