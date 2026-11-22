@@ -93,37 +93,179 @@ weight = 5
 
 {{< slide class="navy" >}}
 
-<div class="stage" data-step-fragments>
-  <h2 class="t-mid in">How you prevent PR #12.</h2>
-  <p class="t-lead in d1" style="max-width:none;">Don’t just use AI to type. Use it before and after.</p>
-  <div class="flow">
-    <div class="flow-step before fragment" data-fragment-index="1">
-      <span class="flow-when">01 · Before code</span>
-      <span class="flow-what">Plan first.</span>
-      <span class="flow-prompt">“What can go wrong with <code>/refund</code>?”</span>
-      <span class="flow-out">Catches auth &amp; double-clicks early</span>
+<div class="stack-rail" aria-hidden="true">
+  <span class="rail-pill is-now">01 · Before code</span>
+  <span class="rail-pill">02 · While coding</span>
+  <span class="rail-pill">03 · After code</span>
+  <span class="rail-pill">Big picture</span>
+</div>
+<div class="stage stack-stage" data-step-fragments>
+  <div class="split wf-split">
+    <div class="wf-copy">
+      <h2 class="t-mid in">Think before<br>you prompt.</h2>
+      <div class="wf-list">
+        <div class="wf-item in d1"><b>Challenge the design</b><span>Ask AI what can fail, scale poorly, or get abused.</span></div>
+        <div class="wf-item in d2"><b>List the edge cases</b><span>Permissions, retries, empty inputs, slow networks.</span></div>
+        <div class="wf-item in d3"><b>Agree on a short plan</b><span>Lock down the rules before generating line 1.</span></div>
+      </div>
     </div>
-    <div class="flow-step during in d2">
-      <span class="flow-when">02 · Code</span>
-      <span class="flow-what">Draft it.</span>
-      <span class="flow-prompt">“Write <code>/refund</code>.”</span>
-      <span class="flow-out">Where most people stop</span>
-    </div>
-    <div class="flow-step after fragment" data-fragment-index="2">
-      <span class="flow-when">03 · Before merge</span>
-      <span class="flow-what">Stress-test it.</span>
-      <span class="flow-prompt">“Write tests to break it.<br>Then I read it.”</span>
-      <span class="flow-out">Proves it works before you merge</span>
+    <div class="wf-ex fragment">
+      <div class="wf-ex-head"><span>EXAMPLE · PR #12</span><span class="mono">/refund</span></div>
+      <div class="wf-prompt-box">
+        <span class="wf-tag">YOU → AI</span>
+        <p>“Before we code <code>POST /orders/{id}/refund</code>, what security holes and edge cases should we handle?”</p>
+      </div>
+      <div class="wf-checks">
+        <span class="wf-tag is-mint">CAUGHT BEFORE LINE 1</span>
+        <div class="wf-check"><span>✓</span><span>Verify the order belongs to the current user (<code>403</code>)</span></div>
+        <div class="wf-check"><span>✓</span><span>Block double-clicks with an atomic DB update</span></div>
+        <div class="wf-check"><span>✓</span><span>Return <code>404</code> if the order ID does not exist</span></div>
+      </div>
     </div>
   </div>
 </div>
 
 {{% note %}}
-**0:22 · Direct bridge from PR #12 to the merge rule (2 clicks).**
-- Slide opens with only the short middle box (`02 · Code: Draft it`): "Why did AI ship PR #12? Because someone only typed one prompt: 'Write `/refund`.' That's where most people stop."
-- Click 1 (`01 · Before code`): "Before a single line of code, ask AI to poke holes in your plan: *What can go wrong with `/refund`?* It flags ownership checks and double-clicks immediately."
-- Click 2 (`03 · Before merge`): "After it drafts the code, ask it to write hostile tests to break its own endpoint, and **then you read it**."
-- Bridge to next slide: "Notice those last three words: *Then I read it.* Because here's the rule..." → `AI wrote it. You own it.`
+**0:21 · Stage 1 of 3 (1 click for the /refund example).**
+- Bridge from PR #12: "Why did AI ship PR #12? Because someone skipped thinking and went straight to typing. Real engineering with AI has three stages."
+- Walk through the 3 general habits on the left first: challenge the design, list edge cases, write a short plan. Works for any feature, not just refunds.
+- Click for the right card: "Look what happens if you do this on `/refund`. One question before line 1 catches both bugs from PR #12 before any code exists."
+{{% /note %}}
+
+---
+
+<div class="stack-rail" aria-hidden="true">
+  <span class="rail-pill is-done">01 · Before code</span>
+  <span class="rail-pill is-now">02 · While coding</span>
+  <span class="rail-pill">03 · After code</span>
+  <span class="rail-pill">Big picture</span>
+</div>
+<div class="stage stack-stage" data-step-fragments>
+  <div class="split wf-split">
+    <div class="wf-copy">
+      <h2 class="t-mid in">Draft in<br>small steps.</h2>
+      <p class="wf-sub in d1">Where most people start, and where they stop.</p>
+      <div class="wf-list">
+        <div class="wf-item in d2"><b>One piece at a time</b><span>One endpoint or function, not a whole app in one shot.</span></div>
+        <div class="wf-item in d3"><b>Give it your rules</b><span>Point to existing patterns, types, and <code>AGENTS.md</code>.</span></div>
+        <div class="wf-item in d4"><b>Keep diffs small</b><span>Never accept 400 lines you cannot review in 5 minutes.</span></div>
+      </div>
+    </div>
+    <div class="wf-ex is-light fragment">
+      <div class="wf-ex-head"><span>EXAMPLE · PR #12</span><span class="mono">/refund</span></div>
+      <div class="wf-compare is-bad">
+        <span class="wf-tag is-red">LAZY PROMPT</span>
+        <p>“Write a refund endpoint.”</p>
+        <span class="wf-compare-out">Ships PR #12 with 2 silent production bugs.</span>
+      </div>
+      <div class="wf-compare is-good">
+        <span class="wf-tag is-mint">GUIDED PROMPT</span>
+        <p>“Implement <code>/refund</code> using our auth guard, atomic status update, and <code>OrderRepo</code> pattern.”</p>
+        <span class="wf-compare-out">Produces a clean, small diff that follows the plan.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{% note %}}
+**0:22 · Stage 2 of 3 (1 click for the /refund comparison).**
+- This is the code generation step everyone knows, done properly: small chunks, feed it your repo rules, keep diffs small enough to actually read.
+- Click for the right card: contrast the lazy prompt that produces PR #12 against a guided prompt grounded in the plan and repo conventions.
+{{% /note %}}
+
+---
+
+{{< slide class="navy" >}}
+
+<div class="stack-rail" aria-hidden="true">
+  <span class="rail-pill is-done">01 · Before code</span>
+  <span class="rail-pill is-done">02 · While coding</span>
+  <span class="rail-pill is-now">03 · After code</span>
+  <span class="rail-pill">Big picture</span>
+</div>
+<div class="stage stack-stage" data-step-fragments>
+  <div class="split wf-split">
+    <div class="wf-copy">
+      <h2 class="t-mid in">Prove it works<br>before merge.</h2>
+      <div class="wf-list">
+        <div class="wf-item in d1"><b>AI writes hostile tests</b><span>Test attackers, retries, and bad inputs, not just happy paths.</span></div>
+        <div class="wf-item in d2"><b>AI roasts the diff</b><span>Fresh prompt: hunt for security holes and edge cases.</span></div>
+        <div class="wf-item in d3"><b>You read every line</b><span>Run it locally, trace the logic, and sign off as owner.</span></div>
+      </div>
+    </div>
+    <div class="wf-ex fragment">
+      <div class="wf-ex-head"><span>EXAMPLE · PR #12</span><span class="mono">mvn test</span></div>
+      <div class="wf-tests">
+        <div class="wf-test"><span class="wf-pass">PASS</span><span>refund_otherUsersOrder_returns403()</span></div>
+        <div class="wf-test"><span class="wf-pass">PASS</span><span>refund_twoClicksAtOnce_refundsOnce()</span></div>
+        <div class="wf-test"><span class="wf-pass">PASS</span><span>refund_unknownOrder_returns404()</span></div>
+      </div>
+      <div class="wf-human">
+        <span class="wf-human-badge">YOU</span>
+        <span>Read the 18-line diff, run it locally, then merge.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{% note %}}
+**0:22 · Stage 3 of 3 (1 click for the verification card).**
+- Crystal clear split between AI and You:
+  1. Ask AI to write hostile tests that actively try to break the code.
+  2. Ask a fresh AI prompt to review the diff for bugs.
+  3. **You** read every line, run it, and decide to merge.
+- Click for the right card: the 3 hostile tests passing, followed by the amber YOU sign-off bar.
+{{% /note %}}
+
+---
+
+<div class="stack-rail" aria-hidden="true">
+  <span class="rail-pill is-done">01 · Before code</span>
+  <span class="rail-pill is-done">02 · While coding</span>
+  <span class="rail-pill is-done">03 · After code</span>
+  <span class="rail-pill is-now">Big picture</span>
+</div>
+<div class="stage stack-stage">
+  <h2 class="t-mid in">Beyond code generation.</h2>
+  <p class="t-lead in d1" style="max-width:none;">Typing code is only the middle. The leverage is before and after.</p>
+  <div class="flow">
+    <div class="flow-step before in d2">
+      <span class="flow-when">01 · Before code</span>
+      <span class="flow-what">Plan first.</span>
+      <ul class="flow-bullets">
+        <li>Challenge the design</li>
+        <li>List edge cases</li>
+        <li>Agree on a short spec</li>
+      </ul>
+      <span class="flow-out">Prevents bugs before line 1</span>
+    </div>
+    <div class="flow-step during in d3">
+      <span class="flow-when">02 · While coding</span>
+      <span class="flow-what">Draft small.</span>
+      <ul class="flow-bullets">
+        <li>Feed your rules</li>
+        <li>Small, readable diffs</li>
+      </ul>
+      <span class="flow-out">Where most people stop</span>
+    </div>
+    <div class="flow-step after in d4">
+      <span class="flow-when">03 · After code</span>
+      <span class="flow-what">Prove &amp; own.</span>
+      <ul class="flow-bullets">
+        <li>Hostile tests (AI)</li>
+        <li>Bug-hunt the diff (AI)</li>
+        <li>Read every line (You)</li>
+      </ul>
+      <span class="flow-out">Verified before you merge</span>
+    </div>
+  </div>
+</div>
+
+{{% note %}}
+**0:23 · The Big Picture.**
+- Tie back to the exact subtitle of the talk: "Beyond Code Generation."
+- Point to the shape: tall Navy on the left, short gray in the middle, tall Amber on the right. Typing code is the small middle step.
+- Bridge to the next Amber slide: "Notice the last line on the right: *Read every line (You)*. Because here is the rule..." → `AI wrote it. You own it.`
 {{% /note %}}
 
 ---
