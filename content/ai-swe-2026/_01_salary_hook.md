@@ -178,7 +178,7 @@ weight = 2
 {{% note %}}
 **0:05 · 2017 · Six clicks (Space or ↓).**
 - Clicks 1–5 reveal each foundation skill under the `2017 · HIRED` bar: one language, problem solving (DS & Algos), OOP, databases, soft skills.
-- Click 6 drops `Spring / Node · Real projects` *above* the bar — that used to be the extra mile that made you stand out.
+- Click 6 drops `Spring / Node · Real projects` *above* the bar. That used to be the extra mile that made you stand out.
 - Next click ↓ animates the shift to 2026.
 {{% /note %}}
 
@@ -230,8 +230,8 @@ weight = 2
 
 {{% note %}}
 **0:05 – 0:06 · Three clicks (Space or ↓) fill the gap.**
-- Those five didn't disappear — they became **the foundation**. Still tested in Amman. Skipping them because "AI writes the code" is the trap.
-- Yesterday's extra mile (Spring, Node, shipping a real project) dropped *below* the bar — AI scaffolds a CRUD app in an afternoon, so having one is no longer a bonus.
+- Those five didn't disappear. They became **the foundation**. Still tested in Amman. Skipping them because "AI writes the code" is the trap.
+- Yesterday's extra mile (Spring, Node, shipping a real project) dropped *below* the bar. AI scaffolds a CRUD app in an afternoon, so having one is no longer a bonus.
 - Each amber block used to be a senior expectation. Now it's the junior bar. Remember these three; they come back near the end.
 {{% /note %}}
 
@@ -247,7 +247,7 @@ weight = 2
 {{% note %}}
 **0:06 · The punch. Say "Why?" and stop.**
 - Working code used to be proof you understood it. Now AI writes working code, so interviewers and reviewers ask the next question.
-- Bridge →: "Uni starts the foundation. Now let's look at the three day-1 basics AI made non-negotiable—and then the buzzwords."
+- Bridge →: "Uni starts the foundation. Now let's look at the three day-1 basics AI made non-negotiable, and then the buzzwords."
 {{% /note %}}
 
 {{% /section %}}

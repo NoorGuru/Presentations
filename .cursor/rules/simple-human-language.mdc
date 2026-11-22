@@ -1,0 +1,35 @@
+---
+description: No em dashes; write in plain, human, simple language for presentations
+alwaysApply: true
+---
+
+# Simple human language
+
+Write like a person talking to a room, not like a blog post or AI draft.
+
+## Never use em dashes
+
+Do not use em dashes (`—`) or HTML `&mdash;` anywhere in slide copy, speaker notes, or comments.
+
+Use a period, comma, colon, or a short new sentence instead.
+
+```markdown
+❌ Great at explaining and drafting—blind to your repo.
+✅ Great at explaining and drafting. Blind to your repo.
+
+❌ Plus SQL—because almost every app stores data.
+✅ Plus SQL, because almost every app stores data.
+
+❌ They didn't disappear — they became the foundation.
+✅ They didn't disappear. They became the foundation.
+```
+
+En dashes in number or year ranges are fine (`350 – 550`, `2017–2019`, `30–40 sec`).
+
+## Keep the language human and simple
+
+- Short sentences. One idea per sentence when you can.
+- Everyday words over buzzwords. If a term is required, define it in plain words right away.
+- Sound like you are speaking out loud, not writing an essay.
+- Prefer "you / we / it" over abstract phrasing.
+- Cut filler and stacked clauses. If a sentence needs an em dash to breathe, rewrite it as two sentences.

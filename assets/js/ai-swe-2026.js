@@ -115,7 +115,7 @@
 
   /* ---------- Language cycle ---------- */
   /* Clicker-driven: each step uses the same .strike sweep as the rest of the deck.
-     ↓ normally skips fragments — remap it on this slide so Space and ↓ both step. */
+     ↓ normally skips fragments. Remap it on this slide so Space and ↓ both step. */
 
   var LANGS = ["Java", "JavaScript", "Rust", "Go", "One language"];
   var LANG_SIZE = { Java: "200px", JavaScript: "112px", Rust: "200px", Go: "200px", "One language": "108px" };

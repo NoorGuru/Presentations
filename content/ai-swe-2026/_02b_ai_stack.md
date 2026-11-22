@@ -16,7 +16,7 @@ weight = 4
 {{% note %}}
 **0:12 · New section door (10 sec).**
 - Let the room breathe after the day-1 basics.
-- "Every day on LinkedIn you hear these five words like they're magic. Let's demystify them—one screen, one real example each—then connect all five in one bug fix." ↓
+- "Every day on LinkedIn you hear these five words like they're magic. Let's demystify them: one screen, one real example each. Then connect all five in one bug fix." ↓
 {{% /note %}}
 
 ---
@@ -35,7 +35,7 @@ weight = 4
     <div class="stack-copy">
       <h2 class="t-huge"><span class="line"><span>LLMs.</span></span></h2>
       <p class="stack-metaphor in d2">A brain in a chat box.</p>
-      <p class="t-lead in d3">ChatGPT, Claude, Gemini. Great at explaining and drafting—blind to your repo unless you paste it in.</p>
+      <p class="t-lead in d3">ChatGPT, Claude, Gemini. Great at explaining and drafting. Blind to your repo unless you paste it in.</p>
     </div>
     <div class="chat-demo in d4">
       <div class="chat-msg is-user">
@@ -46,7 +46,7 @@ weight = 4
         <span class="chat-who">LLM</span>
         <p class="chat-body">Line 14: <code>user</code> can be <code>null</code>. Check before reading <code>user.password</code>.</p>
       </div>
-      <div class="chat-limit">Stops here — it can only reply with text.</div>
+      <div class="chat-limit">Stops here. It can only reply with text.</div>
     </div>
   </div>
 </div>
@@ -54,7 +54,7 @@ weight = 4
 {{% note %}}
 **01 · LLMs (30 sec).**
 - Start simple: everyone here has used ChatGPT or Claude.
-- That's an LLM: a smart brain trapped in a chat box. It doesn't see your project, can't open a file, can't run tests—it only knows what you paste in, and it only replies with text.
+- That's an LLM: a smart brain trapped in a chat box. It doesn't see your project, can't open a file, can't run tests. It only knows what you paste in, and it only replies with text.
 {{% /note %}}
 
 ---
@@ -90,9 +90,9 @@ weight = 4
 
 {{% note %}}
 **02 · MCP (30–40 sec).**
-- Model Context Protocol sounds scary—just think **USB-C for AI**.
+- Model Context Protocol sounds scary. Just think **USB-C for AI**.
 - Before MCP, you pasted logs, SQL schemas, and screenshots into chat. With MCP, you plug GitHub, Postgres, or internal docs directly into the model.
-- Example: "Why did PR #12 fail?" — it fetches the PR diff on its own.
+- Example: "Why did PR #12 fail?" It fetches the PR diff on its own.
 {{% /note %}}
 
 ---
@@ -159,7 +159,7 @@ weight = 4
 {{% note %}}
 **04 · Agents (40 sec).**
 - Three words to remember: **model, tools, loop.**
-- An LLM replies once and stops. An agent edits the file, runs your tests, sees that a test failed, reads the stack trace, fixes it, and runs the tests again—until they're green.
+- An LLM replies once and stops. An agent edits the file, runs your tests, sees that a test failed, reads the stack trace, fixes it, and runs the tests again until they're green.
 {{% /note %}}
 
 ---
@@ -255,7 +255,7 @@ weight = 4
   3. **Skills** (`AGENTS.md`) enforce your team's rules.
   4. **Agent** edits the file and runs the test loop until green.
   5. **Autonomous** opens PR #12 while you sleep.
-  6. **Click 6:** And sitting underneath all five? **The Foundation**—because **you** are the one who opens PR #12, reads the diff, and decides whether it ships.
+  6. **Click 6:** And sitting underneath all five? **The Foundation**, because **you** are the one who opens PR #12, reads the diff, and decides whether it ships.
 {{% /note %}}
 
 ---
@@ -283,9 +283,9 @@ weight = 4
 
 {{% note %}}
 **Close the part · The daily muscle.**
-- Every layer we just saw—from LLMs to overnight agents—creates more code for *you* to read.
+- Every layer we just saw, from LLMs to overnight agents, creates more code for *you* to read.
 - Weekly habit: open one file you didn't write and explain what it does in five lines, out loud.
-- Bridge →: "Let's test that muscle right now. Because AI is fast—at bugs, too."
+- Bridge →: "Let's test that muscle right now. Because AI is fast at bugs, too."
 {{% /note %}}
 
 {{% /section %}}

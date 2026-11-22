@@ -15,7 +15,7 @@ weight = 3
 {{% note %}}
 **0:07 · Bridge from Part 1.**
 - Part 1 was the 5-skill foundation universities and interviews test.
-- This part is the day-1 craft that mattered *before* AI—and matters 10× more *now*: Git & GitHub, APIs, and one language + SQL.
+- This part is the day-1 craft that mattered *before* AI, and matters 10× more *now*: Git & GitHub, APIs, and one language + SQL.
 - Ask: "Who can open a branch and a PR without googling the commands?" Hands. That's the gap, not Java syntax.
 {{% /note %}}
 
@@ -81,7 +81,7 @@ weight = 3
 {{% note %}}
 **APIs · one minute.**
 - Walk one example everyone knows: tap Login → your phone sends `POST /login` to a server → the server checks the database and answers `200` (let them in) or `401` (wrong password).
-- Why it matters even more now: every AI model, plugin, and MCP tool works the exact same way—calling APIs. If you can't read a request and a status code, you can't debug an AI tool either.
+- Why it matters even more now: every AI model, plugin, and MCP tool works the exact same way, by calling APIs. If you can't read a request and a status code, you can't debug an AI tool either.
 {{% /note %}}
 
 ---
@@ -108,7 +108,7 @@ weight = 3
 **One language + SQL · four clicks (Space or ↓).**
 - Opens on Java. Each click: red strike, then the next language.
 - Java → JavaScript → Rust → Go → **One language** + “The language is not the point.”
-- Land it: "Pick one. Go deep. Plus SQL—because almost every real app stores data in a database." Then → to the AI stack section.
+- Land it: "Pick one. Go deep. Plus SQL, because almost every real app stores data in a database." Then → to the AI stack section.
 {{% /note %}}
 
 {{% /section %}}
