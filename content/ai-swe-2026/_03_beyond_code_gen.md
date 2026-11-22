@@ -13,7 +13,7 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:17 · Keep this concrete.** One idea: AI doesn't replace your habits—it multiplies them. Then a real Java PR they can inspect, then Java4Shell in one minute, no internals.
+**0:17 · Keep this concrete.** One idea: AI doesn't replace your habits, it multiplies them. Then a real Java PR they can inspect, then Java4Shell in one minute, no internals.
 {{% /note %}}
 
 ---
@@ -91,17 +91,39 @@ weight = 5
 
 ---
 
-<div class="stage">
-  <h2 class="t-mid in">Not only in the middle.</h2>
+{{< slide class="navy" >}}
+
+<div class="stage" data-step-fragments>
+  <h2 class="t-mid in">How you prevent PR #12.</h2>
+  <p class="t-lead in d1" style="max-width:none;">Don’t just use AI to type. Use it before and after.</p>
   <div class="flow">
-    <div class="flow-step before fragment"><span class="flow-when">Before you code</span><span class="flow-what">Poke holes in my idea.</span></div>
-    <div class="flow-step during in d2"><span class="flow-when">While you code</span><span class="flow-what">Draft it.</span></div>
-    <div class="flow-step after fragment"><span class="flow-when">Before you merge</span><span class="flow-what">Write tests. Then I read it.</span></div>
+    <div class="flow-step before fragment" data-fragment-index="1">
+      <span class="flow-when">01 · Before code</span>
+      <span class="flow-what">Plan first.</span>
+      <span class="flow-prompt">“What can go wrong with <code>/refund</code>?”</span>
+      <span class="flow-out">Catches auth &amp; double-clicks early</span>
+    </div>
+    <div class="flow-step during in d2">
+      <span class="flow-when">02 · Code</span>
+      <span class="flow-what">Draft it.</span>
+      <span class="flow-prompt">“Write <code>/refund</code>.”</span>
+      <span class="flow-out">Where most people stop</span>
+    </div>
+    <div class="flow-step after fragment" data-fragment-index="2">
+      <span class="flow-when">03 · Before merge</span>
+      <span class="flow-what">Stress-test it.</span>
+      <span class="flow-prompt">“Write tests to break it.<br>Then I read it.”</span>
+      <span class="flow-out">Proves it works before you merge</span>
+    </div>
   </div>
 </div>
 
 {{% note %}}
-**0:22 · Most of them only use the middle box: "write my code."** The useful moves are before (critique my idea) and after (tests, then I read it).
+**0:22 · Direct bridge from PR #12 to the merge rule (2 clicks).**
+- Slide opens with only the short middle box (`02 · Code: Draft it`): "Why did AI ship PR #12? Because someone only typed one prompt: 'Write `/refund`.' That's where most people stop."
+- Click 1 (`01 · Before code`): "Before a single line of code, ask AI to poke holes in your plan: *What can go wrong with `/refund`?* It flags ownership checks and double-clicks immediately."
+- Click 2 (`03 · Before merge`): "After it drafts the code, ask it to write hostile tests to break its own endpoint, and **then you read it**."
+- Bridge to next slide: "Notice those last three words: *Then I read it.* Because here's the rule..." → `AI wrote it. You own it.`
 {{% /note %}}
 
 ---
@@ -109,41 +131,91 @@ weight = 5
 {{< slide class="amber" >}}
 
 <div class="stage">
-  <h2 class="t-huge"><span class="line"><span>You explain it,</span></span><span class="line"><span class="d2">or you don’t</span></span><span class="line"><span class="d3"><span class="mark" style="--md:1.1s;">merge it.</span></span></span></h2>
+  <h2 class="t-huge"><span class="line"><span>AI wrote it.</span></span><span class="line"><span class="d2">You <span class="mark" style="--md:0.95s;">own it.</span></span></span></h2>
+  <p class="t-lead in d5" style="max-width:none;">Your name is on the PR. Production pages you, not the model.</p>
 </div>
 
 {{% note %}}
-**The rule. Say it slowly.** Then: "And this isn't only student homework. This week, AI found a bug inside Java itself."
+**The rule. Say it slowly and let it land.**
+- Git doesn't put the model's name on the commit. When it breaks at 3 AM, production pages *you*.
+- Bridge: "And this isn't just about student projects. Look at what happened in the real world at my company just a week ago."
 {{% /note %}}
 
 ---
 
 <div class="stage">
-  <p class="t-lead in">Java4Shell · November 2026</p>
-  <p class="t-mega num" style="font-size:420px;"><span class="line"><span class="d1">&lt; $<span data-count="200" data-delay="400">200</span></span></span></p>
-  <p class="t-lead in d4">of AI found a serious bug in <span class="mark" style="--md:1.2s;">Java itself.</span></p>
+  <div class="j4s-eyebrow in">
+    <span class="j4s-pill"><span class="j4s-dot" aria-hidden="true"></span>NOV 17, 2026 · JAVA4SHELL</span>
+    <span class="j4s-meta">JDK · BASE64 DECODER</span>
+  </div>
+  <div class="j4s-spark">
+    <div class="j4s-cost">
+      <p class="j4s-num num"><span class="line"><span class="d1">&lt;$<span data-count="200" data-delay="350">200</span></span></span></p>
+      <p class="j4s-cost-sub in d3">One AI run. A few hours.</p>
+    </div>
+    <div class="j4s-alert in d2">
+      <span class="j4s-alert-tag">HIGH-IMPACT RUNTIME BUG</span>
+      <p class="j4s-alert-lead">A serious bug inside<br><span class="j4s-hi">Java itself.</span></p>
+      <div class="j4s-alert-foot">
+        <span><b>Effort to find</b>Tiny prompt budget</span>
+        <span><b>Blast radius</b>Millions of servers</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 {{% note %}}
-**0:23 · One story. No payload, no CVE number unless asked.**
-- November 17, 2026. A bug in Java's own Base64 decoder. Serious on some servers.
-- The number that matters: under $200 and a few hours of AI. Then companies had to patch Java everywhere.
-- If asked "how bad": high risk, depends on the machine. Don't oversell it into Log4Shell.
+**0:23 · Real-world story from work. No payload, no CVE lecture unless asked.**
+- November 17, 2026: "Java4Shell", a real bug in Java's own Base64 decoder.
+- The shocking number: **under $200 and a few hours of AI** to uncover a serious vulnerability inside a runtime trusted by millions of servers.
+- Set up the next click: "Now look at what a $200 AI run forced real companies, including my own team, to do."
 {{% /note %}}
 
 ---
 
 {{< slide class="navy" >}}
 
-<div class="stage">
-  <h2 class="t-big"><span class="line"><span><span class="strike" style="--sd:0.7s;">Finding it</span> was cheap.</span></span></h2>
-  <h2 class="t-big"><span class="line"><span class="d3">Fixing it everywhere</span></span><span class="line"><span class="d4">was <span class="mark" style="--md:1.2s;">the job.</span></span></span></h2>
-  <p class="t-lead fragment">Two days ago, we were still rolling it out.</p>
+<div class="stage" data-step-fragments>
+  <h2 class="t-mid"><span class="line"><span class="j4s-lead-dim">Finding it was $200.</span></span><span class="line"><span class="d2">Fixing it everywhere was <span class="mark" style="--md:0.95s;">the job.</span></span></span></h2>
+
+  <div class="j4s-ratio in d3">
+    <div class="j4s-ratio-small"><span>1 AI run · &lt;$200</span></div>
+    <span class="j4s-ratio-arrow" aria-hidden="true">━━▶</span>
+    <div class="j4s-ratio-big"><span>Emergency war room · Hundreds of services · Days of rollout</span></div>
+  </div>
+
+  <div class="j4s-grid">
+    <div class="j4s-card fragment" data-fragment-index="1">
+      <span class="j4s-step">01 · Audit</span>
+      <span class="j4s-card-title">Hunt every runtime</span>
+      <span class="j4s-card-desc">Every service, container, and JDK version exposed.</span>
+    </div>
+    <div class="j4s-card fragment" data-fragment-index="2">
+      <span class="j4s-step">02 · Mitigate</span>
+      <span class="j4s-card-title">Contain it first</span>
+      <span class="j4s-card-desc">Temporary guards while waiting for the official JDK fix.</span>
+    </div>
+    <div class="j4s-card fragment" data-fragment-index="3">
+      <span class="j4s-step">03 · Patch &amp; ship</span>
+      <span class="j4s-card-title">Roll out the fix</span>
+      <span class="j4s-card-desc">Rebuild images and deploy safely once the JDK patch lands.</span>
+    </div>
+    <div class="j4s-card is-work fragment" data-fragment-index="4">
+      <span class="j4s-step">04 · At my work</span>
+      <span class="j4s-card-title">1 week ago.</span>
+      <span class="j4s-card-desc">My team was rolling this out across our platform.</span>
+    </div>
+  </div>
 </div>
 
 {{% note %}}
-**0:24 · Your part, said out loud.** About two days ago we were still pushing that fix across our Java systems. Not one service. The platform.
-- Bridge: "That's the job AI doesn't remove. Someone has to understand the change and roll it out safely."
+**0:24 · Your personal story from work (4 quick clicks).**
+- Point at the top asymmetry bar: **1 AI run under $200** triggered an **emergency war room across hundreds of services and days of rollout**.
+- Click 1: Audit every service, container, and JDK version.
+- Click 2: Mitigate first. Because the bug is inside the JDK itself, you can't just edit your own code. You have to put mitigations in place while waiting for the official JDK fix.
+- Click 3: Once the official JDK patch lands, rebuild base images, test, and roll it out safely without breaking live customers.
+- Click 4 (Amber card): "This isn't theory. **1 week ago**, my team was rolling this out across our Java systems. Not one microservice. The whole platform."
+- Bridge to Part 4 (→): "That's the job AI doesn't remove. So let's zoom in on what the day-to-day job actually looks like now."
 {{% /note %}}
 
 {{% /section %}}
