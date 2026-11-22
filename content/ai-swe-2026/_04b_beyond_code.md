@@ -16,7 +16,7 @@ weight = 7
 {{% note %}}
 **Quick playful breather before "Start tonight."**
 - Switch tone: smile, drop the serious engineering voice for 2 minutes.
-- "Everything so far was about software engineering. Now here are six ways I actually use AI outside coding."
+- "Everything so far was about software engineering. Now here are seven ways I actually use AI outside coding."
 {{% /note %}}
 
 ---
@@ -169,7 +169,45 @@ weight = 7
 {{< slide class="navy" >}}
 
 <div class="stage" data-step-fragments>
-  <span class="bc-num in">06 · AND ONE MORE THING</span>
+  <span class="bc-num in">06 · STAY SAFE</span>
+  <h2 class="t-big in d1">Hack yourself first.</h2>
+  <div class="bc-sec">
+    <div class="bc-sec-recall in d2">
+      <span class="bc-sec-tag">REMEMBER JAVA4SHELL?</span>
+      <p class="bc-sec-num num">&lt;$200</p>
+      <p class="bc-sec-line">of AI found a serious bug in Java itself.</p>
+      <p class="bc-sec-punch">Attackers have the same AI.<br><span>Get there first.</span></p>
+    </div>
+    <div class="bc-sec-checks">
+      <div class="bc-sec-check in d3">
+        <span class="bc-sec-prompt">“Scan my repo for leaked keys and passwords.”</span>
+        <span class="bc-sec-found fragment">Found: an API key committed in 2024</span>
+      </div>
+      <div class="bc-sec-check in d4">
+        <span class="bc-sec-prompt">“Is this ‘JU scholarship’ email real?”</span>
+        <span class="bc-sec-found fragment">Fake sender domain. Don’t click.</span>
+      </div>
+      <div class="bc-sec-check in d5">
+        <span class="bc-sec-prompt">“Attack my graduation project like a hacker.”</span>
+        <span class="bc-sec-found fragment">Found: SQL injection in the search box</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{% note %}}
+**06 · Hack yourself first (3 clicks, one finding each).**
+- Callback: "Remember Java4Shell? Under $200 of AI found a bug inside Java itself. The attackers have exactly the same AI. So get there first."
+- Click 1: scan your own GitHub for leaked keys. Students push `.env` files all the time.
+- Click 2: paste a suspicious email and ask if it's real. Phishing aimed at students is everywhere.
+- Click 3: ask it to attack your own project. Better you find the SQL injection than a stranger does.
+- Rule of thumb: only attack what you own.
+{{% /note %}}
+
+---
+
+<div class="stage" data-step-fragments>
+  <span class="bc-num in">07 · AND ONE MORE THING</span>
   <h2 class="t-big in d1">Create slides for your<br>presentations.</h2>
   <p class="t-lead in d2" style="max-width:none;">Outline the story, design custom layouts, iterate in minutes.</p>
 
@@ -190,7 +228,7 @@ weight = 7
 </div>
 
 {{% note %}}
-**06 · The comedy punchline (1 click for the reveal!).**
+**07 · The comedy punchline (1 click for the reveal!).**
 - Deliver the opening completely deadpan and serious: "And finally, you can use AI to create slides for your presentations..."
 - Pause one beat as the room starts smiling, then CLICK!
 - "Wait... what? You caught me :3"
