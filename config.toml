@@ -16,6 +16,9 @@ baseName = "index"
 mediaType = "text/html"
 isHTML = true
 
+[params]
+remote_relay = "wss://slide-remote.abukhleif94.workers.dev"
+
 [params.reveal_hugo]
 theme = "white"
 history = true

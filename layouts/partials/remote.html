@@ -1,0 +1,385 @@
+{{- with site.Params.remote_relay -}}
+{{- $talks := slice -}}
+{{- range (where site.Sections "Kind" "section").ByDate.Reverse -}}
+  {{- if .Title -}}
+    {{- $when := "" -}}
+    {{- if gt .Date.Year 1 }}{{ $when = .Date.Format "January 2006" }}{{ end -}}
+    {{- $talks = $talks | append (dict "title" .Title "url" .RelPermalink "when" $when) -}}
+  {{- end -}}
+{{- end -}}
+<style>
+  .rm-toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 12px); z-index: 60; padding: 10px 18px; border-radius: 999px; background: rgba(11, 18, 32, .88); color: #fff; font: 500 15px/1.2 -apple-system, system-ui, sans-serif; opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; }
+  .rm-toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+  html.rm-remote, html.rm-remote body { background: #0b1220; }
+  html.rm-remote.rm-home body { overflow: hidden; }
+  html.rm-remote body.reveal-viewport { height: 56.25vw !important; min-height: 0; }
+  html.rm-remote .reveal .controls, html.rm-remote .reveal .progress, html.rm-remote .slide-meta { display: none !important; }
+  .rm-panel { position: fixed; z-index: 50; inset: 56.25vw 0 0 0; display: flex; flex-direction: column; gap: 10px; padding: 10px 14px calc(env(safe-area-inset-bottom) + 12px); background: #0b1220; color: #e6ebf5; font: 16px/1.4 -apple-system, system-ui, sans-serif; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+  html.rm-home .rm-panel { inset: 0; padding-top: calc(env(safe-area-inset-top) + 14px); }
+  .rm-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 14px; color: #8a96b0; font-variant-numeric: tabular-nums; }
+  .rm-status::before { content: "●"; margin-right: 6px; color: #f59e0b; }
+  .rm-status.ok::before { color: #22c55e; }
+  .rm-status.err::before { color: #ef4444; }
+  .rm-timer { border: 0; background: #16203a; color: #e6ebf5; border-radius: 999px; padding: 4px 12px; font: inherit; }
+  .rm-timer.run { background: #1e3a8a; }
+  .rm-notes { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 12px 14px; border-radius: 16px; background: #111a2e; font-size: 17px; -webkit-user-select: text; user-select: text; }
+  .rm-notes:empty::before { content: "No notes on this slide."; color: #5b6784; }
+  .rm-notes ul { margin: 6px 0; padding-left: 20px; }
+  .rm-notes p { margin: 6px 0; }
+  .rm-panel button { -webkit-appearance: none; appearance: none; }
+  .rm-nav { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; height: 18vh; min-height: 96px; }
+  .rm-nav button, .rm-row button, .rm-talk { border: 0; border-radius: 20px; background: #16203a; color: #e6ebf5; font: 600 20px -apple-system, system-ui, sans-serif; transition: transform .08s ease; }
+  .rm-nav button:active, .rm-row button:active, .rm-talk:active { transform: scale(.97); }
+  .rm-nav .rm-next { background: #3b82f6; font-size: 26px; }
+  .rm-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .rm-row button { height: 48px; font-size: 14px; color: #8a96b0; }
+  .rm-row button.on { background: #e6ebf5; color: #0b1220; }
+  .rm-swipe { position: fixed; z-index: 49; inset: 0 0 auto 0; height: 56.25vw; }
+  .rm-heading { margin: 10px 2px 0; font: 600 26px/1.2 -apple-system, system-ui, sans-serif; }
+  .rm-talks { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+  .rm-talk { display: block; width: 100%; padding: 18px; text-align: left; font-size: 18px; line-height: 1.3; }
+  .rm-talk small { display: block; margin-top: 4px; font-size: 13px; font-weight: 500; color: #8a96b0; }
+</style>
+<script>
+(function () {
+  var RELAY = {{ . }};
+  var TALKS = {{ $talks }};
+  var HOME = {{ $.IsHome }};
+  var params = new URLSearchParams(location.search);
+  var mode, key;
+
+  if (params.has("remote")) {
+    mode = "remote";
+    key = params.get("remote");
+  } else if (params.has("deck")) {
+    // The Mac screen is often mirrored, so take the key out of the address bar.
+    mode = "deck";
+    key = params.get("deck");
+    sessionStorage.setItem("rm-deck", key);
+    params.delete("deck");
+    var q = params.toString();
+    history.replaceState(null, "", location.pathname + (q ? "?" + q : "") + location.hash);
+  } else if (sessionStorage.getItem("rm-deck")) {
+    mode = "deck";
+    key = sessionStorage.getItem("rm-deck");
+  }
+  if (!mode || !key) return;
+
+  var ws, retry = 0, pingTimer, onMessage, onStatus, stopped = false;
+
+  function connect() {
+    if (stopped || (ws && ws.readyState <= 1)) return;
+    onStatus("wait", "Connecting");
+    ws = new WebSocket(RELAY + "/ws?role=" + mode + "&key=" + encodeURIComponent(key));
+    ws.onopen = function () {
+      retry = 0;
+      clearInterval(pingTimer);
+      pingTimer = setInterval(function () { if (ws.readyState === 1) ws.send("ping"); }, 25000);
+      onStatus("open");
+    };
+    ws.onmessage = function (e) {
+      if (e.data === "pong") return;
+      try { onMessage(JSON.parse(e.data)); } catch (err) {}
+    };
+    ws.onclose = function (e) {
+      clearInterval(pingTimer);
+      if (e.code === 4000) {
+        stopped = true;
+        sessionStorage.removeItem("rm-deck");
+        onStatus("replaced");
+        return;
+      }
+      onStatus("err", "Offline. Retrying");
+      setTimeout(connect, Math.min(10000, 1000 * Math.pow(2, retry++)));
+    };
+  }
+
+  function send(msg) {
+    if (ws && ws.readyState === 1) { ws.send(JSON.stringify(msg)); return true; }
+    connect();
+    return false;
+  }
+
+  // Let a queued message leave before the page unloads.
+  function flushThen(fn) {
+    var tries = 0;
+    (function wait() {
+      if (!ws || ws.bufferedAmount === 0 || tries++ > 20) setTimeout(fn, 60);
+      else setTimeout(wait, 25);
+    })();
+  }
+
+  function samePath(a, b) {
+    return a.replace(/\/?$/, "/") === b.replace(/\/?$/, "/");
+  }
+
+  function knownPath(path) {
+    return path === "/" || TALKS.some(function (t) { return samePath(t.url, path); });
+  }
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") connect();
+  });
+
+  function whenReady(fn) {
+    if (HOME) { fn(); return; }
+    function go() {
+      if (!window.Reveal) return;
+      if (Reveal.isReady()) fn();
+      else Reveal.on("ready", fn);
+    }
+    if (document.readyState === "complete") go();
+    else window.addEventListener("load", go);
+  }
+
+  if (mode === "deck") deck();
+  else remote();
+
+  function deck() {
+    var toast = document.createElement("div");
+    toast.className = "rm-toast";
+    document.body.appendChild(toast);
+    var toastTimer, remotes = 0, leaving = false;
+
+    function say(text) {
+      toast.textContent = text;
+      toast.classList.add("on");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toast.classList.remove("on"); }, 2200);
+    }
+
+    function report() {
+      if (leaving) return;
+      if (HOME) { send({ type: "state", path: location.pathname }); return; }
+      var i = Reveal.getIndices();
+      send({
+        type: "state",
+        path: location.pathname,
+        h: i.h, v: i.v, f: i.f,
+        n: Reveal.getSlidePastCount() + 1,
+        total: Reveal.getTotalSlides(),
+        paused: Reveal.isPaused(),
+        overview: Reveal.isOverview()
+      });
+    }
+
+    function open(path) {
+      if (!knownPath(path) || samePath(path, location.pathname)) return;
+      leaving = true;
+      send({ type: "state", path: path });
+      flushThen(function () { location.href = path; });
+    }
+
+    var actions = HOME ? {} : {
+      next: function () { Reveal.next(); },
+      prev: function () { Reveal.prev(); },
+      black: function () { Reveal.togglePause(); },
+      overview: function () { Reveal.toggleOverview(); },
+      first: function () { Reveal.slide(0, 0, -1); }
+    };
+
+    onStatus = function (state) {
+      if (state === "open") report();
+      if (state === "replaced") say("Remote moved to another tab");
+    };
+    onMessage = function (msg) {
+      if (msg.type === "cmd" && msg.action === "open" && typeof msg.path === "string") {
+        open(msg.path);
+      } else if (msg.type === "cmd" && actions[msg.action]) {
+        if (Reveal.isPaused() && msg.action !== "black") Reveal.togglePause(false);
+        actions[msg.action]();
+      }
+      if (msg.type === "presence") {
+        if (msg.remotes > remotes) say("Phone remote connected");
+        else if (msg.remotes < remotes && msg.remotes === 0) say("Phone remote left");
+        remotes = msg.remotes;
+      }
+    };
+
+    whenReady(function () {
+      if (!HOME) {
+        ["slidechanged", "fragmentshown", "fragmenthidden", "paused", "resumed", "overviewshown", "overviewhidden"]
+          .forEach(function (ev) { Reveal.on(ev, report); });
+      }
+      connect();
+    });
+  }
+
+  function remote() {
+    var root = document.documentElement;
+    root.classList.add("rm-remote");
+    if (HOME) root.classList.add("rm-home");
+
+    var panel = document.createElement("div");
+    panel.className = "rm-panel";
+    var bar = '<div class="rm-bar"><span class="rm-status">Connecting</span><span class="rm-count"></span><button class="rm-timer" type="button">0:00</button></div>';
+    if (HOME) {
+      panel.innerHTML = bar + '<h1 class="rm-heading">Pick a talk</h1><div class="rm-talks"></div>';
+      var list = panel.querySelector(".rm-talks");
+      TALKS.forEach(function (t) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "rm-talk";
+        b.dataset.path = t.url;
+        b.textContent = t.title;
+        if (t.when) {
+          var small = document.createElement("small");
+          small.textContent = t.when;
+          b.appendChild(small);
+        }
+        list.appendChild(b);
+      });
+    } else {
+      panel.innerHTML = bar +
+        '<div class="rm-notes"></div>' +
+        '<div class="rm-row"><button data-a="black" type="button">Black</button><button data-a="overview" type="button">Overview</button><button data-a="first" type="button">Start</button><button data-path="/" type="button">Talks</button></div>' +
+        '<div class="rm-nav"><button data-a="prev" type="button">‹ Back</button><button class="rm-next" data-a="next" type="button">Next ›</button></div>';
+      var swipe = document.createElement("div");
+      swipe.className = "rm-swipe";
+      document.body.appendChild(swipe);
+    }
+    document.body.appendChild(panel);
+
+    var statusEl = panel.querySelector(".rm-status");
+    var countEl = panel.querySelector(".rm-count");
+    var notesEl = panel.querySelector(".rm-notes");
+    var blackBtn = panel.querySelector('[data-a="black"]');
+    var overviewBtn = panel.querySelector('[data-a="overview"]');
+    var timerBtn = panel.querySelector(".rm-timer");
+    var connected = false, macs = 0, last = null, moving = false;
+
+    function setStatus(cls, text) {
+      statusEl.className = "rm-status " + cls;
+      statusEl.textContent = text;
+    }
+    function showPresence() {
+      if (!connected) return;
+      if (macs > 0) setStatus("ok", "Mac connected");
+      else setStatus("wait", "Open present.bynoor.io/?deck=… on the Mac");
+    }
+
+    onStatus = function (state, text) {
+      connected = state === "open";
+      if (connected) showPresence();
+      else setStatus(state, text);
+    };
+
+    function go(path) {
+      if (moving) return;
+      moving = true;
+      location.href = path + "?remote=" + encodeURIComponent(key);
+    }
+
+    // The Mac is the source of truth. If it is on another page, follow it.
+    function followPage() {
+      if (macs > 0 && last && last.path && knownPath(last.path) && !samePath(last.path, location.pathname)) {
+        go(last.path);
+        return true;
+      }
+      return false;
+    }
+
+    function follow() {
+      if (followPage() || HOME || !last || typeof last.h !== "number" || !Reveal.isReady()) return;
+      Reveal.slide(last.h, last.v, last.f);
+      notesEl.innerHTML = Reveal.getSlideNotes() || "";
+      notesEl.scrollTop = 0;
+      countEl.textContent = last.n + " / " + last.total;
+      blackBtn.classList.toggle("on", !!last.paused);
+      overviewBtn.classList.toggle("on", !!last.overview);
+    }
+
+    onMessage = function (msg) {
+      if (msg.type === "state") { last = msg; follow(); }
+      if (msg.type === "presence") { macs = msg.decks; showPresence(); follow(); }
+    };
+
+    var wakeLock = null;
+    function stayAwake() {
+      if (wakeLock || !navigator.wakeLock) return;
+      navigator.wakeLock.request("screen").then(function (l) {
+        wakeLock = l;
+        l.addEventListener("release", function () { wakeLock = null; });
+      }).catch(function () {});
+    }
+
+    function act(action) {
+      stayAwake();
+      if (!send({ type: "cmd", action: action })) setStatus("err", "Not sent. Reconnecting");
+    }
+
+    function openTalk(path) {
+      if (!send({ type: "cmd", action: "open", path: path })) {
+        setStatus("err", "Not sent. Reconnecting");
+        return;
+      }
+      flushThen(function () { go(path); });
+    }
+
+    panel.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-a], button[data-path]");
+      if (!b) return;
+      if (b.dataset.path) openTalk(b.dataset.path);
+      else act(b.dataset.a);
+    });
+
+    if (swipe) {
+      var x0 = null;
+      swipe.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      swipe.addEventListener("touchend", function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        x0 = null;
+        if (Math.abs(dx) > 40) act(dx < 0 ? "next" : "prev");
+      });
+    }
+
+    // The timer survives moving between talks and the home page.
+    var saved = JSON.parse(sessionStorage.getItem("rm-timer") || "{}");
+    var elapsed = saved.elapsed || 0, started = saved.started || 0, tick = null, holdTimer = null, held = false;
+    function save() { sessionStorage.setItem("rm-timer", JSON.stringify({ elapsed: elapsed, started: tick ? started : 0 })); }
+    function fmt(ms) {
+      var s = Math.floor(ms / 1000);
+      return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+    }
+    function draw() {
+      timerBtn.textContent = fmt(elapsed + (tick ? Date.now() - started : 0));
+      timerBtn.classList.toggle("run", !!tick);
+    }
+    if (started) tick = setInterval(draw, 500);
+    draw();
+    timerBtn.addEventListener("pointerdown", function () {
+      held = false;
+      holdTimer = setTimeout(function () {
+        held = true;
+        clearInterval(tick); tick = null; elapsed = 0;
+        save(); draw();
+      }, 700);
+    });
+    timerBtn.addEventListener("pointerup", function () {
+      clearTimeout(holdTimer);
+      if (held) return;
+      stayAwake();
+      if (tick) {
+        elapsed += Date.now() - started;
+        clearInterval(tick); tick = null;
+      } else {
+        started = Date.now();
+        tick = setInterval(draw, 500);
+      }
+      save(); draw();
+    });
+
+    whenReady(function () {
+      if (!HOME) {
+        Reveal.configure({ view: null, scrollActivationWidth: 0, keyboard: false, touch: false, controls: false, progress: false, hash: false, history: false });
+        Reveal.layout();
+      }
+      follow();
+      connect();
+    });
+  }
+})();
+</script>
+{{- end -}}
