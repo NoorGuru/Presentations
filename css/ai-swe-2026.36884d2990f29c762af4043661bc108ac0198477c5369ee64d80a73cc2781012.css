@@ -2696,6 +2696,383 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
   .who-a { transition: none; }
 }
 
+/* ---------- The bridge ---------- */
+/* One drawn scene, four clicks. Hidden .br-t1 to .br-t4 fragments drive every state through :has().
+   .is-done is the closing slide: the finished scene, shown still, so auto-animate can carry it over. */
+
+.br { --sand: #e2c08d; }
+
+.stage.br-stage { padding: 72px 0 80px; gap: 24px; }
+
+.br-top {
+  display: grid;
+  grid-template-columns: 1fr 600px;
+  gap: 64px;
+  align-items: end;
+}
+
+.br-copy { display: flex; flex-direction: column; gap: 12px; }
+
+.br-says { display: grid; margin-top: 8px; }
+
+.reveal .br-say {
+  grid-area: 1 / 1;
+  max-width: none;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.3s var(--ease), transform 0.5s var(--ease);
+}
+
+.br:not(:has(.br-t1.visible)) .br-say.is-0,
+.br:has(.br-t1.visible):not(:has(.br-t2.visible)) .br-say.is-1,
+.br:has(.br-t2.visible):not(:has(.br-t3.visible)) .br-say.is-2,
+.br:has(.br-t3.visible):not(:has(.br-t4.visible)) .br-say.is-3,
+.br:has(.br-t4.visible) .br-say.is-4 {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.15s;
+}
+
+.br:has(.br-t4.visible) .br-say.is-4 .mark-f::before { transform: scaleX(1); transition-delay: 1.3s; }
+
+.br-eg { color: var(--amber); font-weight: 800; }
+
+/* Your week */
+.br-week {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 22px 26px 18px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.4s var(--ease), transform 0.6s var(--ease);
+}
+
+.br:has(.br-t1.visible) .br-week { opacity: 1; transform: none; }
+
+.br-week-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+}
+
+.br-key {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.02em;
+}
+
+.br-key i { width: 14px; height: 14px; border-radius: 3px; }
+.br-key i.is-clean { background: var(--sand); }
+.br-key i.is-build { background: var(--amber); margin-left: 12px; }
+
+.br-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+
+.br-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.br-bar {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.br-bar i {
+  display: block;
+  height: 0;
+  transition: height 0.6s var(--ease);
+  transition-delay: calc(var(--i) * 70ms);
+}
+
+.br-bar-clean { background: var(--sand); }
+.br-bar-build { background: var(--amber); }
+
+.br:has(.br-t1.visible) .br-bar-clean { height: 100%; transition-delay: calc(0.3s + var(--i) * 70ms); }
+.br:has(.br-t3.visible) .br-bar-clean { height: 12%; transition-delay: calc(1s + var(--i) * 70ms); }
+.br:has(.br-t4.visible) .br-bar-build { height: 88%; transition-delay: calc(0.6s + var(--i) * 70ms); }
+
+/* The scene */
+.br-scene { position: relative; height: 500px; }
+.br-scene svg { display: block; width: 100%; height: 100%; }
+
+.br-line { fill: none; stroke: #fff; stroke-linecap: round; stroke-linejoin: round; }
+.br-ground-fill { fill: rgba(255, 255, 255, 0.04); }
+.br-ground { stroke: rgba(255, 255, 255, 0.4); stroke-width: 3; }
+.br-wadi { stroke: rgba(255, 255, 255, 0.14); stroke-width: 3; }
+.br-tower { stroke-width: 7; }
+.br-cable { stroke-width: 4; }
+.br-hangers { stroke: rgba(255, 255, 255, 0.5); stroke-width: 2; }
+.br-deck { stroke-width: 12; stroke-linecap: butt; }
+.br-sun { fill: var(--amber); }
+.br-sun-halo { fill: var(--amber); opacity: 0.08; }
+
+.br-draw { stroke-dasharray: 1; }
+
+.reveal .slides section:not(.present) .br-draw { stroke-dashoffset: 1; }
+.reveal .slides section:not(.present) .br-fade { opacity: 0; }
+
+.reveal .slides section.present:not(.stack) .br-draw {
+  animation: br-draw 1.4s var(--ease) both;
+  animation-delay: var(--d, 0s);
+}
+
+.reveal .slides section.present:not(.stack) .br-fade {
+  animation: br-fade 0.8s var(--ease) both;
+  animation-delay: var(--d, 0s);
+}
+
+.br.is-done .br-draw,
+.br.is-done .br-fade { animation: none !important; }
+
+/* Someday: dashed plans */
+.br-ghost {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 3;
+  stroke-dasharray: 9 9;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+
+.br-ghost .is-deck { stroke-width: 6; }
+.br-ghost circle { stroke-dasharray: 3 4; }
+
+.br:has(.br-t2.visible) .br-ghost { opacity: 1; transition-delay: 0.3s; }
+
+/* Now: built for real */
+.br-real path {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.4s var(--ease);
+}
+
+.br-real path.is-deck { stroke-width: 12; stroke-linecap: butt; }
+.br-real path.is-arch { stroke-width: 7; }
+
+.br-lamps circle { fill: var(--amber); opacity: 0; transition: opacity 0.5s var(--ease) 1s; }
+.br-lamps .br-glow { fill-opacity: 0.25; }
+
+.br:has(.br-t4.visible) .br-real path,
+.br.is-done .br-real path { stroke-dashoffset: 0; }
+
+.br:has(.br-t4.visible) .br-lamps circle,
+.br.is-done .br-lamps circle { opacity: 1; }
+
+/* Dust on the deck */
+.br-pile {
+  fill: var(--sand);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  opacity: 0;
+  transform: scale(0.2);
+  transition: opacity 0.3s var(--ease), transform 0.45s var(--ease);
+}
+
+.br:has(.br-t1.visible) .br-pile { opacity: 1; transform: none; transition-delay: calc(0.2s + var(--pin)); }
+.br:has(.br-t3.visible) .br-pile { opacity: 0; transform: scale(0.2); transition-delay: var(--pout); }
+
+/* You */
+.br-you { opacity: 0; transition: opacity 0.3s var(--ease); }
+.br-you path { fill: none; stroke: #fff; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.br-you-head { fill: #fff; }
+.br-you .br-broom-head { fill: var(--sand); stroke: none; }
+.br-you .br-hammer-head { stroke: var(--amber); stroke-width: 7; }
+
+.br:has(.br-t1.visible) .br-you.is-old { opacity: 1; transition-delay: 0.4s; }
+.br:has(.br-t3.visible) .br-you.is-old { opacity: 0; transition-delay: 0s; }
+.br:has(.br-t4.visible) .br-you.is-new,
+.br.is-done .br-you.is-new { opacity: 1; transition-delay: 1.4s; }
+
+.br-broom {
+  transform-box: fill-box;
+  transform-origin: 0 0;
+  animation: br-sweep 0.8s ease-in-out infinite alternate;
+}
+
+.br-hammer {
+  transform-box: fill-box;
+  transform-origin: 0 100%;
+  animation: br-tap 0.45s ease-in-out infinite alternate;
+}
+
+.br-label {
+  font-family: var(--mono);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  fill: var(--amber);
+}
+
+.br-you .br-label { fill: #fff; }
+
+/* The tool */
+.br-bot {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.2s var(--ease);
+}
+
+.br:has(.br-t3.visible) .br-bot {
+  opacity: 1;
+  transform: translateX(1080px);
+  transition: opacity 0.2s var(--ease) 0.2s, transform 2.6s linear 0.2s;
+}
+
+.br.is-done .br-bot { opacity: 1; transform: translateX(1080px); }
+
+.br-bot-body { fill: var(--amber); }
+.br-bot-eye { fill: var(--ink); }
+.br-bot-wheel { fill: var(--ink); stroke: #fff; stroke-width: 3; }
+.br-bot-mast,
+.br-bot-arm { fill: none; stroke: var(--amber); stroke-width: 4; stroke-linecap: round; }
+.br-bot-light { fill: #6ee7b7; animation: br-blink 1s ease-in-out infinite; }
+
+.br-brush {
+  fill: none;
+  stroke: var(--sand);
+  stroke-width: 3;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: br-spin 0.5s linear infinite;
+}
+
+/* Wind */
+.br-air { opacity: 0.35; transition: opacity 0.8s var(--ease); }
+.br:has(.br-t1.visible) .br-air,
+.br.is-done .br-air { opacity: 1; }
+
+.br-air circle {
+  fill: var(--sand);
+  animation: br-drift var(--dd) linear infinite;
+  animation-delay: var(--dl);
+}
+
+.br-streak {
+  fill: none;
+  stroke: var(--sand);
+  stroke-width: 2;
+  stroke-linecap: round;
+  animation: br-gust var(--dd) linear infinite;
+  animation-delay: var(--dl);
+}
+
+/* Someday tags. The strike is the same reviewer's pen as the rest of the deck. */
+.br-tag {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 2px dashed rgba(255, 255, 255, 0.45);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease), background-color 0.4s var(--ease), border-color 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+.br-tag-when { position: relative; color: rgba(255, 255, 255, 0.55); transition: color 0.4s var(--ease); }
+
+.br-tag-when::after {
+  content: "";
+  position: absolute;
+  left: -0.1em;
+  right: -0.1em;
+  top: 50%;
+  height: 3px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease);
+}
+
+.br:has(.br-t2.visible) .br-tag { opacity: 1; transition-delay: 0.6s; }
+
+.br:has(.br-t4.visible) .br-tag,
+.br.is-done .br-tag {
+  opacity: 1;
+  background: var(--amber);
+  border: 2px solid var(--amber);
+  color: var(--ink);
+  transition-delay: 1.2s;
+}
+
+.br:has(.br-t4.visible) .br-tag-when,
+.br.is-done .br-tag-when { color: rgba(20, 29, 56, 0.6); transition-delay: 1.2s; }
+
+.br:has(.br-t4.visible) .br-tag-when::after,
+.br.is-done .br-tag-when::after { transform: scaleX(1); transition-delay: 1.5s; }
+
+.br.is-done .br-tag,
+.br.is-done .br-tag *,
+.br.is-done .br-tag-when::after { transition: none; }
+
+@keyframes br-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes br-fade { from { opacity: 0; } }
+@keyframes br-sweep { from { transform: rotate(-14deg); } to { transform: rotate(16deg); } }
+@keyframes br-tap { from { transform: rotate(-20deg); } to { transform: rotate(18deg); } }
+@keyframes br-spin { to { transform: rotate(360deg); } }
+@keyframes br-blink { 50% { opacity: 0.2; } }
+@keyframes br-drift {
+  0% { transform: translate(0, 0); opacity: 0; }
+  15%, 85% { opacity: 0.85; }
+  100% { transform: translate(260px, -24px); opacity: 0; }
+}
+@keyframes br-gust {
+  0% { transform: translateX(-80px); opacity: 0; }
+  30% { opacity: 0.55; }
+  100% { transform: translateX(220px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal .slides section.present:not(.stack) .br-draw,
+  .reveal .slides section.present:not(.stack) .br-fade,
+  .br-air circle,
+  .br-broom,
+  .br-hammer,
+  .br-brush,
+  .br-bot-light { animation: none !important; }
+  .br-streak { display: none; }
+  .br *,
+  .br *::after,
+  .br *::before { transition: none !important; }
+}
+
 /* ---------- Beyond Code (Playful Detour) ---------- */
 
 .bc-kicker {
