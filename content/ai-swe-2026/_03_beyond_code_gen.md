@@ -40,7 +40,23 @@ weight = 5
 </div>
 
 {{% note %}}
-**0:18 · 20 seconds (one click for the right side).** Same tool, two outcomes. Strong foundation → 10× leverage. Paste and pray → 10× the mess. Next screen compiles and the happy path works.
+**0:18 · 20 seconds (one click for the right side).** Same tool, two outcomes. Strong foundation → 10× leverage. Paste and pray → 10× the mess. ↓ for the old rule, updated.
+{{% /note %}}
+
+---
+
+<div class="stage gb" data-step-fragments>
+  <span class="bc-num in">AN OLD RULE</span>
+  <h2 class="t-mid gb-line"><span class="line"><span class="d1">Garbage in, <span class="gb-old">garbage out.</span></span></span></h2>
+  <h2 class="t-mid gb-new fragment">Garbage in, <span class="mark-f">10× garbage out.</span></h2>
+  {{< garbage >}}
+</div>
+
+{{% note %}}
+**0:18 · Laugh line (1 click).**
+- "Every CS student knows this one. Garbage in, garbage out." Let the ball go in and come out.
+- Click: "That's old. With AI, it's garbage in, ten times garbage out." Let them laugh at the heap.
+- "AI doesn't clean up a lazy prompt. It scales it." Next screen compiles and the happy path works.
 {{% /note %}}
 
 ---
