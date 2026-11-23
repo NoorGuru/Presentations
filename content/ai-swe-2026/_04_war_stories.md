@@ -305,7 +305,7 @@ weight = 6
     <div class="who-row fragment"><span class="who-q">Who reviews the pull request?</span><span class="who-a">You.</span></div>
     <div class="who-row fragment"><span class="who-q">Who gets paged when it breaks?</span><span class="who-a">You.</span></div>
   </div>
-  <p class="t-big who-verdict fragment">Not for typing. <span class="mark-f">For judgment.</span></p>
+  <p class="t-big who-verdict fragment" data-id="verdict">Not for typing. <span class="mark-f">For judgment.</span></p>
 </div>
 
 {{% note %}}
@@ -315,6 +315,86 @@ weight = 6
 - Who builds the tools: someone had to understand the framework deeply enough to build EG Wizard and write its playbooks. Who decided what's safe: that's the "Needs a human" line from the last slide. Who reviews: same rule as PR #12. Who gets paged: "AI wrote it. You own it."
 - Click 5: "They don't pay you for typing. They pay you for judgment."
 - Callback to Part 1: this is the new bar. Use AI on purpose, explain it out loud, prove it's right.
+- ↓ keeps the verdict and asks if they're convinced.
+{{% /note %}}
+
+---
+
+{{< slide auto-animate="true" auto-animate-id="morning" >}}
+
+<div class="stage">
+  <p class="t-lead muted settled" data-id="verdict" style="max-width:none;">Not for typing. For judgment.</p>
+  <h2 class="t-huge"><span class="line"><span class="d2">Still not</span></span><span class="line"><span class="d3"><span class="mark" style="--md:1.1s;">convinced?</span></span></span></h2>
+  <p class="t-lead in d5" style="max-width:none;">Let’s take an example.</p>
+</div>
+
+{{% note %}}
+**0:31.** Smile. "Still not convinced? Fine. Here's an example that has nothing to do with code."
+{{% /note %}}
+
+---
+
+{{< slide class="navy" auto-animate="true" auto-animate-id="bridge" >}}
+
+<div class="stage br-stage br" data-step-fragments>
+  <div class="br-top">
+    <div class="br-copy">
+      <span class="bc-num in">AN EXAMPLE</span>
+      <h2 class="t-mid"><span class="line"><span>Imagine you own</span></span><span class="line"><span class="d1">a bridge.</span></span></h2>
+      <div class="br-says in d3">
+        <p class="t-lead br-say is-0">A real one. In a very dusty place.</p>
+        <p class="t-lead br-say is-1">Dust every day. So you clean it every day.</p>
+        <p class="t-lead br-say is-2">No time left to make it better.</p>
+        <p class="t-lead br-say is-3">What if you build a tool for the cleaning?</p>
+        <p class="t-lead br-say is-4">The tool cleans. <span class="mark-f">You build.</span></p>
+      </div>
+    </div>
+    <div class="br-week" aria-hidden="true">
+      <div class="br-week-head"><span>YOUR WEEK</span><span class="br-key"><i class="is-clean"></i>Cleaning<i class="is-build"></i>Building</span></div>
+      <div class="br-days">
+        <div class="br-day" style="--i:0;"><div class="br-bar"><i class="br-bar-build"></i><i class="br-bar-clean"></i></div><span>SUN</span></div>
+        <div class="br-day" style="--i:1;"><div class="br-bar"><i class="br-bar-build"></i><i class="br-bar-clean"></i></div><span>MON</span></div>
+        <div class="br-day" style="--i:2;"><div class="br-bar"><i class="br-bar-build"></i><i class="br-bar-clean"></i></div><span>TUE</span></div>
+        <div class="br-day" style="--i:3;"><div class="br-bar"><i class="br-bar-build"></i><i class="br-bar-clean"></i></div><span>WED</span></div>
+        <div class="br-day" style="--i:4;"><div class="br-bar"><i class="br-bar-build"></i><i class="br-bar-clean"></i></div><span>THU</span></div>
+        <div class="br-day" style="--i:5;"><div class="br-bar"><i class="br-bar-build"></i><i class="br-bar-clean"></i></div><span>FRI</span></div>
+        <div class="br-day" style="--i:6;"><div class="br-bar"><i class="br-bar-build"></i><i class="br-bar-clean"></i></div><span>SAT</span></div>
+      </div>
+    </div>
+  </div>
+  {{< bridge >}}
+  <div class="step-triggers" aria-hidden="true">
+    <span class="fragment br-t1">&nbsp;</span>
+    <span class="fragment br-t2">&nbsp;</span>
+    <span class="fragment br-t3">&nbsp;</span>
+    <span class="fragment br-t4">&nbsp;</span>
+  </div>
+</div>
+
+{{% note %}}
+**0:31 – 0:32 · The bridge (4 clicks). Tell it like a story. Slow down.**
+- "Imagine you own a bridge. A real one, over a wadi, somewhere very dusty."
+- Click 1: "Every day the dust comes back. So every day you sweep it." Point at the week: all of it is cleaning.
+- Click 2: "So the things you wanted to do stay as dashed lines. New lights. A second bridge. Someday."
+- Click 3: "Now what if you build a tool that does the cleaning?" Let the machine finish its run. The week empties out.
+- Click 4: "The dust didn't stop. It's still a desert. But now the tool cleans and you build." The lights go on. You move to the next bridge.
+{{% /note %}}
+
+---
+
+{{< slide class="navy" auto-animate="true" auto-animate-id="bridge" >}}
+
+<div class="stage br-stage br is-done">
+  <p class="t-lead in" style="max-width:none;">That’s <span class="br-eg">EG Wizard</span> for me.</p>
+  <h2 class="t-big"><span class="line"><span class="d2">What’s your <span class="mark" style="--md:1.1s;">bridge?</span></span></span></h2>
+  {{< bridge tool="EG WIZARD" >}}
+</div>
+
+{{% note %}}
+**0:32 · Land it. Then pause.**
+- "That's EG Wizard for me. Framework upgrades were our dust. Every month, every app. So we built the tool. Now my team spends that time on work that moves us forward."
+- "What's your bridge? What's the dusty thing you do every week that you could build a tool for?" Wait three seconds. Let them think.
+- Then →: "The model will change."
 {{% /note %}}
 
 ---
