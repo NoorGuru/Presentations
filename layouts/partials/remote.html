@@ -306,7 +306,9 @@
 
     function act(action) {
       stayAwake();
-      if (!send({ type: "cmd", action: action })) setStatus("err", "Not sent. Reconnecting");
+      if (!send({ type: "cmd", action: action })) { setStatus("err", "Not sent. Reconnecting"); return; }
+      // Starts on the first move in a talk. A timer you paused yourself stays paused.
+      if ((action === "next" || action === "prev") && !tick && elapsed === 0) start();
     }
 
     function openTalk(path) {
@@ -347,6 +349,11 @@
       timerBtn.textContent = fmt(elapsed + (tick ? Date.now() - started : 0));
       timerBtn.classList.toggle("run", !!tick);
     }
+    function start() {
+      started = Date.now();
+      tick = setInterval(draw, 500);
+      save(); draw();
+    }
     if (started) tick = setInterval(draw, 500);
     draw();
     timerBtn.addEventListener("pointerdown", function () {
@@ -361,13 +368,9 @@
       clearTimeout(holdTimer);
       if (held) return;
       stayAwake();
-      if (tick) {
-        elapsed += Date.now() - started;
-        clearInterval(tick); tick = null;
-      } else {
-        started = Date.now();
-        tick = setInterval(draw, 500);
-      }
+      if (!tick) { start(); return; }
+      elapsed += Date.now() - started;
+      clearInterval(tick); tick = null;
       save(); draw();
     });
 

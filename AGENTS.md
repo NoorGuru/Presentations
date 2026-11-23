@@ -9,7 +9,7 @@ The iPhone can control the slides on the Mac. Both devices only need internet. T
 - Mac: `present.bynoor.io/?deck=KEY`
 - iPhone: `present.bynoor.io/?remote=KEY`
 
-The phone lists every talk, opens the one you pick on both devices, and shows a live slide preview, speaker notes, and a timer. The key is not in this repo. It lives as a Cloudflare secret.
+The phone lists every talk, opens the one you pick on both devices, and shows a live slide preview, speaker notes, and a timer. The timer starts on the first Next or Back in a talk. Tap it to pause, hold to reset. The key is not in this repo. It lives as a Cloudflare secret.
 
 ### How it works
 
