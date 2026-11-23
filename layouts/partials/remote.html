@@ -33,7 +33,8 @@
   .rm-nav button:active, .rm-row button:active, .rm-talk:active { transform: scale(.97); }
   .rm-nav .rm-next { background: #3b82f6; font-size: 26px; }
   .rm-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .rm-row button { height: 48px; font-size: 14px; color: #8a96b0; }
+  .rm-row.rm-sections { grid-template-columns: 1fr 1fr; }
+  .rm-row button { height: 40px; border-radius: 14px; font-size: 14px; color: #8a96b0; }
   .rm-row button.on { background: #e6ebf5; color: #0b1220; }
   .rm-swipe { position: fixed; z-index: 49; inset: 0 0 auto 0; height: 56.25vw; }
   .rm-heading { margin: 10px 2px 0; font: 600 26px/1.2 -apple-system, system-ui, sans-serif; }
@@ -176,7 +177,9 @@
       prev: function () { Reveal.prev(); },
       black: function () { Reveal.togglePause(); },
       overview: function () { Reveal.toggleOverview(); },
-      first: function () { Reveal.slide(0, 0, -1); }
+      first: function () { Reveal.slide(0, 0, -1); },
+      left: function () { Reveal.left(); },
+      right: function () { Reveal.right(); }
     };
 
     onStatus = function (state) {
@@ -232,8 +235,9 @@
       });
     } else {
       panel.innerHTML = bar +
+        '<div class="rm-row"><button data-path="/" type="button">Talks</button><button data-a="first" type="button">Start</button><button data-a="overview" type="button">Overview</button><button data-a="black" type="button">Black</button></div>' +
+        '<div class="rm-row rm-sections"><button data-a="left" type="button">« Section</button><button data-a="right" type="button">Section »</button></div>' +
         '<div class="rm-notes"></div>' +
-        '<div class="rm-row"><button data-a="black" type="button">Black</button><button data-a="overview" type="button">Overview</button><button data-a="first" type="button">Start</button><button data-path="/" type="button">Talks</button></div>' +
         '<div class="rm-nav"><button data-a="prev" type="button">‹ Back</button><button class="rm-next" data-a="next" type="button">Next ›</button></div>';
       var swipe = document.createElement("div");
       swipe.className = "rm-swipe";
@@ -308,7 +312,7 @@
       stayAwake();
       if (!send({ type: "cmd", action: action })) { setStatus("err", "Not sent. Reconnecting"); return; }
       // Starts on the first move in a talk. A timer you paused yourself stays paused.
-      if ((action === "next" || action === "prev") && !tick && elapsed === 0) start();
+      if (/^(next|prev|left|right)$/.test(action) && !tick && elapsed === 0) start();
     }
 
     function openTalk(path) {
