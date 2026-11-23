@@ -110,14 +110,45 @@ weight = 2
 </div>
 
 {{% note %}}
-**0:04 · The punch.** Problem-solving, fundamentals, clean habits, judgment. Bridge: "I sat in these chairs." ↓
+**0:04 · The punch.** Problem-solving, fundamentals, clean habits, judgment. Bridge: "Before I answer that, let me tell you who I am." ↓
 {{% /note %}}
 
 ---
 
+{{< slide auto-animate="true" auto-animate-id="intro" >}}
+
 <div class="stage">
-  <h2 class="t-huge"><span class="line"><span>I sat in</span></span><span class="line"><span class="d1">these chairs.</span></span></h2>
-  <h3 class="t-lead in d4">Computer Engineering, University of Jordan.</h3>
+  <div class="split me-split">
+    <div class="me-copy">
+      <span class="bc-num in">BEFORE I ANSWER</span>
+      <h2 class="t-mega" data-id="me-name"><span class="line"><span class="d1">Hi, I’m</span></span><span class="line"><span class="d2"><span class="mark" style="--md:1s;">Noor.</span></span></span></h2>
+      <p class="t-lead in d4" style="max-width:none;">Software engineer at Expedia Group.</p>
+    </div>
+    <div class="me-pic" data-id="me-pic">
+      <span class="me-disc pop d2" aria-hidden="true"></span>
+      <img class="me-photo" src="pics/noor.png" width="460" height="460" alt="Mohammad Noor AbuKhleif">
+    </div>
+  </div>
+</div>
+
+{{% note %}}
+**0:04 · Say hi. Ten seconds.** "Before I answer that, quick intro. I'm Noor. Mohammad Noor AbuKhleif. I'm a software engineer at Expedia Group." Smile. ↓
+{{% /note %}}
+
+---
+
+{{< slide auto-animate="true" auto-animate-id="intro" >}}
+
+<div class="stage">
+  <div class="me-row">
+    <div class="me-pic is-small settled" data-id="me-pic">
+      <span class="me-disc" aria-hidden="true"></span>
+      <img class="me-photo" src="pics/noor.png" width="460" height="460" alt="Mohammad Noor AbuKhleif">
+    </div>
+    <p class="t-lead muted settled" data-id="me-name" style="max-width:none;">Hi, I’m Noor.</p>
+  </div>
+  <h2 class="t-huge"><span class="line"><span class="d2">I sat in</span></span><span class="line"><span class="d3">these chairs.</span></span></h2>
+  <h3 class="t-lead in d5" style="max-width:none;">Computer Engineering, University of Jordan.</h3>
 </div>
 
 {{% note %}}
@@ -126,21 +157,32 @@ weight = 2
 
 ---
 
-{{< slide class="navy" >}}
+{{< slide class="navy" auto-animate="true" auto-animate-id="intro" >}}
 
-<div class="stage tight">
-  <div class="bio-list">
-    <div class="bio-row in"><span class="bio-year">2017</span><span class="bio-place">JU</span><span class="bio-role">Taught Java, C++, OOP</span></div>
-    <div class="bio-row in d2"><span class="bio-year">2017–2019</span><span class="bio-place">Atypon</span><span class="bio-role">Intern to Full-Stack</span></div>
-    <div class="bio-row in d3"><span class="bio-year">2019–2021</span><span class="bio-place">Amazon</span><span class="bio-role">SDE</span></div>
-    <div class="bio-row in d4"><span class="bio-year">2021–now</span><span class="bio-place">Expedia</span><span class="bio-role">SDE III</span></div>
+<div class="stage tl" data-step-fragments>
+  <span class="bc-num in">MY PATH</span>
+  <h2 class="t-mid"><span class="line"><span class="d1">Nine years. Four stops.</span></span></h2>
+  <div class="tl-track">
+    <div class="tl-line" aria-hidden="true"><span class="tl-fill"></span></div>
+    <div class="tl-stop is-0 in d2"><span class="tl-year">2017</span><span class="tl-dot"></span><span class="tl-place">JU</span><span class="tl-role">Taught Java, C++, OOP</span></div>
+    <div class="tl-stop is-1 fragment" data-fragment-index="1"><span class="tl-year">2017–2019</span><span class="tl-dot"></span><span class="tl-place">Atypon</span><span class="tl-role">Intern to Full-Stack</span></div>
+    <div class="tl-stop is-2 fragment" data-fragment-index="2"><span class="tl-year">2019–2021</span><span class="tl-dot"></span><span class="tl-place">Amazon</span><span class="tl-role">SDE</span></div>
+    <div class="tl-stop is-3 fragment" data-fragment-index="3"><span class="tl-year">2021–now</span><span class="tl-dot"></span><span class="tl-place">Expedia</span><span class="tl-role">SDE III <b class="tl-now">NOW</b></span></div>
+    <div class="tl-me">
+      <div class="me-pic is-small settled" data-id="me-pic">
+        <span class="me-disc" aria-hidden="true"></span>
+        <img class="me-photo" src="pics/noor.png" width="460" height="460" alt="">
+      </div>
+    </div>
   </div>
-  <p class="t-lead fragment" style="margin-top:40px;max-width:none;">Since I sat there, <span class="mark-f">the bar moved.</span></p>
+  <p class="t-lead fragment" data-fragment-index="4" style="max-width:none;">Since I sat there, <span class="mark-f">the bar moved.</span></p>
 </div>
 
 {{% note %}}
-**0:05.** Atypon, Amazon, Expedia Group. Interned at Samsung R&D and Atypon along the way.
-- Click once for the last line, then ↓ to show how the bar moved.
+**0:05 · Four clicks walk the path, one more for the last line.**
+- Start at JU: "In 2017 I was teaching Java, C++, and OOP right here."
+- Click: Atypon, intern to full-stack. Click: Amazon. Click: Expedia Group, where I am now. Interned at Samsung R&D along the way.
+- Click once more for "the bar moved", then ↓ to show how.
 - **Navigation:** Space or ↓ stays inside a part. → jumps to the next part.
 {{% /note %}}
 
