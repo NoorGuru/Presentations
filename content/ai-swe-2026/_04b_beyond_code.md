@@ -8,9 +8,14 @@ weight = 7
 {{< slide class="navy" >}}
 
 <div class="stage">
-  <p class="bc-kicker in">ONE QUICK DETOUR</p>
-  <h1 class="t-huge"><span class="line"><span>Beyond</span></span><span class="line"><span class="d2"><span class="mark" style="--md:0.85s;">code.</span></span></span></h1>
-  <p class="t-lead in d4" style="max-width:none;">AI is not only for your IDE. Use it everywhere.</p>
+  <div class="split rb-split">
+    <div class="rb-copy">
+      <p class="bc-kicker in">ONE QUICK DETOUR</p>
+      <h1 class="t-huge"><span class="line"><span>Beyond</span></span><span class="line"><span class="d2"><span class="mark" style="--md:0.85s;">code.</span></span></span></h1>
+      <p class="t-lead in d4">AI is not only for your IDE. Use it everywhere.</p>
+    </div>
+    {{< robot >}}
+  </div>
 </div>
 
 {{% note %}}

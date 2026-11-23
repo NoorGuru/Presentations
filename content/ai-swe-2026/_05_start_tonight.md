@@ -8,8 +8,13 @@ weight = 8
 {{< slide class="amber" >}}
 
 <div class="stage">
-  <h1 class="t-mega"><span class="line"><span>Take this</span></span><span class="line"><span class="d1">home.</span></span></h1>
-  <p class="t-lead in d4" style="max-width:none;">Five rules. One small step tonight for each.</p>
+  <div class="split bag-split">
+    <div class="bag-copy">
+      <h1 class="t-huge"><span class="line"><span>Take this</span></span><span class="line"><span class="d1">home.</span></span></h1>
+      <p class="t-lead in d4">Five rules.<br>One small step tonight for each.</p>
+    </div>
+    {{< bag >}}
+  </div>
 </div>
 
 {{% note %}}
@@ -141,7 +146,24 @@ weight = 8
 
 {{% note %}}
 **0:37 – 0:38 · Close. Read the five slowly. Point at the QR and pause so they can scan it.**
-- JU line: you sat here. The tools are better now. The fundamentals are the same ones that got me the job. →
+- JU line: you sat here. The tools are better now. The fundamentals are the same ones that got me the job. ↓
+{{% /note %}}
+
+---
+
+{{< slide class="navy" >}}
+
+<div class="stage br-stage br is-done">
+  <p class="bc-kicker in">ONE LAST THOUGHT</p>
+  <h2 class="t-big"><span class="line"><span class="d1">What’s your <span class="mark" style="--md:0.9s;">bridge?</span></span></span></h2>
+  <p class="t-lead in d3" style="max-width:none;">Find your dust. Build the tool. Then build something new.</p>
+  {{< bridge >}}
+</div>
+
+{{% note %}}
+**0:38 · One last thought. Say it slowly.**
+- "Remember the bridge? Here's your homework. Find the dusty thing you do every week. In your studies, your job, your side project. Build the tool that cleans it. Then use the time to build something new."
+- Pause. Let them think. Then →.
 {{% /note %}}
 
 {{% /section %}}

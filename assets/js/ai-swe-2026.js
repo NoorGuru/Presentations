@@ -275,9 +275,12 @@
 
     var pill = null;
     if (badge) {
+      /* Text this small renders too big in Safari, so draw it 10x and scale the group down. */
+      var S = 10;
       var b = svgEl("g", { class: "qr-badge" });
+      var inner = svgEl("g", { transform: "translate(" + n / 2 + " " + n / 2 + ") scale(" + 1 / S + ")" });
       var bg = svgEl("rect", { class: "qr-badge-bg" });
-      var t = svgEl("text", { x: n / 2, y: n / 2, class: "qr-badge-text", "text-anchor": "middle" });
+      var t = svgEl("text", { x: 0, y: 0, class: "qr-badge-text", "text-anchor": "middle" });
       var split = badge.indexOf(".");
       var name = svgEl("tspan", {});
       name.textContent = split > 0 ? badge.slice(0, split) : badge;
@@ -287,8 +290,9 @@
         tld.textContent = badge.slice(split);
         t.appendChild(tld);
       }
-      b.appendChild(bg);
-      b.appendChild(t);
+      inner.appendChild(bg);
+      inner.appendChild(t);
+      b.appendChild(inner);
       svg.appendChild(b);
 
       var cs = getComputedStyle(t);
@@ -299,15 +303,16 @@
       var k = size / 100;
       var asc = m.actualBoundingBoxAscent * k;
       var desc = m.actualBoundingBoxDescent * k;
-      t.setAttribute("y", n / 2 + (asc - desc) / 2);
-      var pw = m.width * k + size * 1.1;
-      var ph = asc + desc + size * 0.7;
-      pill = { x: (n - pw) / 2, y: (n - ph) / 2, w: pw, h: ph };
-      bg.setAttribute("x", pill.x);
-      bg.setAttribute("y", pill.y);
+      t.setAttribute("y", (asc - desc) / 2);
+      var tw = Math.max(m.width * k, t.getComputedTextLength());
+      var pw = tw + size * 1.4;
+      var ph = asc + desc + size * 0.8;
+      bg.setAttribute("x", -pw / 2);
+      bg.setAttribute("y", -ph / 2);
       bg.setAttribute("width", pw);
       bg.setAttribute("height", ph);
       bg.setAttribute("rx", ph / 2);
+      pill = { x: (n - pw / S) / 2, y: (n - ph / S) / 2, w: pw / S, h: ph / S };
     }
 
     var gap = 0.7;
@@ -336,7 +341,10 @@
   }
 
   function initQr() {
-    var fonts = document.fonts ? document.fonts.ready : Promise.resolve();
+    var family = getComputedStyle(document.documentElement).getPropertyValue("--font").trim();
+    var fonts = document.fonts
+      ? Promise.all([document.fonts.ready, family ? document.fonts.load("800 36px " + family).catch(function () {}) : null])
+      : Promise.resolve();
     document.querySelectorAll("img[data-qr]").forEach(function (img) {
       var loaded = img.complete && img.naturalWidth ? Promise.resolve() : new Promise(function (res) { img.addEventListener("load", res, { once: true }); });
       Promise.all([loaded, fonts]).then(function () { buildQr(img); });

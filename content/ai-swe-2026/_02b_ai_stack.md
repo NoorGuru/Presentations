@@ -263,12 +263,28 @@ weight = 4
 {{< slide class="amber" >}}
 
 <div class="stage">
-  <p class="t-lead in">You don’t need all five this year.</p>
-  <h2 class="t-huge"><span class="line"><span class="d2">Master the</span></span><span class="line"><span class="d3"><span class="mark" style="--md:1.1s;">foundation.</span></span></span></h2>
+  <div class="split five-split">
+    <div class="five-copy">
+      <p class="t-lead in">You don’t need all five this year.</p>
+      <h2 class="t-big"><span class="line"><span class="d2">Master the</span></span><span class="line"><span class="d3"><span class="mark" style="--md:1.1s;">foundation.</span></span></span></h2>
+    </div>
+    <div class="five-tower" aria-hidden="true">
+      <div class="five-block" style="--i:4;--w:52%;">Autonomous</div>
+      <div class="five-block" style="--i:3;--w:62%;">Agents</div>
+      <div class="five-block" style="--i:2;--w:72%;">Skills</div>
+      <div class="five-block" style="--i:1;--w:82%;">MCP</div>
+      <div class="five-block" style="--i:0;--w:92%;">LLMs</div>
+      <span class="five-later">LATER</span>
+      <div class="five-base">
+        <span class="five-base-head"><b>The foundation</b><span class="five-now">NOW</span></span>
+        <span class="five-chips"><i>One language</i><i>DSA</i><i>OOP</i><i>Databases</i><i>Soft skills</i></span>
+      </div>
+    </div>
+  </div>
 </div>
 
 {{% note %}}
-**Pause here.** "You don't need to build MCP servers or overnight agents before you graduate. Master the foundation, and stop being intimidated by the buzzwords." ↓
+**Pause here.** The five blocks stack up, then fade to dashed "later". The foundation lights up. "You don't need to build MCP servers or overnight agents before you graduate. Master the foundation, and stop being intimidated by the buzzwords." ↓
 {{% /note %}}
 
 ---
@@ -276,9 +292,14 @@ weight = 4
 {{< slide class="navy" >}}
 
 <div class="stage">
-  <p class="t-lead in">When AI writes 10× more code:</p>
-  <h2 class="t-mega"><span class="line"><span class="d1"><span class="mark" style="--md:0.85s;">Read</span> before</span></span><span class="line"><span class="d2">you write.</span></span></h2>
-  <p class="t-lead in d5" style="max-width:34ch;">Your job isn’t typing code faster. It’s understanding what’s about to ship.</p>
+  <div class="split rd-split">
+    <div class="rd-copy">
+      <p class="t-lead in">When AI writes 10× more code:</p>
+      <h2 class="t-big"><span class="line"><span class="d1"><span class="mark" style="--md:0.85s;">Read</span> before</span></span><span class="line"><span class="d2">you write.</span></span></h2>
+      <p class="t-lead in d5">Your job isn’t typing code faster. It’s understanding what’s about to ship.</p>
+    </div>
+    {{< code-rain >}}
+  </div>
 </div>
 
 {{% note %}}

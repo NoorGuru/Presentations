@@ -402,12 +402,23 @@ weight = 6
 {{< slide class="amber" >}}
 
 <div class="stage">
-  <h2 class="t-huge"><span class="line"><span>The model</span></span><span class="line"><span class="d1">will change.</span></span></h2>
-  <h2 class="t-huge"><span class="line"><span class="d4"><span class="mark" style="--md:1.2s;">You still decide.</span></span></span></h2>
+  <div class="split slot-split">
+    <div class="slot-copy">
+      <h2 class="t-big"><span class="line"><span>The model</span></span><span class="line"><span class="d1">will change.</span></span></h2>
+      <h2 class="t-big"><span class="line"><span class="d4"><span class="mark" style="--md:1.2s;">You still</span></span></span><span class="line"><span class="d5"><span class="mark" style="--md:1.45s;">decide.</span></span></span></h2>
+    </div>
+    <div class="slot in d2" aria-hidden="true">
+      <div class="slot-top"><i></i><span>MODEL OF THE MONTH</span><i></i></div>
+      <div class="slot-win"><div class="slot-reel"><span>GPT</span><span>Claude</span><span>Gemini</span><span>Llama</span><span>DeepSeek</span><span>Mistral</span><span>Next one?</span><span>GPT</span></div></div>
+      <div class="slot-label">WHO DECIDES</div>
+      <div class="slot-win is-fixed"><span>YOU</span></div>
+      <div class="slot-lever"><i></i></div>
+    </div>
+  </div>
 </div>
 
 {{% note %}}
-**0:31 · The punch.** Then →: "Before the four things I want you to take home, one quick fun detour."
+**0:31 · The punch.** The reel keeps spinning through model names. The bottom window never changes. "Every month there's a new best model. That part isn't yours to control. This part is." Then →: "Before the four things I want you to take home, one quick fun detour."
 {{% /note %}}
 
 {{% /section %}}

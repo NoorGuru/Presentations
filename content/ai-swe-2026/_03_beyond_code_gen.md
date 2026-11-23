@@ -289,13 +289,32 @@ weight = 5
 {{< slide class="amber" >}}
 
 <div class="stage">
-  <h2 class="t-huge"><span class="line"><span>AI wrote it.</span></span><span class="line"><span class="d2">You <span class="mark" style="--md:0.95s;">own it.</span></span></span></h2>
-  <p class="t-lead in d5" style="max-width:none;">Your name is on the PR. Production pages you, not the model.</p>
+  <div class="split own-split">
+    <div class="own-copy">
+      <h2 class="t-big"><span class="line"><span>AI wrote it.</span></span><span class="line"><span class="d2">You <span class="mark" style="--md:0.95s;">own it.</span></span></span></h2>
+      <p class="t-lead in d5">Your name is on the PR. Production pages you, not the model.</p>
+    </div>
+    <div class="own-art" aria-hidden="true">
+      <div class="own-pr in d2">
+        <div class="own-pr-head"><span class="own-merged">Merged</span><span>PR #12 · RefundController.java</span></div>
+        <div class="own-row"><b>Author</b><span class="own-swap"><span class="own-was">AI</span><span class="own-you">You</span></span></div>
+        <div class="own-row"><b>Approved by</b><span class="own-you is-late">You</span></div>
+      </div>
+      <div class="own-pager">
+        <div class="own-pager-body">
+          <div class="own-lcd"><b>3:07 AM</b><span>PROD DOWN · PR #12</span><span>Paging: you</span></div>
+          <div class="own-keys"><i></i><i></i><i></i></div>
+        </div>
+        <span class="own-buzz is-l"></span><span class="own-buzz is-r"></span>
+      </div>
+    </div>
+  </div>
 </div>
 
 {{% note %}}
 **The rule. Say it slowly and let it land.**
-- Git doesn't put the model's name on the commit. When it breaks at 3 AM, production pages *you*.
+- Git doesn't put the model's name on the commit. Watch the card: "AI" gets crossed out, and your name goes on it.
+- Then the pager goes off. "When it breaks at 3 AM, production pages *you*."
 - Bridge (→): "So what does owning it look like at a real job? Two stories from my work."
 {{% /note %}}
 
