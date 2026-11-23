@@ -5,15 +5,103 @@ weight = 6
 
 {{% section %}}
 
-{{< slide class="amber" >}}
+{{< slide class="navy" >}}
 
 <div class="stage">
   <h1 class="t-huge"><span class="line"><span>What the job</span></span><span class="line"><span class="d1">looks like.</span></span></h1>
-  <p class="t-lead in d4">One tool I build at work: <b>EG Wizard.</b></p>
+  <p class="t-lead in d4" style="max-width:none;">Two stories from my work: <b>Java4Shell</b> and <b>EG Wizard.</b></p>
 </div>
 
 {{% note %}}
-**0:25 · Part door.** One real story, told in four beats: the problem, the naive try, the tool, the result.
+**0:24 · Part door.** Two real stories. First a fire I helped put out last week. Then a tool I build every day: the problem, the naive try, the tool, the result.
+{{% /note %}}
+
+---
+
+<div class="stage">
+  <div class="j4s-eyebrow in">
+    <span class="j4s-pill"><span class="j4s-dot" aria-hidden="true"></span>NOV 17, 2026 · JAVA4SHELL</span>
+    <span class="j4s-meta">STORY 1 OF 2 · JDK BASE64 DECODER</span>
+  </div>
+  <div class="j4s-spark">
+    <div class="j4s-cost">
+      <p class="j4s-num num"><span class="line"><span class="d1">&lt;$<span data-count="200" data-delay="350">200</span></span></span></p>
+      <p class="j4s-cost-sub in d3">One AI run. A few hours.</p>
+    </div>
+    <div class="j4s-alert in d2">
+      <span class="j4s-alert-tag">HIGH-IMPACT RUNTIME BUG</span>
+      <p class="j4s-alert-lead">A serious bug inside<br><span class="j4s-hi">Java itself.</span></p>
+      <div class="j4s-alert-foot">
+        <span><b>Effort to find</b>Tiny prompt budget</span>
+        <span><b>Blast radius</b>Millions of servers</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{% note %}}
+**0:24 · Story 1. No payload, no CVE lecture unless asked.**
+- November 17, 2026: "Java4Shell", a real bug in Java's own Base64 decoder.
+- The shocking number: **under $200 and a few hours of AI** to uncover a serious vulnerability inside a runtime trusted by millions of servers.
+- Set up the next click: "Now look at what a $200 AI run forced real companies, including my own team, to do."
+{{% /note %}}
+
+---
+
+{{< slide class="navy" >}}
+
+<div class="stage" data-step-fragments>
+  <h2 class="t-mid"><span class="line"><span class="j4s-lead-dim">Finding it was $200.</span></span><span class="line"><span class="d2">Fixing it everywhere was <span class="mark" style="--md:0.95s;">the job.</span></span></span></h2>
+
+  <div class="j4s-ratio in d3">
+    <div class="j4s-ratio-small"><span>1 AI run · &lt;$200</span></div>
+    <span class="j4s-ratio-arrow" aria-hidden="true">━━▶</span>
+    <div class="j4s-ratio-big"><span>Emergency war room · Hundreds of services · Days of rollout</span></div>
+  </div>
+
+  <div class="j4s-grid">
+    <div class="j4s-card fragment" data-fragment-index="1">
+      <span class="j4s-step">01 · Audit</span>
+      <span class="j4s-card-title">Hunt every runtime</span>
+      <span class="j4s-card-desc">Every service, container, and JDK version exposed.</span>
+    </div>
+    <div class="j4s-card fragment" data-fragment-index="2">
+      <span class="j4s-step">02 · Mitigate</span>
+      <span class="j4s-card-title">Contain it first</span>
+      <span class="j4s-card-desc">Temporary guards while waiting for the official JDK fix.</span>
+    </div>
+    <div class="j4s-card fragment" data-fragment-index="3">
+      <span class="j4s-step">03 · Patch &amp; ship</span>
+      <span class="j4s-card-title">Roll out the fix</span>
+      <span class="j4s-card-desc">Rebuild images and deploy safely once the JDK patch lands.</span>
+    </div>
+    <div class="j4s-card is-work fragment" data-fragment-index="4">
+      <span class="j4s-step">04 · At my work</span>
+      <span class="j4s-card-title">1 week ago.</span>
+      <span class="j4s-card-desc">My team was rolling this out across our platform.</span>
+    </div>
+  </div>
+</div>
+
+{{% note %}}
+**0:25 · Story 1, the response (4 quick clicks).**
+- Point at the top asymmetry bar: **1 AI run under $200** triggered an **emergency war room across hundreds of services and days of rollout**.
+- Click 1: Audit every service, container, and JDK version.
+- Click 2: Mitigate first. Because the bug is inside the JDK itself, you can't just edit your own code. You have to put mitigations in place while waiting for the official JDK fix.
+- Click 3: Once the official JDK patch lands, rebuild base images, test, and roll it out safely without breaking live customers.
+- Click 4 (Amber card): "This isn't theory. **1 week ago**, my team was rolling this out across our Java systems. Not one microservice. The whole platform."
+- Bridge (→): "That's the job AI doesn't remove. And it's not a one-time thing. Apps fall behind every month."
+{{% /note %}}
+
+---
+
+<div class="stage">
+  <span class="bc-num in">STORY 2 OF 2</span>
+  <h2 class="t-huge"><span class="line"><span>One app? Easy.</span></span><span class="line"><span class="d2">Hundreds?</span></span><span class="line"><span class="d3"><span class="mark" style="--md:1.2s;">Build a tool.</span></span></span></h2>
+</div>
+
+{{% note %}}
+**0:26 · Bridge (no clicks).** "Patching one app by hand is easy. Doing it across hundreds of apps, again and again, is a different job. So you build a tool for it. That's my day job."
 {{% /note %}}
 
 ---
