@@ -358,6 +358,7 @@
     initLangCycle();
     initStepFragments();
     Reveal.on("slidechanged", function (ev) { onSlide(ev.currentSlide); });
+    Reveal.on("fragmentshown", function (ev) { countUp(ev.fragment); });
     if (Reveal.isReady()) onSlide(Reveal.getCurrentSlide());
     else Reveal.on("ready", function (ev) { onSlide(ev.currentSlide); });
   }

@@ -230,14 +230,23 @@ weight = 7
       <b>Still argued with it and reviewed every single slide myself.</b>
     </div>
   </div>
+
+  <div class="bc-receipts fragment">
+    <span class="bc-receipts-label">The receipts · this deck</span>
+    <div class="bc-receipts-stat"><b data-count="113" data-delay="200">113</b><span>prompts to AI</span></div>
+    <div class="bc-receipts-stat"><b data-count="30" data-delay="350">30</b><span>commits</span></div>
+    <div class="bc-receipts-stat is-late"><b data-count="23" data-delay="500">23</b><span>after midnight</span></div>
+    <p class="bc-receipts-quote">“my image is not centered in the circle”<span>Me, to AI, way past midnight</span></p>
+  </div>
 </div>
 
 {{% note %}}
-**07 · The comedy punchline (1 click for the reveal!).**
+**07 · The comedy punchline (2 clicks).**
 - Deliver the opening completely deadpan and serious: "And finally, you can use AI to create slides for your presentations..."
 - Pause one beat as the room starts smiling, then CLICK!
 - "Wait... what? You caught me :3"
-- Let them laugh, then land the real takeaway at the bottom: "Yes, AI helped build this deck. And yes, I still argued with it, killed half its ideas, and owned every single slide. Same rule."
+- CLICK for the receipts. "113 prompts. 30 commits. 23 of them after midnight. And this is a real message I sent way past midnight: 'my image is not centered in the circle.' Yes. That's the senior engineer you came to hear."
+- Let them laugh, then land the real takeaway: "AI helped build this deck. I still argued with it, killed half its ideas, and owned every single slide. Same rule."
 - Transition → `Take this home.`
 {{% /note %}}
 
