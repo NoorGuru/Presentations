@@ -18,6 +18,8 @@ The phone lists every talk, opens the one you pick on both devices, and shows a 
 - `config.toml` has `remote_relay`, the Worker address.
 - The phone's talk list is built from the same Hugo sections as the homepage. New talks show up on their own.
 
+There is no fullscreen button on purpose. Browsers only allow entering fullscreen right after a click or key press on that computer, and a message from the phone does not count. Reveal's `F` fullscreen also ends when the page changes. Instead, put the Mac browser window in fullscreen once with `Ctrl` + `Cmd` + `F`. That survives switching talks.
+
 ### When to update what
 
 | Change | What to do |
