@@ -140,8 +140,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 }
 
 .pr-code,
-.term,
-.stop-line { font-variant-ligatures: none; }
+.term { font-variant-ligatures: none; }
 
 .reveal :not(pre) > code {
   font-size: 0.86em;
@@ -395,7 +394,7 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 
 /* ---------- Habits ---------- */
 
-/* Same spot on every habit slide, so the four read as one run. */
+/* Same spot on every rule slide, so the four read as one run. */
 .pips {
   position: absolute;
   top: 70px;
@@ -409,10 +408,252 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 .pip.on { background: var(--amber); opacity: 1; }
 .pips-label { font-size: 28px; font-weight: 700; color: var(--muted); margin-left: 14px; }
 
-.stop-line {
-  font-size: 58px;
-  font-weight: 600;
+.stage.tk { gap: 0; }
+
+.tk-callback {
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #b86200;
+  margin-bottom: 18px;
+}
+
+.navy .tk-callback { color: var(--amber); }
+
+.reveal .tk .t-lead { margin-top: 26px; }
+
+.tk-tonight {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 48px;
+  padding: 20px 28px;
+  border-radius: 6px;
+  background: var(--tint);
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.navy .tk-tonight { background: rgba(255, 255, 255, 0.1); }
+
+.reveal .tk-tonight code {
+  background: rgba(20, 29, 56, 0.1);
+  color: inherit;
+  padding: 1px 8px;
+  border-radius: 4px;
+}
+
+.tk-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.tk-chip {
+  font-family: var(--mono);
+  font-size: 30px;
+  font-weight: 800;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.tk-chip.is-off {
+  background: transparent;
+  color: var(--muted);
+  border: 3px solid currentColor;
+  text-decoration: line-through;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 4px;
+}
+
+.tk-arrow {
+  font-size: 40px;
+  font-weight: 800;
+  color: #b86200;
+}
+
+.tk-tonight b {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--amber);
+  color: var(--ink);
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+
+.tk-recap {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 80px;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.reveal ol.tk-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.reveal ol.tk-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 28px;
+  padding: 18px 0;
+  border-bottom: 3px solid rgba(20, 29, 56, 0.16);
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.tk-list li span {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  background: var(--ink);
+  padding: 6px 12px;
+  border-radius: 4px;
+  transform: translateY(-10px);
+}
+
+.tk-scan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Viewfinder: the code draws in from the center, then the corners lock on. */
+.tk-finder {
+  position: relative;
+  width: 460px;
+  height: 460px;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+.tk-card {
+  width: 100%;
+  height: 100%;
+  padding: 34px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(20, 29, 56, 0.25);
+}
+
+.tk-qr {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.qr-dot {
+  fill: var(--ink);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.qr-eye-ring {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1;
+  stroke-dasharray: 25;
+}
+
+.qr-eye-core {
+  fill: var(--amber);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.qr-badge {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.reveal .slides section.present:not(.stack) .qr-dot {
+  animation: qr-pop 0.35s var(--ease) both;
+  animation-delay: calc(0.5s + var(--qd, 0s));
+}
+
+.reveal .slides section.present:not(.stack) .qr-eye-ring { animation: qr-ring 0.6s var(--ease) 1.2s both; }
+.reveal .slides section.present:not(.stack) .qr-eye-core { animation: qr-pop 0.4s var(--ease) 1.6s both; }
+.reveal .slides section.present:not(.stack) .qr-badge { animation: qr-badge 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s both; }
+
+@keyframes qr-pop { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes qr-ring { from { stroke-dashoffset: 25; } to { stroke-dashoffset: 0; } }
+@keyframes qr-badge { from { transform: scale(0) rotate(-20deg); } to { transform: scale(1) rotate(0deg); } }
+
+.qr-badge-bg { fill: var(--ink); }
+
+.qr-badge-text {
+  fill: #fff;
+  font-family: var(--font);
+  font-size: 3.6px;
+  font-weight: 800;
+}
+
+.qr-badge-tld { fill: var(--amber); }
+
+.tk-corner {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid var(--ink);
+  opacity: 0;
+  transition: width 0.45s var(--ease), height 0.45s var(--ease), opacity 0.1s linear;
+}
+
+.tk-corner.tl { top: 0; left: 0; border-top-width: 8px; border-left-width: 8px; border-top-left-radius: 14px; }
+.tk-corner.tr { top: 0; right: 0; border-top-width: 8px; border-right-width: 8px; border-top-right-radius: 14px; }
+.tk-corner.bl { bottom: 0; left: 0; border-bottom-width: 8px; border-left-width: 8px; border-bottom-left-radius: 14px; }
+.tk-corner.br { bottom: 0; right: 0; border-bottom-width: 8px; border-right-width: 8px; border-bottom-right-radius: 14px; }
+
+.reveal .slides section.present:not(.stack) .tk-corner {
+  width: 72px;
+  height: 72px;
+  opacity: 1;
+  transition-delay: 2s;
+}
+
+.reveal .tk-scan-cta {
+  margin: 14px 0 0;
+  font-size: 34px;
+  font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+.reveal .tk-scan-url {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tk-corner { transition: none; }
+  .reveal .slides section.present:not(.stack) .qr-dot,
+  .reveal .slides section.present:not(.stack) .qr-eye-ring,
+  .reveal .slides section.present:not(.stack) .qr-eye-core,
+  .reveal .slides section.present:not(.stack) .qr-badge { animation: none; }
 }
 
 /* Junior bar shift (2017 → 2026 auto-animate) */
@@ -2454,50 +2695,6 @@ body.is-amber-slide .reveal .controls { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   .who-a { transition: none; }
 }
-
-/* ---------- Weekend card ---------- */
-
-.card {
-  background: #fff;
-  color: var(--ink);
-  --muted: #5a6480;
-  padding: 50px 56px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  transform: rotate(-1.2deg);
-}
-
-.check {
-  display: grid;
-  grid-template-columns: 56px 1fr auto;
-  gap: 26px;
-  align-items: center;
-  padding: 18px 22px;
-  background: var(--tint);
-  cursor: pointer;
-  font-size: 42px;
-  font-weight: 750;
-  letter-spacing: -0.015em;
-  transition: background 0.2s;
-}
-
-.check:hover { background: #e3e7ef; }
-
-.check-box {
-  width: 48px;
-  height: 48px;
-  box-sizing: border-box;
-  border: 5px solid var(--ink);
-  display: grid;
-  place-items: center;
-  transition: background 0.2s;
-}
-
-.check-time { font-size: 28px; font-weight: 600; color: var(--muted); }
-.check.is-checked .check-box { background: var(--ink); }
-.check.is-checked .check-box::after { content: ""; width: 16px; height: 16px; background: var(--amber); }
-.check.is-checked .check-text { text-decoration: line-through; text-decoration-thickness: 5px; text-decoration-color: var(--amber); }
 
 /* ---------- Beyond Code (Playful Detour) ---------- */
 

@@ -1,0 +1,6 @@
+{{- $url := .Get "url" -}}
+{{- $scale := 12 -}}
+{{- $opts := dict "level" "high" "scale" $scale "targetDir" "images/qr" -}}
+{{- with images.QR $url $opts -}}
+<img class="{{ $.Get "class" }}" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="QR code for {{ $url }}" data-qr="{{ $scale }}" data-qr-badge="{{ $.Get "badge" }}">
+{{- end -}}

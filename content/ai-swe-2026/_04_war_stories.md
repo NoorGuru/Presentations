@@ -239,7 +239,7 @@ weight = 6
 </div>
 
 {{% note %}}
-**0:31 · The punch.** Then →: "Before I give you your four habits for tonight, one quick fun detour."
+**0:31 · The punch.** Then →: "Before the four things I want you to take home, one quick fun detour."
 {{% /note %}}
 
 {{% /section %}}

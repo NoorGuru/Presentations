@@ -14,7 +14,7 @@ weight = 7
 </div>
 
 {{% note %}}
-**Quick playful breather before "Start tonight."**
+**Quick playful breather before "Take this home."**
 - Switch tone: smile, drop the serious engineering voice for 2 minutes.
 - "Everything so far was about software engineering. Now here are seven ways I actually use AI outside coding."
 {{% /note %}}
@@ -233,7 +233,7 @@ weight = 7
 - Pause one beat as the room starts smiling, then CLICK!
 - "Wait... what? You caught me :3"
 - Let them laugh, then land the real takeaway at the bottom: "Yes, AI helped build this deck. And yes, I still argued with it, killed half its ideas, and owned every single slide. Same rule."
-- Transition → `Start tonight.`
+- Transition → `Take this home.`
 {{% /note %}}
 
 {{% /section %}}

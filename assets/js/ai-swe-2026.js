@@ -4,7 +4,6 @@
  * - numbers that count up when their slide opens
  * - the stack ladder (clicker, click, or keys 0-5)
  * - the pull request diff (clicker, buttons, line click, or keys 1-3)
- * - the weekend checklist
  * - the language cycle (Java → JS → Rust → Go → One language)
  */
 (function () {
@@ -96,21 +95,6 @@
     Reveal.on("fragmenthidden", fromFragments);
     Reveal.on("slidechanged", function (ev) { if (ev.currentSlide.contains(root)) fromFragments(); });
     render();
-  }
-
-  /* ---------- Weekend checklist ---------- */
-
-  function initChecklist() {
-    document.querySelectorAll("[data-checklist] .check").forEach(function (item) {
-      function flip() {
-        var on = item.classList.toggle("is-checked");
-        item.setAttribute("aria-pressed", String(on));
-      }
-      item.addEventListener("click", flip);
-      item.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); flip(); }
-      });
-    });
   }
 
   /* ---------- Language cycle ---------- */
@@ -237,10 +221,132 @@
     }, true);
   }
 
+  /* ---------- Styled QR ---------- */
+  /* Hugo renders a plain QR image at build time. Read its modules and redraw them
+     as dots with rounded finder eyes. The <img> stays as the no-JS fallback. */
+
+  var SVG_NS = "http://www.w3.org/2000/svg";
+
+  function svgEl(name, attrs) {
+    var el = document.createElementNS(SVG_NS, name);
+    Object.keys(attrs).forEach(function (k) { el.setAttribute(k, attrs[k]); });
+    return el;
+  }
+
+  function readModules(img, scale) {
+    var c = document.createElement("canvas");
+    c.width = img.naturalWidth;
+    c.height = img.naturalHeight;
+    var ctx = c.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    var px = ctx.getImageData(0, 0, c.width, c.height).data;
+    var isDark = function (x, y) { return px[(y * c.width + x) * 4] < 128; };
+    var minX = c.width, maxX = -1, minY = c.height;
+    for (var y = 0; y < c.height; y++) {
+      for (var x = 0; x < c.width; x++) {
+        if (isDark(x, y)) {
+          if (x < minX) minX = x;
+          if (x > maxX) maxX = x;
+          if (y < minY) minY = y;
+        }
+      }
+    }
+    var n = Math.round((maxX - minX + 1) / scale);
+    var grid = [];
+    for (var r = 0; r < n; r++) {
+      var row = [];
+      for (var col = 0; col < n; col++) {
+        row.push(isDark(minX + col * scale + (scale >> 1), minY + r * scale + (scale >> 1)));
+      }
+      grid.push(row);
+    }
+    return grid;
+  }
+
+  function buildQr(img) {
+    var grid = readModules(img, Number(img.getAttribute("data-qr")));
+    var n = grid.length;
+    var badge = img.getAttribute("data-qr-badge");
+    var mid = (n - 1) / 2;
+    var maxD = Math.sqrt(2) * mid;
+
+    var svg = svgEl("svg", { viewBox: "0 0 " + n + " " + n, class: img.className + " qr-svg", role: "img", "aria-label": img.alt });
+    img.replaceWith(svg);
+
+    var pill = null;
+    if (badge) {
+      var b = svgEl("g", { class: "qr-badge" });
+      var bg = svgEl("rect", { class: "qr-badge-bg" });
+      var t = svgEl("text", { x: n / 2, y: n / 2, class: "qr-badge-text", "text-anchor": "middle" });
+      var split = badge.indexOf(".");
+      var name = svgEl("tspan", {});
+      name.textContent = split > 0 ? badge.slice(0, split) : badge;
+      t.appendChild(name);
+      if (split > 0) {
+        var tld = svgEl("tspan", { class: "qr-badge-tld" });
+        tld.textContent = badge.slice(split);
+        t.appendChild(tld);
+      }
+      b.appendChild(bg);
+      b.appendChild(t);
+      svg.appendChild(b);
+
+      var cs = getComputedStyle(t);
+      var size = parseFloat(cs.fontSize);
+      var ctx = document.createElement("canvas").getContext("2d");
+      ctx.font = cs.fontWeight + " 100px " + cs.fontFamily;
+      var m = ctx.measureText(badge);
+      var k = size / 100;
+      var asc = m.actualBoundingBoxAscent * k;
+      var desc = m.actualBoundingBoxDescent * k;
+      t.setAttribute("y", n / 2 + (asc - desc) / 2);
+      var pw = m.width * k + size * 1.1;
+      var ph = asc + desc + size * 0.7;
+      pill = { x: (n - pw) / 2, y: (n - ph) / 2, w: pw, h: ph };
+      bg.setAttribute("x", pill.x);
+      bg.setAttribute("y", pill.y);
+      bg.setAttribute("width", pw);
+      bg.setAttribute("height", ph);
+      bg.setAttribute("rx", ph / 2);
+    }
+
+    var gap = 0.7;
+    var inEye = function (r, c) { return (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7); };
+    var inHole = function (r, c) {
+      return pill && c + 1 > pill.x - gap && c < pill.x + pill.w + gap && r + 1 > pill.y - gap && r < pill.y + pill.h + gap;
+    };
+    var dots = svgEl("g", { class: "qr-dots" });
+    for (var r = 0; r < n; r++) {
+      for (var c = 0; c < n; c++) {
+        if (!grid[r][c] || inEye(r, c) || inHole(r, c)) continue;
+        var d = Math.sqrt((r - mid) * (r - mid) + (c - mid) * (c - mid)) / maxD;
+        var dot = svgEl("circle", { cx: c + 0.5, cy: r + 0.5, r: 0.43, class: "qr-dot" });
+        dot.style.setProperty("--qd", (d * 0.9).toFixed(3) + "s");
+        dots.appendChild(dot);
+      }
+    }
+    svg.insertBefore(dots, svg.firstChild);
+
+    [[0, 0], [0, n - 7], [n - 7, 0]].forEach(function (p) {
+      var g = svgEl("g", { class: "qr-eye" });
+      g.appendChild(svgEl("rect", { x: p[1] + 0.5, y: p[0] + 0.5, width: 6, height: 6, rx: 1.6, class: "qr-eye-ring" }));
+      g.appendChild(svgEl("rect", { x: p[1] + 2, y: p[0] + 2, width: 3, height: 3, rx: 0.8, class: "qr-eye-core" }));
+      svg.insertBefore(g, pill ? svg.lastChild : null);
+    });
+  }
+
+  function initQr() {
+    var fonts = document.fonts ? document.fonts.ready : Promise.resolve();
+    document.querySelectorAll("img[data-qr]").forEach(function (img) {
+      var loaded = img.complete && img.naturalWidth ? Promise.resolve() : new Promise(function (res) { img.addEventListener("load", res, { once: true }); });
+      Promise.all([loaded, fonts]).then(function () { buildQr(img); });
+    });
+  }
+
   function boot() {
     if (!window.Reveal) return;
+    initQr();
     initDiff();
-    initChecklist();
     initLangCycle();
     initStepFragments();
     Reveal.on("slidechanged", function (ev) { onSlide(ev.currentSlide); });
