@@ -1,7 +1,7 @@
 +++
 title = "Cracking the Tech Job Market"
 description = "Frontend, backend, and the basics that get you hired."
-date = 2022-11-05
+date = 2024-05-30
 tab = "Market"
 address = "market"
 photo = "photos/university-students-in-a-technology-learning-classroom.jpg"
