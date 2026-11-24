@@ -242,7 +242,6 @@ weight = 4
       <h2 class="t-huge"><span class="line"><span>Backend.</span></span></h2>
       <p class="stack-metaphor in d2">Everything behind the screen.</p>
       <p class="t-lead in d3">The logic, the data, the security. It runs on servers, not in your browser.</p>
-      {{< swe-art id="be-engine" >}}
     </div>
     <div class="be3-run in d3" aria-hidden="true">
       <div class="be3-head"><span>You tapped</span><b>Pay 8 JOD</b></div>

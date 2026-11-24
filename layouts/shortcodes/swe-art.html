@@ -1,17 +1,17 @@
 {{- $id := .Get "id" -}}
 {{- if eq $id "api-waiter" -}}
-<svg class="sa-waiter" viewBox="0 0 540 164" role="img" aria-label="An animated waiter carries a request ticket from Frontend to Backend and brings back a JSON response tray">
-  <path class="sa-req-arrow" d="M36 28 H496 M482 18 L500 28 L482 38"/>
-  <text class="sa-arrow-lbl" x="270" y="16" text-anchor="middle">REQUEST · ORDER TICKET →</text>
-  <path class="sa-track" d="M24 116 H516"/>
-  <path class="sa-res-arrow" d="M504 152 H44 M58 142 L40 152 L58 162"/>
-  <text class="sa-arrow-lbl is-back" x="270" y="140" text-anchor="middle">← RESPONSE · JSON + STATUS</text>
-  <g transform="translate(0 72)">
+<svg class="sa-waiter" viewBox="0 0 540 214" role="img" aria-label="An animated waiter carries a request from Frontend to Backend and brings back the response">
+  <text class="sa-arrow-lbl" x="270" y="14" text-anchor="middle">REQUEST →</text>
+  <path class="sa-req-arrow" d="M36 30 H496 M482 20 L500 30 L482 40"/>
+  <path class="sa-track" d="M24 172 H516"/>
+  <path class="sa-res-arrow" d="M504 192 H44 M58 182 L40 192 L58 202"/>
+  <text class="sa-arrow-lbl is-back" x="270" y="212" text-anchor="middle">← RESPONSE</text>
+  <g transform="translate(0 104)">
     <g class="sa-runner">
-      <g transform="scale(1.18)">
+      <g transform="scale(1.9)">
         <circle class="sa-head" cx="0" cy="-24" r="11"/>
         <path class="sa-bowtie" d="M-6 -12 L0 -9 L-6 -6 Z M6 -12 L0 -9 L6 -6 Z"/>
-        <path class="sa-body" d="M0 -13 V14 M0 14 L-11 36 M0 14 L12 36 M0 -4 L22 -12 M0 -2 L-16 8"/>
+        <path class="sa-body" d="M0 -13 V14 M0 14 L-11 35 M0 14 L12 35 M0 -4 L22 -12 M0 -2 L-16 8"/>
         <g transform="translate(28 -16)">
           <path class="sa-tray" d="M-20 4 H24"/>
           <path class="sa-cloche" d="M-14 4 C-14 -14 18 -14 18 4 Z"/>
@@ -21,54 +21,27 @@
     </g>
   </g>
 </svg>
-{{- else if eq $id "be-engine" -}}
-<div class="sa-engine in d4">
-<svg class="sa-engine-svg" viewBox="0 0 560 154" role="img" aria-label="Spinning server gears and a live heartbeat signal running behind the scenes">
-  <g transform="translate(86 78)">
-    <g class="sa-gear g1">
-      <circle class="sa-g-ring" cx="0" cy="0" r="34"/>
-      <circle class="sa-g-hub" cx="0" cy="0" r="12"/>
-      <path class="sa-g-teeth" d="M0 -46 V-32 M0 32 V46 M-46 0 H-32 M32 0 H46 M-32 -32 L-22 -22 M22 22 L32 32 M32 -32 L22 -22 M-22 22 L-32 32"/>
-    </g>
-  </g>
-  <g transform="translate(154 106)">
-    <g class="sa-gear g2">
-      <circle class="sa-g-ring is-w" cx="0" cy="0" r="22"/>
-      <circle class="sa-g-hub is-w" cx="0" cy="0" r="7"/>
-      <path class="sa-g-teeth is-w" d="M0 -32 V-20 M0 20 V32 M-32 0 H-20 M20 0 H32 M-22 -22 L-14 -14 M14 14 L22 22 M22 -22 L14 -14 M-14 14 L-22 22"/>
-    </g>
-  </g>
-  <g transform="translate(214 26)">
-    <rect class="sa-ecg-box" width="328" height="102" rx="14"/>
-    <path class="sa-ecg" pathLength="1" d="M18 66 H78 L94 38 L112 86 L128 50 L142 66 H212 L226 42 L242 84 L256 66 H308"/>
-    <circle class="sa-ecg-dot" cx="308" cy="66" r="5"/>
-    <text class="sa-ecg-lbl" x="18" y="24">ENGINE ROOM · 356 ms</text>
-  </g>
-</svg>
-</div>
 {{- else if eq $id "ai-use" -}}
-<svg class="sa-ai-svg" viewBox="0 0 360 144" role="img" aria-label="A human and a small robot working side by side at a laptop">
-  <g transform="translate(98 84)">
-    <circle class="sa-ink" cx="0" cy="-34" r="14"/>
-    <path class="sa-ink-stroke" d="M-24 20 C-24 -6 24 -6 24 20"/>
-    <rect class="sa-tint-box" x="18" y="-8" width="54" height="32" rx="6"/>
-    <path class="sa-ink-line" d="M12 26 H78"/>
+<svg class="sa-ai-svg" viewBox="10 0 280 170" role="img" aria-label="A student and a small robot high-five">
+  <path class="sa-ground" d="M24 166 H276"/>
+  <path class="sa-ink" d="M44 166 C44 112 112 112 112 166 Z"/>
+  <circle class="sa-ink" cx="78" cy="80" r="25"/>
+  <path class="sa-ink-arm" d="M100 128 L138 66"/>
+  <circle class="sa-ink" cx="140" cy="62" r="11"/>
+  <path class="sa-ink-line" d="M222 40 V26"/>
+  <circle class="sa-amber" cx="222" cy="22" r="7"/>
+  <rect class="sa-ink" x="188" y="40" width="68" height="54" rx="14"/>
+  <circle class="sa-amber" cx="210" cy="64" r="6"/><circle class="sa-amber" cx="234" cy="64" r="6"/>
+  <path class="sa-w-smile" d="M212 79 Q222 86 232 79"/>
+  <rect class="sa-amber" x="196" y="102" width="52" height="64" rx="12"/>
+  <path class="sa-ink-arm" d="M200 118 L162 66"/>
+  <circle class="sa-hand" cx="160" cy="62" r="11"/>
+  <g transform="translate(150 44)">
+    <path class="sa-burst" d="M0 -8 V-24 M-12 -4 L-24 -14 M12 -4 L24 -14"/>
   </g>
-  <g transform="translate(242 74)">
-    <g class="sa-bot-bob">
-      <path class="sa-ink-line" d="M0 -42 V-52"/>
-      <circle class="sa-amber" cx="0" cy="-56" r="6"/>
-      <rect class="sa-ink" x="-34" y="-42" width="68" height="48" rx="14"/>
-      <circle class="sa-amber" cx="-12" cy="-20" r="5.5"/><circle class="sa-amber" cx="12" cy="-20" r="5.5"/>
-      <path class="sa-w-smile" d="M-10 -8 Q0 -1 10 -8"/>
-      <rect class="sa-amber" x="-24" y="10" width="48" height="28" rx="8"/>
-      <path class="sa-ink-line" d="M-24 20 L-44 6"/>
-    </g>
-  </g>
-  <path class="sa-spark" d="M180 34 L184 44 L194 48 L184 52 L180 62 L176 52 L166 48 L176 44 Z"/>
 </svg>
 {{- else if eq $id "ai-build" -}}
-<svg class="sa-ai-svg is-dark" viewBox="0 0 360 144" role="img" aria-label="An app window wired directly into an AI robot via an animated glowing amber cable">
+<svg class="sa-ai-svg is-dark" viewBox="26 8 290 120" role="img" aria-label="An app window wired directly into an AI robot via an animated glowing amber cable">
   <g transform="translate(36 26)">
     <rect class="sa-w-box" width="114" height="92" rx="12"/>
     <path class="sa-w-line" d="M0 24 H114"/>
@@ -91,7 +64,7 @@
   </g>
 </svg>
 {{- else if eq $id "ai-train" -}}
-<svg class="sa-ai-svg" viewBox="0 0 360 144" role="img" aria-label="An AI robot head opened to reveal spinning math gears and neural network nodes">
+<svg class="sa-ai-svg" viewBox="14 12 336 116" role="img" aria-label="An AI robot head opened to reveal spinning math gears and neural network nodes">
   <g transform="translate(180 86)">
     <rect class="sa-ink" x="-64" y="-36" width="128" height="68" rx="20"/>
     <path class="sa-lid" d="M-56 -36 L-36 -66 H36 L56 -36"/>

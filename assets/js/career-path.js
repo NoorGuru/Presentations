@@ -31,7 +31,7 @@
       role: "QA Automation.",
       why: "Paid to break your friend’s code before users do.",
       note: "Start with Playwright · write 10 tests for a friend",
-      art: "hammer"
+      art: "net"
     },
     numbers: {
       role: "Data.",
@@ -75,7 +75,7 @@
       role: "Frontend QA.",
       why: "Zero broken layouts survive your eyes.",
       note: "Visual regression testing · Playwright + CSS",
-      art: "hammer"
+      art: "net"
     },
     "numbers+visuals": {
       role: "Data Visualization.",
@@ -111,7 +111,7 @@
       role: "QA Automation (SDET).",
       why: "Write code whose only job is hunting bugs.",
       note: "Playwright, Selenium, and CI test pipelines",
-      art: "hammer"
+      art: "net"
     },
     "code+numbers": {
       role: "AI & Machine Learning.",
@@ -147,7 +147,7 @@
       role: "Performance Testing.",
       why: "Throw 100,000 fake users at it and watch the graphs.",
       note: "Load testing with k6 or JMeter + metrics",
-      art: "hammer"
+      art: "net"
     },
     "break+puzzles": {
       role: "Cyber Security.",
@@ -165,13 +165,13 @@
       role: "Product QA & Security.",
       why: "Protect real users from every edge case.",
       note: "Bug hunting + clear reports teams love",
-      art: "hammer"
+      art: "net"
     },
     "break+shortcuts": {
       role: "Test Automation.",
       why: "Record once. Test a thousand clicks while you sleep.",
       note: "Playwright codegen + GitHub Actions",
-      art: "hammer"
+      art: "net"
     },
     "numbers+puzzles": {
       role: "Data & AI.",
@@ -319,7 +319,7 @@
 
         var match = COMBOS[key] || COMBOS[clean[0]];
         if (match) {
-          eyebrow.textContent = clean.length === 2 ? "COMBO UNLOCKED!" : "YOU’RE GONNA LOVE";
+          eyebrow.textContent = clean.length === 2 ? "COMBO! YOU’LL LOVE" : "YOU’LL LOVE";
           role.textContent = match.role;
           why.textContent = match.why;
           note.textContent = match.note;

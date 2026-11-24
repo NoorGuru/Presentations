@@ -36,8 +36,11 @@
   </g>
   <g transform="translate(432 396)">
     <g class="la-thumb">
-      <path class="la-thumb-shape" d="M0 0 C18 -24 58 -16 74 14 L118 98 L48 128 L-4 44 C-16 26 -12 14 0 0 Z"/>
-      <path class="la-thumb-nail" d="M12 10 C22 0 36 4 42 18 L24 28 C14 26 8 18 12 10 Z"/>
+      <g transform="rotate(-28)">
+        <rect class="la-thumb-shape" x="-30" y="-4" width="60" height="144" rx="30"/>
+        <rect class="la-thumb-nail" x="-19" y="4" width="38" height="44" rx="16"/>
+        <path class="la-thumb-crease" d="M-14 84 Q0 90 14 84 M-12 96 Q0 101 12 96"/>
+      </g>
     </g>
   </g>
   <g transform="translate(26 86)"><g class="la-chip is-alert" style="--d:0.25s;"><rect width="196" height="52" rx="12"/><circle class="la-red" cx="24" cy="26" r="7"/><text x="42" y="33">4% BATTERY</text></g></g>
@@ -51,108 +54,143 @@
 </div>
 {{- else if eq $id "devops" -}}
 <div class="la-wrap is-devops in d2">
-<svg class="la-svg" viewBox="0 0 760 600" role="img" aria-label="A code box travels on a factory conveyor belt through tests and Docker into a cloud of 100 servers">
-  <g class="la-cloud" transform="translate(556 132)">
-    <path class="la-cloud-path" d="M-92 32 H96 C122 32 138 14 138 -8 C138 -28 122 -44 102 -46 C94 -76 66 -96 32 -96 C-2 -96 -30 -74 -38 -44 C-44 -46 -52 -48 -60 -48 C-92 -48 -118 -22 -118 10 C-118 22 -106 32 -92 32 Z"/>
-    <text class="la-cloud-txt" x="10" y="-12" text-anchor="middle">CLOUD</text>
-    <text class="la-cloud-sub" x="10" y="14" text-anchor="middle">x100 SERVERS</text>
+<svg class="la-svg" viewBox="0 0 760 600" role="img" aria-label="A developer sleeps at 2 AM while their code rides a pipeline through build, test, and ship into a hundred cloud servers">
+  <defs>
+    <mask id="dv-moon-mask"><circle cx="392" cy="98" r="44" fill="#fff"/><circle cx="414" cy="80" r="38" fill="#000"/></mask>
+  </defs>
+  <g transform="translate(40 34)">
+    <rect class="dv-clock" width="156" height="50" rx="12"/>
+    <text class="dv-clock-t" x="78" y="34" text-anchor="middle">2:00 AM</text>
   </g>
-  <g class="la-rain" aria-hidden="true">
-    <path class="la-drop d1" d="M512 170 V218"/>
-    <path class="la-drop d2" d="M566 170 V218"/>
-    <path class="la-drop d3" d="M620 170 V218"/>
+  <circle class="dv-moon" cx="392" cy="98" r="44" mask="url(#dv-moon-mask)"/>
+  <path class="dv-star s1" d="M300 70 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 Z"/>
+  <path class="dv-star s2" d="M458 158 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 Z"/>
+  <g transform="translate(36 130)">
+    <rect class="dv-ink" x="0" y="10" width="22" height="150" rx="6"/>
+    <rect class="dv-mattress" x="16" y="90" width="300" height="40" rx="10"/>
+    <rect class="dv-ink" x="16" y="130" width="300" height="16" rx="6"/>
+    <rect class="dv-ink" x="296" y="140" width="16" height="30" rx="5"/>
+    <rect class="dv-pillow" x="28" y="64" width="84" height="30" rx="14"/>
+    <circle class="dv-head" cx="72" cy="64" r="24"/>
+    <path class="dv-face" d="M58 62 q5 5 10 0 M76 62 q5 5 10 0 M66 76 q6 4 12 0"/>
+    <g class="dv-breath">
+      <path class="dv-blanket" d="M104 92 C134 46 252 46 300 84 L316 90 V130 H104 Z"/>
+    </g>
+    <g class="dv-zzz">
+      <text class="dv-z z1" x="112" y="34">z</text>
+      <text class="dv-z z2" x="140" y="8">z</text>
+      <text class="dv-z z3" x="172" y="-20">Z</text>
+    </g>
   </g>
-  <g class="la-racks" transform="translate(462 230)">
-    <g transform="translate(0 0)"><rect class="la-rack" width="58" height="40" rx="6"/><circle class="la-amber" cx="14" cy="20" r="4"/><path class="la-rack-l" d="M26 20 H48"/></g>
-    <g transform="translate(72 0)"><rect class="la-rack" width="58" height="40" rx="6"/><circle class="la-amber" cx="14" cy="20" r="4"/><path class="la-rack-l" d="M26 20 H48"/></g>
-    <g transform="translate(144 0)"><rect class="la-rack" width="58" height="40" rx="6"/><circle class="la-amber" cx="14" cy="20" r="4"/><path class="la-rack-l" d="M26 20 H48"/></g>
-    <g transform="translate(0 52)"><rect class="la-rack" width="58" height="40" rx="6"/><circle class="la-amber" cx="14" cy="20" r="4"/><path class="la-rack-l" d="M26 20 H48"/></g>
-    <g transform="translate(72 52)"><rect class="la-rack" width="58" height="40" rx="6"/><circle class="la-amber" cx="14" cy="20" r="4"/><path class="la-rack-l" d="M26 20 H48"/></g>
-    <g transform="translate(144 52)"><rect class="la-rack" width="58" height="40" rx="6"/><circle class="la-amber" cx="14" cy="20" r="4"/><path class="la-rack-l" d="M26 20 H48"/></g>
+  <g transform="translate(620 122) scale(0.9)">
+    <path class="dv-cloud" d="M-92 32 H96 C122 32 138 14 138 -8 C138 -28 122 -44 102 -46 C94 -76 66 -96 32 -96 C-2 -96 -30 -74 -38 -44 C-44 -46 -52 -48 -60 -48 C-92 -48 -118 -22 -118 10 C-118 22 -106 32 -92 32 Z"/>
+    <text class="dv-cloud-t" x="10" y="-14" text-anchor="middle">CLOUD</text>
+    <text class="dv-cloud-s" x="10" y="12" text-anchor="middle">x100 SERVERS</text>
   </g>
-  <g class="la-gate" transform="translate(198 236)">
-    <path class="la-arch" d="M0 164 V20 C0 6 12 0 24 0 H96 C108 0 120 6 120 20 V164"/>
-    <rect class="la-gate-tag" x="14" y="14" width="92" height="32" rx="8"/>
-    <text class="la-gate-txt" x="60" y="36" text-anchor="middle">TEST ✓</text>
-    <path class="la-scan-line" d="M18 60 H102"/>
+  <path class="dv-link" d="M544 158 V190 M620 158 V190 M696 158 V190"/>
+  <g transform="translate(512 196)">
+    <g class="dv-srv" style="--i:0;"><rect width="64" height="40" rx="7"/><circle cx="16" cy="20" r="5"/><path d="M30 20 H52"/></g>
+    <g class="dv-srv" style="--i:1;" transform="translate(76 0)"><rect width="64" height="40" rx="7"/><circle cx="16" cy="20" r="5"/><path d="M30 20 H52"/></g>
+    <g class="dv-srv" style="--i:2;" transform="translate(152 0)"><rect width="64" height="40" rx="7"/><circle cx="16" cy="20" r="5"/><path d="M30 20 H52"/></g>
+    <g class="dv-srv" style="--i:3;" transform="translate(0 52)"><rect width="64" height="40" rx="7"/><circle cx="16" cy="20" r="5"/><path d="M30 20 H52"/></g>
+    <g class="dv-srv" style="--i:4;" transform="translate(76 52)"><rect width="64" height="40" rx="7"/><circle cx="16" cy="20" r="5"/><path d="M30 20 H52"/></g>
+    <g class="dv-srv" style="--i:5;" transform="translate(152 52)"><rect width="64" height="40" rx="7"/><circle cx="16" cy="20" r="5"/><path d="M30 20 H52"/></g>
   </g>
-  <g class="la-gate" transform="translate(348 252)">
-    <path class="la-arch is-dk" d="M0 148 V20 C0 6 12 0 24 0 H76 C88 0 100 6 100 20 V148"/>
-    <rect class="la-gate-tag is-amber" x="8" y="14" width="84" height="32" rx="8"/>
-    <text class="la-gate-txt is-ink" x="50" y="36" text-anchor="middle">DOCKER</text>
+  <path class="dv-pipe-out" d="M118 440 H592 Q620 440 620 412 V292"/>
+  <path class="dv-pipe-in" d="M118 440 H592 Q620 440 620 412 V292"/>
+  <path class="dv-pipe-flow" d="M118 440 H592 Q620 440 620 412 V292"/>
+  <g class="dv-pkg"><rect x="-30" y="-20" width="60" height="40" rx="9"/><text x="0" y="7" text-anchor="middle">&lt;/&gt;</text></g>
+  <g transform="translate(220 440)">
+    <rect class="dv-ring" x="-24" y="-38" width="48" height="76" rx="10"/>
+    <text class="dv-st-t" x="0" y="-52" text-anchor="middle">BUILD</text>
+    <circle class="dv-led l1" cx="0" cy="66" r="16"/>
+    <path class="dv-led-ok l1" d="M-7 66 l5 5 9 -10"/>
   </g>
-  <g class="la-belt" transform="translate(36 400)">
-    <rect class="la-belt-body" x="0" y="0" width="688" height="44" rx="22"/>
-    <circle class="la-wheel" cx="26" cy="22" r="12"/><circle class="la-wheel" cx="136" cy="22" r="12"/><circle class="la-wheel" cx="246" cy="22" r="12"/>
-    <circle class="la-wheel" cx="356" cy="22" r="12"/><circle class="la-wheel" cx="466" cy="22" r="12"/><circle class="la-wheel" cx="576" cy="22" r="12"/><circle class="la-wheel" cx="662" cy="22" r="12"/>
-    <path class="la-belt-track" d="M34 8 H654"/>
+  <g transform="translate(360 440)">
+    <rect class="dv-ring" x="-24" y="-38" width="48" height="76" rx="10"/>
+    <text class="dv-st-t" x="0" y="-52" text-anchor="middle">TEST</text>
+    <circle class="dv-led l2" cx="0" cy="66" r="16"/>
+    <path class="dv-led-ok l2" d="M-7 66 l5 5 9 -10"/>
   </g>
-  <g class="la-pkg p1">
-    <rect class="la-amber" x="0" y="0" width="102" height="62" rx="10"/>
-    <text class="la-pkg-txt" x="51" y="38" text-anchor="middle">git push</text>
+  <g transform="translate(500 440)">
+    <rect class="dv-ring" x="-24" y="-38" width="48" height="76" rx="10"/>
+    <text class="dv-st-t" x="0" y="-52" text-anchor="middle">SHIP</text>
+    <circle class="dv-led l3" cx="0" cy="66" r="16"/>
+    <path class="dv-led-ok l3" d="M-7 66 l5 5 9 -10"/>
   </g>
-  <g class="la-pkg p2">
-    <rect class="la-ink-box" x="0" y="0" width="102" height="62" rx="10"/>
-    <rect class="la-amber" x="10" y="10" width="82" height="42" rx="5"/>
-    <text class="la-pkg-txt" x="51" y="37" text-anchor="middle">v2.4 ✓</text>
+  <g transform="translate(20 390)">
+    <rect class="dv-lap" x="8" y="0" width="92" height="60" rx="8"/>
+    <text class="dv-lap-t" x="54" y="36" text-anchor="middle">git push</text>
+    <path class="dv-ink" d="M0 64 H108 L100 76 H8 Z"/>
   </g>
-  <g class="la-badge-sleep" transform="translate(36 86)">
-    <rect width="290" height="58" rx="14"/>
-    <text class="la-sleep-t" x="145" y="37" text-anchor="middle">2:00 AM · STILL ASLEEP</text>
-  </g>
-  <text class="la-cap is-ink" x="380" y="544" text-anchor="middle">One push. One hundred servers. Zero 2 AM tears.</text>
+  <text class="la-cap is-ink" x="380" y="566" text-anchor="middle">One push. A hundred servers. You stay asleep.</text>
 </svg>
 </div>
 {{- else if eq $id "qa" -}}
 <div class="la-wrap is-qa in d2">
-<svg class="la-svg" viewBox="0 0 760 600" role="img" aria-label="A crash-test robot wearing a hard hat hammers a checkout form with bad input until a bug pops out and a BUG CAUGHT stamp slams down">
-  <g class="la-form" transform="translate(32 132)">
-    <rect class="la-win" width="336" height="328" rx="18"/>
-    <path class="la-win-top" d="M0 44 V18 Q0 0 18 0 H318 Q336 0 336 18 V44 Z"/>
+<svg class="la-svg" viewBox="0 0 760 600" role="img" aria-label="A robot in a hard hat swings a bug net and catches a bug crawling out of an app before it reaches the users">
+  <g transform="translate(380 60)">
+    <rect class="qa-score" x="-196" y="-30" width="392" height="60" rx="14"/>
+    <text class="qa-score-t" x="-98" y="9" text-anchor="middle">CAUGHT 128</text>
+    <path class="qa-score-div" d="M0 -16 V16"/>
+    <text class="qa-score-t is-zero" x="98" y="9" text-anchor="middle">ESCAPED 0</text>
+  </g>
+  <g transform="translate(24 166)">
+    <rect class="la-win" width="256" height="300" rx="18"/>
+    <path class="la-win-top" d="M0 44 V18 Q0 0 18 0 H238 Q256 0 256 18 V44 Z"/>
     <circle class="la-dot" cx="26" cy="22" r="6"/><circle class="la-dot" cx="46" cy="22" r="6"/><circle class="la-dot" cx="66" cy="22" r="6"/>
-    <text class="la-lbl" x="28" y="88">PHONE NUMBER</text>
-    <rect class="la-input" x="28" y="102" width="280" height="54" rx="10"/>
-    <text class="la-chaos-txt" x="44" y="138">???-999999999!</text>
-    <text class="la-lbl" x="28" y="192">QUANTITY</text>
-    <rect class="la-input" x="28" y="206" width="136" height="50" rx="10"/>
-    <text class="la-chaos-txt" x="44" y="239">-42</text>
-    <g class="la-pay-btn" transform="translate(182 206)">
-      <rect width="126" height="50" rx="10"/>
-      <text x="63" y="33" text-anchor="middle">PAY x1000</text>
+    <text class="la-lbl" x="24" y="84">CHECKOUT</text>
+    <rect class="la-input" x="24" y="98" width="208" height="42" rx="9"/>
+    <text class="qa-input-t" x="40" y="126">???-99999!</text>
+    <rect class="la-input" x="24" y="152" width="208" height="42" rx="9"/>
+    <text class="qa-input-t" x="40" y="180">qty: -42</text>
+    <rect class="qa-pay" x="24" y="216" width="208" height="54" rx="10"/>
+    <text class="qa-pay-t" x="128" y="251" text-anchor="middle">PAY 8 JOD</text>
+  </g>
+  <path class="qa-crack" d="M272 300 L288 314 L274 328 L290 344 L278 358"/>
+  <path class="qa-fence" d="M664 196 V476"/>
+  <g transform="translate(714 0)">
+    <text class="qa-users-t" x="0" y="214" text-anchor="middle">USERS</text>
+    <g class="qa-user" transform="translate(0 268)"><circle cx="0" cy="-16" r="15"/><path d="M-25 24 C-25 0 25 0 25 24 Z"/></g>
+    <g class="qa-user" transform="translate(0 348)"><circle cx="0" cy="-16" r="15"/><path d="M-25 24 C-25 0 25 0 25 24 Z"/></g>
+    <g class="qa-user" transform="translate(0 428)"><circle cx="0" cy="-16" r="15"/><path d="M-25 24 C-25 0 25 0 25 24 Z"/></g>
+  </g>
+  <g transform="translate(0 332)">
+    <g class="qa-bug">
+      <g class="qa-legs"><path class="qa-bug-legs" d="M-8 -14 L-14 -28 M6 -14 L10 -28 M-8 14 L-14 28 M6 14 L10 28 M-18 -10 L-28 -20 M-18 10 L-28 20"/></g>
+      <ellipse class="la-red" cx="-6" cy="0" rx="22" ry="17"/>
+      <circle class="la-red" cx="20" cy="0" r="11"/>
+      <circle class="la-white" cx="24" cy="-4" r="3"/><circle class="la-white" cx="24" cy="4" r="3"/>
+      <path class="qa-bug-ant" d="M28 -6 L38 -14 M28 6 L38 14"/>
     </g>
   </g>
-  <g class="la-qabot" transform="translate(566 320)">
+  <g transform="translate(580 336)">
     <path class="la-limb" d="M-24 100 V132 M24 100 V132"/>
     <rect class="la-bot-body" x="-52" y="18" width="104" height="86" rx="18"/>
     <circle class="la-amber" cx="0" cy="60" r="14"/>
+    <path class="la-limb" d="M-52 44 L-86 46"/>
     <rect class="la-bot-head" x="-64" y="-76" width="128" height="86" rx="22"/>
     <rect class="la-bot-face" x="-48" y="-60" width="96" height="54" rx="12"/>
-    <circle class="la-amber" cx="-20" cy="-34" r="8"/><circle class="la-amber" cx="20" cy="-34" r="8"/>
+    <g class="qa-eyes"><circle class="la-amber" cx="-20" cy="-34" r="8"/><circle class="la-amber" cx="20" cy="-34" r="8"/></g>
     <path class="la-bot-smile" d="M-16 -18 Q0 -10 16 -18"/>
     <path class="la-helmet" d="M-74 -72 Q0 -138 74 -72 Z"/>
     <rect class="la-helmet-brim" x="-82" y="-76" width="164" height="14" rx="7"/>
-    <g transform="translate(-52 38)">
-      <g class="la-hammer-arm">
-        <path class="la-handle" d="M0 0 L-138 -72"/>
-        <rect class="la-amber" x="-176" y="-110" width="76" height="44" rx="10" transform="rotate(-62 -138 -88)"/>
+  </g>
+  <g transform="translate(494 382)">
+    <g class="qa-net">
+      <path class="qa-handle" d="M0 0 L-100 -42"/>
+      <g transform="translate(-128 -52)">
+        <path class="qa-bag" d="M-30 0 C-34 40 -12 74 4 78 C20 74 34 40 30 0 Z"/>
+        <path class="qa-mesh" d="M-18 6 L2 70 M0 4 L14 66 M18 6 L-10 62 M-26 30 H26 M-18 52 H18"/>
+        <g class="qa-caught" transform="translate(0 50) scale(0.6)">
+          <ellipse class="la-red" cx="-6" cy="0" rx="22" ry="17"/>
+          <circle class="la-red" cx="20" cy="0" r="11"/>
+        </g>
+        <ellipse class="qa-hoop" cx="0" cy="0" rx="32" ry="12"/>
       </g>
     </g>
   </g>
-  <g transform="translate(362 296)">
-    <g class="la-bug-pop">
-      <ellipse class="la-red" cx="0" cy="0" rx="28" ry="22"/>
-      <circle class="la-red" cx="0" cy="-24" r="13"/>
-      <circle class="la-white" cx="-5" cy="-26" r="3.5"/><circle class="la-white" cx="5" cy="-26" r="3.5"/>
-      <path class="la-bug-legs" d="M-26 -10 L-44 -20 M-28 2 H-46 M-26 14 L-42 24 M26 -10 L44 -20 M28 2 H46 M26 14 L42 24"/>
-    </g>
-  </g>
-  <g transform="translate(226 82) rotate(-8)">
-    <g class="la-stamp-hit">
-      <rect class="la-stamp-box" x="-132" y="-34" width="264" height="68" rx="10"/>
-      <text class="la-stamp-txt" x="0" y="13" text-anchor="middle">BUG CAUGHT!</text>
-    </g>
-  </g>
-  <text class="la-cap" x="380" y="564" text-anchor="middle">Paid to break your friend’s code before users do.</text>
+  <text class="la-cap" x="380" y="566" text-anchor="middle">Catch the bug before your users do.</text>
 </svg>
 </div>
 {{- else if eq $id "data" -}}
@@ -204,43 +242,54 @@
 </div>
 {{- else if eq $id "security" -}}
 <div class="la-wrap is-security in d2">
-<svg class="la-svg" viewBox="0 0 760 600" role="img" aria-label="A secure vault crossed by amber lasers while a white-hat security engineer finds and seals a weak spot">
-  <g class="la-vault" transform="translate(380 278)">
+<svg class="la-svg" viewBox="0 0 760 600" role="img" aria-label="A white-hat hacker picks the lock on a data vault, finds a weak spot, and patches it before anyone else can get in">
+  <g transform="translate(524 274)">
     <rect class="la-v-outer" x="-168" y="-176" width="336" height="352" rx="30"/>
     <rect class="la-v-inner" x="-140" y="-148" width="280" height="296" rx="18"/>
-    <rect class="la-hinge" x="-182" y="-114" width="22" height="56" rx="6"/>
-    <rect class="la-hinge" x="-182" y="58" width="22" height="56" rx="6"/>
-    <circle class="la-v-ring" cx="0" cy="0" r="82"/>
-    <g class="la-v-dial">
-      <circle class="la-amber" cx="0" cy="0" r="24"/>
-      <path class="la-v-spoke" d="M0 -68 V-36 M0 36 V68 M-68 0 H-36 M36 0 H68"/>
+    <rect class="la-hinge" x="160" y="-114" width="22" height="56" rx="6"/>
+    <rect class="la-hinge" x="160" y="58" width="22" height="56" rx="6"/>
+    <circle class="la-v-ring" cx="30" cy="-24" r="74"/>
+    <g transform="translate(30 -24)">
+      <g class="la-v-dial">
+        <circle class="la-amber" cx="0" cy="0" r="22"/>
+        <path class="la-v-spoke" d="M0 -62 V-34 M0 34 V62 M-62 0 H-34 M34 0 H62"/>
+      </g>
     </g>
-    <text class="la-v-lbl" x="0" y="124" text-anchor="middle">USER DATA · API</text>
+    <rect class="sc-plate" x="-128" y="-30" width="44" height="76" rx="12"/>
+    <path class="sc-keyhole" d="M-106 -4 m-9 0 a9 9 0 1 0 18 0 a9 9 0 1 0 -18 0 M-110 2 L-114 26 H-98 L-102 2 Z"/>
+    <text class="la-v-lbl" x="30" y="-118" text-anchor="middle">USER DATA</text>
   </g>
-  <path class="la-beam b1" d="M44 148 L716 396"/>
-  <path class="la-beam b2" d="M44 388 L716 146"/>
-  <path class="la-beam b3" d="M74 268 H686"/>
-  <g transform="translate(206 392)">
-    <g class="la-crack">
-      <path class="la-crack-zig" d="M8 0 L24 14 L12 30 L32 46"/>
-      <rect class="la-cve-pill" x="-122" y="6" width="116" height="36" rx="8"/>
-      <text class="la-cve-txt" x="-64" y="30" text-anchor="middle">HOLE!</text>
-    </g>
-  </g>
-  <g transform="translate(618 118)">
-    <g class="la-badge-sec">
-      <path class="la-shield" d="M0 -56 L52 -36 V8 C52 44 26 68 0 78 C-26 68 -52 44 -52 8 V-36 Z"/>
-      <path class="la-shield-ok" d="M-20 8 L-5 24 L24 -10"/>
-      <text class="la-badge-t" x="0" y="108" text-anchor="middle">WHITE HAT</text>
+  <g transform="translate(616 370)">
+    <g class="sc-weak">
+      <path class="sc-crack" d="M-26 -22 L-8 -6 L-20 6 L4 20 L-6 30"/>
+      <rect class="sc-weak-pill" x="-152" y="-6" width="120" height="34" rx="8"/>
+      <text class="sc-weak-t" x="-92" y="17" text-anchor="middle">WEAK SPOT</text>
     </g>
   </g>
-  <g class="la-hat" transform="translate(116 150)">
-    <path class="la-hat-top" d="M-38 0 L-28 -36 Q0 -48 28 -36 L38 0 Z"/>
-    <ellipse class="la-hat-brim" cx="0" cy="2" rx="54" ry="12"/>
-    <rect class="la-hat-band" x="-34" y="-12" width="68" height="10" rx="3"/>
-    <text class="la-hat-t" x="0" y="38" text-anchor="middle">TEST FIRST</text>
+  <g transform="translate(560 376) rotate(-6)">
+    <g class="sc-patch">
+      <rect class="sc-patch-box" x="-94" y="-34" width="188" height="68" rx="10"/>
+      <text class="sc-patch-t" x="0" y="9" text-anchor="middle">PATCHED ✓</text>
+    </g>
   </g>
-  <text class="la-cap" x="380" y="564" text-anchor="middle">Break in first, so the bad guys can’t.</text>
+  <path class="la-limb" d="M150 384 L144 456 M190 384 L196 456"/>
+  <rect class="sc-body" x="124" y="252" width="92" height="136" rx="34"/>
+  <g transform="translate(206 292)">
+    <g class="sc-arm">
+      <path class="sc-arm-l" d="M0 0 L150 -6"/>
+      <circle class="la-white" cx="150" cy="-6" r="11"/>
+      <path class="sc-pick" d="M158 -8 L210 -18 L214 -10"/>
+    </g>
+  </g>
+  <circle class="sc-head" cx="170" cy="214" r="36"/>
+  <circle class="sc-eye" cx="160" cy="216" r="4.5"/><circle class="sc-eye" cx="184" cy="216" r="4.5"/>
+  <path class="sc-smirk" d="M164 232 Q176 238 188 230"/>
+  <path class="sc-hat" d="M132 190 L142 146 Q170 134 198 146 L208 190 Z"/>
+  <rect class="sc-hat-band" x="136" y="174" width="68" height="12" rx="3"/>
+  <ellipse class="sc-hat" cx="170" cy="192" rx="62" ry="12"/>
+  <path class="sc-spark" d="M424 228 l-10 -14 M440 226 l2 -18 M452 236 l14 -10"/>
+  <text class="sc-who" x="170" y="492" text-anchor="middle">WHITE HAT</text>
+  <text class="la-cap" x="380" y="566" text-anchor="middle">Break in first, so the bad guys can’t.</text>
 </svg>
 </div>
 {{- else if eq $id "networks" -}}
@@ -363,7 +412,7 @@
     <rect class="la-pm-no" width="230" height="86" rx="14"/>
     <text class="la-pm-who" x="18" y="30">BOSS SAYS</text>
     <text class="la-pm-q" x="18" y="62">“Add an AI chatbot!”</text>
-    <path class="la-pm-strike s1" pathLength="1" d="M12 52 L218 52"/>
+    <path class="la-pm-strike s1" pathLength="1" d="M12 56 L218 56"/>
     <rect class="la-no-pill" x="172" y="-14" width="66" height="30" rx="8"/>
     <text class="la-no-txt" x="205" y="7" text-anchor="middle">NO</text>
   </g>
@@ -371,7 +420,7 @@
     <rect class="la-pm-no" width="254" height="86" rx="14"/>
     <text class="la-pm-who" x="18" y="30">SALES SAYS</text>
     <text class="la-pm-q" x="18" y="62">“Promise 10 features!”</text>
-    <path class="la-pm-strike s2" pathLength="1" d="M12 52 L242 52"/>
+    <path class="la-pm-strike s2" pathLength="1" d="M12 56 L242 56"/>
     <rect class="la-no-pill" x="196" y="-14" width="66" height="30" rx="8"/>
     <text class="la-no-txt" x="229" y="7" text-anchor="middle">NO</text>
   </g>
@@ -379,7 +428,7 @@
     <rect class="la-pm-no" width="236" height="86" rx="14"/>
     <text class="la-pm-who" x="18" y="30">ENG SAYS</text>
     <text class="la-pm-q" x="18" y="62">“Rewrite it in Rust!”</text>
-    <path class="la-pm-strike s3" pathLength="1" d="M12 52 L224 52"/>
+    <path class="la-pm-strike s3" pathLength="1" d="M12 56 L224 56"/>
     <rect class="la-no-pill" x="178" y="-14" width="66" height="30" rx="8"/>
     <text class="la-no-txt" x="211" y="7" text-anchor="middle">NO</text>
   </g>

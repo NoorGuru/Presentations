@@ -22,42 +22,65 @@ weight = 7
 
 <div class="stage lab" data-step-fragments>
   <div class="lab-head">
-    <div>
-      <span class="bc-num in">MY LAB NOTEBOOK</span>
-      <h2 class="t-mid"><span class="line"><span>Every try is an <span class="mark" style="--md:0.8s;">experiment.</span></span></span></h2>
-    </div>
-    <span class="lab-tag in d2">FIELD LOG · UNI YEARS</span>
+    <span class="bc-num in">MY LAB NOTEBOOK</span>
+    <h2 class="t-mid"><span class="line"><span>Every try is an <span class="mark" style="--md:0.8s;">experiment.</span></span></span></h2>
   </div>
-  <div class="lab-book in d2">
-    <div class="lab-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <div class="lab-rows">
-      <div class="lab-row in d2">
-        <span class="lab-n">01</span>
-        <div class="lab-try"><b>A game in Unity</b><em>Two weekends</em></div>
-        <span class="lab-stamp is-fail fragment" data-fragment-index="1">Failed</span>
-        <p class="lab-learn fragment" data-fragment-index="2">Hated the art. <b>Loved the logic.</b></p>
-      </div>
-      <div class="lab-row in d3">
-        <span class="lab-n">02</span>
-        <div class="lab-try"><b>A security CTF</b><em>One night</em></div>
-        <span class="lab-stamp is-fail fragment" data-fragment-index="3">Failed</span>
-        <p class="lab-learn fragment" data-fragment-index="4">Solved 1 of 12. <b>Networks matter.</b></p>
-      </div>
-      <div class="lab-row in d4">
-        <span class="lab-n">03</span>
-        <div class="lab-try"><b>An API for my club</b><em>One month</em></div>
-        <span class="lab-stamp is-keep fragment" data-fragment-index="5">Keep</span>
-        <p class="lab-learn fragment" data-fragment-index="6">People used it. <b>I want more of this.</b></p>
-      </div>
+  <div class="lx-grid">
+    <div class="lx-card" style="--r:-2deg;--i:0;">
+      <span class="lx-tape" aria-hidden="true"></span>
+      <div class="lx-meta"><b>EXP 01</b><span>2 weekends</span></div>
+      <svg class="lx-doodle" viewBox="0 0 160 110" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path class="lx-ink" d="M40 34 H120 C142 34 152 52 152 72 C152 92 140 100 128 96 L108 80 H52 L32 96 C20 100 8 92 8 72 C8 52 18 34 40 34 Z"/><path class="lx-ink" d="M44 52 V72 M34 62 H54"/><circle class="lx-amb" cx="112" cy="56" r="7"/><circle class="lx-amb" cx="128" cy="70" r="7"/><path class="lx-wig" d="M70 22 L76 10 M90 22 L86 8"/></svg>
+      <b class="lx-title">A game in Unity</b>
+      <p class="lx-hypo"><span>Hypothesis</span>“I’ll make the next big game.”</p>
+      <div class="lx-find fragment" data-fragment-index="1"><span>Finding</span><p>Hated drawing. <mark>Loved the logic.</mark></p></div>
+      <span class="lx-stamp is-fail fragment" data-fragment-index="1">Failed</span>
     </div>
+    <div class="lx-card" style="--r:1.5deg;--i:1;">
+      <span class="lx-tape" aria-hidden="true"></span>
+      <div class="lx-meta"><b>EXP 02</b><span>1 week</span></div>
+      <svg class="lx-doodle" viewBox="0 0 160 110" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path class="lx-thin" d="M22 90 L54 30 M138 72 L118 22"/><path class="lx-ink" d="M22 90 C44 20 112 20 138 72"/><rect class="lx-anchor" x="13" y="81" width="18" height="18"/><rect class="lx-anchor" x="129" y="63" width="18" height="18"/><circle class="lx-amb" cx="54" cy="30" r="7"/><circle class="lx-amb" cx="118" cy="22" r="7"/></svg>
+      <b class="lx-title">Redesign the uni portal</b>
+      <p class="lx-hypo"><span>Hypothesis</span>“I’m a designer.”</p>
+      <div class="lx-find fragment" data-fragment-index="2"><span>Finding</span><p>Nice screens. <mark>I wanted them to work.</mark></p></div>
+      <span class="lx-stamp is-fail fragment" data-fragment-index="2">Failed</span>
+    </div>
+    <div class="lx-card" style="--r:-1deg;--i:2;">
+      <span class="lx-tape" aria-hidden="true"></span>
+      <div class="lx-meta"><b>EXP 03</b><span>1 night</span></div>
+      <svg class="lx-doodle" viewBox="0 0 160 110" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><path class="lx-ink" d="M52 102 V12 M30 102 H76"/><path class="lx-flag" d="M54 14 H124 L108 34 L124 54 H54 Z"/><text class="lx-q" x="86" y="45" text-anchor="middle">?</text><path class="lx-wig" d="M134 74 L146 68 M136 90 H150"/></svg>
+      <b class="lx-title">A security CTF</b>
+      <p class="lx-hypo"><span>Hypothesis</span>“Hacking looks easy.”</p>
+      <div class="lx-find fragment" data-fragment-index="3"><span>Finding</span><p>Solved 1 of 12. <mark>Networks matter.</mark></p></div>
+      <span class="lx-stamp is-fail fragment" data-fragment-index="3">Failed</span>
+    </div>
+    <div class="lx-card is-keep" style="--r:2deg;--i:3;">
+      <span class="lx-tape" aria-hidden="true"></span>
+      <div class="lx-meta"><b>EXP 04</b><span>1 month</span></div>
+      <svg class="lx-doodle" viewBox="0 0 160 110" preserveAspectRatio="xMinYMid meet" aria-hidden="true"><rect class="lx-ink" x="10" y="22" width="44" height="74" rx="9"/><rect class="lx-amb" x="20" y="40" width="24" height="12" rx="3"/><path class="lx-ink" d="M62 48 H96 M88 40 L98 48 L88 56"/><path class="lx-thin" d="M98 72 H64 M72 64 L62 72 L72 80"/><rect class="lx-ink" x="106" y="18" width="46" height="26" rx="5"/><rect class="lx-ink" x="106" y="50" width="46" height="26" rx="5"/><rect class="lx-ink" x="106" y="82" width="46" height="18" rx="5"/><circle class="lx-amb" cx="119" cy="31" r="4.5"/><circle class="lx-amb" cx="119" cy="63" r="4.5"/></svg>
+      <b class="lx-title">An API for my club</b>
+      <p class="lx-hypo"><span>Hypothesis</span>“Can I build the backend?”</p>
+      <div class="lx-find fragment" data-fragment-index="4"><span>Finding</span><p>40 students used it. <mark>I want more of this.</mark></p></div>
+      <span class="lx-stamp is-keep fragment" data-fragment-index="4">Keep</span>
+    </div>
+  </div>
+  <div class="lx-trail fragment" data-fragment-index="5" aria-hidden="true">
+    <svg class="lx-trail-svg" viewBox="0 0 1680 120">
+      <path pathLength="1" d="M197 6 C197 92 1300 104 1470 22"/>
+      <path pathLength="1" d="M626 6 C626 80 1320 92 1476 22"/>
+      <path pathLength="1" d="M1055 6 C1055 66 1360 78 1482 22"/>
+      <path class="lx-head" pathLength="1" d="M1458 36 L1484 10 L1508 38"/>
+    </svg>
+    <p class="lx-verdict">Every fail pointed here.</p>
   </div>
 </div>
 
 {{% note %}}
-**0:33 · Six clicks. Stamp, then lesson, three times.**
-- TODO(Noor): swap these three with your real tries from university if you have them. Real beats example.
-- The point: a "failed" try is not wasted. Every one ends with one line in the notebook. That line is the whole value.
-- Two fails and one keep is a great semester.
+**0:33 · Five clicks. One per experiment, then the arrows.**
+- TODO(Noor): swap these four with your real tries from university if you have them. Real beats example.
+- Read each one as an experiment: "Hypothesis: I'll make the next big game." Click. Stamp. "Failed. But the finding: I hated drawing, and I loved the logic."
+- Click 2: "I'm a designer." Failed. I kept wanting the screens to actually work. Click 3: the CTF. Solved 1 of 12. Networks matter. Click 4: the club API. Keep. 40 students used it.
+- Click 5, the arrows: "Every fail pointed here. Logic, making things work, how the network talks. That's backend. The fails weren't wasted. They were the map."
+- Three fails and one keep is a great year.
 {{% /note %}}
 
 ---
@@ -108,7 +131,8 @@ weight = 7
   <div class="tee-copy">
     <span class="bc-num in">THE SHAPE TO AIM FOR</span>
     <h2 class="t-big"><span class="line"><span>Wide first.</span></span><span class="line"><span class="d1"><span class="mark" style="--md:0.9s;">Then deep.</span></span></span></h2>
-    <p class="t-lead in d3">Know a little about every path. Know one really well. Companies call it T-shaped.</p>
+    <p class="t-lead in d3">Dig a little in every path. Then pick one and dig a deep well. Companies call it T-shaped.</p>
+    <span class="fragment td-go" data-fragment-index="1" aria-hidden="true"></span>
   </div>
   <div class="tee-shape" aria-hidden="true">
     {{< tshape >}}
@@ -116,10 +140,12 @@ weight = 7
 </div>
 
 {{% note %}}
-**0:36 · The T.**
-- The top bar is everything we saw today. You know what each path does, and you can talk to people on it.
-- The stem is the one path you go deep on. That's what gets you hired.
-- The trying is how you choose the stem. It's not a detour.
+**0:36 · The T. One click.**
+- Slide opens: eight small holes. That's year one and two. You dig a little in every path we saw today.
+- You don't need to be good at all of them. You need to know what each one feels like, and talk to the people on it.
+- Click: the drill goes down under one path. Real project in year two. Internship in year three. Grad project in year four. Same path, deeper each year.
+- At the bottom: the job. Look at the shape. Wide on top, one deep line down. That's the T.
+- The shallow holes are not wasted. They're how you found where to drill.
 {{% /note %}}
 
 {{% /section %}}
