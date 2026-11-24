@@ -209,10 +209,8 @@ weight = 4
       <span class="api-role">Frontend · App or website</span>
       <span class="api-code">POST /login</span>
     </div>
-    <div class="api-pipe" aria-hidden="true">
-      <span class="api-verb">Request →</span>
-      <span class="api-line"></span>
-      <span class="api-verb is-back">← JSON + Status</span>
+    <div class="api-pipe sa-pipe" aria-hidden="true">
+      {{< swe-art id="api-waiter" >}}
     </div>
     <div class="api-node is-server">
       <span class="api-role">Backend · API</span>
@@ -244,6 +242,7 @@ weight = 4
       <h2 class="t-huge"><span class="line"><span>Backend.</span></span></h2>
       <p class="stack-metaphor in d2">Everything behind the screen.</p>
       <p class="t-lead in d3">The logic, the data, the security. It runs on servers, not in your browser.</p>
+      {{< swe-art id="be-engine" >}}
     </div>
     <div class="be3-run in d3" aria-hidden="true">
       <div class="be3-head"><span>You tapped</span><b>Pay 8 JOD</b></div>
@@ -321,9 +320,9 @@ weight = 4
   <span class="bc-num in" style="color:var(--ink);">AND THEN</span>
   <h2 class="t-huge"><span class="line"><span>AI. AI. <span class="mark" style="--md:0.7s;">AI!</span></span></span></h2>
   <div class="ai3">
-    <div class="ai3-card fragment" data-fragment-index="1"><span>01</span><b>Use AI</b><p>Every path. Every job. To learn faster and build faster.</p><em>Everyone</em></div>
-    <div class="ai3-card is-me fragment" data-fragment-index="2"><span>02</span><b>Build with AI</b><p>Products on top of models. LLM APIs, MCP, agents.</p><em>AI engineering</em></div>
-    <div class="ai3-card fragment" data-fragment-index="3"><span>03</span><b>Build the AI</b><p>Train the models. Math, statistics, research.</p><em>Machine learning</em></div>
+    <div class="ai3-card fragment" data-fragment-index="1"><div class="ai3-art">{{< swe-art id="ai-use" >}}</div><span>01</span><b>Use AI</b><p>Every path. Every job. To learn faster and build faster.</p><em>Everyone</em></div>
+    <div class="ai3-card is-me fragment" data-fragment-index="2"><div class="ai3-art">{{< swe-art id="ai-build" >}}</div><span>02</span><b>Build with AI</b><p>Products on top of models. LLM APIs, MCP, agents.</p><em>AI engineering</em></div>
+    <div class="ai3-card fragment" data-fragment-index="3"><div class="ai3-art">{{< swe-art id="ai-train" >}}</div><span>03</span><b>Build the AI</b><p>Train the models. Math, statistics, research.</p><em>Machine learning</em></div>
   </div>
 </div>
 

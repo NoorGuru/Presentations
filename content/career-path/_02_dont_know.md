@@ -31,59 +31,64 @@ weight = 3
 **0:07 · Ask it. Then wait.**
 - "Quick one. Who here knows exactly what they want to do after graduation?" A few hands. "Who has no idea?" Most hands. Laugh with them.
 - The notes fall in while they think. These are real answers I hear every time.
-- Click: "I don't know is a great answer. In year two. By year four, we want a better one. This talk is how you get there: you try things."
-- Don't tell your full story here. The timeline already did.
+- Click: "I don't know is a great answer. In year two. By year four, we want a better one. First, let's zoom out and see the whole map."
 {{% /note %}}
 
 ---
 
 {{< slide class="navy" >}}
 
-<div class="stage tight qz" data-quiz data-step="0" data-step-fragments>
-  <div class="qz-head">
-    <span class="bc-num in">RAISE YOUR HAND IF</span>
-    <div class="qz-says">
-      <p class="qz-say is-0">Which one are you?</p>
-      <p class="qz-say is-1">You love making things <span class="qz-hl">look right.</span></p>
-      <p class="qz-say is-2">You want it <span class="qz-hl">in your pocket.</span></p>
-      <p class="qz-say is-3">You need to know <span class="qz-hl">why it’s slow.</span></p>
-      <p class="qz-say is-4">You love <span class="qz-hl">puzzles with numbers.</span></p>
-      <p class="qz-say is-5">You love <span class="qz-hl">breaking things.</span></p>
-      <p class="qz-say is-6">You want to know <span class="qz-hl">how the internet works.</span></p>
-      <p class="qz-say is-7">You love <span class="qz-hl">people and the big picture.</span></p>
+<div class="stage mm-stage" data-step-fragments>
+  <div class="mm-head">
+    <div>
+      <span class="bc-num in">THE BIG PICTURE · ONE APP</span>
+      <h2 class="t-big mm-title"><span class="line"><span>One tap. <span class="mark" style="--md:0.75s;">13 jobs.</span></span></span></h2>
     </div>
+    <p class="t-small mm-sub in d3">Every path behind ordering dinner on your phone.</p>
   </div>
-  <div class="qz-grid">
-    <span class="qz-card" data-path="frontend" style="--i:0;">Frontend</span>
-    <span class="qz-card" data-path="backend" style="--i:1;">Backend</span>
-    <span class="qz-card" data-path="mobile" style="--i:2;">Mobile</span>
-    <span class="qz-card" data-path="ai" style="--i:3;">AI</span>
-    <span class="qz-card" data-path="devops" style="--i:4;">DevOps &amp; cloud</span>
-    <span class="qz-card" data-path="qa" style="--i:5;">QA automation</span>
-    <span class="qz-card" data-path="data" style="--i:6;">Data</span>
-    <span class="qz-card" data-path="security" style="--i:7;">Security</span>
-    <span class="qz-card" data-path="networks" style="--i:8;">Networks</span>
-    <span class="qz-card" data-path="ux" style="--i:9;">UI/UX design</span>
-    <span class="qz-card" data-path="product" style="--i:10;">Product manager</span>
-    <span class="qz-card" data-path="tpm" style="--i:11;">Program manager</span>
-  </div>
+
+  {{< mindmap >}}
+
+  <p class="mm-foot fragment" data-fragment-index="5" data-mm-step="5">Same degree. <span class="mark-f">Every corner of this map.</span></p>
+
   <div class="step-triggers" aria-hidden="true">
-    <span class="fragment" data-quiz-step="1" data-quiz-on="ux frontend">&nbsp;</span>
-    <span class="fragment" data-quiz-step="2" data-quiz-on="mobile">&nbsp;</span>
-    <span class="fragment" data-quiz-step="3" data-quiz-on="backend devops">&nbsp;</span>
-    <span class="fragment" data-quiz-step="4" data-quiz-on="data ai">&nbsp;</span>
-    <span class="fragment" data-quiz-step="5" data-quiz-on="qa security">&nbsp;</span>
-    <span class="fragment" data-quiz-step="6" data-quiz-on="networks">&nbsp;</span>
-    <span class="fragment" data-quiz-step="7" data-quiz-on="product tpm">&nbsp;</span>
+    <span class="fragment" data-fragment-index="1" data-mm-step="1">&nbsp;</span>
+    <span class="fragment" data-fragment-index="2" data-mm-step="2">&nbsp;</span>
+    <span class="fragment" data-fragment-index="3" data-mm-step="3">&nbsp;</span>
+    <span class="fragment" data-fragment-index="4" data-mm-step="4">&nbsp;</span>
   </div>
 </div>
 
 {{% note %}}
-**0:08 · The quiz · Seven clicks (Space or ↓). Keep it fast and loud.**
-- "These are real jobs people get with your degree. Hands up if this is you." Read each line. Count hands out loud for fun. The matching paths light up.
-- 1 Look right: UI/UX and frontend. 2 In your pocket: mobile. 3 Why it's slow: backend and DevOps. 4 Puzzles with numbers: data and AI. 5 Breaking things: QA and security. 6 How the internet works: networks. 7 People and the big picture: product and program managers.
-- "Hands up more than once? Perfect. Most real jobs mix two or three of these."
-- Bridge →: "I'll start with the one I know from the inside. Software engineering."
+**0:08 · The Mind Map · Five clicks (Space or ↓). Click any branch hub directly to spotlight it in Q&A.**
+- Start on the phone in the center: "You're hungry. You open an app and tap Order Mansaf. One tap. Behind that one tap are 13 real tech jobs."
+- Click 1 (Touch): UI/UX designed the button. Frontend built the web version. Mobile put it in your pocket.
+- Click 2 (Brain): Backend charged your card and sent the order to the kitchen. Data figured out what to show first. AI predicted when it arrives.
+- Click 3 (Shield): DevOps & cloud kept 100 servers alive on Friday night. Networks flew your tap across the internet. Security protected your card. QA tried to break it first.
+- Click 4 (Ship): Product decided what to build. Program / TPM kept all those teams moving together. Low code automated the restaurant onboarding forms.
+- Click 5: All four light up. "Same degree. Every corner of this map."
+- Bridge ↓: "So which corner fits you? Let's play a quick game."
+{{% /note %}}
+
+---
+
+<div class="stage mx-stage-wrap" data-step-fragments>
+  {{< mixer >}}
+</div>
+
+{{% note %}}
+**0:09 · Interactive "What do you love?" Combo Quiz · 8 scripted clicks, OR click any 1 or 2 traits live on screen!**
+- Tell the room: "Pick what you love. One thing gives you a start. Mix two things and it unlocks a whole path."
+- Click 1: Love Visuals? You're gonna love UI/UX Design.
+- Click 2: Wait. Love Visuals AND Code? You're gonna love Frontend & Mobile!
+- Click 3: Love breaking stuff? QA Automation. Paid to break your friend's code.
+- Click 4: Love breaking stuff AND puzzles? Security!
+- Click 5: Love Code AND Speed? Backend & DevOps.
+- Click 6: Love Numbers AND Puzzles? Data & AI.
+- Click 7: Love People AND Puzzles? Product & Program / TPM.
+- Click 8: Love Speed AND Shortcuts? Low Code.
+- Live bonus: Ask someone in the room to shout ANY two traits from the top row and click them right on screen! Every pair works.
+- Bridge →: "Now let's walk the map. I'll start with the corner I live in every day: software engineering."
 {{% /note %}}
 
 {{% /section %}}

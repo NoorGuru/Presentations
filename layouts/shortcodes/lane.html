@@ -1,26 +1,43 @@
-{{- /* One light slide per path outside software engineering.
-  n (1-based position in the rail), name, what, like, start (pipe separated). */ -}}
+{{- /* One slide per path outside software engineering.
+  n (1-based position in the rail), name, what, like, start (pipe separated), art (optional custom SVG id). */ -}}
 {{- $names := slice "Mobile" "DevOps & cloud" "QA automation" "Data" "Security" "Networks" "UI/UX" "Product" "Program / TPM" "Low code" -}}
 {{- $n := int (.Get "n") -}}
+{{- $art := .Get "art" -}}
 <div class="stack-rail lane-rail" aria-hidden="true">
-  {{- range $i, $name := $names }}
-  {{- $k := add $i 1 }}
+{{- range $i, $name := $names }}
+{{- $k := add $i 1 }}
   <span class="rail-pill{{ if eq $k $n }} is-now{{ else if lt $k $n }} is-done{{ end }}">{{ $name }}</span>
-  {{- end }}
+{{- end }}
 </div>
-<div class="stage stack-stage lane">
+<div class="stage stack-stage lane{{ if $art }} has-art{{ end }}">
   <div class="split lane-split">
     <div class="lane-copy">
       <span class="bc-num in">WHAT ELSE · {{ printf "%02d" $n }} OF {{ len $names }}</span>
       <h2 class="t-huge lane-name"><span class="line"><span>{{ .Get "name" }}</span></span></h2>
       <p class="stack-metaphor in d2">{{ .Get "what" }}</p>
       <p class="t-lead lane-like in d3"><b>You’ll like it if</b>{{ .Get "like" }}</p>
+{{- if $art }}
+      <div class="lane-chips in d4">
+        <span class="lane-chips-head">Start with</span>
+        <div class="lane-chips-list">
+{{- range $i, $s := split (.Get "start") "|" }}
+          <span class="lane-chip"><b>{{ printf "%02d" (add $i 1) }}</b>{{ $s }}</span>
+{{- end }}
+        </div>
+      </div>
+{{- end }}
     </div>
+{{- if $art }}
+    <div class="lane-visual">
+      {{ partial "lane-art-render.html" $art }}
+    </div>
+{{- else }}
     <div class="lane-start">
       <span class="lane-start-head in d3">Start with</span>
-      {{- range $i, $s := split (.Get "start") "|" }}
+{{- range $i, $s := split (.Get "start") "|" }}
       <div class="lane-step in" style="--d:{{ add 0.55 (mul $i 0.18) }}s;"><b>{{ printf "%02d" (add $i 1) }}</b><span>{{ $s }}</span></div>
-      {{- end }}
+{{- end }}
     </div>
+{{- end }}
   </div>
 </div>

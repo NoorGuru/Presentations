@@ -21,26 +21,34 @@ weight = 7
 {{< slide class="navy" >}}
 
 <div class="stage lab" data-step-fragments>
-  <span class="bc-num in">MY LAB NOTEBOOK</span>
-  <h2 class="t-mid"><span class="line"><span>Every try is an <span class="mark" style="--md:0.8s;">experiment.</span></span></span></h2>
-  <div class="lab-rows">
-    <div class="lab-row in d2">
-      <span class="lab-n">01</span>
-      <div class="lab-try"><b>A game in Unity</b><em>Two weekends</em></div>
-      <span class="lab-stamp is-fail fragment" data-fragment-index="1">Failed</span>
-      <p class="lab-learn fragment" data-fragment-index="2">Hated the art. <b>Loved the logic.</b></p>
+  <div class="lab-head">
+    <div>
+      <span class="bc-num in">MY LAB NOTEBOOK</span>
+      <h2 class="t-mid"><span class="line"><span>Every try is an <span class="mark" style="--md:0.8s;">experiment.</span></span></span></h2>
     </div>
-    <div class="lab-row in d3">
-      <span class="lab-n">02</span>
-      <div class="lab-try"><b>A security CTF</b><em>One night</em></div>
-      <span class="lab-stamp is-fail fragment" data-fragment-index="3">Failed</span>
-      <p class="lab-learn fragment" data-fragment-index="4">Solved 1 of 12. <b>Networks matter.</b></p>
-    </div>
-    <div class="lab-row in d4">
-      <span class="lab-n">03</span>
-      <div class="lab-try"><b>An API for my club</b><em>One month</em></div>
-      <span class="lab-stamp is-keep fragment" data-fragment-index="5">Keep</span>
-      <p class="lab-learn fragment" data-fragment-index="6">People used it. <b>I want more of this.</b></p>
+    <span class="lab-tag in d2">FIELD LOG · UNI YEARS</span>
+  </div>
+  <div class="lab-book in d2">
+    <div class="lab-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="lab-rows">
+      <div class="lab-row in d2">
+        <span class="lab-n">01</span>
+        <div class="lab-try"><b>A game in Unity</b><em>Two weekends</em></div>
+        <span class="lab-stamp is-fail fragment" data-fragment-index="1">Failed</span>
+        <p class="lab-learn fragment" data-fragment-index="2">Hated the art. <b>Loved the logic.</b></p>
+      </div>
+      <div class="lab-row in d3">
+        <span class="lab-n">02</span>
+        <div class="lab-try"><b>A security CTF</b><em>One night</em></div>
+        <span class="lab-stamp is-fail fragment" data-fragment-index="3">Failed</span>
+        <p class="lab-learn fragment" data-fragment-index="4">Solved 1 of 12. <b>Networks matter.</b></p>
+      </div>
+      <div class="lab-row in d4">
+        <span class="lab-n">03</span>
+        <div class="lab-try"><b>An API for my club</b><em>One month</em></div>
+        <span class="lab-stamp is-keep fragment" data-fragment-index="5">Keep</span>
+        <p class="lab-learn fragment" data-fragment-index="6">People used it. <b>I want more of this.</b></p>
+      </div>
     </div>
   </div>
 </div>
@@ -103,8 +111,7 @@ weight = 7
     <p class="t-lead in d3">Know a little about every path. Know one really well. Companies call it T-shaped.</p>
   </div>
   <div class="tee-shape" aria-hidden="true">
-    <div class="tee-top"><span>A little of every path</span></div>
-    <div class="tee-stem"><span>Deep in one</span></div>
+    {{< tshape >}}
   </div>
 </div>
 
