@@ -1,0 +1,187 @@
+{{- $item := .Get "item" -}}
+{{- if eq $item "compass" -}}
+<svg class="kit-svg" viewBox="0 0 600 600" role="img" aria-label="A compass. The needle swings to a new path every few seconds: Data, QA, Cloud, UX.">
+  <circle class="kt-loop" cx="300" cy="80" r="24"/>
+  <rect class="kt-obj" x="278" y="98" width="44" height="26" rx="6"/>
+  <circle class="kt-obj is-thick" cx="300" cy="320" r="200"/>
+  <circle class="kt-ring" cx="300" cy="320" r="166"/>
+  <path class="kt-tick" d="M300 136 V160 M300 480 V504 M116 320 H134 M466 320 H484"/>
+  <path class="kt-tick is-thin" d="M172 192 L186 206 M428 192 L414 206 M172 448 L186 434 M428 448 L414 434"/>
+  <text class="kt-dir" x="300" y="210" text-anchor="middle">Data</text>
+  <text class="kt-dir" x="414" y="330" text-anchor="middle">QA</text>
+  <text class="kt-dir" x="300" y="452" text-anchor="middle">Cloud</text>
+  <text class="kt-dir" x="186" y="330" text-anchor="middle">UX</text>
+  <g transform="translate(300 320)">
+    <g class="kt-needle">
+      <path class="kt-n-a" d="M0 -80 L20 0 L-20 0 Z"/>
+      <path class="kt-n-b" d="M-20 0 L20 0 L0 80 Z"/>
+      <circle class="kt-obj" r="15"/>
+    </g>
+  </g>
+  <text class="kt-hand is-white" x="300" y="582" text-anchor="middle">New semester. New direction.</text>
+</svg>
+{{- else if eq $item "notebook" -}}
+<svg class="kit-svg" viewBox="0 0 600 600" role="img" aria-label="A lab notebook page. Tried a Flutter app. It crashed. Why: I skipped state management. Stamped failed.">
+  <g transform="rotate(-4 300 310)">
+    <rect class="kt-obj is-thick" x="130" y="70" width="360" height="470" rx="18"/>
+    <path class="kt-rule" d="M170 200 H462"/><path class="kt-rule" d="M170 260 H462"/><path class="kt-rule" d="M170 320 H462"/><path class="kt-rule" d="M170 380 H462"/><path class="kt-rule" d="M170 440 H462"/><path class="kt-rule" d="M170 500 H462"/>
+    <path class="kt-coil" d="M112 110 H150"/><path class="kt-coil" d="M112 168 H150"/><path class="kt-coil" d="M112 226 H150"/><path class="kt-coil" d="M112 284 H150"/><path class="kt-coil" d="M112 342 H150"/><path class="kt-coil" d="M112 400 H150"/><path class="kt-coil" d="M112 458 H150"/><path class="kt-coil" d="M112 516 H150"/>
+    <text class="kt-mono" x="170" y="132">EXP 05 · 1 WEEKEND</text>
+    <path class="kt-hl" pathLength="1" d="M166 300 H286 M166 360 H420"/>
+    <text class="kt-hand kt-line" style="--i:0;" x="170" y="192">Tried: a Flutter app</text>
+    <text class="kt-hand kt-line" style="--i:1;" x="170" y="252">Result: it crashed.</text>
+    <text class="kt-hand kt-line" style="--i:2;" x="170" y="312">Why: I skipped</text>
+    <text class="kt-hand kt-line" style="--i:3;" x="170" y="372">state management.</text>
+    <text class="kt-hand kt-line" style="--i:4;" x="170" y="432">Next: learn it. Retry.</text>
+    <g transform="translate(372 486) rotate(-12)">
+      <g class="kt-stamp">
+        <rect x="-112" y="-38" width="224" height="76" rx="10"/>
+        <text y="17" text-anchor="middle">FAILED</text>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(528 168) rotate(26)">
+    <g class="kt-pencil">
+      <rect class="kt-eraser" x="-15" y="-142" width="30" height="24" rx="6"/>
+      <rect class="kt-pen-body" x="-15" y="-120" width="30" height="150" rx="3"/>
+      <path class="kt-obj" d="M-15 30 L0 64 L15 30 Z"/>
+      <path class="kt-pen-tip" d="M-5 52 L0 64 L5 52 Z"/>
+    </g>
+  </g>
+</svg>
+{{- else if eq $item "laptop" -}}
+<svg class="kit-svg" viewBox="0 0 600 600" role="img" aria-label="A laptop showing a grid of public tries filling up in amber, with a sticky note that says ugly? ship it.">
+  <g transform="translate(0 40)">
+    <rect class="kt-obj is-thick" x="80" y="90" width="440" height="300" rx="20"/>
+    <text class="kt-mono is-ink" x="112" y="142">github.com/you</text>
+    <rect class="kt-cell" x="112" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="112" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:0;" x="112" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="112" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:1;" x="112" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="144" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="144" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="144" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="144" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="144" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="176" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="176" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="176" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-hot" style="--i:2;" x="176" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="176" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="208" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:3;" x="208" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-hot" style="--i:4;" x="208" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:5;" x="208" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="208" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-hot" style="--i:6;" x="240" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="240" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-hot" style="--i:7;" x="240" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="240" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="240" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="272" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="272" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-hot" style="--i:8;" x="272" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="272" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:9;" x="272" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:10;" x="304" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="304" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:11;" x="304" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="304" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="304" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="336" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:12;" x="336" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="336" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="336" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:13;" x="336" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="368" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="368" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:14;" x="368" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:15;" x="368" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="368" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:16;" x="400" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:17;" x="400" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-hot" style="--i:18;" x="400" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="400" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="400" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-hot" style="--i:19;" x="432" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="432" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="432" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="432" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="432" y="294" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="464" y="166" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="464" y="198" width="26" height="26" rx="5"/>
+    <rect class="kt-cell is-warm" style="--i:20;" x="464" y="230" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="464" y="262" width="26" height="26" rx="5"/>
+    <rect class="kt-cell" x="464" y="294" width="26" height="26" rx="5"/>
+    <text class="kt-mono" x="112" y="362">14 TRIES · ALL PUBLIC</text>
+    <path class="kt-obj is-thick" d="M36 400 H564 L536 446 Q532 452 524 452 H76 Q68 452 64 446 Z"/>
+    <path class="kt-notch" d="M262 400 Q262 414 276 414 H324 Q338 414 338 400"/>
+    <g transform="translate(486 352) rotate(8)">
+      <g class="kt-note">
+        <rect x="-74" y="-60" width="148" height="120" rx="6"/>
+        <text class="kt-hand" y="-8" text-anchor="middle">ugly?</text>
+        <text class="kt-hand" y="34" text-anchor="middle">ship it.</text>
+      </g>
+    </g>
+  </g>
+</svg>
+{{- else if eq $item "shovel" -}}
+<svg class="kit-svg" viewBox="0 0 600 600" role="img" aria-label="A shovel digging. Small holes everywhere on the surface, and one deep amber well under the shovel.">
+  <rect class="kt-ground" x="40" y="330" width="520" height="230" rx="22"/>
+  <path class="kt-strata" d="M40 400 H560 M40 470 H560"/>
+  <path class="kt-surface" d="M40 330 H560"/>
+  <path class="kt-pit" d="M70 330 C74 366 126 366 130 330 Z M160 330 C164 366 216 366 220 330 Z M380 330 C384 366 436 366 440 330 Z M470 330 C474 366 526 366 530 330 Z"/>
+  <path class="kt-well" d="M272 330 V512 Q300 532 328 512 V330 Z"/>
+  <circle class="kt-glow" cx="300" cy="530" r="30"/>
+  <path class="kt-gem" d="M300 510 L318 528 L300 550 L282 528 Z"/>
+  <text class="kt-hand is-white" x="72" y="214">a little</text>
+  <text class="kt-hand is-white" x="72" y="256">everywhere</text>
+  <path class="kt-arrow" d="M120 272 Q104 296 100 318 M90 306 L100 320 L112 308"/>
+  <text class="kt-hand is-amber" x="530" y="214" text-anchor="end">one deep</text>
+  <text class="kt-hand is-amber" x="530" y="256" text-anchor="end">well</text>
+  <path class="kt-arrow is-amber" d="M470 274 Q470 400 346 450 M352 436 L344 452 L360 458"/>
+  <g class="kt-dirt">
+    <circle style="--dx:-40px;" cx="300" cy="326" r="7"/>
+    <circle style="--dx:44px;" cx="300" cy="326" r="6"/>
+    <circle style="--dx:22px;" cx="300" cy="326" r="5"/>
+  </g>
+  <g transform="translate(300 330)">
+    <g class="kt-shovel">
+      <path class="kt-handle" d="M0 -60 V-276 M-34 -284 H34"/>
+      <rect class="kt-obj" x="-12" y="-74" width="24" height="30" rx="4"/>
+      <path class="kt-blade" d="M-42 -48 H42 V4 Q42 40 0 62 Q-42 40 -42 4 Z"/>
+    </g>
+  </g>
+</svg>
+{{- else if eq $item "robot" -}}
+<svg class="kit-svg" viewBox="0 0 600 600" role="img" aria-label="A friendly robot shows its code. A magnifying glass checks the code and finds a bug.">
+  <path class="kt-handle is-thin" d="M300 122 V74"/>
+  <circle class="kt-bulb" cx="300" cy="62" r="15"/>
+  <rect class="kt-obj" x="146" y="180" width="26" height="74" rx="9"/>
+  <rect class="kt-obj" x="428" y="180" width="26" height="74" rx="9"/>
+  <rect class="kt-obj is-thick" x="170" y="120" width="260" height="188" rx="40"/>
+  <g transform="translate(250 208)"><g class="kt-eye"><circle r="24"/><circle class="kt-glint" cx="8" cy="-8" r="7"/></g></g>
+  <g transform="translate(350 208)"><g class="kt-eye"><circle r="24"/><circle class="kt-glint" cx="8" cy="-8" r="7"/></g></g>
+  <path class="kt-mouth" d="M264 260 Q300 286 336 260"/>
+  <path class="kt-arm" d="M206 360 Q150 392 152 452 M394 360 Q450 392 448 452"/>
+  <circle class="kt-bulb" cx="152" cy="458" r="16"/>
+  <circle class="kt-bulb" cx="448" cy="458" r="16"/>
+  <rect class="kt-obj" x="278" y="304" width="44" height="20" rx="4"/>
+  <rect class="kt-obj is-thick" x="200" y="320" width="200" height="190" rx="28"/>
+  <rect class="kt-screen" x="224" y="344" width="152" height="142" rx="12"/>
+  <path class="kt-code" d="M240 372 H330 M252 396 H356 M240 444 H344 M252 468 H300"/>
+  <path class="kt-code kt-bugline" d="M252 420 H318"/>
+  <g class="kt-bug" transform="translate(340 420)">
+    <path class="kt-bug-legs" d="M-9 -4 L-16 -9 M-9 4 L-16 9 M9 -4 L16 -9 M9 4 L16 9"/>
+    <ellipse class="kt-bug-body" rx="9" ry="11"/>
+  </g>
+  <g transform="translate(336 420)">
+    <g class="kt-lens">
+      <path class="kt-lens-handle" d="M44 44 L104 104"/>
+      <circle class="kt-lens-glass" r="60"/>
+    </g>
+  </g>
+  <text class="kt-hand is-amber kt-found" x="300" y="584" text-anchor="middle">found one. check every time.</text>
+</svg>
+{{- end -}}

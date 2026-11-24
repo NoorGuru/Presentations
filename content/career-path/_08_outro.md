@@ -17,7 +17,7 @@ weight = 9
 </div>
 
 {{% note %}}
-**0:37 – 0:45+ · Rapid-fire Q&A.**
+**0:40 – 0:45+ · Rapid-fire Q&A.**
 - Signature outro (`Questions` → `Don’t you dare.` → links). The mic drops on "Don't you dare." Wait for the thud, then smile and actually take questions.
 - Expect: "Which line pays the most?", "Is AI going to take my job?", "Is it too late in year four?", "Do I need a master's for AI?". Short, honest answers.
 {{% /note %}}
