@@ -1,0 +1,9 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{/* Weight-only Archivo is reliable in Safari. The wdth axis URL often fails to apply there. */}}
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+{{/* Same stage, type, and motion system as /ai-swe-2026/. This deck only adds its own pieces on top. */}}
+{{- $base := resources.Get "css/ai-swe-2026.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $base.RelPermalink }}">
+{{- $css := resources.Get "css/job-ready.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">

@@ -1,0 +1,4 @@
+{{- $base := resources.Get "js/ai-swe-2026.js" | fingerprint -}}
+<script src="{{ $base.RelPermalink }}" defer></script>
+{{- $js := resources.Get "js/job-ready.js" | fingerprint -}}
+<script src="{{ $js.RelPermalink }}" defer></script>
