@@ -1,0 +1,26 @@
+{{- /* One light slide per path outside software engineering.
+  n (1-based position in the rail), name, what, like, start (pipe separated). */ -}}
+{{- $names := slice "Mobile" "DevOps & cloud" "QA automation" "Data" "Security" "Networks" "UI/UX" "Product" "Program / TPM" "Low code" -}}
+{{- $n := int (.Get "n") -}}
+<div class="stack-rail lane-rail" aria-hidden="true">
+  {{- range $i, $name := $names }}
+  {{- $k := add $i 1 }}
+  <span class="rail-pill{{ if eq $k $n }} is-now{{ else if lt $k $n }} is-done{{ end }}">{{ $name }}</span>
+  {{- end }}
+</div>
+<div class="stage stack-stage lane">
+  <div class="split lane-split">
+    <div class="lane-copy">
+      <span class="bc-num in">WHAT ELSE · {{ printf "%02d" $n }} OF {{ len $names }}</span>
+      <h2 class="t-huge lane-name"><span class="line"><span>{{ .Get "name" }}</span></span></h2>
+      <p class="stack-metaphor in d2">{{ .Get "what" }}</p>
+      <p class="t-lead lane-like in d3"><b>You’ll like it if</b>{{ .Get "like" }}</p>
+    </div>
+    <div class="lane-start">
+      <span class="lane-start-head in d3">Start with</span>
+      {{- range $i, $s := split (.Get "start") "|" }}
+      <div class="lane-step in" style="--d:{{ add 0.55 (mul $i 0.18) }}s;"><b>{{ printf "%02d" (add $i 1) }}</b><span>{{ $s }}</span></div>
+      {{- end }}
+    </div>
+  </div>
+</div>
