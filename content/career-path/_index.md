@@ -12,6 +12,9 @@ background_transition = "none"
 center = false
 auto_animate_duration = 0.8
 auto_animate_easing = "cubic-bezier(0.22, 1, 0.36, 1)"
+
+[cascade]
+draft = true
 +++
 
 {{< slide class="navy" >}}
