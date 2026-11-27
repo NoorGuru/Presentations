@@ -7,8 +7,6 @@ Slide decks hosted at **[present.bynoor.io](https://present.bynoor.io/)**, built
 | Talk | URL |
 |---|---|
 | The AI-Augmented Software Engineer: Beyond Code Generation | [`/ai-swe-2026/`](https://present.bynoor.io/ai-swe-2026/) |
-| Find Your Career Path | [`/path/`](https://present.bynoor.io/path/) |
-| Ready Before You Graduate: Cracking the Tech Job Market (Draft) | [`/ready/`](https://present.bynoor.io/ready/) |
 | Cracking the Tech Job Interview | [`/interview/`](https://present.bynoor.io/interview/) |
 | Cracking the Tech Job Market | [`/market/`](https://present.bynoor.io/market/) |
 | The New Java | [`/java/`](https://present.bynoor.io/java/) |
