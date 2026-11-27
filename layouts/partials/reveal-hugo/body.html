@@ -111,3 +111,5 @@
 })();
 </script>
 {{ partial "remote" . }}
+{{- $mobileJs := resources.Get "js/mobile-deck.js" | fingerprint -}}
+<script src="{{ $mobileJs.RelPermalink }}" defer></script>
