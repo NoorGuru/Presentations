@@ -1,3 +1,5 @@
 {{- $css := resources.Get "css/noor-slides.css" | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- $mobileCss := resources.Get "css/mobile-deck.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $mobileCss.RelPermalink }}">
 <meta name="color-scheme" content="light">

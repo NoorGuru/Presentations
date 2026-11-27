@@ -2,7 +2,8 @@
 <html lang="{{ .Site.Language.Lang | default "en" }}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
     <title>{{ or .Title .Site.Title }}</title>
     <meta name="description" content="Talks by Mohammad Noor AbuKhleif.">
     <meta name="color-scheme" content="light">
@@ -31,17 +32,28 @@
         </summary>
         <div class="guide-panel">
           <div class="guide-panel-inner">
-            <p class="guide-lead">Same talks as in the room. Click, or press Space, and they play in order.</p>
-            <ul class="guide-keys">
-              <li><kbd>Space</kbd><span>Next step</span></li>
-              <li><kbd><span class="mod">Shift</span> Space</kbd><span>Step back</span></li>
-              <li><kbd>→</kbd><span>Next section</span></li>
-              <li><kbd>↓</kbd><span>Down in this section</span></li>
-              <li><kbd>Esc</kbd><span>See every slide</span></li>
-              <li><kbd>F</kbd><span>Fullscreen</span></li>
-              <li><kbd>S</kbd><span>Speaker notes</span></li>
-              <li><kbd class="ask">?</kbd><span>Every shortcut, inside a talk</span></li>
-            </ul>
+            <div class="guide-desktop">
+              <p class="guide-lead">Same talks as in the room. Click, or press Space, and they play in order.</p>
+              <ul class="guide-keys">
+                <li><kbd>Space</kbd><span>Next step</span></li>
+                <li><kbd><span class="mod">Shift</span> Space</kbd><span>Step back</span></li>
+                <li><kbd>→</kbd><span>Next section</span></li>
+                <li><kbd>↓</kbd><span>Down in this section</span></li>
+                <li><kbd>Esc</kbd><span>See every slide</span></li>
+                <li><kbd>F</kbd><span>Fullscreen</span></li>
+                <li><kbd>S</kbd><span>Speaker notes</span></li>
+                <li><kbd class="ask">?</kbd><span>Every shortcut, inside a talk</span></li>
+              </ul>
+            </div>
+            <div class="guide-mobile">
+              <p class="guide-lead">Designed for your phone. Watch the live slide up top, read or inspect notes below.</p>
+              <ul class="guide-gestures">
+                <li><span class="g-pill">Swipe</span><span>Step through reveals and slides in order</span></li>
+                <li><span class="g-pill">Read / Notes</span><span>Crisp mobile text, links, and speaker notes</span></li>
+                <li><span class="g-pill">Scrub</span><span>Drag the bottom bar or open the chapter map</span></li>
+                <li><span class="g-pill">Rotate</span><span>Turn sideways for full-bleed widescreen</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </details>
@@ -54,6 +66,7 @@
           <a href="{{ .RelPermalink }}">
             <span class="talk">
               <span class="title">{{ .Title }}</span>
+              {{- with .Description }}<span class="desc">{{ . }}</span>{{ end -}}
               <span class="url">present.bynoor.io{{ $path }}</span>
             </span>
             {{- if gt .Date.Year 1 -}}
