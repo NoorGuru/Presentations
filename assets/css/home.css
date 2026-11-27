@@ -9,6 +9,11 @@
 
 * { box-sizing: border-box; }
 
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -20,6 +25,7 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
+a, summary, button { touch-action: manipulation; }
 
 :focus-visible {
   outline: 3px solid var(--accent);
@@ -70,6 +76,9 @@ h1 {
   padding: 8px 2px 10px;
   list-style: none;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .guide summary::-webkit-details-marker { display: none; }
@@ -189,6 +198,8 @@ h1 {
   font-size: 16px;
 }
 
+.guide-mobile { display: none; }
+
 .talks {
   margin: 0;
   padding: 0;
@@ -214,13 +225,17 @@ h1 {
 
 .talks li:last-child a { border-bottom: 1px solid var(--line); }
 
-.talks a:hover .title { border-bottom: 3px solid var(--accent); }
+@media (hover: hover) and (pointer: fine) {
+  .talks a:hover .title { border-bottom: 3px solid var(--accent); }
+}
 
 .title {
   font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
+
+.talks .desc { display: none; }
 
 .url {
   color: var(--muted);
@@ -233,18 +248,160 @@ time {
   font-size: 16px;
 }
 
-@media (max-width: 560px) {
-  .page { width: min(100% - 32px, 720px); padding-top: 40px; }
-  .head { align-items: flex-start; flex-direction: column; gap: 12px; }
-  .guide summary { align-items: flex-start; }
-  .guide-hint { display: block; margin: 2px 0 0; }
-  .guide-keys { grid-template-columns: 1fr; }
-  .talks a { flex-direction: column; gap: 4px; align-items: flex-start; }
+@media (max-width: 640px) {
+  body { min-height: 100svh; }
+  .page {
+    width: min(100% - 32px, 720px);
+    padding: calc(28px + env(safe-area-inset-top, 0px)) 0 calc(40px + env(safe-area-inset-bottom, 0px));
+  }
+  .head {
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  h1 { font-size: 28px; }
+  .site {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 14px;
+    border-bottom: 0;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    background: #f7f6f3;
+    font-size: 15px;
+    transition: transform 120ms var(--ease-out), border-color 120ms var(--ease-out), background-color 120ms var(--ease-out);
+  }
+  .site:active {
+    transform: scale(0.96);
+    border-color: var(--accent);
+    background: #fff8ee;
+  }
+
+  .guide {
+    background: #f7f6f3;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 4px 16px;
+    margin-bottom: 20px;
+  }
+  .guide summary {
+    align-items: center;
+    padding: 10px 0;
+  }
+  .guide-q { font-size: 16px; }
+  .guide-hint {
+    display: block;
+    margin: 2px 0 0;
+    font-size: 14px;
+  }
+  .guide-panel-inner { padding: 2px 0 12px; }
+  .guide-desktop { display: none; }
+  .guide-mobile { display: block; }
+  .guide-lead {
+    margin: 4px 0 12px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .guide-gestures {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .guide-gestures li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+  .g-pill {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 96px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .talks {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .talks a,
+  .talks li:last-child a {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 18px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    min-height: 0;
+    box-shadow: 0 2px 6px rgba(31, 43, 77, 0.04), 0 5px 0 -2px #f4f4f2, 0 5px 0 -1px var(--line);
+    transition: transform 120ms var(--ease-out), border-color 120ms var(--ease-out), background-color 120ms var(--ease-out);
+  }
+  .talks a:active {
+    transform: scale(0.985);
+    border-color: var(--accent);
+    background: #fffcf7;
+  }
+  .title {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+  .talks .desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  .url {
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: 0.85;
+  }
+  time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  time::after {
+    content: "Open deck →";
+    color: var(--ink);
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #fff8ee;
+    border: 1px solid #f3c27a;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .guide summary::after,
-  .guide-ready .guide-panel {
+  .guide-ready .guide-panel,
+  .site,
+  .talks a {
     transition: none;
   }
 }
